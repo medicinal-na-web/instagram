@@ -23,11 +23,10 @@ def ctext(d,y,t,f,sp=0,fill='white'):
   ws=[d.textlength(c,font=f) for c in t]; w=sum(ws)+sp*(len(t)-1); x=(1080-w)/2
   for c,cw in zip(t,ws): d.text((x,y),c,font=f,fill=fill); x+=cw+sp
 def logo(d,right=False,fill='white'):
-  # Logotipo oficial: a palavra "medicinal" recortada do logo do site (assets/logo), nunca texto digitado.
+  # marca oficial (grade/marca.py): a palavra "medicinal" recortada do logo do site, nunca texto digitado
+  import sys; sys.path.insert(0,os.path.join(D,'..')); import marca
   cor={'white':'branco','#ffffff':'branco',NAVY:'marinho',OFF:'off-white'}.get(fill,'branco')
-  wm=Image.open(R+'logo/medicinal-palavra-%s.png'%cor); L=170; wm=wm.resize((L,int(wm.height*L/wm.width)),Image.LANCZOS)
-  x=1080-60-L if right else 60
-  d._image.paste(wm,(x,54),wm)
+  wm=marca.palavra(cor,170); marca.aplica(d._image,wm,(1080-60-170 if right else 60,54))
 def grain(im,amt=10):
   n=Image.effect_noise((1080,1350),amt).convert('RGB'); return ImageChops.overlay(im,ImageEnhance.Brightness(n).enhance(1.0)) if False else Image.blend(im,ImageChops.add(im,n,2,-128),0.25)
 def cutout(path):

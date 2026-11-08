@@ -1,5 +1,7 @@
 # Identidade azul-marinho/branco/cinza com foto: foto em cima, texto embaixo em faixa branca.
 import json, sys, os
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+import marca
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageOps
 HERE=os.path.dirname(os.path.abspath(__file__))
 BASE=os.path.join(HERE,'..')
@@ -42,8 +44,10 @@ def peca(p):
   if fh:
     bar=Image.new('RGBA',(W,110),NAVY+(225,)); im.paste(bar,(0,top),bar)
   d=ImageDraw.Draw(im)
-  d.text((M,top+28),'medicinal',font=font('b',42),fill=WHITE if fh else NAVY)
-  d.text((M+222,top+44),'FARMÁCIA E MANIPULAÇÃO',font=font('m',18),fill=(200,210,225) if fh else GRAY2)
+  # marca oficial (nunca texto digitado): palavra + FARMÁCIA E MANIPULAÇÃO, do logo do site
+  mk=marca.logo('sem-simbolo','branco' if fh else 'marinho',largura=250)
+  marca.aplica(im,mk,(M,top+(110-mk.height)//2))
+  d=ImageDraw.Draw(im)
   y=fh+50 if fh else top+170
   if p.get('kicker'):
     f=font('b',28); k=p['kicker'].upper(); tw=d.textlength(k,font=f)

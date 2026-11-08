@@ -1,5 +1,7 @@
 # Versão 1 das artes (temas por produto, sem foto). Uso: python3 gera.py pecas.json <saida>
 import json, sys, os
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+import marca
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 HERE=os.path.dirname(os.path.abspath(__file__))
 BASE=os.path.join(HERE,'..')
@@ -52,7 +54,7 @@ def peca(p):
   top=250 if p['canal']=='story' else 110
   M=90
   # marca
-  d.text((M,top-70),'medicinal',font=font('b',40),fill=T['fg']); d.text((M+212,top-58),'FARMÁCIA E MANIPULAÇÃO',font=font('m',17),fill=T['mut'])
+  mk=marca.logo('sem-simbolo','branco' if sum(T['bg'])<300 else 'marinho',largura=240); marca.aplica(im,mk,(M,top-80)); d=ImageDraw.Draw(im)
   y=top+20
   if p.get('kicker'):
     f=font('b',30); tw=d.textlength(p['kicker'].upper(),font=f)

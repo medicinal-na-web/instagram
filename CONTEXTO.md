@@ -60,6 +60,7 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 
 - **Padrão visual proposto** (base 2º semestre de 2025 + marinho `#102140`): `docs/09-padrao-visual.md`. Fontes gratuitas em `grade/assets/fonts/` (Playfair Display, Poppins, IBM Plex Mono, Archivo Black).
 - **Decisão de 08/11:** sem rosto da marca e sem sessão de fotos por ora, as imagens serão geradas por IA, com as regras da seção 11 do padrão. Automação "comente PALAVRA" (ManyChat) fica para depois.
+- **Grade (08/11):** as 24 artes da semana 09–15/11 foram refeitas com o logo oficial e trocadas na Grade (continuam Rascunho). Marca sempre por `grade/marca.py`.
 - **Teste do padrão com IA** (5 artes): `grade/teste-padrao-2025/`. Ricardo aprovou a direção. A arte com produto (D) **não passou**: virou o procedimento `docs/10-insercao-de-produto.md`. Para a 1ª arte com produto: medidas com régua e 6 fotos do Peptistrong (3 ângulos × luz dos dois lados).
 - **Linha editorial (08/11):** polemizar os temas; **queda de cabelo é o foco**, depois perda de massa magra, falta de zinco e visão (seção 13 do padrão, com os limites de saúde).
 

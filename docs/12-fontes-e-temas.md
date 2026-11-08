@@ -90,6 +90,44 @@ Formato sugerido: carrossel "**O ativo por trás de…**". A capa mostra o tipo 
 
 A preencher depois da coleta: os 20 mais vendidos por mês, quais têm página no site, quais têm foto real e se cabem em algum tema foco.
 
+### 2.6 Produtos de varejo: linha atual e lançamentos
+
+Pedido do Ricardo em 08/11/2026. Os produtos prontos da Medicinal (varejo, com marca própria) são tema fixo, e **todo lançamento ganha sequência própria**: teaser ("adivinhe o lançamento", que funcionou em 2024) → apresentação → como usar → bastidor ou degustação → "comente PALAVRA".
+
+| Produto | Linha | Visto no perfil | Situação no catálogo (F2) |
+|---|---|---|---|
+| Peptistrong (Chocolate Belga e outros sabores) | suplemento | 2025–2026, melhor desempenho | confirmar |
+| PeptiPump | suplemento | 2026 | confirmar |
+| Caramelo de creatina | suplemento | 2024, melhor post do ano (299 interações) | confirmar se segue na linha |
+| Creatina em gomas (Energymm) | suplemento | 2024 | confirmar |
+| Gengibisco | chá | 2024 | confirmar |
+| Linha verão (bronzeador, iluminador, manteiga de bronzeamento) | cosmético | 2024–2025 | confirmar |
+| Derma Fusion (peeling, microagulhamento sem agulha) | dermocosmético | 2025, recorde de comentários | confirmar |
+| Mineral Hidrat, sérum Vitamina C, Tri Up, Glyco Beauty, primer | dermocosmético | 2025–2026 | confirmar |
+| HG Sobrancelha, repelente Icaridin | cosmético | 2024 | confirmar |
+| **Lançamentos** | — | — | **a lista vem do Ricardo / comercial** |
+
+Regras: foto **real** do produto para inserção em cena (`10-insercao-de-produto.md`), preço só com aprovação do comercial e alegações revisadas pela farmacêutica.
+
+### 2.7 Vídeos institucionais (sugeridos → aprovados → entram na grade)
+
+Pedido do Ricardo em 08/11/2026. Tomadas de vídeo da Medicinal sugeridas aqui; **cada uma só entra na grade depois de aprovada**. Ao aprovar, ela vira um bloco **Ideia** na Grade, com roteiro, e passa para Rascunho quando for gravada.
+
+| # | Tomada sugerida | Formato | Gancho / uso | Cuidados | Situação |
+|---|---|---|---|---|---|
+| V1 | Fachada e entrada da loja, luz do fim da tarde | reels 10–15 s | "Faz 24 anos que a gente abre essa porta" | — | sugerido |
+| V2 | Manipulação de perto: pesagem, balança, encapsulação, mãos com luva | reels 15–20 s | "Por trás de cada fórmula existe um farmacêutico" | nada de receita ou nome de paciente visível | sugerido |
+| V3 | Controle de qualidade e ISO 9001 | reels / carrossel | "Qualidade não é um ponto de chegada" (post de 09/2026 com 108) | — | sugerido |
+| V4 | Equipe de atendimento online (os 28 consultores) | reels | o vídeo de 02/2026 teve 135 interações | autorização de imagem de cada pessoa; telas sem dados de clientes | sugerido |
+| V5 | Farmacêutica responsável respondendo uma dúvida (série "Pergunte à farmacêutica") | reels falado | temas foco (queda de cabelo, massa magra) | autorização de imagem; sem prometer resultado | sugerido |
+| V6 | Do pedido à sacola: embalagem e entrega | reels | "A sacola que todo mundo ama receber" | sem etiqueta com nome e endereço de cliente | sugerido |
+| V7 | Bastidores de visitação médica | reels | formato de 12/2025 | autorização do médico; sem material de paciente | sugerido |
+| V8 | Degustação / escolha de sabor de lançamento | reels | "a decisão final pode ser sua: comente o sabor" (2025: 150 interações) | — | sugerido |
+| V9 | Eventos e parceiros (cursos, congressos) | carrossel / reels | presença da marca | autorização de quem aparece | sugerido |
+| V10 | História da Medicinal (fundação, 25 anos em 2026) | reels com fotos antigas | aniversário (2025: 176 interações) | — | sugerido |
+
+Todo vídeo segue o padrão visual (`09`): luz natural, tons quentes, gente real, logo oficial e legenda curta na tela. A IA pode gerar **vídeo de ambiente** (textura, luz, matéria-prima), mas **nunca** pessoa da equipe, cliente ou profissional de saúde.
+
 ## 3. Banco de pautas
 
 | Data | Pauta | Tema | Fonte | Formato | Situação |
@@ -101,4 +139,5 @@ A preencher depois da coleta: os 20 mais vendidos por mês, quais têm página n
 | Data | O que mudou |
 |---|---|
 | 08/11/2026 | Documento criado com as fontes F1 a F10 e os temas iniciais (pedido do Ricardo). |
+| 08/11/2026 | Seções 2.6 **Produtos de varejo e lançamentos** e 2.7 **Vídeos institucionais** (10 tomadas sugeridas, entram na grade após aprovação). |
 | 08/11/2026 | Seção 2.0 **Ativos foco** com repetição planejada no feed e nos stories, regras de rodízio e controle de inserções. Lista inicial a confirmar: Peptistrong, Keranat, GHK-Cu. |
