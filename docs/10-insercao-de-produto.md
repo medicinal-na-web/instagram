@@ -31,6 +31,7 @@ Feitas na loja, com celular, **fundo liso** (cartolina off-white ou cinza), sem 
 | Ângulo da câmera | Altura da câmera | Luz da janela pela esquerda | Luz da janela pela direita |
 |---|---|---|---|
 | Frontal | meio da embalagem | foto 1 | foto 2 |
+| **≈ 20° de cima (prioridade)** | um pouco acima da tampa | foto 1b | foto 2b |
 | 30° de cima | um palmo acima da tampa | foto 3 | foto 4 |
 | 60° de cima | bem acima, quase de cima | foto 5 | foto 6 |
 
@@ -99,5 +100,7 @@ Gerar a cena **sem** o produto. Nunca pedir à IA para desenhar a embalagem.
 | 2 | mockup com proporção errada (mais alto e fino que a real) | medir o produto real; não usar mockup |
 | 3 | harmonização por IA reescreveu o rótulo e a tampa | IA nunca nos pixels da embalagem; verificação automática |
 | 4 | foto real com câmera na altura da lata em cena vista de cima; luz do lado oposto | a cena é gerada para a foto do produto, não o contrário |
+
+| 5 | foto real reiluminada (IC-Light) em cena sob medida: fidelidade 0,957, luz e proporção ok; ângulo reprovado (cena ≈ 0,10–0,16 × foto ≈ 0,05) | geradores de imagem fazem câmera levemente de cima; a foto de ~30° de cima é a mais útil |
 
 Pendente para a 1ª arte aprovada: **medidas com régua e as 6 fotos do Peptistrong** (seção 2).

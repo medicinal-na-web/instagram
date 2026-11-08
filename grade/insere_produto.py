@@ -122,7 +122,8 @@ def recoloca_rotulo(cena_original, montagem, harmonizada, caixa_corpo, raio_luz=
 
 
 def insere_foto(cena, recorte_png, base_centro, largura_corpo, frac_corpo=662/755, curvatura_extra=0.0,
-                cor_tampa=(240, 236, 228), luz_esq=1.12, luz_dir=0.72, cor_luz=(255, 240, 224), sombra_dir=(0.9, -0.12)):
+                cor_tampa=(240, 236, 228), luz_esq=1.12, luz_dir=0.72, cor_luz=(255, 240, 224), sombra_dir=(0.9, -0.12),
+                sombra_forca=140, sombra_blur=None, sombra_escuro=0.4):
     """Insere uma FOTO REAL recortada do produto (PNG com transparência, tampa e alça reais).
     largura_corpo: largura do corpo na cena, em px (medir contra o copo/tigela).
     frac_corpo: largura do corpo / largura do recorte (o recorte inclui a alça).
@@ -168,13 +169,14 @@ def insere_foto(cena, recorte_png, base_centro, largura_corpo, frac_corpo=662/75
     camada = Image.new('L', cena.size, 0); cd = ImageDraw.Draw(camada)
     bx0, bx1, by = ox, ox + cw, oy + rgb.height - e
     dx, dy = sombra_dir[0] * h, sombra_dir[1] * h
-    cd.polygon([(bx0, by), (bx1, by), (bx1 + dx, by + dy), (bx0 + dx + cw * 0.2, by + dy)], fill=140)
-    camada = camada.filter(ImageFilter.GaussianBlur(max(8, cw // 9)))
+    # sombra projetada: parte da base e vai para o lado oposto à luz (dx<0 = luz da direita)
+    cd.polygon([(bx0, by), (bx1, by), (bx1 + dx, by + dy), (bx0 + dx, by + dy)], fill=sombra_forca)
+    camada = camada.filter(ImageFilter.GaussianBlur(sombra_blur or max(8, cw // 9)))
     contato = Image.new('L', cena.size, 0); ct = ImageDraw.Draw(contato)
     ct.ellipse((ox + 1, by - e - 2, ox + cw - 1, by + e * 0.6 + 3), fill=220)
     contato = contato.filter(ImageFilter.GaussianBlur(max(2, cw // 50)))
     somb = ImageChops.lighter(camada, contato)
-    escuro = ImageChops.multiply(ImageEnhance.Brightness(cena).enhance(0.4), Image.new('RGB', cena.size, (255, 236, 222)))
+    escuro = ImageChops.multiply(ImageEnhance.Brightness(cena).enhance(sombra_escuro), Image.new('RGB', cena.size, (255, 236, 222)))
     cena = Image.composite(escuro, cena, somb)
     # 5) light wrap, nitidez e grão
     fundo = cena.crop((ox, oy, ox + rgb.width, oy + rgb.height)).filter(ImageFilter.GaussianBlur(8))
