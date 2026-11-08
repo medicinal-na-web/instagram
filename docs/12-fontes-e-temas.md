@@ -72,9 +72,45 @@ Pedido do Ricardo em 08/11/2026: alguns ativos precisam ser trabalhados **com ma
 
 **Controle de inserções** (atualizar a cada publicação):
 
-| Semana | Ativo | Feed (formato · ângulo) | Stories (quantos · tipo) | Observação |
+| Semana | Ativo | Fase do ciclo (1, 2, 3 ou descanso) | Feed (formato · ângulo) | Stories (quantos · tipo) | Engajamento × média do ativo |
 |---|---|---|---|---|
-| — | — | — | — | — |
+| — | — | — | — | — | — |
+
+### 2.0b Tempo no topo: ciclo de cada ativo foco
+
+Pedido do Ricardo em 08/11/2026: definir **quanto tempo um produto fica no topo**, para não ficar repetitivo.
+
+**Regra geral**
+- **No máximo 2 ativos "em ciclo" ao mesmo tempo no topo.** Os 3 posts semanais do topo se dividem entre eles (2 + 1, alternando) e os temas que polemizam.
+- **Ciclo no topo: 6 semanas**, em 3 fases. Depois, **descanso de 6 semanas**: o ativo desce para o meio, aparecendo no rodízio (receita, "o ativo por trás de"), e não é tema principal.
+- **Os outros ativos foco ficam "na fila"**, aparecendo só nos stories ou em temas que polemizam até começar o ciclo deles.
+
+| Fase | Semanas | Objetivo | Ângulos e formatos |
+|---|---|---|---|
+| **1. Apresentar** | 1 e 2 | fazer o público conhecer | o que é · de onde vem (Radar Magistral) · para quem é · número em marinho |
+| **2. Aprofundar** | 3 e 4 | criar desejo e conversa | mito ou verdade · especialista "hype ou realidade?" · comparação didática · "comente PALAVRA" |
+| **3. Rotina e prova** | 5 e 6 | colocar o produto no dia a dia | receita · rotina (café da manhã, pré-treino) · bastidor da manipulação · perguntas respondidas · depoimento só com autorização por escrito |
+| **Descanso** | 7 a 12 | evitar saturação | só no meio (rodízio) e em stories pontuais |
+
+**Antecipar o fim do ciclo** (o ativo desce antes das 6 semanas) se:
+- o engajamento cair **mais de 30%** abaixo da média do próprio ativo em **2 posts seguidos** (F7);
+- os ângulos da tabela se esgotarem antes do prazo.
+
+**Estender o ciclo** (até 10 semanas) só com motivo:
+- **lançamento** (fase extra de suspense antes da fase 1);
+- **campanha** (ex.: Black Friday);
+- **tendência de busca em alta** (F8);
+- **estoque e prioridade comercial** (F1).
+
+**Exemplo de calendário** (a ajustar quando os ativos foco forem confirmados):
+
+| Período | Ciclo A | Ciclo B | Na fila / descanso |
+|---|---|---|---|
+| sem. 1–6 | **Peptistrong** (campanha de novembro) | **Magnésio** | Keranat, GHK-Cu na fila |
+| sem. 7–12 | **Keranat** (queda de cabelo, tema foco) | **GHK-Cu** | Peptistrong e Magnésio em descanso |
+| sem. 13–18 | **Peptistrong** ou lançamento | **Magnésio** | Keranat e GHK-Cu em descanso |
+
+O controle de inserções (seção 2.0) registra **em que semana e fase** cada ativo está.
 
 ### 2.1 Temas foco (linha editorial que polemiza, `09-padrao-visual.md` seção 13)
 
@@ -233,6 +269,7 @@ A IA (Runway) pode ajudar só em tomadas **sem a lata**, como o abacaxi sendo co
 | Data | O que mudou |
 |---|---|
 | 08/11/2026 | Documento criado com as fontes F1 a F10 e os temas iniciais (pedido do Ricardo). |
+| 08/11/2026 | Seção 2.0b **Tempo no topo**: ciclo de 6 semanas em 3 fases, descanso de 6 semanas, no máximo 2 ativos em ciclo, critérios para antecipar ou estender. |
 | 08/11/2026 | Pesos da pirâmide ajustados: topo ~60% (repete toda semana), meio ~25% (rodízio de 2 a 3 semanas), base ~15% (no máximo 1 vez por mês por tema). |
 | 08/11/2026 | **Magnésio** entra no topo da pirâmide e nos ativos foco (pedido do Ricardo). |
 | 08/11/2026 | Seção 0 **Pirâmide de temas** (topo ~45%, meio ~35%, base ~20%), com imagem em `docs/img/piramide-temas.png`. |
