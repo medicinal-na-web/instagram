@@ -123,7 +123,8 @@ def recoloca_rotulo(cena_original, montagem, harmonizada, caixa_corpo, raio_luz=
 
 def insere_foto(cena, recorte_png, base_centro, largura_corpo, frac_corpo=662/755, curvatura_extra=0.0,
                 cor_tampa=(240, 236, 228), luz_esq=1.12, luz_dir=0.72, cor_luz=(255, 240, 224), sombra_dir=(0.9, -0.12),
-                sombra_forca=140, sombra_blur=None, sombra_escuro=0.4):
+                sombra_forca=140, sombra_blur=None, sombra_escuro=0.4,
+                contato_elipse=0.12, contato_escuro=0.18, afunda=3, base_escurece=0.5, base_faixa=0.10):
     """Insere uma FOTO REAL recortada do produto (PNG com transparência, tampa e alça reais).
     largura_corpo: largura do corpo na cena, em px (medir contra o copo/tigela).
     frac_corpo: largura do corpo / largura do recorte (o recorte inclui a alça).
@@ -157,7 +158,7 @@ def insere_foto(cena, recorte_png, base_centro, largura_corpo, frac_corpo=662/75
     gl = np.asarray(g).astype(float)[..., None] / 255 * 1.3
     arr = np.clip(arr * gl, 0, 1) * (np.array(cor_luz) / 255)
     rgb = Image.fromarray((arr * 255).astype(np.uint8))
-    ox = int(base_centro[0] - cw / 2); oy = int(base_centro[1] - (h + 2 * e))
+    ox = int(base_centro[0] - cw / 2); oy = int(base_centro[1] - (h + 2 * e)) + afunda
     cena = cena.convert('RGB').copy()
     # 3) manchas de luz da cena
     reg = cena.crop((ox, oy, ox + rgb.width, oy + rgb.height)).convert('L').filter(ImageFilter.GaussianBlur(5))
@@ -172,12 +173,26 @@ def insere_foto(cena, recorte_png, base_centro, largura_corpo, frac_corpo=662/75
     # sombra projetada: parte da base e vai para o lado oposto à luz (dx<0 = luz da direita)
     cd.polygon([(bx0, by), (bx1, by), (bx1 + dx, by + dy), (bx0 + dx, by + dy)], fill=sombra_forca)
     camada = camada.filter(ImageFilter.GaussianBlur(sombra_blur or max(8, cw // 9)))
+    # contato: oclusão sob toda a base (elipse do apoio no ângulo da cena) + linha escura no ponto de apoio
     contato = Image.new('L', cena.size, 0); ct = ImageDraw.Draw(contato)
-    ct.ellipse((ox + 1, by - e - 2, ox + cw - 1, by + e * 0.6 + 3), fill=220)
-    contato = contato.filter(ImageFilter.GaussianBlur(max(2, cw // 50)))
-    somb = ImageChops.lighter(camada, contato)
+    eh = contato_elipse * cw
+    ct.ellipse((ox - cw * 0.03, by - eh * 0.9, ox + cw * 1.03, by + eh * 0.35), fill=200)
+    contato = contato.filter(ImageFilter.GaussianBlur(max(3, cw // 30)))
+    nucleo = Image.new('L', cena.size, 0); nd = ImageDraw.Draw(nucleo)
+    nd.ellipse((ox + cw * 0.01, by - eh * 0.25, ox + cw * 0.99, by + eh * 0.12), fill=255)
+    nucleo = nucleo.filter(ImageFilter.GaussianBlur(2))
+    escuro_ct = ImageChops.multiply(ImageEnhance.Brightness(cena).enhance(contato_escuro), Image.new('RGB', cena.size, (255, 232, 215)))
+    cena = Image.composite(escuro_ct, cena, ImageChops.lighter(contato.point(lambda v: int(v * 0.75)), nucleo))
+    somb = camada
     escuro = ImageChops.multiply(ImageEnhance.Brightness(cena).enhance(sombra_escuro), Image.new('RGB', cena.size, (255, 236, 222)))
     cena = Image.composite(escuro, cena, somb)
+    # 4b) oclusão no próprio produto: a parte de baixo escurece perto da superfície
+    gb = Image.new('L', (1, rgb.height), 255)
+    f0 = int(rgb.height * (1 - base_faixa))
+    for y in range(f0, rgb.height):
+        k = (y - f0) / max(1, rgb.height - f0); gb.putpixel((0, y), int(255 * (1 - (1 - base_escurece) * k ** 1.5)))
+    gb = gb.resize(rgb.size)
+    rgb = ImageChops.multiply(rgb, Image.merge('RGB', [gb] * 3))
     # 5) light wrap, nitidez e grão
     fundo = cena.crop((ox, oy, ox + rgb.width, oy + rgb.height)).filter(ImageFilter.GaussianBlur(8))
     borda = ImageChops.subtract(a, a.filter(ImageFilter.MinFilter(5))).filter(ImageFilter.GaussianBlur(1.5))
