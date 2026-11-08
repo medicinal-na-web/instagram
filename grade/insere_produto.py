@@ -124,7 +124,7 @@ def recoloca_rotulo(cena_original, montagem, harmonizada, caixa_corpo, raio_luz=
 def insere_foto(cena, recorte_png, base_centro, largura_corpo, frac_corpo=662/755, curvatura_extra=0.0,
                 cor_tampa=(240, 236, 228), luz_esq=1.12, luz_dir=0.72, cor_luz=(255, 240, 224), sombra_dir=(0.9, -0.12),
                 sombra_forca=140, sombra_blur=None, sombra_escuro=0.4,
-                contato_elipse=0.12, contato_escuro=0.18, afunda=3, base_escurece=0.5, base_faixa=0.10):
+                contato_elipse=0.12, contato_escuro=0.18, afunda=3, base_escurece=0.5, base_faixa=0.10, base_arco=0.045):
     """Insere uma FOTO REAL recortada do produto (PNG com transparência, tampa e alça reais).
     largura_corpo: largura do corpo na cena, em px (medir contra o copo/tigela).
     frac_corpo: largura do corpo / largura do recorte (o recorte inclui a alça).
@@ -173,16 +173,19 @@ def insere_foto(cena, recorte_png, base_centro, largura_corpo, frac_corpo=662/75
     # sombra projetada: parte da base e vai para o lado oposto à luz (dx<0 = luz da direita)
     cd.polygon([(bx0, by), (bx1, by), (bx1 + dx, by + dy), (bx0 + dx, by + dy)], fill=sombra_forca)
     camada = camada.filter(ImageFilter.GaussianBlur(sombra_blur or max(8, cw // 9)))
-    # contato: oclusão sob toda a base (elipse do apoio no ângulo da cena) + linha escura no ponto de apoio
+    # contato = PEGADA da embalagem: elipse com a mesma curvatura da base (base_arco = altura do arco da
+    # borda de baixo / altura do recorte). O ponto mais baixo do arco é a frente; as pontas sobem.
+    arco = base_arco * rgb.height
+    px0, px1 = ox - cw * 0.015, ox + cw * 1.015
+    pegada = (px0, by - 2 * arco, px1, by + arco * 0.25)
     contato = Image.new('L', cena.size, 0); ct = ImageDraw.Draw(contato)
-    eh = contato_elipse * cw
-    ct.ellipse((ox - cw * 0.03, by - eh * 0.9, ox + cw * 1.03, by + eh * 0.35), fill=200)
-    contato = contato.filter(ImageFilter.GaussianBlur(max(3, cw // 30)))
+    ct.ellipse((px0 - cw * 0.04, by - 2 * arco - cw * 0.02, px1 + cw * 0.04, by + arco * 0.9), fill=170)   # oclusão larga
+    contato = contato.filter(ImageFilter.GaussianBlur(max(3, cw // 28)))
     nucleo = Image.new('L', cena.size, 0); nd = ImageDraw.Draw(nucleo)
-    nd.ellipse((ox + cw * 0.01, by - eh * 0.25, ox + cw * 0.99, by + eh * 0.12), fill=255)
-    nucleo = nucleo.filter(ImageFilter.GaussianBlur(2))
+    nd.ellipse(pegada, fill=255)                                                                       # apoio
+    nucleo = nucleo.filter(ImageFilter.GaussianBlur(1.6))
     escuro_ct = ImageChops.multiply(ImageEnhance.Brightness(cena).enhance(contato_escuro), Image.new('RGB', cena.size, (255, 232, 215)))
-    cena = Image.composite(escuro_ct, cena, ImageChops.lighter(contato.point(lambda v: int(v * 0.75)), nucleo))
+    cena = Image.composite(escuro_ct, cena, ImageChops.lighter(contato, nucleo))
     somb = camada
     escuro = ImageChops.multiply(ImageEnhance.Brightness(cena).enhance(sombra_escuro), Image.new('RGB', cena.size, (255, 236, 222)))
     cena = Image.composite(escuro, cena, somb)

@@ -70,6 +70,11 @@ Gerar a cena **sem** o produto. Nunca pedir à IA para desenhar a embalagem.
 - `largura_corpo` = diâmetro real (cm, da ficha) × `px_por_cm` da cena. Altura sai da proporção da foto.
 - `curvatura_extra = 0` (sem deformar).
 - Ajustes permitidos: exposição e cor **globais** do produto para casar com a cena, sombra de contato, sombra projetada para o lado oposto à luz, manchas de luz da cena, borda (light wrap), grão e desfoque iguais aos da cena.
+- **Contato com a superfície (obrigatório):**
+  - A sombra de contato segue a **pegada** da embalagem: uma elipse com a mesma curvatura da borda de baixo (`base_arco` = altura do arco da base ÷ altura do recorte). Nas pontas, o arco sobe, e a sombra sobe junto. Uma sombra "deitada" só embaixo do centro deixa as laterais flutuando.
+  - A parte de baixo do próprio produto escurece perto da superfície (`base_escurece`, `base_faixa`).
+  - O recorte não pode ter degrau nos cantos de baixo: o corpo vai só até o centro da elipse da base.
+  - Conferir com zoom na base: não pode sobrar superfície iluminada entre a borda e a sombra.
 - **Não permitido:** redesenhar tampa, alça, rótulo ou qualquer parte da embalagem; alterar proporção; espelhar.
 
 **Reiluminação (recomendada):** `grade/iclight.py` → `reilumina` (IC-Light, luz do lado da janela da cena) e depois `aplica_luz` sobre a foto original **antes** do recorte e da inserção. Só a luz muda; os pixels do rótulo continuam os da foto. Força entre 0,5 e 0,7.
