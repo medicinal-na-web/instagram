@@ -23,8 +23,11 @@ def ctext(d,y,t,f,sp=0,fill='white'):
   ws=[d.textlength(c,font=f) for c in t]; w=sum(ws)+sp*(len(t)-1); x=(1080-w)/2
   for c,cw in zip(t,ws): d.text((x,y),c,font=f,fill=fill); x+=cw+sp
 def logo(d,right=False,fill='white'):
-  f=V('Poppins-SemiBold.ttf',30) if os.path.exists(F+'Poppins-SemiBold.ttf') else caps(28)
-  x=1080-60-d.textlength('medicinal',font=f) if right else 60; d.text((x,52),'medicinal',font=f,fill=fill)
+  # Logotipo oficial: a palavra "medicinal" recortada do logo do site (assets/logo), nunca texto digitado.
+  cor={'white':'branco','#ffffff':'branco',NAVY:'marinho',OFF:'off-white'}.get(fill,'branco')
+  wm=Image.open(R+'logo/medicinal-palavra-%s.png'%cor); L=170; wm=wm.resize((L,int(wm.height*L/wm.width)),Image.LANCZOS)
+  x=1080-60-L if right else 60
+  d._image.paste(wm,(x,54),wm)
 def grain(im,amt=10):
   n=Image.effect_noise((1080,1350),amt).convert('RGB'); return ImageChops.overlay(im,ImageEnhance.Brightness(n).enhance(1.0)) if False else Image.blend(im,ImageChops.add(im,n,2,-128),0.25)
 def cutout(path):
@@ -49,9 +52,9 @@ im=grad(bg(plank,0.85,0.5),True,140); d=ImageDraw.Draw(im); logo(d,True)
 for i,t in enumerate(['Por que a massa muscular','merece atenção depois dos 40?']):
   f=mono(38); w=d.textlength(t,font=f); x=(1080-w)/2; y=170+i*56; d.text((x,y),t,font=f,fill='white'); d.line((x,y+48,x+w,y+48),fill='white',width=2)
 ctext(d,300,'PRESERVAÇÃO',caps(66),sp=9); ctext(d,380,'MUSCULAR',caps(66),sp=9); arts.append(('C-pergunta',im))
-# D produto real na cena: ia/cozinha_final.jpg = montagem (../insere_produto.py) + harmonização por IA + rótulo original recolocado
-im=grad(bg(os.path.join(D,'ia','cozinha_final.jpg'),0.97,0.5),True,120); d=ImageDraw.Draw(im); logo(d)
-ctext(d,170,'a rotina de quem',serif(72),sp=-3); ctext(d,250,'cuida do',serif(72),sp=-3); ctext(d,322,'músculo.',ital(108),sp=-3); arts.append(('D-produto',im))
+# D produto real na cena: ia/v5/cena_com_lata.jpg = cena sob medida + foto real da lata (IC-Light) + insere_foto; validação em ia/v5/v5_validacao.md
+im=grad(bg(os.path.join(D,'ia','v5','cena_com_lata.jpg'),0.98,0.25),True,130); d=ImageDraw.Draw(im); logo(d)
+ctext(d,150,'a rotina de quem',serif(72),sp=-3); ctext(d,232,'cuida do',serif(72),sp=-3); ctext(d,305,'músculo.',ital(108),sp=-3); arts.append(('D-produto',im))
 # E numero marinho
 im=Image.new('RGB',(1080,1350),NAVY); d=ImageDraw.Draw(im); logo(d,fill=OFF)
 ctext(d,330,'DEPOIS DOS 30,',caps(42),sp=8,fill=OFF); ctext(d,392,'A MASSA MUSCULAR',caps(42),sp=8,fill=OFF)

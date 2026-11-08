@@ -48,6 +48,14 @@ Identificadas comparando os textos dos posts de 2025 com as candidatas. Todas gr
 
 Logo `medicinal` pequeno no canto superior (branco sobre foto, marinho sobre off-white).
 
+### Logotipo
+
+O "medicinal" das artes é **sempre o logotipo oficial**, nunca texto digitado em outra fonte. Arquivos em `grade/assets/logo/`:
+- `medicinal-logo-oficial.svg` / `.png`: logo completo do site (símbolo + "medicinal" + "FARMÁCIA E MANIPULAÇÃO"), cores originais `#0F62AC` e `#98B7E0`.
+- `medicinal-palavra-branco.png` (sobre foto), `-marinho.png` (sobre off-white), `-off-white.png` (sobre marinho), `-azul-oficial.png`: a palavra "medicinal" **recortada do próprio logo**, desenho idêntico.
+- Tamanho nas artes 1080×1350: 170 px de largura, a 60 px da borda, no canto superior.
+- Proibido redesenhar, distorcer, trocar a fonte ou aplicar efeitos na marca.
+
 ## 4. Composição
 
 - **Formato:** 1080×1350 (4:5) no feed; capa de reels 1080×1920 com o título dentro da área central 1080×1350 (é o que aparece na grade).
