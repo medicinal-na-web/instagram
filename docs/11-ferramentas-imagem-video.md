@@ -23,6 +23,14 @@ Pergunta do Ricardo: estamos usando as melhores ferramentas para gerar as imagen
 | **Anúncio de produto em vídeo** | `generate_product_marketing_video` | Runway | Testar só com foto real do produto |
 | **Embalagem em qualquer ângulo** | Modelo 3D (Blender, gratuito) com a arte-final do rótulo | local | Pendência 8 do `CONTEXTO.md` |
 
+## Como conectar o IC-Light (verificado em 08/11/2026)
+
+- O conector do Hugging Face já está ativo (conta `medicinal`, **sem plano PRO**). Ele chama Spaces que tenham **MCP habilitado**.
+- Os Spaces oficiais não servem: `lllyasviel/IC-Light` dá erro interno e `lllyasviel/iclight-v2-vary` está pausado.
+- **Caminho recomendado:** duplicar o IC-Light para a conta `medicinal` como Space **privado**, com GPU, habilitar o servidor MCP do Gradio (`demo.launch(mcp_server=True)`) e adicionar o Space em `huggingface.co/settings/mcp`. Aí ele aparece no conector como ferramenta.
+- GPU: **ZeroGPU** exige o plano PRO do Hugging Face (cerca de US$ 9/mês). A outra opção é GPU paga por hora no Space.
+- **Alternativa sem Hugging Face:** IC-Light hospedado por API (Replicate ou fal.ai), cobrança por uso. O token fica como segredo do ambiente ou credencial do n8n, nunca no repositório.
+
 ## Vídeo: regra para produto
 
 Produto em vídeo é o caso mais difícil, porque rótulo, logo e formato "derretem" entre os quadros. Regras:
