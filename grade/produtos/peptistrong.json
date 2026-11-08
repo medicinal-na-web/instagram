@@ -1,0 +1,27 @@
+{
+  "produto": "PeptiStrong 300 g - Chocolate Belga",
+  "embalagem": "lata cilíndrica, rótulo preto com faixa amarela, tampa plástica branca com aro e alça de arame na lateral direita",
+  "medidas_cm": {
+    "altura_total_com_tampa": null,
+    "diametro_corpo": null,
+    "diametro_tampa": null,
+    "medido_por": null,
+    "medido_em": null
+  },
+  "proporcao_largura_altura_estimada": 0.69,
+  "proporcao_fonte": "estimada na foto de 03/09/2025 (perspectiva leve); substituir pela medida com régua",
+  "fotos_referencia": [
+    {
+      "arquivo": "grade/assets/peptistrong_foto_real.png",
+      "origem": "post de 03/09/2025 (@medicinalnaweb), recorte",
+      "camera": "altura do meio da lata, quase frontal",
+      "razao_elipse_tampa": 0.05,
+      "luz": "quente, vindo da direita e de trás",
+      "aprovada_para_insercao": false,
+      "motivo": "fundo complexo, luz da direita; serve só para cenas com câmera baixa e luz pela direita"
+    }
+  ],
+  "proibido_usar": [
+    "grade/assets/peptistrong.jpg (mockup 3D do fabricante: proporção errada, não é foto)"
+  ]
+}

@@ -28,3 +28,5 @@ Pendências antes de usar de verdade:
 2. `ia/cozinha_com_produto.jpg`: montagem com `../insere_produto.py` (`insere`), com a **proporção da lata real** (largura ≈ 0,77 da altura, medida nas fotos reais de 2025; o mockup 3D é mais alto e fino), altura menor que a do copo, mais ao fundo, tampa e base em elipse, luz e sombras.
 3. `ia/cozinha_harmonizada.jpg`: harmonização no Runway (luz, tampa, sombra, reflexos). **A IA estragou o texto do rótulo** ("TEENOUÓSICA", "COCOOLAIS").
 4. `ia/cozinha_final.jpg`: `recoloca_rotulo` devolve o rótulo original iluminado pela luz da IA. Texto conferido.
+
+**Resultado:** nenhuma das versões de D passou no padrão do Ricardo. As lições viraram o procedimento `docs/10-insercao-de-produto.md`. `ia/cozinha_final.jpg` hoje é a versão 4 (foto real da lata, sem IA na embalagem, fidelidade 0,937), ainda reprovada por ângulo e luz incompatíveis com a cena.

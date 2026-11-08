@@ -139,6 +139,8 @@ Enquanto não há sessão de fotos nem rosto da marca, as imagens podem ser gera
 
 Pedido do Ricardo em 08/11/2026, depois do primeiro teste (lata de Peptistrong "colada" na cozinha). **Vale para toda arte que coloca a embalagem real dentro de outra imagem.** Se não ficar indistinguível de uma foto, a arte não sai.
 
+**O procedimento obrigatório, passo a passo e com critérios de aprovação, está em `10-insercao-de-produto.md`.** O resumo abaixo não substitui o procedimento.
+
 Checklist obrigatório:
 
 1. **Escala e proporção:** medir contra um objeto vizinho na mesma profundidade (copo, tigela, mão). A lata de Peptistrong 300 g é **mais baixa que um copo alto e mais ou menos da mesma largura**; largura ≈ 0,77 da altura (medido em foto real). **Não usar a proporção do mockup 3D** (`assets/peptistrong.jpg`), que é mais alto e fino que a lata de verdade.
