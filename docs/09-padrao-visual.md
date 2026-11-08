@@ -12,10 +12,12 @@ Proposta de 08/11/2026 para discussão. Baseada nos 68 posts de 15/06 a 31/12/20
 
 ## 2. Paleta
 
-Extraída das imagens publicadas no período.
+Duas camadas: o **marinho é a cor da marca** (âncora, igual em todo post que leva cor sólida) e os **tons quentes são os da fotografia** (extraídos das imagens publicadas no 2º semestre de 2025).
 
 | Nome | Hex | Uso |
 |---|---|---|
+| **Marinho** | `#102140` | cor da marca: logo sobre fundo claro, rótulos, números, fundo do carrossel de texto |
+| **Marinho 2** | `#1c345e` | apoio: linhas, segundo plano em fundo marinho |
 | Off-white | `#eee7da` | fundo de carrossel de texto, respiro |
 | Areia | `#e0be97` | fundo claro, luz |
 | Caramelo | `#bf9162` | destaque quente |
@@ -25,7 +27,13 @@ Extraída das imagens publicadas no período.
 | Quase preto | `#281612` | fundo escuro, texto sobre claro |
 | Cinza quente | `#bdb5a9` | fundo neutro de produto |
 
-Texto: **branco** sobre foto; **quase preto** sobre off-white. A cor da embalagem do produto (amarelo do Peptistrong, rosa do Derma Fusion) entra pela foto, não por blocos de cor.
+Regras do marinho:
+
+- Aparece em **cerca de 1 post a cada 4** (modelos E e F), mais o logo e os rótulos quando o fundo é claro.
+- Combinações: **marinho + off-white** (texto) e **marinho + caramelo** (destaque, ex.: palavra em itálico). Evitar marinho ao lado de terracota.
+- **Nunca** como faixa, barra ou etiqueta sobre foto (o molde das artes de 09–15/11/2026). Sobre foto, o texto é branco.
+
+Texto: **branco** sobre foto; **marinho** sobre off-white. A cor da embalagem do produto (amarelo do Peptistrong, rosa do Derma Fusion) entra pela foto, não por blocos de cor.
 
 ## 3. Tipografia: três vozes
 
@@ -52,8 +60,9 @@ No máximo **duas vozes por arte**. Logo `medicinal` pequeno e branco no canto s
 | **B · Série / rótulo** | nome da série + nome do ativo em caixa alta espaçada sobre textura da matéria-prima | "RADAR MAGISTRAL · VENOLIN" |
 | **C · Pergunta-gancho** | pergunta em mono sublinhada + tema em caixa alta | "Por que o Peptistrong está sendo chamado de revolução na PRESERVAÇÃO MUSCULAR?" |
 | **D · Capa de reels com pessoa** | pessoa real no ambiente + título curto | "3 *Motivos* para tomar CREATINA", "Pílula do treino" |
-| **E · Número** | um dado grande em caixa alta | "ENTRE 30 E 80 ANOS, VOCÊ PODE PERDER ATÉ 40% DE MASSA MUSCULAR" (com fonte na legenda) |
-| **F · Bastidor sem arte** | vídeo ou foto crua, só um rótulo curto | "BASTIDORES DE VISITAÇÃO" |
+| **E · Número (marinho)** | fundo marinho, dado grande em off-white, complemento em itálico caramelo | "ENTRE 30 E 80 ANOS, VOCÊ PODE PERDER ATÉ 40% *de massa muscular*" (com fonte na legenda) |
+| **F · Carrossel de texto** | fundo off-white, texto marinho em serifa, numeração e linha fina; nota em mono | "Peptistrong não substitui a proteína da sua dieta. *Ele complementa.*" |
+| **G · Bastidor sem arte** | vídeo ou foto crua, só um rótulo curto | "BASTIDORES DE VISITAÇÃO" |
 
 ## 6. Séries fixas
 
@@ -70,7 +79,7 @@ Ritmo: **4 posts por semana**, cerca de 60% reels.
 
 ## 7. Grade (como o perfil aparece)
 
-Alternar na sequência de 3 em 3: **pessoa · produto/macro · texto sobre textura**. Evitar dois posts de texto lado a lado e mais de dois ativos seguidos (o erro de jul–ago/2026).
+Alternar na sequência de 3 em 3: **pessoa · produto/macro · texto sobre textura ou marinho**. Os quadrados marinhos dão o ritmo da grade: espalhados, nunca dois juntos. Evitar dois posts de texto lado a lado e mais de dois ativos seguidos (o erro de jul–ago/2026).
 
 ## 8. Legenda
 
@@ -94,6 +103,7 @@ Alternar na sequência de 3 em 3: **pessoa · produto/macro · texto sobre textu
 
 ## 10. Não fazer
 
+- Faixa marinha fixa sobre a foto ou etiqueta marinha (molde das artes de 09–15/11/2026).
 - Molde igual para todos os posts (as artes de 09–15/11/2026 e os "Conheça [ativo]" de 2026).
 - Imagem gerada por IA ou de banco com pessoas que não são da Medicinal.
 - Bloco de cor sólida com texto longo.
