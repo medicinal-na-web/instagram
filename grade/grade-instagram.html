@@ -2,7 +2,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;600&display=swap">
 <style>
 /* Layout: perfil do Instagram em espelho (grade 3 colunas) + roleta de datas dos stories; editor do bloco em painel lateral. */
 :root{
@@ -136,6 +136,55 @@ input:disabled,select:disabled,textarea:disabled{opacity:.75}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--fg);color:var(--bg);padding:8px 14px;border-radius:999px;font-weight:600;font-size:13px;z-index:20}
 @media (max-width:979px){aside.editor{position:static;max-height:none;order:-1}}
 @media (max-width:520px){h1{font-size:23px}.avatar{width:64px;height:64px}.row{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- aba Estratégia: paleta da marca (marinho, areia, caramelo), leitura de cima para baixo ---------- */
+:root{--e-navy:#102140;--e-navy2:#1c345e;--e-off:#eee7da;--e-areia:#e0be97;--e-car:#9a6a3c;--e-ink:#281612;--e-line:#d9cdb9;--e-card:#f7f2e9;
+  --e-serif:"Playfair Display",Georgia,"Times New Roman",serif;--e-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--e-navy:#8fb0e6;--e-navy2:#6f93cf;--e-off:#1b1f2a;--e-areia:#3a2f22;--e-car:#d7a874;--e-ink:#efe6d8;--e-line:#3a3f4c;--e-card:#20252f}}
+:root[data-theme="dark"]{--e-navy:#8fb0e6;--e-navy2:#6f93cf;--e-off:#1b1f2a;--e-areia:#3a2f22;--e-car:#d7a874;--e-ink:#efe6d8;--e-line:#3a3f4c;--e-card:#20252f}
+#view-estrategia{display:grid;gap:28px;color:var(--e-ink)}
+.e-head h2{font-family:var(--e-serif);font-weight:500;font-size:30px;line-height:1.1;margin:0;text-wrap:balance}
+.e-head p{margin:6px 0 0;color:var(--muted);max-width:65ch}
+.e-sec{display:grid;gap:12px;min-width:0}
+.e-sec>h3{font-family:var(--e-serif);font-weight:500;font-size:22px;margin:0}
+.e-sec>.e-sub{margin:-6px 0 0;color:var(--muted);font-size:13px}
+.e-pyr{display:grid;gap:6px;justify-items:center}
+.e-layer{width:100%;display:grid;gap:4px;padding:18px 16px;text-align:center;clip-path:polygon(var(--i) 0,calc(100% - var(--i)) 0,calc(100% - var(--o)) 100%,var(--o) 100%)}
+.e-layer .n{font:700 13px/1 var(--body);letter-spacing:.14em}
+.e-layer .p{font-family:var(--e-serif);font-style:italic;font-size:20px}
+.e-layer .r{font:600 11.5px/1.3 var(--body);letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+.e-layer ul{list-style:none;margin:6px auto 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:5px;max-width:520px}
+.e-layer li{font-size:12.5px;font-weight:600;padding:2px 9px;border-radius:999px;background:rgba(255,255,255,.12)}
+.e-l0{--i:22%;--o:14%;background:#102140;color:#eee7da}
+.e-l1{--i:14%;--o:7%;background:#1c345e;color:#eee7da}
+.e-l2{--i:7%;--o:0%;background:#e0be97;color:#281612}
+.e-l2 li{background:rgba(16,33,64,.10)}
+.e-l0 .p,.e-l1 .p{color:#d7a874}.e-l2 .p{color:#102140}
+.e-ativos{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.e-ativo{border:1px solid var(--e-line);background:var(--e-card);border-radius:10px;padding:12px;display:grid;gap:4px;min-width:0}
+.e-ativo b{font-family:var(--e-serif);font-size:19px;font-weight:600}
+.e-ativo .m{font-size:12.5px;color:var(--muted)}
+.e-st{justify-self:start;font:700 11px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:999px}
+.e-st.ok{background:var(--ok-soft);color:var(--ok)}.e-st.pend{background:var(--warn-soft);color:var(--warn)}
+.e-tl-wrap{overflow-x:auto;border:1px solid var(--e-line);border-radius:10px;background:var(--e-card)}
+.e-tl{display:grid;grid-template-columns:150px repeat(var(--w),minmax(34px,1fr));min-width:calc(150px + var(--w) * 34px);font-variant-numeric:tabular-nums}
+.e-tl>div{padding:6px 4px;border-bottom:1px solid var(--e-line);font-size:12px;min-height:30px;display:flex;align-items:center}
+.e-tl .h{font:600 11px/1 var(--e-mono);color:var(--muted);justify-content:center}
+.e-tl .lbl{font-weight:700;padding-left:10px}
+.e-tl .c{justify-content:center;padding:4px 2px}
+.e-tl .c span{display:block;width:100%;height:20px;border-radius:4px}
+.f1{background:#102140}.f2{background:#1c345e;opacity:.8}.f3{background:#9a6a3c}.fd{background:repeating-linear-gradient(45deg,var(--e-line) 0 4px,transparent 4px 8px)}
+.e-leg{display:flex;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--muted)}
+.e-leg i{display:inline-block;width:18px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
+.e-tbl-wrap{overflow-x:auto}
+.e-tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.e-tbl th{text-align:left;font:600 11px/1.2 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:8px;border-bottom:1px solid var(--e-line)}
+.e-tbl td{padding:9px 8px;border-bottom:1px solid var(--e-line);vertical-align:top}
+.e-cam{font:700 10.5px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border-radius:4px;white-space:nowrap}
+.e-cam.topo{background:#102140;color:#eee7da}.e-cam.meio{background:#1c345e;color:#eee7da}.e-cam.base{background:#e0be97;color:#281612}
+.e-empty{padding:24px;border:1px dashed var(--e-line);border-radius:10px;color:var(--muted)}
+.e-foot{font:12px/1.4 var(--e-mono);color:var(--muted)}
+@media (max-width:520px){.e-layer{--i:6%!important;--o:0%!important}.e-head h2{font-size:24px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -148,6 +197,7 @@ input:disabled,select:disabled,textarea:disabled{opacity:.75}
     <div class="tabs" role="tablist">
       <button role="tab" id="tab-feed" aria-selected="true">Feed</button>
       <button role="tab" id="tab-stories" aria-selected="false">Stories</button>
+      <button role="tab" id="tab-estrategia" aria-selected="false">Estratégia</button>
     </div>
   </header>
 
@@ -181,6 +231,10 @@ input:disabled,select:disabled,textarea:disabled{opacity:.75}
         </div>
         <div class="stories" id="stories"></div>
       </section>
+      <section id="view-estrategia" hidden>
+        <div class="e-head"><h2>Estratégia de conteúdo</h2><p>Pirâmide de temas, ativos foco e o ciclo de cada um no topo, banco de pautas e fontes. A Grade é montada de cima para baixo seguindo esta página.</p></div>
+        <div id="estr"><div class="e-empty">Carregando a estratégia… Ela aparece aqui assim que o planejamento for gravado no cronograma.</div></div>
+      </section>
     </main>
 
     <aside class="editor" id="editor" hidden></aside>
@@ -200,7 +254,7 @@ const $ = s => document.querySelector(s);
 const el = (t,a,...k) => {const e=document.createElement(t);if(a)for(const[n,v]of Object.entries(a)){if(n==="class")e.className=v;else if(n==="text")e.textContent=v;else if(n.startsWith("on"))e.addEventListener(n.slice(2),v);else if(v!==false&&v!=null)e.setAttribute(n,v===true?"":v)}for(const c of k){if(c!=null)e.append(c)}return e};
 
 let db=null, sample=null, assets=null, mcp=null, user=null, myId=null;
-let posts=[]; let view="feed"; let selId=null; let draft=null; let selDay=hoje();
+let posts=[]; let estrategia=null; let view="feed"; let selId=null; let draft=null; let selDay=hoje();
 let canSample=false, canImages=false, canAssets=false, canCanva=false, canRunway=false;
 
 function hoje(){const d=new Date();return iso(d)}
@@ -215,8 +269,9 @@ function travado(p){return p&&p.status==="publicado"}
 function render(){
   $("#tab-feed").setAttribute("aria-selected",view==="feed");
   $("#tab-stories").setAttribute("aria-selected",view==="stories");
-  $("#view-feed").hidden=view!=="feed"; $("#view-stories").hidden=view!=="stories";
-  renderFeed(); renderStories(); renderEditor();
+  $("#tab-estrategia").setAttribute("aria-selected",view==="estrategia");
+  $("#view-feed").hidden=view!=="feed"; $("#view-stories").hidden=view!=="stories"; $("#view-estrategia").hidden=view!=="estrategia";
+  renderFeed(); renderStories(); renderEstrategia(); renderEditor();
 }
 function midiaCapa(p){const m=(p.midia||[])[0];if(!m||!m.url)return null;return m.tipo==="video"?el("video",{src:m.url,muted:true,playsinline:true,preload:"metadata"}):el("img",{src:m.url,alt:p.titulo||"",loading:"lazy"})}
 function renderFeed(){
@@ -263,6 +318,39 @@ function renderStories(){
   box.append(el("button",{class:"newstory",onclick:()=>novo("story",selDay)},"+ Story"));
 }
 
+
+/* ---------- aba Estratégia (dados em estrategia/atual) ---------- */
+function renderEstrategia(){
+  const box=$("#estr"); if(!box)return;
+  const E=estrategia;
+  if(!E){box.replaceChildren(el("div",{class:"e-empty",text:"Ainda não há estratégia gravada. Peça ao Claude para atualizar o planejamento."}));return}
+  const out=[];
+  // pirâmide
+  const pyr=el("div",{class:"e-pyr"});
+  (E.piramide||[]).forEach((c,i)=>{const ul=el("ul");(c.temas||[]).forEach(t=>ul.append(el("li",{text:t})));
+    pyr.append(el("div",{class:"e-layer e-l"+Math.min(i,2)},el("span",{class:"n",text:c.nome}),el("span",{class:"p",text:c.peso}),el("span",{class:"r",text:c.repeticao}),ul))});
+  out.push(el("div",{class:"e-sec"},el("h3",{text:"Pirâmide de temas"}),el("p",{class:"e-sub",text:"Do mais explorado (topo) ao pontual (base)."}),pyr));
+  // ativos foco
+  const at=el("div",{class:"e-ativos"});
+  (E.ativos||[]).forEach(a=>at.append(el("div",{class:"e-ativo"},el("span",{class:"e-st "+(a.confirmado?"ok":"pend"),text:a.confirmado?"confirmado":"a confirmar"}),el("b",{text:a.nome}),el("span",{class:"m",text:a.angulos||""}),el("span",{class:"m",text:a.meta||""}))));
+  out.push(el("div",{class:"e-sec"},el("h3",{text:"Ativos foco"}),el("p",{class:"e-sub",text:"Repetição planejada no feed e nos stories, com ângulos e formatos em rodízio."}),at));
+  // linha do tempo dos ciclos
+  const C=E.ciclos||{}; const W=C.semanas||18; const tl=el("div",{class:"e-tl",style:"--w:"+W});
+  tl.append(el("div",{class:"h lbl",text:"semana"})); for(let w=1;w<=W;w++)tl.append(el("div",{class:"h",text:String(w)}));
+  (C.linhas||[]).forEach(l=>{tl.append(el("div",{class:"lbl",text:l.nome}));for(let w=1;w<=W;w++){const f=(l.fases||{})[String(w)]||"";tl.append(el("div",{class:"c",title:l.nome+" · semana "+w},f?el("span",{class:"f"+f}):null))}});
+  const leg=el("div",{class:"e-leg"},el("span",null,el("i",{class:"f1"}),"Fase 1 · apresentar"),el("span",null,el("i",{class:"f2"}),"Fase 2 · aprofundar"),el("span",null,el("i",{class:"f3"}),"Fase 3 · rotina e prova"),el("span",null,el("i",{class:"fd"}),"Descanso (vai para o meio)"));
+  out.push(el("div",{class:"e-sec"},el("h3",{text:"Tempo no topo"}),el("p",{class:"e-sub",text:C.regra||""}),el("div",{class:"e-tl-wrap"},tl),leg));
+  // pautas
+  const tb=el("table",{class:"e-tbl"},el("thead",null,el("tr",null,...["#","Pauta","Camada","Formato","Situação"].map(h=>el("th",{text:h})))));
+  const bd=el("tbody");(E.pautas||[]).forEach(p=>bd.append(el("tr",null,el("td",{text:p.id}),el("td",{text:p.pauta}),el("td",null,el("span",{class:"e-cam "+(p.camada||"").toLowerCase(),text:p.camada})),el("td",{text:p.formato||""}),el("td",{text:p.situacao||""}))));tb.append(bd);
+  out.push(el("div",{class:"e-sec"},el("h3",{text:"Banco de pautas"}),el("div",{class:"e-tbl-wrap"},tb)));
+  // fontes
+  const tf=el("table",{class:"e-tbl"},el("thead",null,el("tr",null,...["#","Fonte","Frequência","Situação"].map(h=>el("th",{text:h})))));
+  const bf=el("tbody");(E.fontes||[]).forEach(f=>bf.append(el("tr",null,el("td",{text:f.id}),el("td",{text:f.fonte}),el("td",{text:f.frequencia||""}),el("td",{text:f.situacao||""}))));tf.append(bf);
+  out.push(el("div",{class:"e-sec"},el("h3",{text:"Fontes de informação"}),el("div",{class:"e-tbl-wrap"},tf)));
+  out.push(el("p",{class:"e-foot",text:"Atualizado em "+(E.atualizado_em?new Date(E.atualizado_em).toLocaleDateString("pt-BR"):"—")+" · documento completo: docs/12-fontes-e-temas.md (repositório instagram)"}));
+  box.replaceChildren(...out);
+}
 /* ---------- editor ---------- */
 function abrir(id){const p=posts.find(x=>x.id===id);if(!p)return;selId=id;draft=JSON.parse(JSON.stringify(p));ui={};render();if(window.innerWidth<980){const l=document.getElementById('layout');if(l)l.scrollIntoView({behavior:'smooth',block:'start'})}}
 function novo(canal,dia){
@@ -579,9 +667,10 @@ async function excluir(){
 /* ---------- boot ---------- */
 $("#tab-feed").addEventListener("click",()=>{view="feed";try{localStorage.setItem("grade-aba","feed")}catch(_){ }render()});
 $("#tab-stories").addEventListener("click",()=>{view="stories";try{localStorage.setItem("grade-aba","stories")}catch(_){ }render()});
+$("#tab-estrategia").addEventListener("click",()=>{view="estrategia";try{localStorage.setItem("grade-aba","estrategia")}catch(_){ }render()});
 $("#new-feed").addEventListener("click",()=>novo("feed"));
 $("#new-story").addEventListener("click",()=>novo("story",selDay));
-try{const a=localStorage.getItem("grade-aba");if(a==="stories"||a==="feed")view=a}catch(_){}
+try{const a=localStorage.getItem("grade-aba");if(a==="stories"||a==="feed"||a==="estrategia")view=a}catch(_){}
 render();
 
 (async()=>{
@@ -604,6 +693,7 @@ render();
     if(selId&&selId!=="__novo"){const p=posts.find(x=>x.id===selId);if(!p){fechar();return}if(travado(p))draft=JSON.parse(JSON.stringify(p))}
     renderFeed();renderStories();if(draft&&travado(draft))renderEditor();
   },e=>{clearTimeout(t);$("#banner").textContent="Não deu para ler o cronograma ("+(e.code||"erro")+")."});
+  db.collection("estrategia").onSnapshot(snap=>{const d=snap.docs.find(x=>x.id==="atual");estrategia=d?d.data():null;renderEstrategia()},()=>{});
 })();
 })();
 </script>

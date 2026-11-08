@@ -1,0 +1,301 @@
+{
+ "atualizado_em": "2026-11-08T22:00:00.000Z",
+ "piramide": [
+  {
+   "nome": "TOPO",
+   "peso": "mais explorado · ~60% do feed",
+   "repeticao": "repete toda semana · 3 posts",
+   "temas": [
+    "Peptistrong",
+    "Keranat",
+    "GHK-Cu",
+    "Magnésio",
+    "Queda de cabelo (foco)",
+    "Perda de massa magra",
+    "Zinco",
+    "Visão",
+    "Lançamentos"
+   ]
+  },
+  {
+   "nome": "MEIO",
+   "peso": "moderado · ~25% do feed",
+   "repeticao": "rodízio a cada 2–3 semanas · 1 post",
+   "temas": [
+    "Receitas com a linha",
+    "Produtos de varejo",
+    "Vídeos institucionais",
+    "Qualidade ISO 9001",
+    "Tendências magistrais",
+    "O ativo por trás de…"
+   ]
+  },
+  {
+   "nome": "BASE",
+   "peso": "pontual · ~15% do feed",
+   "repeticao": "no máximo 1 vez por mês por tema",
+   "temas": [
+    "Datas e sazonalidade",
+    "Eventos e parceiros",
+    "Bem-estar geral",
+    "Perguntas do balcão",
+    "Inspiração de luxo",
+    "Bastidores",
+    "Avisos da loja"
+   ]
+  }
+ ],
+ "ativos": [
+  {
+   "nome": "Magnésio",
+   "confirmado": true,
+   "angulos": "sono · cansaço · foco · câimbra · treino",
+   "meta": "1 feed + 3 stories por semana no ciclo"
+  },
+  {
+   "nome": "Peptistrong",
+   "confirmado": false,
+   "angulos": "massa magra · receitas · rotina",
+   "meta": "1 feed + 3 stories por semana no ciclo"
+  },
+  {
+   "nome": "Keranat",
+   "confirmado": false,
+   "angulos": "queda de cabelo (tema foco)",
+   "meta": "1 feed + 3 stories por semana no ciclo"
+  },
+  {
+   "nome": "GHK-Cu",
+   "confirmado": false,
+   "angulos": "pele · longevidade · luxo",
+   "meta": "1 feed a cada 15 dias + 2 stories"
+  }
+ ],
+ "ciclos": {
+  "semanas": 18,
+  "regra": "No máximo 2 ativos em ciclo. Ciclo de 6 semanas em 3 fases, depois 6 semanas de descanso no meio. Exemplo a ajustar quando os ativos forem confirmados.",
+  "linhas": [
+   {
+    "nome": "Peptistrong",
+    "fases": {
+     "1": "1",
+     "2": "1",
+     "3": "2",
+     "4": "2",
+     "5": "3",
+     "6": "3",
+     "7": "d",
+     "8": "d",
+     "9": "d",
+     "10": "d",
+     "11": "d",
+     "12": "d",
+     "13": "1",
+     "14": "1",
+     "15": "2",
+     "16": "2",
+     "17": "3",
+     "18": "3"
+    }
+   },
+   {
+    "nome": "Magnésio",
+    "fases": {
+     "1": "1",
+     "2": "1",
+     "3": "2",
+     "4": "2",
+     "5": "3",
+     "6": "3",
+     "7": "d",
+     "8": "d",
+     "9": "d",
+     "10": "d",
+     "11": "d",
+     "12": "d",
+     "13": "1",
+     "14": "1",
+     "15": "2",
+     "16": "2",
+     "17": "3",
+     "18": "3"
+    }
+   },
+   {
+    "nome": "Keranat",
+    "fases": {
+     "7": "1",
+     "8": "1",
+     "9": "2",
+     "10": "2",
+     "11": "3",
+     "12": "3",
+     "13": "d",
+     "14": "d",
+     "15": "d",
+     "16": "d",
+     "17": "d",
+     "18": "d"
+    }
+   },
+   {
+    "nome": "GHK-Cu",
+    "fases": {
+     "7": "1",
+     "8": "1",
+     "9": "2",
+     "10": "2",
+     "11": "3",
+     "12": "3",
+     "13": "d",
+     "14": "d",
+     "15": "d",
+     "16": "d",
+     "17": "d",
+     "18": "d"
+    }
+   }
+  ]
+ },
+ "pautas": [
+  {
+   "id": "P1",
+   "pauta": "Receita Piña Colada com Peptistrong (vídeo do preparo)",
+   "camada": "Topo",
+   "formato": "reels no feed · roteiro pronto",
+   "situacao": "prioridade"
+  },
+  {
+   "id": "P2",
+   "pauta": "\"Proteína engorda?\"",
+   "camada": "Topo",
+   "formato": "mito ou verdade · comente MITO",
+   "situacao": "a produzir"
+  },
+  {
+   "id": "P3",
+   "pauta": "Músculo depois dos 30/40",
+   "camada": "Topo",
+   "formato": "número em marinho, com fonte",
+   "situacao": "a produzir"
+  },
+  {
+   "id": "P4",
+   "pauta": "A fava por trás do Peptistrong",
+   "camada": "Topo",
+   "formato": "Radar Magistral",
+   "situacao": "a produzir"
+  },
+  {
+   "id": "P5",
+   "pauta": "Seu pré-treino está roubando o seu sono? (PeptiPump)",
+   "camada": "Meio",
+   "formato": "pergunta-gancho",
+   "situacao": "a produzir"
+  },
+  {
+   "id": "P6",
+   "pauta": "CoQ10 em gotas que dissolve na água (Maxsolve)",
+   "camada": "Meio",
+   "formato": "O ativo por trás de · vídeo curto",
+   "situacao": "a produzir"
+  },
+  {
+   "id": "P7",
+   "pauta": "Qualidade ISO 9001",
+   "camada": "Meio",
+   "formato": "vídeo institucional V3",
+   "situacao": "aguarda aprovação"
+  },
+  {
+   "id": "P8",
+   "pauta": "Pergunte à farmacêutica",
+   "camada": "Meio",
+   "formato": "série de vídeos V5",
+   "situacao": "aguarda aprovação"
+  },
+  {
+   "id": "P9",
+   "pauta": "Posso tomar proteína todo dia?",
+   "camada": "Topo",
+   "formato": "carrossel de texto",
+   "situacao": "a produzir"
+  },
+  {
+   "id": "P10",
+   "pauta": "Peptistrong no café da manhã",
+   "camada": "Topo",
+   "formato": "reels de rotina",
+   "situacao": "a produzir"
+  },
+  {
+   "id": "P11",
+   "pauta": "Cansaço que nem o café resolve? (Magnésio)",
+   "camada": "Topo",
+   "formato": "pergunta-gancho",
+   "situacao": "a produzir"
+  }
+ ],
+ "fontes": [
+  {
+   "id": "F1",
+   "fonte": "Mais vendidos (FCerta FC12110, réplica, só leitura)",
+   "frequencia": "mensal",
+   "situacao": "aguarda OK do Ricardo"
+  },
+  {
+   "id": "F2",
+   "fonte": "Produtos do site (VTEX)",
+   "frequencia": "mensal",
+   "situacao": "a fazer"
+  },
+  {
+   "id": "F3",
+   "fonte": "Tendências do mercado magistral",
+   "frequencia": "mensal",
+   "situacao": "a fazer"
+  },
+  {
+   "id": "F4",
+   "fonte": "Instagram de referência (oficialfarma, essentiapharma, farmaciavitacora)",
+   "frequencia": "quinzenal",
+   "situacao": "confirmar os @"
+  },
+  {
+   "id": "F5",
+   "fonte": "Cosmético de referência × ativo manipulado",
+   "frequencia": "por pauta",
+   "situacao": "a fazer"
+  },
+  {
+   "id": "F6",
+   "fonte": "Tendências de luxo",
+   "frequencia": "mensal",
+   "situacao": "a fazer"
+  },
+  {
+   "id": "F7",
+   "fonte": "Desempenho do próprio perfil",
+   "frequencia": "mensal",
+   "situacao": "feito em 08/11"
+  },
+  {
+   "id": "F8",
+   "fonte": "Buscas no Google (Ahrefs)",
+   "frequencia": "mensal",
+   "situacao": "a fazer"
+  },
+  {
+   "id": "F9",
+   "fonte": "Perguntas do balcão e do WhatsApp (só tema)",
+   "frequencia": "semanal",
+   "situacao": "combinar com a equipe"
+  },
+  {
+   "id": "F10",
+   "fonte": "Datas e sazonalidade",
+   "frequencia": "anual",
+   "situacao": "montar calendário 2027"
+  }
+ ]
+}

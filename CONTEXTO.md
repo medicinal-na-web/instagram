@@ -13,7 +13,7 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 | App da Meta | `APP_clienteDM` (`898730696565732`), usado pelos dois acessos |
 | App do Instagram | `APP_clienteDM-IG` (`957953860481209`) |
 | Usuário do sistema (ads) | `n8n-ads` (`122104724457514359`), função Funcionário |
-| Grade (Artifact) | https://claude.ai/artifact/Ayp1jCcyffTqZth63yXdtX (privada) |
+| Grade (Artifact) | https://claude.ai/artifact/Ayp1jCcyffTqZth63yXdtX (privada). Abas: Feed, Stories e **Estratégia** (dados em `estrategia/atual` no banco da página; cópia em `docs/estrategia-atual.json`) |
 
 **Credenciais no n8n** (o token fica só lá): `Site Medicinal - Instagram (token)` (`ZTNV44evExPBBMNC`, Query Auth, token do Instagram, vence em ~60 dias, renovação pendente) e `Site Medicinal - Meta Ads (token)` (`DoGhzs4iWUtxnXSp`, Query Auth, token sem validade).
 
