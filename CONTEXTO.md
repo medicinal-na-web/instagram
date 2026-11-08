@@ -50,7 +50,7 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 6. Revisão farmacêutica da semana 09–15/11 antes de aprovar, principalmente Maxsolve e PeptiPump.
 7. Migrar a grade para o PortalSiteMedicinal quando o endereço voltar.
 8. **A entregar (decisão do Ricardo em avaliação):** base de imagem dos produtos para inserção em cena (`docs/10-insercao-de-produto.md`). Opção A: 6 fotos reais por produto (3 ângulos × luz dos dois lados) + medidas com régua. Opção B: modelo 3D por produto (medidas + arte-final do rótulo em PDF/AI da gráfica), que gera qualquer ângulo e luz. Opção C: as duas (fotos já; 3D do Peptistrong em paralelo). Começar pelo Peptistrong.
-9. Avaliar ferramentas de geração de imagem e vídeo de produto (comparação em `docs/11-ferramentas-imagem-video.md`).
+9. Avaliar ferramentas de geração de imagem e vídeo de produto (comparação em `docs/11-ferramentas-imagem-video.md`). **IC-Light no ar** em `medicinal/IC-Light` (Hugging Face PRO, privado, ZeroGPU). Falta salvar o token de leitura `HF_TOKEN` no ambiente para usar a partir de uma sessão nova.
 
 ## Material de campanha
 

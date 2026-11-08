@@ -29,6 +29,9 @@ Pergunta do Ricardo: estamos usando as melhores ferramentas para gerar as imagen
 - Os Spaces oficiais não servem: `lllyasviel/IC-Light` dá erro interno e `lllyasviel/iclight-v2-vary` está pausado.
 - **Caminho recomendado:** duplicar o IC-Light para a conta `medicinal` como Space **privado**, com GPU, habilitar o servidor MCP do Gradio (`demo.launch(mcp_server=True)`) e adicionar o Space em `huggingface.co/settings/mcp`. Aí ele aparece no conector como ferramenta.
 - GPU: **ZeroGPU** exige o plano PRO do Hugging Face (cerca de US$ 9/mês). A outra opção é GPU paga por hora no Space.
+- **Feito em 08/11/2026:** Ricardo assinou o PRO e duplicou o Space em **`medicinal/IC-Light`** (privado, ZeroGPU). Montagem ok e app **Running**. O `KeyError: 0` que aparece no log do container é do Gradio 4.29 quando a página foi aberta antes de o app subir; recarregar resolve.
+- **Uso sem MCP:** um token **de leitura** (fine-grained, só `medicinal/IC-Light`) salvo como segredo do ambiente `HF_TOKEN` permite chamar o Space pelo `gradio_client`. Não é preciso editar o código do Space.
+- **Como usar no procedimento:** o IC-Light redesenha a imagem inteira em até 1024 px com SD 1.5, o que borra letras pequenas. **Usar só o mapa de luz** (versão reiluminada desfocada ÷ original desfocada) aplicado sobre a foto original em alta resolução. O rótulo continua vindo da foto real, e a `verifica_fidelidade` (≥ 0,90) continua valendo.
 - **Alternativa sem Hugging Face:** IC-Light hospedado por API (Replicate ou fal.ai), cobrança por uso. O token fica como segredo do ambiente ou credencial do n8n, nunca no repositório.
 
 ## Vídeo: regra para produto
