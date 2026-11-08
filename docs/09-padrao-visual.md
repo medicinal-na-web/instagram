@@ -177,6 +177,7 @@ Pedido do Ricardo em 08/11/2026: **polemizar os temas.** O gancho tem que mexer 
 |---|---|---|
 | **Queda de cabelo** | **foco principal** | "Seu cabelo não está caindo à toa." · "Shampoo não resolve o que começa por dentro." · "Queda de cabelo depois do verão: normal ou sinal?" |
 | **Perda de massa magra** | alto | "Você está perdendo músculo e nem percebe." · "Depois dos 30, o músculo vai embora em silêncio." · "Emagrecer rápido pode estar custando o seu músculo." |
+| **Magnésio** | **alto (topo)** | "Cansaço que nem o café resolve?" · "Nem todo magnésio é igual: a forma muda tudo." · "Câimbra à noite, sono leve, foco curto: já olhou o seu magnésio?" (sempre fechando com "investigue com seu médico" / "fale com a farmacêutica") |
 | **Falta de zinco** | médio | "O mineral que quase ninguém lembra e que o cabelo, a pele e a imunidade cobram." · "Unha fraca, cabelo caindo, feridas que demoram: já ouviu falar de zinco?" |
 | **Visão** | médio | "Tela o dia inteiro: o que seus olhos estão pagando?" |
 

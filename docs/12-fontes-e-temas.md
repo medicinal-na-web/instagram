@@ -12,7 +12,7 @@ Pedido do Ricardo em 08/11/2026: temas mais importantes no topo, intermediários
 
 | Camada | Temas | Peso no feed | Numa semana de 4 a 5 posts |
 |---|---|---|---|
-| **Topo**: prioridade máxima | Ativos foco (Peptistrong, Keranat, GHK-Cu, a confirmar) · temas que polemizam (queda de cabelo em foco, perda de massa magra, zinco, visão) · lançamentos | ~45% | 2 posts |
+| **Topo**: prioridade máxima | Ativos foco (Peptistrong, Keranat, GHK-Cu, **magnésio**) · temas que polemizam (queda de cabelo em foco, perda de massa magra, zinco, visão) · lançamentos | ~45% | 2 posts |
 | **Meio**: reforço da marca | Receitas com produtos da linha (2.8) · produtos de varejo (2.6) · vídeos institucionais (2.7) · tendências magistrais e "O ativo por trás de…" (2.2, 2.3) | ~35% | 1 a 2 posts |
 | **Base**: temas gerais | Datas e sazonalidade · eventos e parceiros · bem-estar geral · perguntas do balcão · inspiração de luxo · bastidores do dia a dia · avisos da loja | ~20% | 1 post |
 
@@ -57,6 +57,7 @@ Pedido do Ricardo em 08/11/2026: alguns ativos precisam ser trabalhados **com ma
 | **Peptistrong** | produto que mais rendeu conteúdo em 2025 e 2026; campanha de novembro | perda de massa magra | 1 feed + 3 stories | a confirmar |
 | **Keranat** | "5 motivos para tomar Keranat" teve 109 interações em 2026 | queda de cabelo | 1 feed + 3 stories | a confirmar |
 | **GHK-Cu** | tendência do mercado magistral e do luxo | pele / longevidade | 1 feed a cada 15 dias + 2 stories por semana | a confirmar |
+| **Magnésio** | definido pelo Ricardo como tema do topo (08/11/2026); a linha já tem magnésio treonato (post de 04/2026) | sono, cansaço, foco, câimbra, treino | 1 feed + 3 stories | **confirmado** |
 | (adicionar) | | | | |
 
 **Regras da repetição**
@@ -79,6 +80,7 @@ Pedido do Ricardo em 08/11/2026: alguns ativos precisam ser trabalhados **com ma
 |---|---|---|---|
 | **Queda de cabelo** | foco principal | F1, F3, F8, F9 | Keranat, fórmulas capilares (confirmar no F2) |
 | **Perda de massa magra** | alto | F1, F3, F8 | Peptistrong, PeptiPump, creatina |
+| **Magnésio** | **alto (topo)** | F1, F3, F8, F9 | magnésio treonato e outras formas manipuladas (confirmar no F2) |
 | **Falta de zinco** | médio | F3, F8, F9 | fórmulas com zinco (confirmar no F2) |
 | **Visão / telas** | médio | F3, F8 | (confirmar no F2) |
 
@@ -229,6 +231,7 @@ A IA (Runway) pode ajudar só em tomadas **sem a lata**, como o abacaxi sendo co
 | Data | O que mudou |
 |---|---|
 | 08/11/2026 | Documento criado com as fontes F1 a F10 e os temas iniciais (pedido do Ricardo). |
+| 08/11/2026 | **Magnésio** entra no topo da pirâmide e nos ativos foco (pedido do Ricardo). |
 | 08/11/2026 | Seção 0 **Pirâmide de temas** (topo ~45%, meio ~35%, base ~20%), com imagem em `docs/img/piramide-temas.png`. |
 | 08/11/2026 | Seção 2.8 **Receitas com produtos da linha**: série fixa semanal no feed (reels de preparo e carrossel), ideias iniciais e regras. |
 | 08/11/2026 | Semana 09–15/11 descartada; temas aproveitados viraram as pautas P1 a P10, com P1 (receita Piña Colada em reels) como prioridade e roteiro pronto. |
