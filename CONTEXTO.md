@@ -63,6 +63,8 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 - **Teste do padrão com IA** (5 artes): `grade/teste-padrao-2025/`. Ricardo aprovou a direção. A arte com produto (D) **não passou**: virou o procedimento `docs/10-insercao-de-produto.md`. Para a 1ª arte com produto: medidas com régua e 6 fotos do Peptistrong (3 ângulos × luz dos dois lados).
 - **Linha editorial (08/11):** polemizar os temas; **queda de cabelo é o foco**, depois perda de massa magra, falta de zinco e visão (seção 13 do padrão, com os limites de saúde).
 
+- **Fontes e temas de conteúdo** (documento vivo): `docs/12-fontes-e-temas.md`. Atualizar a cada coleta ou pauta.
+
 ## Decisões tomadas
 
 - Acesso por **duas APIs**: login do Instagram para publicar e ler; login do Facebook para anúncios.

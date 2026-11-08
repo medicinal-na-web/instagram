@@ -1,0 +1,76 @@
+# 12 — Fontes de informação e temas para conteúdo (documento vivo)
+
+Criado em 08/11/2026 a pedido do Ricardo. **Atualizar sempre que uma fonte for coletada, um tema virar pauta ou um tema novo surgir** (registro no fim do arquivo).
+
+Tudo o que sai daqui passa pelas regras do projeto: sem dados de clientes (LGPD), sem alegação de cura ou efeito, sem medicamento sob prescrição como oferta, revisão farmacêutica antes de aprovar (`CLAUDE.md`, `09-padrao-visual.md` seção 13).
+
+## 1. Fontes de informação
+
+| # | Fonte | O que extrair | Como coletar | Frequência | Situação |
+|---|---|---|---|---|---|
+| F1 | **Mais vendidos da Medicinal** (FCerta, tabela `FC12110`, Firebird) | ranking de produtos e fórmulas por quantidade e faturamento, por mês; sazonalidade; o que cresce e o que cai | workflow novo no n8n `Site Medicinal - Instagram: mais vendidos (leitura)`, desativado, gatilho manual, **só `SELECT`** com filtro por data e `FIRST n`, **na réplica**. Agregado por produto, **sem cliente, sem receita, sem prescritor** | mensal | ⏳ a fazer. Falta confirmar a réplica e o OK do Ricardo |
+| F2 | **Produtos do site** (www.medicinalnaweb.com.br, VTEX) | catálogo ativo, categorias, preços, fotos oficiais, textos de produto, o que tem link para comprar | API pública de catálogo da VTEX (leitura) ou planilha do repositório `site-medicinalnaweb` | mensal | ⏳ a fazer |
+| F3 | **Tendências do mercado magistral** | ativos novos e em alta (ex.: GHK-Cu, PDRN, peptídeos, exossomos, ativos de skincare coreano), lançamentos de fornecedores | feiras e eventos (Consulfarma, Endo Academy), materiais de fornecedores (Galena, Fagron, Purifarma, Infinity), Google Trends, Ahrefs (volume de busca) | mensal | ⏳ a fazer |
+| F4 | **Instagram de referência** (outras farmácias) | formatos que engajam, temas, frequência, ganchos, o que os seguidores perguntam nos comentários (só o tema, sem nome de pessoa) | perfis: **@oficialfarma**, **@essentiapharma**, **@farmaciavitacora** (confirmar os @ exatos). Leitura pública via API do Instagram (business discovery) com o token de anúncios, ou Supermetrics (Instagram Public Data) | quinzenal | ⏳ a fazer. Confirmar os @ |
+| F5 | **Cosméticos de referência × ativo manipulado** | composição (INCI) de produtos conhecidos e quais ativos dela a Medicinal manipula | lista INCI publicada pela marca + ficha técnica do ativo do fornecedor | por pauta | ⏳ a fazer |
+| F6 | **Tendências de luxo** | o que marcas de luxo estão usando (ativos, rituais, embalagens, linguagem) e que tem ligação com produtos da Medicinal | publicações de beleza e bem-estar, lançamentos de marcas premium, relatórios de tendência | mensal | ⏳ a fazer |
+| F7 | **Desempenho do próprio perfil** | o que engajou em 2024, 2025 e 2026 | workflow `Site Medicinal - Instagram posts desde 2024 (leitura)` | mensal | ✅ feito em 08/11 (`docs/06`, `07` e `08`) |
+| F8 | **Buscas no Google** | o que as pessoas procuram sobre os temas foco em Maringá e no Brasil | Ahrefs (palavras-chave e Search Console do site) | mensal | ⏳ a fazer |
+| F9 | **Perguntas do balcão e do WhatsApp** | dúvidas que se repetem, só o tema e a contagem | a equipe anota numa lista **sem nome, telefone ou dado de saúde da pessoa** | semanal | ⏳ combinar com a equipe |
+| F10 | **Datas e sazonalidade** | verão (cabelo e pele, proteção), volta às aulas, Outubro Rosa, Novembro Azul, Black Friday, Dia das Mães, inverno (imunidade) | calendário anual | anual | ⏳ montar o calendário 2027 |
+
+### Regras por fonte
+
+- **F1 (Firebird):** regras do projeto do site. Workflow novo, desativado, só `SELECT`, com filtro de data, `FIRST n` e na réplica. Nada roda contra a produção sem o OK do Ricardo. O resultado entra no repositório só **agregado por produto**.
+- **F4 (concorrentes):** observar **formato e tema**, nunca copiar texto, arte ou foto. Não citar nem marcar os perfis nos posts.
+- **F5 (comparação com marcas):** pode citar a composição pública (INCI) e dizer que o ativo também é manipulado. **Não pode** afirmar que o manipulado "é igual" ou "funciona como" o produto de marca, nem depreciar a marca. Isso vale para cosmético; para medicamento, comparação é proibida. Revisão farmacêutica obrigatória.
+- **F6 (luxo):** usar o universo de luxo (ritual, sensorialidade, ativo nobre) como **inspiração de linguagem e de estética**, sem usar marca de terceiros na arte.
+
+## 2. Temas
+
+### 2.1 Temas foco (linha editorial que polemiza, `09-padrao-visual.md` seção 13)
+
+| Tema | Peso | Fontes que alimentam | Produtos da Medicinal ligados |
+|---|---|---|---|
+| **Queda de cabelo** | foco principal | F1, F3, F8, F9 | Keranat, fórmulas capilares (confirmar no F2) |
+| **Perda de massa magra** | alto | F1, F3, F8 | Peptistrong, PeptiPump, creatina |
+| **Falta de zinco** | médio | F3, F8, F9 | fórmulas com zinco (confirmar no F2) |
+| **Visão / telas** | médio | F3, F8 | (confirmar no F2) |
+
+### 2.2 Tendências do mercado magistral (F3)
+
+| Tema | Ideia de pauta | Situação |
+|---|---|---|
+| **GHK-Cu** (peptídeo de cobre) | "O peptídeo de cobre que as marcas de luxo colocam no sérum" (F6). Já houve post em 07/2026 | ideia |
+| **Cosméticos coreanos (K-beauty)** | ativos coreanos que dá para manipular; o microagulhamento sem agulha (2025) foi bem | ideia |
+| **PDRN / exossomos / peptídeos** | "hype ou realidade?" com especialista | ideia (validar se a Medicinal manipula) |
+| **Peptídeos bioativos** | Peptistrong e PeptiPump: "não é proteína" (bom engajamento em 2026) | em uso |
+
+### 2.3 Comparação marca de referência × ativo manipulado (F5)
+
+Formato sugerido: carrossel "**O ativo por trás de…**". A capa mostra o tipo de produto (sem logo de terceiro). Depois vêm a composição em destaque, o que o ativo é, e o fechamento "também manipulamos esse ativo; fale com a farmacêutica". Situação: ideia. Escolher 3 produtos de referência com ativos que a Medicinal manipula.
+
+### 2.4 Tendências de luxo (F6)
+
+| Tendência | Ligação possível | Situação |
+|---|---|---|
+| Rituais de skincare e sensorialidade | texturas da manipulação, "seu ritual sob medida" | ideia |
+| Longevidade / "longevity" | peptídeos, antioxidantes (Bluconidin, Alloxine) | ideia |
+| Ativo nobre como protagonista (cobre, ouro, caviar, cogumelos) | GHK-Cu e outros ativos disponíveis | ideia |
+| "Quiet luxury" na estética | já reflete o padrão visual de 2025 | aplicado no `09` |
+
+### 2.5 Produtos do site (F2) e mais vendidos (F1)
+
+A preencher depois da coleta: os 20 mais vendidos por mês, quais têm página no site, quais têm foto real e se cabem em algum tema foco.
+
+## 3. Banco de pautas
+
+| Data | Pauta | Tema | Fonte | Formato | Situação |
+|---|---|---|---|---|---|
+| — | — | — | — | — | — |
+
+## 4. Registro de atualizações
+
+| Data | O que mudou |
+|---|---|
+| 08/11/2026 | Documento criado com as fontes F1 a F10 e os temas iniciais (pedido do Ricardo). |
