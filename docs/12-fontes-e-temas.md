@@ -10,11 +10,13 @@ Tudo o que sai daqui passa pelas regras do projeto: sem dados de clientes (LGPD)
 
 Pedido do Ricardo em 08/11/2026: temas mais importantes no topo, intermediários no meio e gerais na base. **Rascunho para aprovação.**
 
-| Camada | Temas | Peso no feed | Numa semana de 4 a 5 posts |
-|---|---|---|---|
-| **Topo**: prioridade máxima | Ativos foco (Peptistrong, Keranat, GHK-Cu, **magnésio**) · temas que polemizam (queda de cabelo em foco, perda de massa magra, zinco, visão) · lançamentos | ~45% | 2 posts |
-| **Meio**: reforço da marca | Receitas com produtos da linha (2.8) · produtos de varejo (2.6) · vídeos institucionais (2.7) · tendências magistrais e "O ativo por trás de…" (2.2, 2.3) | ~35% | 1 a 2 posts |
-| **Base**: temas gerais | Datas e sazonalidade · eventos e parceiros · bem-estar geral · perguntas do balcão · inspiração de luxo · bastidores do dia a dia · avisos da loja | ~20% | 1 post |
+| Camada | Temas | Peso no feed | Numa semana de 4 a 5 posts | Repetição de cada tema |
+|---|---|---|---|---|
+| **Topo**: mais explorado | Ativos foco (Peptistrong, Keranat, GHK-Cu, **magnésio**) · temas que polemizam (queda de cabelo em foco, perda de massa magra, zinco, visão) · lançamentos | **~60%** | **3 posts** | **toda semana**, sempre com ângulo e formato diferentes (regras da 2.0) |
+| **Meio**: moderado | Receitas com produtos da linha (2.8) · produtos de varejo (2.6) · vídeos institucionais (2.7) · tendências magistrais e "O ativo por trás de…" (2.2, 2.3) | **~25%** | **1 post** | **rodízio**: cada tema volta a cada 2 a 3 semanas |
+| **Base**: pontual | Datas e sazonalidade · eventos e parceiros · bem-estar geral · perguntas do balcão · inspiração de luxo · bastidores do dia a dia · avisos da loja | **~15%** | **0 a 1 post** (às vezes só stories) | **no máximo 1 vez por mês** cada tema; não repetir |
+
+Pedido do Ricardo em 08/11/2026: **explorar mais o topo e menos o meio e a base**. Como o meio e a base têm muitos temas, cada um aparece pouco e sem repetição. Quem se repete é o topo.
 
 **Como usar:**
 - Toda grade semanal é montada **de cima para baixo**: primeiro os posts do topo, depois os do meio e, por último, a base.
@@ -231,6 +233,7 @@ A IA (Runway) pode ajudar só em tomadas **sem a lata**, como o abacaxi sendo co
 | Data | O que mudou |
 |---|---|
 | 08/11/2026 | Documento criado com as fontes F1 a F10 e os temas iniciais (pedido do Ricardo). |
+| 08/11/2026 | Pesos da pirâmide ajustados: topo ~60% (repete toda semana), meio ~25% (rodízio de 2 a 3 semanas), base ~15% (no máximo 1 vez por mês por tema). |
 | 08/11/2026 | **Magnésio** entra no topo da pirâmide e nos ativos foco (pedido do Ricardo). |
 | 08/11/2026 | Seção 0 **Pirâmide de temas** (topo ~45%, meio ~35%, base ~20%), com imagem em `docs/img/piramide-temas.png`. |
 | 08/11/2026 | Seção 2.8 **Receitas com produtos da linha**: série fixa semanal no feed (reels de preparo e carrossel), ideias iniciais e regras. |
