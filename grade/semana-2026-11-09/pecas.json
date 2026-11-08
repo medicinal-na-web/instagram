@@ -1,0 +1,264 @@
+[
+{
+"arquivo": "f1-peptistrong-1.jpg",
+"canal": "feed",
+"tema": "peptistrong",
+"kicker": "Proteína vegetal",
+"titulo": "Músculo também se cuida com o que vem da fava",
+"produto": "peptistrong",
+"slide": "1/3"
+},
+{
+"arquivo": "f1-peptistrong-2.jpg",
+"canal": "feed",
+"tema": "peptistrong",
+"kicker": "O que é",
+"titulo": "PeptiStrong™",
+"itens": [
+"Peptídeos bioativos da proteína da fava (Vicia faba)",
+"Origem vegetal",
+"Dose diária pequena: 2,4 g do ingrediente",
+"Sabores Chocolate Belga e Piña Colada, pote de 300 g"
+],
+"slide": "2/3"
+},
+{
+"arquivo": "f1-peptistrong-3.jpg",
+"canal": "feed",
+"tema": "peptistrong",
+"kicker": "No dia a dia",
+"titulo": "Shake, mingau ou smoothie: você escolhe",
+"texto": "Movimento regular e proteína suficiente são os pilares para cuidar da massa muscular em todas as fases da vida.",
+"cta": "medicinalnaweb.com.br/peptistrong",
+"nota": "Suplementos não substituem uma alimentação equilibrada.",
+"slide": "3/3"
+},
+{
+"arquivo": "f2-maxsolve-1.jpg",
+"canal": "feed",
+"tema": "maxsolve",
+"kicker": "Coenzima Q10",
+"titulo": "CoQ10 em gotas que se mistura na água",
+"itens": [
+"Maxsolve: Coenzima Q10 em nanoemulsão, solúvel em água",
+"Pinga na água, no suco ou no café da manhã",
+"A CoQ10 está presente nas nossas células e participa da produção de energia"
+],
+"cta": "Fale com a farmacêutica",
+"nota": "Dose e uso com orientação profissional."
+},
+{
+"arquivo": "f3-peptipump-1.jpg",
+"canal": "feed",
+"tema": "peptipump",
+"kicker": "Pré-treino sem estimulante",
+"titulo": "Acabou o gás no meio do treino?",
+"texto": "Conheça o PeptiPump®: sem cafeína, sem estimulantes.",
+"slide": "1/3"
+},
+{
+"arquivo": "f3-peptipump-2.jpg",
+"canal": "feed",
+"tema": "peptipump",
+"kicker": "O que é",
+"titulo": "PeptiPump®",
+"itens": [
+"Rede de peptídeos bioativos da proteína de lentilha",
+"Pensado para apoiar o fluxo sanguíneo durante o exercício",
+"Sem cafeína e sem estimulantes: dá para treinar à noite"
+],
+"slide": "2/3"
+},
+{
+"arquivo": "f3-peptipump-3.jpg",
+"canal": "feed",
+"tema": "peptipump",
+"kicker": "Manipulado na Medicinal",
+"titulo": "Sua fórmula, do seu jeito",
+"texto": "A nossa equipe farmacêutica ajuda a montar a fórmula certa para a sua rotina de treino.",
+"cta": "Chame no WhatsApp",
+"nota": "Uso com orientação de nutricionista ou médico.",
+"slide": "3/3"
+},
+{
+"arquivo": "s09-1.jpg",
+"canal": "story",
+"tema": "medicinal",
+"kicker": "Segunda-feira",
+"titulo": "Semana nova, hábito novo",
+"texto": "Qual cuidado com a saúde você vai começar hoje? A gente vai junto."
+},
+{
+"arquivo": "s09-2.jpg",
+"canal": "story",
+"tema": "peptistrong",
+"kicker": "Você sabia?",
+"titulo": "A fava é uma fonte de proteína vegetal",
+"texto": "É dela que vêm os peptídeos do PeptiStrong™.",
+"produto": "peptistrong"
+},
+{
+"arquivo": "s09-3.jpg",
+"canal": "story",
+"tema": "peptistrong",
+"kicker": "Post novo",
+"titulo": "Peptistrong: músculo também se cuida",
+"texto": "Arrasta o feed e confere o carrossel completo"
+},
+{
+"arquivo": "s10-1.jpg",
+"canal": "story",
+"tema": "peptistrong",
+"kicker": "Receita",
+"titulo": "Smoothie Piña Colada proteico",
+"itens": [
+"1 dose de Peptistrong Piña Colada",
+"200 ml de leite de coco ou bebida vegetal",
+"3 pedaços de abacaxi",
+"Gelo a gosto"
+]
+},
+{
+"arquivo": "s10-2.jpg",
+"canal": "story",
+"tema": "peptistrong",
+"kicker": "Modo de preparo",
+"titulo": "Bate tudo no liquidificador e pronto",
+"texto": "Fica ótimo no café da manhã ou depois do treino. Já testou? Conta pra gente!"
+},
+{
+"arquivo": "s10-3.jpg",
+"canal": "story",
+"tema": "peptistrong",
+"kicker": "Black November",
+"titulo": "Kits de Peptistrong com condição especial",
+"texto": "Válido no site durante novembro.",
+"cta": "medicinalnaweb.com.br/peptistrong",
+"produto": "peptistrong"
+},
+{
+"arquivo": "s11-1.jpg",
+"canal": "story",
+"tema": "peptistrong",
+"kicker": "40+",
+"titulo": "Músculo depois dos 40",
+"texto": "Com os anos, a massa muscular tende a diminuir. Movimento e proteína suficiente fazem diferença no dia a dia: subir escada, carregar as compras, ter disposição."
+},
+{
+"arquivo": "s11-2.jpg",
+"canal": "story",
+"tema": "maxsolve",
+"kicker": "Novidade no feed",
+"titulo": "Maxsolve: CoQ10 em gotas",
+"texto": "Solúvel em água, fácil de incluir na rotina. Confere o post"
+},
+{
+"arquivo": "s11-3.jpg",
+"canal": "story",
+"tema": "maxsolve",
+"kicker": "Como usar",
+"titulo": "Gotas na água, no suco ou na vitamina",
+"texto": "A quantidade certa a nossa equipe farmacêutica te orienta.",
+"cta": "Fale com a farmacêutica"
+},
+{
+"arquivo": "s12-1.jpg",
+"canal": "story",
+"tema": "medicinal",
+"kicker": "Mito ou verdade?",
+"titulo": "Proteína engorda?",
+"texto": "Pensa na resposta… ela vem no próximo story"
+},
+{
+"arquivo": "s12-2.jpg",
+"canal": "story",
+"tema": "medicinal",
+"kicker": "Mito!",
+"titulo": "Proteína não engorda por si só",
+"texto": "O que pesa é o total de calorias do dia. A proteína ajuda a manter a saciedade e é importante para os músculos."
+},
+{
+"arquivo": "s12-3.jpg",
+"canal": "story",
+"tema": "medicinal",
+"kicker": "Tem dúvida?",
+"titulo": "Pergunte à farmacêutica",
+"texto": "Manda sua pergunta pelo WhatsApp. No domingo a gente responde as mais pedidas.",
+"cta": "Chame no WhatsApp"
+},
+{
+"arquivo": "s13-1.jpg",
+"canal": "story",
+"tema": "medicinal",
+"kicker": "Bastidores",
+"titulo": "Qualidade certificada ISO 9001",
+"texto": "Cada fórmula passa por processos controlados, do recebimento do insumo à entrega."
+},
+{
+"arquivo": "s13-2.jpg",
+"canal": "story",
+"tema": "peptipump",
+"kicker": "Post novo",
+"titulo": "PeptiPump: treino sem estimulante",
+"texto": "Peptídeos da lentilha, sem cafeína. Confere no feed"
+},
+{
+"arquivo": "s13-3.jpg",
+"canal": "story",
+"tema": "peptipump",
+"kicker": "Sextou com treino?",
+"titulo": "Treino à noite sem perder o sono",
+"texto": "Sem cafeína e sem estimulantes. Fala com a gente para montar a sua fórmula.",
+"cta": "Chame no WhatsApp"
+},
+{
+"arquivo": "s14-1.jpg",
+"canal": "story",
+"tema": "peptistrong",
+"kicker": "Rotina",
+"titulo": "Acorda cedo? Proteína no café da manhã",
+"texto": "Uma dose de Peptistrong Chocolate Belga no leite ou no mingau e você sai de casa abastecido.",
+"produto": "peptistrong"
+},
+{
+"arquivo": "s14-2.jpg",
+"canal": "story",
+"tema": "medicinal",
+"kicker": "Fim de semana",
+"titulo": "Água, movimento e descanso",
+"texto": "Três cuidados simples que fazem diferença na semana que vem."
+},
+{
+"arquivo": "s14-3.jpg",
+"canal": "story",
+"tema": "medicinal",
+"kicker": "Medicinal",
+"titulo": "Sua fórmula, do seu jeito",
+"texto": "Manipulação com orientação farmacêutica e qualidade certificada.",
+"cta": "medicinalnaweb.com.br"
+},
+{
+"arquivo": "s15-1.jpg",
+"canal": "story",
+"tema": "medicinal",
+"kicker": "Domingo",
+"titulo": "Músculo também se recupera no descanso",
+"texto": "Dormir bem faz parte do treino. Bom domingo!"
+},
+{
+"arquivo": "s15-2.jpg",
+"canal": "story",
+"tema": "medicinal",
+"kicker": "Respostas da semana",
+"titulo": "Posso tomar proteína todo dia?",
+"texto": "Pode fazer parte da rotina, dentro da necessidade de cada pessoa. Nutricionista e farmacêutico ajudam a definir a quantidade."
+},
+{
+"arquivo": "s15-3.jpg",
+"canal": "story",
+"tema": "medicinal",
+"kicker": "Semana que vem",
+"titulo": "Tem mais conteúdo por aqui",
+"texto": "Ativa as notificações para não perder as novidades da Medicinal."
+}
+]
