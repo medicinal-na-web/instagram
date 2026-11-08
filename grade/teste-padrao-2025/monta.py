@@ -49,19 +49,8 @@ im=grad(bg(plank,0.85,0.5),True,140); d=ImageDraw.Draw(im); logo(d,True)
 for i,t in enumerate(['Por que a massa muscular','merece atenção depois dos 40?']):
   f=mono(38); w=d.textlength(t,font=f); x=(1080-w)/2; y=170+i*56; d.text((x,y),t,font=f,fill='white'); d.line((x,y+48,x+w,y+48),fill='white',width=2)
 ctext(d,300,'PRESERVAÇÃO',caps(66),sp=9); ctext(d,380,'MUSCULAR',caps(66),sp=9); arts.append(('C-pergunta',im))
-# D produto real na cena
-im=bg(kitchen,0.95,0.5); can=cutout(R+'peptistrong.jpg'); h=500; can=can.resize((int(can.width*h/can.height),h),Image.LANCZOS)
-sh=Image.new('RGBA',im.size,(0,0,0,0)); sd=ImageDraw.Draw(sh); x0=1080-can.width-110; y0=1350-h-232
-sd.ellipse((x0-10,y0+h-30,x0+can.width+40,y0+h+25),fill=(40,25,15,110)); sh=sh.filter(ImageFilter.GaussianBlur(18))
-a=can.split()[3].filter(ImageFilter.MinFilter(3)).filter(ImageFilter.GaussianBlur(1.2))
-rgb=can.convert('RGB').filter(ImageFilter.GaussianBlur(0.6))
-rgb=ImageEnhance.Brightness(rgb).enhance(0.82); rgb=ImageEnhance.Contrast(rgb).enhance(0.9)
-warm=Image.new('RGB',rgb.size,(255,214,170)); rgb=ImageChops.multiply(rgb,warm)
-lx=Image.linear_gradient('L').rotate(90).resize(rgb.size)  # luz da janela pela esquerda
-rgb=Image.composite(ImageEnhance.Brightness(rgb).enhance(1.25),ImageEnhance.Brightness(rgb).enhance(0.75),lx)
-n=Image.effect_noise(rgb.size,22).convert('RGB'); rgb=Image.blend(rgb,ImageChops.add(rgb,n,2,-128),0.18)
-can=rgb.convert('RGBA'); can.putalpha(a)
-im=Image.alpha_composite(im.convert('RGBA'),sh); im.alpha_composite(can,(x0,y0)); im=im.convert('RGB'); im=grad(im,True,120); d=ImageDraw.Draw(im); logo(d)
+# D produto real na cena: ia/cozinha_final.jpg = montagem (../insere_produto.py) + harmonização por IA + rótulo original recolocado
+im=grad(bg(os.path.join(D,'ia','cozinha_final.jpg'),0.97,0.5),True,120); d=ImageDraw.Draw(im); logo(d)
 ctext(d,170,'a rotina de quem',serif(72),sp=-3); ctext(d,250,'cuida do',serif(72),sp=-3); ctext(d,322,'músculo.',ital(108),sp=-3); arts.append(('D-produto',im))
 # E numero marinho
 im=Image.new('RGB',(1080,1350),NAVY); d=ImageDraw.Draw(im); logo(d,fill=OFF)

@@ -133,4 +133,51 @@ Enquanto não há sessão de fotos nem rosto da marca, as imagens podem ser gera
 
 **Na grade:** imagem de IA não pode ocupar mais de 2 quadrados seguidos sem um post de texto (modelos E e F) ou um conteúdo real (evento, bastidor) no meio.
 
-**Custo:** 20 créditos do Runway por imagem (modelo padrão). Saldo em 08/11: 60. Vídeo gasta bem mais.
+**Custo:** 20 créditos do Runway por imagem ou edição (modelo padrão). Saldo em 08/11: 20. Vídeo gasta bem mais.
+
+## 12. Produto inserido em cena: naturalidade extrema (regra fixa)
+
+Pedido do Ricardo em 08/11/2026, depois do primeiro teste (lata de Peptistrong "colada" na cozinha). **Vale para toda arte que coloca a embalagem real dentro de outra imagem.** Se não ficar indistinguível de uma foto, a arte não sai.
+
+Checklist obrigatório:
+
+1. **Escala e proporção:** medir contra um objeto vizinho na mesma profundidade (copo, tigela, mão). A lata de Peptistrong 300 g é **mais baixa que um copo alto e mais ou menos da mesma largura**; largura ≈ 0,77 da altura (medido em foto real). **Não usar a proporção do mockup 3D** (`assets/peptistrong.jpg`), que é mais alto e fino que a lata de verdade.
+2. **Perspectiva:** a câmera da cena define o ângulo. Se a boca do copo aparece como elipse, a tampa e a base da embalagem também aparecem como elipse, na mesma proporção. Mockup de frente em cena vista de cima não serve.
+3. **Luz:** mesma direção, cor e dureza da luz da cena. Lado da janela mais claro, lado oposto na sombra, brilho fino na superfície. Se a cena tem manchas de luz (sombra de folhas), elas passam por cima do produto.
+4. **Sombras:** sombra de contato escura onde a embalagem toca a superfície e sombra projetada para o lado oposto à luz, com a mesma suavidade das sombras dos outros objetos.
+5. **Integração:** mesma nitidez/desfoque do plano onde está, mesmo grão, borda sem halo branco, leve reflexo da cor do ambiente na embalagem.
+6. **Rótulo intacto:** nome, logo, textos e cores iguais aos da embalagem oficial. Conferir letra por letra se passar por IA.
+7. **Posição com sentido:** a embalagem fica onde alguém a deixaria (ao lado do copo, perto da mão), de preferência parcialmente encoberta por outro objeto ou com outro objeto à frente.
+
+Como fazer, em ordem de preferência:
+
+1. **Foto real** da embalagem tirada no mesmo tipo de luz da cena (celular, luz de janela). É o melhor resultado e não custa nada.
+2. **Montagem + harmonização + rótulo original**: montar com `grade/insere_produto.py` (`insere`: escala, perspectiva em elipse, tampa, luz, sombras, grão), harmonizar no Runway e depois `recoloca_rotulo` (a IA acerta luz e sombra mas **estraga o texto do rótulo**; a função devolve o rótulo original com a luz da IA). Exemplo em `grade/teste-padrao-2025/LEIA-ME.md`.
+3. Gerar a cena **já com espaço e luz pensados** para o produto (superfície plana, objeto de escala ao lado, luz lateral definida).
+
+A imagem 3D do fabricante (`grade/assets/peptistrong.jpg`) é o pior ponto de partida: é render, não foto. Pedir à loja fotos de celular das embalagens principais (Peptistrong, PeptiPump, Keranat, Maxsolve) em luz de janela.
+
+## 13. Linha editorial: temas que provocam
+
+Pedido do Ricardo em 08/11/2026: **polemizar os temas.** O gancho tem que mexer com a pessoa, contrariar o senso comum ou apontar algo que ela não percebeu.
+
+**Temas foco:**
+
+| Tema | Peso | Exemplos de gancho |
+|---|---|---|
+| **Queda de cabelo** | **foco principal** | "Seu cabelo não está caindo à toa." · "Shampoo não resolve o que começa por dentro." · "Queda de cabelo depois do verão: normal ou sinal?" |
+| **Perda de massa magra** | alto | "Você está perdendo músculo e nem percebe." · "Depois dos 30, o músculo vai embora em silêncio." · "Emagrecer rápido pode estar custando o seu músculo." |
+| **Falta de zinco** | médio | "O mineral que quase ninguém lembra e que o cabelo, a pele e a imunidade cobram." · "Unha fraca, cabelo caindo, feridas que demoram: já ouviu falar de zinco?" |
+| **Visão** | médio | "Tela o dia inteiro: o que seus olhos estão pagando?" |
+
+**Formatos que polemizam bem (de 2025):** "hype ou realidade?", "mito ou verdade", "o que ninguém te conta sobre…", comparação (Whey x Peptistrong), número grande (modelo E), pergunta-gancho (modelo C).
+
+**Limites (regra 4, sem exceção):**
+
+- Polemizar o **tema**, nunca prometer o **resultado**. "Seu cabelo não está caindo à toa" pode; "Keranat acaba com a queda" não.
+- Sem assustar com doença nem induzir autodiagnóstico: o fechamento leva a pessoa para **orientação profissional** ("investigue com seu médico", "fale com a farmacêutica").
+- Dado sempre com fonte na legenda.
+- Sem atacar concorrente, medicamento ou profissão (o "Canetinha x Akkermat" de 2024 não se repete).
+- **Minoxidil** e qualquer medicamento sob prescrição: só como tema educativo, nunca como oferta.
+- Visão: sem prometer melhora da vista; falar de cuidado, hábito e acompanhamento oftalmológico.
+- Suplemento ou manipulado citado: revisão farmacêutica antes de aprovar.
