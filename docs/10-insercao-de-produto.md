@@ -91,9 +91,36 @@ Gerar a cena **sem** o produto. Nunca pedir à IA para desenhar a embalagem.
 | **Ângulo** | razão da elipse da cena × da foto do produto | diferença **≤ 0,03** |
 | **Luz** | lado claro do produto × lado da janela | mesmo lado |
 
+## 7b. Catálogo de erros (todos aconteceram nos testes de 08/11/2026)
+
+Cada erro tem causa, prevenção e como é verificado. **A arte só segue se nenhum erro do catálogo aparecer.**
+
+| # | Erro | Como aparece | Causa | Prevenção | Verificação |
+|---|---|---|---|---|---|
+| 1 | **Produto grande ou pequeno demais** | a lata domina ou some perto do copo | escala no olho | escala pelo objeto de referência (`px_por_cm`) + medida real da ficha | automática: escala ±3% |
+| 2 | **Proporção errada** | lata alta e fina demais | mockup/render com proporção diferente da embalagem real | usar só **foto real**; proporção da ficha | automática: proporção ±2% |
+| 3 | **Ângulo incompatível** | tampa "chapada" (linha) enquanto se vê a boca do copo | foto do produto com câmera mais baixa que a da cena | escolher a foto do ângulo da cena; a IA quase sempre gera câmera levemente de cima → usar a foto **20–30° de cima** | automática: elipse ±0,03 |
+| 4 | **Luz do lado errado** | lado claro do produto oposto à janela | foto do produto com luz de outro lado | foto com luz do mesmo lado ou IC-Light (`reilumina` + `aplica_luz`) | visual + checklist |
+| 5 | **Rótulo/tampa alterados pela IA** | letras trocadas ("TEENOUÓSICA"), tampa redesenhada | geração ou harmonização por IA sobre a embalagem | IA **nunca** nos pixels da embalagem; só mapa de luz | automática: fidelidade ≥ 0,90 |
+| 6 | **Produto flutuando** | superfície iluminada logo abaixo da base | sem sombra de contato | sombra de contato + base do produto escurecida (`base_escurece`) | automática: contato ≥ 0,30 em 7 pontos |
+| 7 | **Laterais flutuando** | pontas da base "soltas" | sombra deitada só sob o centro | sombra pela **pegada** (elipse com o arco da base, `base_arco`) | automática: contato inclui as laterais |
+| 8 | **Degrau no recorte** | cantinhos quadrados embaixo | retângulo do corpo passando da elipse da base | corpo só até o centro da elipse da base | visual: zoom 2 e 3 |
+| 9 | **Fundo da foto original grudado** | bloco claro junto da alça, cantos com fundo sob a tampa | recorte por limiar de cor ou contorno maior que a peça | contorno **desenhado à mão** sobre a foto ampliada, com vãos abertos (alça) e cada parte na largura real | visual: zoom 1 e 4 (**não detectável automaticamente** quando grudado na peça) |
+| 10 | **Linha ou forma solta** | traço branco acima da tampa | elemento desenhado sem necessidade (topo extra com curvatura 0) | não desenhar nada que não esteja na foto | visual: zoom 1 + `verifica_mascara` (ilhas) |
+| 11 | **Contorno retangular / cantos vivos na tampa** | moldura fina nos cantos do topo | contorno retangular onde a peça é elíptica | contorno com a forma real (elipse do topo + lateral) | visual: zoom 1; automática: halo ≤ 18 |
+| 12 | **Emenda de cor** | faixa com tom diferente no meio do produto | correção de cor aplicada com corte reto | correções só na área da peça, com transição suave (desfoque) | visual: zoom 1 |
+| 13 | **Ruído / chiado** | superfície lisa (tampa branca) granulada | grão fixo, mais forte que o da cena | grão **medido na cena** perto do produto (`grao=None`) | visual: zoom 1 |
+| 14 | **Branco acinzentado / preto amarronzado** | tampa apagada, rótulo marrom | multiplicação de cor/luz que clareia o preto ou escurece o branco | ganho por curva que preserva pretos; branco da tampa volta ao tom real | visual: tamanho do feed |
+| 15 | **Sombra incoerente** | sombra do produto em direção ou força diferente das sombras da cena | sombra no padrão, sem olhar a cena | medir direção, comprimento e força das sombras vizinhas e repetir | visual: tamanho do feed |
+| 16 | **Cena que não obedece ao pedido** | IA ignora "câmera rente", cria sombras contraditórias | limitação dos geradores | não insistir: trocar a foto do produto pela do ângulo que a IA gera | medir a cena antes de inserir |
+
+**Ferramentas:** `grade/insere_produto.py` → `verifica_fidelidade`, `verifica_mascara`, `verifica_contato`, `verifica_halo`, `folha_inspecao`. Recorte de cada produto em `grade/produtos/<produto>/recorte.py` (contornos à mão, versionados).
+
+**Testes de controle** (as verificações reprovam o erro de verdade): rótulo reescrito pela IA → fidelidade 0,009; lata sem sombra de contato → contato 0,04–0,05.
+
 ## 8. Revisão humana
 
-- Ver a arte em **100% de zoom** na região do produto: tampa, alça, base, sombra e texto.
+- Abrir a **folha de inspeção** (`folha_inspecao`): 4 zooms (topo/tampa, base/contato, lado esquerdo, lado direito/acessórios) + tamanho do feed + resultado das verificações. Percorrer o catálogo de erros (seção 7b) em cada zoom.
 - Ver no tamanho do feed (celular): o produto tem que passar despercebido como foto.
 - **Aprovação do Ricardo.** Na dúvida, a arte não sai.
 

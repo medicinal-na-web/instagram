@@ -124,7 +124,7 @@ def recoloca_rotulo(cena_original, montagem, harmonizada, caixa_corpo, raio_luz=
 def insere_foto(cena, recorte_png, base_centro, largura_corpo, frac_corpo=662/755, curvatura_extra=0.0,
                 cor_tampa=(240, 236, 228), luz_esq=1.12, luz_dir=0.72, cor_luz=(255, 240, 224), sombra_dir=(0.9, -0.12),
                 sombra_forca=140, sombra_blur=None, sombra_escuro=0.4,
-                contato_elipse=0.12, contato_escuro=0.18, afunda=3, base_escurece=0.5, base_faixa=0.10, base_arco=0.045):
+                contato_elipse=0.12, contato_escuro=0.18, afunda=3, base_escurece=0.5, base_faixa=0.10, base_arco=0.045, grao=None):
     """Insere uma FOTO REAL recortada do produto (PNG com transparência, tampa e alça reais).
     largura_corpo: largura do corpo na cena, em px (medir contra o copo/tigela).
     frac_corpo: largura do corpo / largura do recorte (o recorte inclui a alça).
@@ -134,7 +134,7 @@ def insere_foto(cena, recorte_png, base_centro, largura_corpo, frac_corpo=662/75
     rc = Image.open(recorte_png).convert('RGBA') if isinstance(recorte_png, str) else recorte_png
     w = int(largura_corpo / frac_corpo); h = int(rc.height * w / rc.width)
     rc = rc.resize((w, h), Image.LANCZOS)
-    e = max(1, int(largura_corpo * curvatura_extra))
+    e = int(largura_corpo * curvatura_extra)
     # 1) curvatura extra (câmera mais alta): colunas do corpo descem em arco; tampa ganha topo em elipse
     out = Image.new('RGBA', (w, h + 2 * e), (0, 0, 0, 0))
     cx0 = 0; cw = int(largura_corpo)
@@ -143,7 +143,8 @@ def insere_foto(cena, recorte_png, base_centro, largura_corpo, frac_corpo=662/75
         dy = int(round(e * math.sqrt(max(0, 1 - u * u)))) if -1 <= u <= 1 else 0
         out.paste(rc.crop((x, 0, x + 1, h)), (x, e + dy))
     topo = Image.new('RGBA', out.size, (0, 0, 0, 0)); td = ImageDraw.Draw(topo)
-    td.ellipse((1, 0, cw - 2, 2 * e + 3), fill=cor_tampa + (255,))
+    if curvatura_extra > 0:  # só desenha topo extra quando há curvatura; senão vira uma linha solta
+        td.ellipse((1, 0, cw - 2, 2 * e + 3), fill=cor_tampa + (255,))
     out = Image.alpha_composite(topo, out) if False else Image.alpha_composite(out, Image.new('RGBA', out.size, (0,0,0,0)))
     base_alpha = out.split()[3]
     topo_alpha = topo.split()[3]
@@ -200,7 +201,18 @@ def insere_foto(cena, recorte_png, base_centro, largura_corpo, frac_corpo=662/75
     fundo = cena.crop((ox, oy, ox + rgb.width, oy + rgb.height)).filter(ImageFilter.GaussianBlur(8))
     borda = ImageChops.subtract(a, a.filter(ImageFilter.MinFilter(5))).filter(ImageFilter.GaussianBlur(1.5))
     rgb = Image.composite(Image.blend(rgb, fundo, 0.4), rgb, borda).filter(ImageFilter.GaussianBlur(0.5))
-    n = Image.effect_noise(rgb.size, 22).convert('RGB'); rgb = Image.blend(rgb, ImageChops.add(rgb, n, 2, -128), 0.12)
+    # grão: medido na própria cena (desvio do detalhe fino numa área perto do produto), nunca valor fixo
+    if grao is None:
+        import numpy as np
+        amostra = cena.crop((ox, max(0, oy - 60), ox + rgb.width, max(1, oy - 10))).convert('L')
+        det = np.asarray(amostra).astype(float) - np.asarray(amostra.filter(ImageFilter.GaussianBlur(1.5))).astype(float)
+        grao = float(det.std())
+    if grao > 0.5:
+        import numpy as np
+        ruido = np.random.default_rng(7).normal(0, grao, (rgb.height, rgb.width, 1))
+        ruido = np.asarray(Image.fromarray(np.clip(ruido[..., 0] * 4 + 128, 0, 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(0.6))).astype(float)
+        ruido = (ruido - 128) / 4
+        rgb = Image.fromarray(np.clip(np.asarray(rgb).astype(float) + ruido[..., None], 0, 255).astype(np.uint8))
     fin = rgb.convert('RGBA'); fin.putalpha(a)
     res = cena.convert('RGBA'); res.alpha_composite(fin, (ox, oy)); return res.convert('RGB')
 
@@ -235,3 +247,102 @@ def verifica_fidelidade(arte, recorte_png, caixa, limite=0.90):
     m = np.asarray(rc.split()[3].filter(ImageFilter.MinFilter(5))) > 200
     c = float(np.corrcoef(a[m], b[m])[0, 1])
     return c >= limite, round(c, 3)
+
+
+# ---------------------------------------------------------------------------------------------
+# Verificações de qualidade da inserção (docs/10-insercao-de-produto.md, seção "Catálogo de erros")
+# ---------------------------------------------------------------------------------------------
+
+def verifica_mascara(recorte_png, max_semitransp=0.06):
+    """Recorte limpo: uma peça só (sem ilhas de fundo soltas) e pouca borda semitransparente.
+    Pega: bloco de fundo junto da alça, pedaços soltos, halo largo. Retorna (aprovado, detalhes)."""
+    import numpy as np
+    rc = Image.open(recorte_png) if isinstance(recorte_png, str) else recorte_png
+    a = np.asarray(rc.split()[3]).astype(int)
+    solido = a > 128
+    # componentes conectados (4-vizinhança), sem scipy
+    lab = np.zeros(a.shape, int); n = 0; H, W = a.shape
+    for y0 in range(H):
+        for x0 in range(W):
+            if solido[y0, x0] and not lab[y0, x0]:
+                n += 1; pilha = [(y0, x0)]; lab[y0, x0] = n
+                while pilha:
+                    y, x = pilha.pop()
+                    for yy, xx in ((y+1, x), (y-1, x), (y, x+1), (y, x-1)):
+                        if 0 <= yy < H and 0 <= xx < W and solido[yy, xx] and not lab[yy, xx]:
+                            lab[yy, xx] = n; pilha.append((yy, xx))
+    tam = sorted([(lab == i).sum() for i in range(1, n + 1)], reverse=True)
+    ilhas = [t for t in tam[1:] if t > 20]
+    semi = ((a > 10) & (a < 245)).sum() / max(1, (a > 10).sum())
+    ok = (len(ilhas) == 0) and semi <= max_semitransp
+    return ok, {'pecas': n, 'ilhas_maiores_que_20px': len(ilhas), 'borda_semitransparente': round(float(semi), 3)}
+
+
+def verifica_contato(arte, cena, base_y, x0, x1, arco_px, min_escurece=0.30, pontos=7):
+    """Contato com a superfície: logo abaixo da borda de baixo (seguindo o arco), a superfície tem que
+    escurecer pelo menos min_escurece em TODOS os pontos, inclusive nas laterais.
+    base_y = y do ponto mais baixo da base; x0, x1 = laterais do corpo; arco_px = altura do arco em px."""
+    import numpy as np, math
+    A = np.asarray(arte.convert('L')).astype(float); C = np.asarray(cena.convert('L')).astype(float)
+    res = []
+    for i in range(pontos):
+        u = -0.92 + 1.84 * i / (pontos - 1)                      # evita a quina exata
+        x = int((x0 + x1) / 2 + u * (x1 - x0) / 2)
+        y = int(base_y - arco_px * (1 - math.sqrt(max(0, 1 - u * u)))) + 3
+        a = A[y:y + 4, x - 2:x + 3].mean(); c = C[y:y + 4, x - 2:x + 3].mean()
+        res.append(round(1 - a / max(c, 1), 2))
+    return min(res) >= min_escurece, res
+
+
+def verifica_halo(arte, recorte_posicionado, caixa, limite=18):
+    """Halo claro na borda: anel interno da borda mais claro que o lado de dentro E que o lado de fora."""
+    import numpy as np
+    x0, y0, x1, y1 = caixa
+    a = recorte_posicionado.split()[3].resize((x1 - x0, y1 - y0))
+    al = np.asarray(a) > 128
+    er = np.asarray(a.filter(ImageFilter.MinFilter(5))) > 128
+    di = np.asarray(a.filter(ImageFilter.MaxFilter(5))) > 128
+    L = np.asarray(arte.convert('L').crop(caixa)).astype(float)
+    borda = al & ~er; dentro = er & ~np.asarray(a.filter(ImageFilter.MinFilter(13)).point(lambda v: 255 if v > 128 else 0)).astype(bool)
+    fora = di & ~al
+    b, d, f = L[borda].mean(), L[dentro].mean(), L[fora].mean()
+    halo = b - max(d, f)
+    return halo < limite, round(float(halo), 1)
+
+
+def folha_inspecao(arte, caixa, saida, zoom=3, verificacoes=None):
+    """Folha de inspeção obrigatória: zoom nas 4 regiões onde os erros aparecem (topo/tampa, lado esquerdo,
+    lado direito/acessórios, base/contato) + a arte no tamanho do feed + resultado das verificações.
+    A revisão humana olha ESTA folha antes de aprovar (docs/10, seção 8)."""
+    import os
+    from PIL import ImageFont
+    fonte = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets', 'fonts', 'Poppins-Bold.ttf')
+    f = ImageFont.truetype(fonte, 22); fp = ImageFont.truetype(fonte, 18)
+    x0, y0, x1, y1 = caixa; w, h = x1 - x0, y1 - y0
+    regioes = [
+        ('1. TOPO / TAMPA', (x0 - w * 0.08, y0 - h * 0.06, x1 + w * 0.08, y0 + h * 0.22)),
+        ('2. BASE / CONTATO', (x0 - w * 0.12, y1 - h * 0.16, x1 + w * 0.12, y1 + h * 0.10)),
+        ('3. LADO ESQUERDO', (x0 - w * 0.15, y0 + h * 0.45, x0 + w * 0.30, y1 + h * 0.06)),
+        ('4. LADO DIREITO / ACESSÓRIOS', (x1 - w * 0.30, y0 - h * 0.04, x1 + w * 0.15, y0 + h * 0.55)),
+    ]
+    T = 620
+    tiles = []
+    for nome, (a, b, c, d) in regioes:
+        t = arte.crop(tuple(int(v) for v in (a, b, c, d)))
+        t = t.resize((t.width * zoom, t.height * zoom), Image.LANCZOS); t.thumbnail((T, T)); tiles.append((nome, t))
+    feed = arte.copy(); feed.thumbnail((T, int(T * 1.25)))
+    W = 2 * T + 3 * 20; H = 2 * (T + 50) + feed.height + 120
+    folha = Image.new('RGB', (W + T + 20, max(H, 2 * (T + 50) + 40)), 'white'); fd = ImageDraw.Draw(folha)
+    for i, (nome, t) in enumerate(tiles):
+        cx, cy = 20 + (i % 2) * (T + 20), 20 + (i // 2) * (T + 50)
+        fd.text((cx, cy), nome, font=f, fill=(150, 0, 0)); folha.paste(t, (cx, cy + 32))
+    fx = 2 * T + 60
+    fd.text((fx, 20), 'TAMANHO DO FEED', font=f, fill=(150, 0, 0)); folha.paste(feed, (fx, 52))
+    if verificacoes:
+        y = 52 + feed.height + 20
+        for nome, ok, valor in verificacoes:
+            fd.text((fx, y), f"{'OK ' if ok else 'FALHOU'}  {nome}: {valor}", font=fp, fill=(0, 110, 0) if ok else (190, 0, 0)); y += 28
+    from PIL import ImageOps
+    bb = ImageOps.invert(folha.convert('L')).getbbox()
+    if bb: folha = folha.crop((0, 0, min(folha.width, bb[2] + 20), min(folha.height, bb[3] + 20)))
+    folha.save(saida, quality=90); return saida
