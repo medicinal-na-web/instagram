@@ -28,6 +28,33 @@ Tudo o que sai daqui passa pelas regras do projeto: sem dados de clientes (LGPD)
 
 ## 2. Temas
 
+### 2.0 Ativos foco (repetição planejada no feed e nos stories)
+
+Pedido do Ricardo em 08/11/2026: alguns ativos precisam ser trabalhados **com mais insistência**, aparecendo de forma repetida no feed e nos stories até virarem referência do perfil. A repetição é **planejada**: o mesmo ativo volta com **ângulos e formatos diferentes**, nunca com o mesmo post de novo.
+
+**Lista de ativos foco (a confirmar pelo Ricardo):**
+
+| Ativo / produto | Por que é foco | Tema foco ligado | Meta por semana | Situação |
+|---|---|---|---|---|
+| **Peptistrong** | produto que mais rendeu conteúdo em 2025 e 2026; campanha de novembro | perda de massa magra | 1 feed + 3 stories | a confirmar |
+| **Keranat** | "5 motivos para tomar Keranat" teve 109 interações em 2026 | queda de cabelo | 1 feed + 3 stories | a confirmar |
+| **GHK-Cu** | tendência do mercado magistral e do luxo | pele / longevidade | 1 feed a cada 15 dias + 2 stories por semana | a confirmar |
+| (adicionar) | | | | |
+
+**Regras da repetição**
+
+1. **Rodízio de ângulos** para cada ativo: o que é · para quem é · mito ou verdade · como usar na rotina · bastidor (manipulação, controle de qualidade) · especialista ("hype ou realidade?") · pergunta da semana ("comente PALAVRA") · comparação didática (ex.: Whey × Peptistrong).
+2. **Rodízio de formatos** (modelos do `09-padrao-visual.md`): frase de marca, pergunta-gancho, número em marinho, carrossel de texto, reels com pessoa, Radar Magistral. O mesmo formato não se repete para o mesmo ativo em menos de 2 semanas.
+3. **Stories mantêm o ativo presente** entre os posts do feed: enquete, caixa de perguntas, bastidor rápido, "post novo no feed".
+4. **Na grade, o mesmo ativo não aparece em dois quadrados vizinhos.**
+5. Toda copy de ativo passa pela **revisão farmacêutica**. Repetir o tema não autoriza repetir alegação.
+
+**Controle de inserções** (atualizar a cada publicação):
+
+| Semana | Ativo | Feed (formato · ângulo) | Stories (quantos · tipo) | Observação |
+|---|---|---|---|---|
+| — | — | — | — | — |
+
 ### 2.1 Temas foco (linha editorial que polemiza, `09-padrao-visual.md` seção 13)
 
 | Tema | Peso | Fontes que alimentam | Produtos da Medicinal ligados |
@@ -74,3 +101,4 @@ A preencher depois da coleta: os 20 mais vendidos por mês, quais têm página n
 | Data | O que mudou |
 |---|---|
 | 08/11/2026 | Documento criado com as fontes F1 a F10 e os temas iniciais (pedido do Ricardo). |
+| 08/11/2026 | Seção 2.0 **Ativos foco** com repetição planejada no feed e nos stories, regras de rodízio e controle de inserções. Lista inicial a confirmar: Peptistrong, Keranat, GHK-Cu. |
