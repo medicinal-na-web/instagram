@@ -128,6 +128,38 @@ Pedido do Ricardo em 08/11/2026. Tomadas de vídeo da Medicinal sugeridas aqui; 
 
 Todo vídeo segue o padrão visual (`09`): luz natural, tons quentes, gente real, logo oficial e legenda curta na tela. A IA pode gerar **vídeo de ambiente** (textura, luz, matéria-prima), mas **nunca** pessoa da equipe, cliente ou profissional de saúde.
 
+### 2.8 Receitas com produtos da nossa linha (série fixa do feed)
+
+Pedido do Ricardo em 08/11/2026: "uma temática incrível para o feed". Receita é conteúdo que as pessoas **salvam e compartilham**, mostra o produto **em uso** (sem cara de anúncio) e combina com o padrão visual (luz natural, bancada, mãos reais).
+
+**Formato da série**
+- **1 receita por semana no feed**, alternando:
+  - **reels de preparo** (modelo da P1 Piña Colada, 15–20 s, gravação real com a lata real);
+  - **carrossel de receita**: capa no modelo D, depois ingredientes, passo a passo e o "porquê" do ativo, fechando com "comente RECEITA".
+- **Stories de apoio:** enquete ("qual sabor na próxima?"), "fiz a receita" (repost **só com autorização**), caixa de perguntas.
+- **Nome fixo da série** para virar referência, por exemplo "Receita da semana" ou "Cozinha Medicinal" (Ricardo escolhe).
+- **"Comente RECEITA"** → envio de um PDF com mais 3 receitas (quando houver a automação, que ficou para depois).
+
+**Ideias iniciais** (confirmar produtos no catálogo, F2, e com a farmacêutica)
+
+| Produto | Receitas possíveis | Observação |
+|---|---|---|
+| Peptistrong Piña Colada | smoothie (P1), picolé, bowl tropical com abacaxi e coco | P1 já com roteiro |
+| Peptistrong Chocolate Belga | mingau de aveia, overnight oats, shake de banana com cacau, "chocolate quente" morno | **confirmar se pode aquecer** (estabilidade dos peptídeos) |
+| PeptiPump | bebida pré-treino gelada com frutas vermelhas | sem cafeína: bom para treino à noite |
+| Gengibisco (chá) | chá gelado de hibisco com limão e gengibre, mocktail sem açúcar | linguagem de bem-estar, sem prometer "drenagem" |
+| Creatina (pó, gomas, caramelo) | creatina no suco ou na vitamina, lanche pré-treino | confirmar a linha atual |
+| Maxsolve (CoQ10 em gotas) | água saborizada, suco verde | dissolve na água: bom visual em vídeo |
+| Lançamentos | receita de estreia de cada lançamento | entra na sequência de lançamento (2.6) |
+
+**Regras**
+- O produto é **ingrediente**, não promessa: nada de "receita para ganhar massa", "para emagrecer" ou "que desincha".
+- **Dose da receita = dose de uso** do produto (uma porção). Nada de "dobre a dose".
+- **Calor:** só aquecer quando a farmacêutica confirmar que o ativo aguenta. Na dúvida, receita fria.
+- Avisar alergênicos quando houver (leite, castanhas, glúten).
+- Fotos e vídeos **reais** do produto, como na regra da seção 12 do `09` e no `10`. A IA só gera ambiente e ingredientes, nunca a embalagem.
+- Revisão farmacêutica de cada receita antes de aprovar.
+
 ## 3. Banco de pautas
 
 Temas aproveitados da semana 09–15/11 descartada (`grade/_descartado/semana-2026-11-09/`), **reescritos para o padrão novo** (`09-padrao-visual.md`) e para a linha que polemiza (seção 13 do `09`).
@@ -179,6 +211,7 @@ A IA (Runway) pode ajudar só em tomadas **sem a lata**, como o abacaxi sendo co
 | Data | O que mudou |
 |---|---|
 | 08/11/2026 | Documento criado com as fontes F1 a F10 e os temas iniciais (pedido do Ricardo). |
+| 08/11/2026 | Seção 2.8 **Receitas com produtos da linha**: série fixa semanal no feed (reels de preparo e carrossel), ideias iniciais e regras. |
 | 08/11/2026 | Semana 09–15/11 descartada; temas aproveitados viraram as pautas P1 a P10, com P1 (receita Piña Colada em reels) como prioridade e roteiro pronto. |
 | 08/11/2026 | Seções 2.6 **Produtos de varejo e lançamentos** e 2.7 **Vídeos institucionais** (10 tomadas sugeridas, entram na grade após aprovação). |
 | 08/11/2026 | Seção 2.0 **Ativos foco** com repetição planejada no feed e nos stories, regras de rodízio e controle de inserções. Lista inicial a confirmar: Peptistrong, Keranat, GHK-Cu. |
