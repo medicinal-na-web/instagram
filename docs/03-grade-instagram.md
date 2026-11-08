@@ -72,9 +72,9 @@ flowchart LR
 
 24 blocos em **Rascunho**, para revisar e aprovar na grade:
 - **Feed (18h):** seg 09/11 Peptistrong (carrossel, pilar "fava: proteína vegetal"), qua 11/11 Maxsolve (CoQ10 em gotas, imagem), sex 13/11 PeptiPump (carrossel, sem estimulante).
-- **Stories:** 3 por dia (9h, 13h, 19h), seguindo os pilares do Peptistrong diário da semana (`(repositório site-medicinalnaweb) docs/campanha/plano-black-friday.md`, seção 4), mais apoio aos posts do feed e institucional (ISO 9001, orientação farmacêutica).
+- **Stories:** 3 por dia (9h, 13h, 19h), seguindo os pilares do Peptistrong diário da semana (`docs/04-peptistrong-black-friday.md`), mais apoio aos posts do feed e institucional (ISO 9001, orientação farmacêutica).
 - Fontes dos textos: copy do E3 (Peptistrong), post do PeptiPump já publicado em 30/07 e descrição pública do Maxsolve (Coenzima Q10 em nanoemulsão). Maxsolve e PeptiPump são **insumos do FC** (14124 e 17267), sem página no site: chamada para o WhatsApp.
-- Artes geradas por script (`grade/semana-2026-11-09/gera2.py` + `pecas2.json`), folhas de contato na mesma pasta.
+- Artes geradas por script (v1: `grade/semana-2026-11-09/gera.py` + `pecas.json`; v2 atual: `gera2.py` + `pecas2.json`), folhas de contato na mesma pasta.
 - **Revisão farmacêutica** antes de aprovar, principalmente Maxsolve (dose) e PeptiPump.
 
 ### Identidade visual v2 (07/11/2026)

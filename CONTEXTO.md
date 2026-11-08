@@ -48,6 +48,11 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 6. Revisão farmacêutica da semana 09–15/11 antes de aprovar, principalmente Maxsolve e PeptiPump.
 7. Migrar a grade para o PortalSiteMedicinal quando o endereço voltar.
 
+## Material de campanha
+
+- **Peptistrong diário** (02 a 30/11) e as regras de copy do Peptistrong estão em `docs/04-peptistrong-black-friday.md`. Ainda é rascunho para aprovação.
+- Histórico completo do chat do Instagram: `docs/05-historico.md`.
+
 ## Decisões tomadas
 
 - Acesso por **duas APIs**: login do Instagram para publicar e ler; login do Facebook para anúncios.
