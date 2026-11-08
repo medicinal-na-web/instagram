@@ -4,6 +4,24 @@ Criado em 08/11/2026 a pedido do Ricardo. **Atualizar sempre que uma fonte for c
 
 Tudo o que sai daqui passa pelas regras do projeto: sem dados de clientes (LGPD), sem alegação de cura ou efeito, sem medicamento sob prescrição como oferta, revisão farmacêutica antes de aprovar (`CLAUDE.md`, `09-padrao-visual.md` seção 13).
 
+## 0. Pirâmide de temas (prioridade)
+
+![Pirâmide de temas](img/piramide-temas.png)
+
+Pedido do Ricardo em 08/11/2026: temas mais importantes no topo, intermediários no meio e gerais na base. **Rascunho para aprovação.**
+
+| Camada | Temas | Peso no feed | Numa semana de 4 a 5 posts |
+|---|---|---|---|
+| **Topo**: prioridade máxima | Ativos foco (Peptistrong, Keranat, GHK-Cu, a confirmar) · temas que polemizam (queda de cabelo em foco, perda de massa magra, zinco, visão) · lançamentos | ~45% | 2 posts |
+| **Meio**: reforço da marca | Receitas com produtos da linha (2.8) · produtos de varejo (2.6) · vídeos institucionais (2.7) · tendências magistrais e "O ativo por trás de…" (2.2, 2.3) | ~35% | 1 a 2 posts |
+| **Base**: temas gerais | Datas e sazonalidade · eventos e parceiros · bem-estar geral · perguntas do balcão · inspiração de luxo · bastidores do dia a dia · avisos da loja | ~20% | 1 post |
+
+**Como usar:**
+- Toda grade semanal é montada **de cima para baixo**: primeiro os posts do topo, depois os do meio e, por último, a base.
+- Um tema pode cumprir duas camadas. Uma receita com Peptistrong, por exemplo, é meio (receita) **e** topo (ativo foco); conta para o topo.
+- Os **stories** seguem a mesma pirâmide, mas sustentam principalmente o topo: enquetes e perguntas sobre os ativos foco.
+- Revisar a pirâmide **todo mês** com os números do perfil (F7) e os mais vendidos (F1).
+
 ## 1. Fontes de informação
 
 | # | Fonte | O que extrair | Como coletar | Frequência | Situação |
@@ -211,6 +229,7 @@ A IA (Runway) pode ajudar só em tomadas **sem a lata**, como o abacaxi sendo co
 | Data | O que mudou |
 |---|---|
 | 08/11/2026 | Documento criado com as fontes F1 a F10 e os temas iniciais (pedido do Ricardo). |
+| 08/11/2026 | Seção 0 **Pirâmide de temas** (topo ~45%, meio ~35%, base ~20%), com imagem em `docs/img/piramide-temas.png`. |
 | 08/11/2026 | Seção 2.8 **Receitas com produtos da linha**: série fixa semanal no feed (reels de preparo e carrossel), ideias iniciais e regras. |
 | 08/11/2026 | Semana 09–15/11 descartada; temas aproveitados viraram as pautas P1 a P10, com P1 (receita Piña Colada em reels) como prioridade e roteiro pronto. |
 | 08/11/2026 | Seções 2.6 **Produtos de varejo e lançamentos** e 2.7 **Vídeos institucionais** (10 tomadas sugeridas, entram na grade após aprovação). |
