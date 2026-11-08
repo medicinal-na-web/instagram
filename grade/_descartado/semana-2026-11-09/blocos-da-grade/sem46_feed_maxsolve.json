@@ -1,0 +1,36 @@
+{
+  "atualizado_em": "2026-11-07T22:51:24.794379+00:00",
+  "canal": "feed",
+  "criado_em": "2026-11-07T22:27:05.245118+00:00",
+  "data": "2026-11-11",
+  "erro_publicacao": "",
+  "formato": "imagem",
+  "hashtags": "#coenzimaq10 #coq10 #maxsolve #bemestar #farmaciademanipulacao #medicinal #maringa",
+  "historico": [
+    {
+      "acao": "criado pelo Claude (sugestão da semana 09-15/11 para teste)",
+      "quando": "2026-11-07T22:27:05.245118+00:00",
+      "quem": null
+    },
+    {
+      "acao": "arte refeita: identidade azul-marinho e foto",
+      "quando": "2026-11-07T22:51:24.794379+00:00",
+      "quem": null
+    }
+  ],
+  "hora": "18:00",
+  "legenda": "Coenzima Q10 em gotas, que se mistura na água. 💧\n\nO Maxsolve é uma Coenzima Q10 em nanoemulsão, solúvel em água. Assim fica fácil incluir na rotina: algumas gotas na água, no suco ou na vitamina.\n\nA CoQ10 é uma substância presente nas nossas células e participa da produção de energia.\n\nA quantidade certa para você a nossa equipe farmacêutica orienta. Chama a gente no WhatsApp!\n\nSuplementos alimentares não substituem uma alimentação equilibrada. Uso com orientação profissional.",
+  "midia": [
+    {
+      "assetId": "a39aa3e320f34326553abcbf8a4f451d",
+      "origem": "arte Claude v2 (foto Runway)",
+      "tipo": "imagem",
+      "url": "/_blob/a39aa3e320f34326553abcbf8a4f451d"
+    }
+  ],
+  "prompt_imagem": "",
+  "publicando_em": null,
+  "roteiro_video": "",
+  "status": "rascunho",
+  "titulo": "Maxsolve — CoQ10 em gotas"
+}

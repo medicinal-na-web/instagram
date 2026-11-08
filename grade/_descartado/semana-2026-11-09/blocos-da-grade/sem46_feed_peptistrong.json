@@ -1,0 +1,48 @@
+{
+  "atualizado_em": "2026-11-07T22:51:24.794379+00:00",
+  "canal": "feed",
+  "criado_em": "2026-11-07T22:27:05.245118+00:00",
+  "data": "2026-11-09",
+  "erro_publicacao": "",
+  "formato": "carrossel",
+  "hashtags": "#peptistrong #proteinavegetal #massamuscular #saudemuscular #farmaciademanipulacao #medicinal #maringa",
+  "historico": [
+    {
+      "acao": "criado pelo Claude (sugestão da semana 09-15/11 para teste)",
+      "quando": "2026-11-07T22:27:05.245118+00:00",
+      "quem": null
+    },
+    {
+      "acao": "arte refeita: identidade azul-marinho e foto",
+      "quando": "2026-11-07T22:51:24.794379+00:00",
+      "quem": null
+    }
+  ],
+  "hora": "18:00",
+  "legenda": "Músculo também se cuida com o que vem da fava. 🌱\n\nO Peptistrong da Medicinal é feito com PeptiStrong™, um ingrediente com peptídeos bioativos da proteína da fava (Vicia faba), uma fonte vegetal.\n\n✔️ Dose diária pequena: 2,4 g do ingrediente\n✔️ Origem vegetal\n✔️ Sabores Chocolate Belga e Piña Colada (pote de 300 g)\n\nMovimento regular e proteína suficiente são os pilares para cuidar da massa muscular em todas as fases da vida. E dá para incluir no shake, no mingau ou no smoothie.\n\nConheça no site: medicinalnaweb.com.br/peptistrong (link na bio)\n\nSuplementos alimentares não substituem uma alimentação equilibrada e hábitos de vida saudáveis. Em caso de dúvida, fale com a nossa equipe farmacêutica.",
+  "midia": [
+    {
+      "assetId": "aea83f7e01f81c9399420322c2b2c47d",
+      "origem": "arte Claude v2 (foto Runway)",
+      "tipo": "imagem",
+      "url": "/_blob/aea83f7e01f81c9399420322c2b2c47d"
+    },
+    {
+      "assetId": "d48150da05f9f0f22ac7ca0cfc2fa6ae",
+      "origem": "arte Claude v2 (foto Runway)",
+      "tipo": "imagem",
+      "url": "/_blob/d48150da05f9f0f22ac7ca0cfc2fa6ae"
+    },
+    {
+      "assetId": "e12b6059e00addedf99256019f9f6585",
+      "origem": "arte Claude v2 (foto Runway)",
+      "tipo": "imagem",
+      "url": "/_blob/e12b6059e00addedf99256019f9f6585"
+    }
+  ],
+  "prompt_imagem": "",
+  "publicando_em": null,
+  "roteiro_video": "",
+  "status": "rascunho",
+  "titulo": "Peptistrong — fava, proteína vegetal"
+}

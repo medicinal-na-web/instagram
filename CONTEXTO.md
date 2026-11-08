@@ -35,7 +35,7 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 
 - **Instagram:** publicação e insights validados. Story de Outubro Rosa publicado em 22/10.
 - **Meta Ads:** acesso validado. Nada anunciado ainda.
-- **Grade:** 18 posts espelhados (publicados) e 24 blocos da semana 09–15/11 em **Rascunho**, com fotos do Runway e identidade azul-marinho.
+- **Grade:** 18 posts espelhados (publicados). A semana 09–15/11 foi descartada em 08/11; a próxima grade sai no padrão novo.
 - **Publicação automática:** rotina `grade-publicacao` (de hora em hora, 8h–22h) publica blocos **Aprovado** com data/hora vencidos. **Está sem o conector n8n**: precisa ser adicionado em claude.ai → Rotinas, senão não publica nada.
 - **Vídeo:** botão "Gerar vídeo no Runway" no editor. Ainda não foi testado. Saldo do Runway: **20 créditos** em 08/11 (imagem ou edição custa 20; vídeo gasta bem mais). Precisa recarregar para produzir a semana.
 - **Canva:** créditos de IA acabaram em 07/11. O botão "Gerar imagem no Canva" falha até renovar.
@@ -60,7 +60,7 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 
 - **Padrão visual proposto** (base 2º semestre de 2025 + marinho `#102140`): `docs/09-padrao-visual.md`. Fontes gratuitas em `grade/assets/fonts/` (Playfair Display, Poppins, IBM Plex Mono, Archivo Black).
 - **Decisão de 08/11:** sem rosto da marca e sem sessão de fotos por ora, as imagens serão geradas por IA, com as regras da seção 11 do padrão. Automação "comente PALAVRA" (ManyChat) fica para depois.
-- **Grade (08/11):** as 24 artes da semana 09–15/11 foram refeitas com o logo oficial e trocadas na Grade (continuam Rascunho). Marca sempre por `grade/marca.py`.
+- **Grade (08/11):** a semana 09–15/11 foi **descartada** pelo Ricardo (fora do padrão novo) e os 24 blocos foram removidos da Grade (cópia em `grade/_descartado/`). Pautas aproveitadas: P1 a P10 em `docs/12`, com prioridade para a receita Piña Colada em reels. Marca sempre por `grade/marca.py`.
 - **Teste do padrão com IA** (5 artes): `grade/teste-padrao-2025/`. Ricardo aprovou a direção. A arte com produto (D) **não passou**: virou o procedimento `docs/10-insercao-de-produto.md`. Para a 1ª arte com produto: medidas com régua e 6 fotos do Peptistrong (3 ângulos × luz dos dois lados).
 - **Linha editorial (08/11):** polemizar os temas; **queda de cabelo é o foco**, depois perda de massa magra, falta de zinco e visão (seção 13 do padrão, com os limites de saúde).
 

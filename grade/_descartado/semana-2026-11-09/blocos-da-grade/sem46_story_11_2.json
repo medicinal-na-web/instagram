@@ -1,0 +1,36 @@
+{
+  "atualizado_em": "2026-11-07T22:51:24.794379+00:00",
+  "canal": "story",
+  "criado_em": "2026-11-07T22:27:05.245118+00:00",
+  "data": "2026-11-11",
+  "erro_publicacao": "",
+  "formato": "imagem",
+  "hashtags": "",
+  "historico": [
+    {
+      "acao": "criado pelo Claude (sugestão da semana 09-15/11 para teste)",
+      "quando": "2026-11-07T22:27:05.245118+00:00",
+      "quem": null
+    },
+    {
+      "acao": "arte refeita: identidade azul-marinho e foto",
+      "quando": "2026-11-07T22:51:24.794379+00:00",
+      "quem": null
+    }
+  ],
+  "hora": "13:00",
+  "legenda": "Maxsolve: CoQ10 em gotas\nSolúvel em água, fácil de incluir na rotina. Confere o post",
+  "midia": [
+    {
+      "assetId": "99481d3604fdbbbc6df0238a6b414419",
+      "origem": "arte Claude v2 (foto Runway)",
+      "tipo": "imagem",
+      "url": "/_blob/99481d3604fdbbbc6df0238a6b414419"
+    }
+  ],
+  "prompt_imagem": "",
+  "publicando_em": null,
+  "roteiro_video": "",
+  "status": "rascunho",
+  "titulo": "Qua 11 · Maxsolve: CoQ10 em gotas"
+}

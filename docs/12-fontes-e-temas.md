@@ -130,14 +130,55 @@ Todo vídeo segue o padrão visual (`09`): luz natural, tons quentes, gente real
 
 ## 3. Banco de pautas
 
-| Data | Pauta | Tema | Fonte | Formato | Situação |
-|---|---|---|---|---|---|
-| — | — | — | — | — | — |
+Temas aproveitados da semana 09–15/11 descartada (`grade/_descartado/semana-2026-11-09/`), **reescritos para o padrão novo** (`09-padrao-visual.md`) e para a linha que polemiza (seção 13 do `09`).
+
+| # | Pauta | Tema / ativo foco | Formato no padrão novo | Situação |
+|---|---|---|---|---|
+| P1 | **Receita Piña Colada com Peptistrong**: vídeo mostrando o preparo | Peptistrong (ativo foco) | **reels no feed** (roteiro abaixo) | prioridade do Ricardo |
+| P2 | "Proteína engorda?" | massa magra | mito ou verdade: modelo C (pergunta-gancho) + carrossel F; "comente MITO" | a produzir |
+| P3 | Músculo depois dos 30/40 | massa magra (tema foco) | modelo E (número em marinho), com fonte do dado | a produzir |
+| P4 | A fava por trás do Peptistrong | Peptistrong | série Radar Magistral (modelo B), macro da fava | a produzir |
+| P5 | Treino à noite sem estimulante | PeptiPump | pergunta-gancho: "Seu pré-treino está roubando o seu sono?" | a produzir |
+| P6 | CoQ10 em gotas que dissolve na água | Maxsolve | "o ativo por trás de" / Radar Magistral; gota caindo no copo em vídeo curto | a produzir |
+| P7 | Qualidade ISO 9001 | institucional | vídeo institucional V3 | aguarda aprovação dos vídeos |
+| P8 | "Pergunte à farmacêutica" | todos | série de vídeos V5 + caixa de perguntas nos stories | aguarda aprovação dos vídeos |
+| P9 | "Posso tomar proteína todo dia?" | massa magra | carrossel de texto (modelo F) | a produzir |
+| P10 | Peptistrong no café da manhã de quem acorda cedo | Peptistrong | reels de rotina | a produzir |
+
+**Descartados de vez** (genéricos, com cara de IA): "Semana nova, hábito novo", "Água, movimento e descanso", "Tem mais conteúdo por aqui", "Sua fórmula, do seu jeito". O "Kits com condição especial" só volta com uma oferta aprovada pelo comercial.
+
+### P1: roteiro do reels "Piña Colada com Peptistrong"
+
+**Objetivo:** mostrar o preparo de verdade, em ritmo de receita, com a lata real do Peptistrong Piña Colada.
+
+**Gravação: real** (cozinha ou bancada clara com luz de janela, celular na vertical, 4K/30 fps). Motivos:
+- a lata aparece **em movimento** (mão pegando, abrindo, dosando), e vídeo de IA deforma rótulo e embalagem (`11-ferramentas`);
+- mãos e ingredientes reais passam por foto.
+
+A IA (Runway) pode ajudar só em tomadas **sem a lata**, como o abacaxi sendo cortado ou o gelo caindo, se faltar alguma.
+
+| Tempo | Tomada (vertical 9:16, câmera levemente de cima) | Texto na tela (fonte do padrão) |
+|---|---|---|
+| 0–2 s | Copo pronto, gotas escorrendo, luz de janela. Gancho | "Piña Colada… *proteica*?" (Playfair, itálico) |
+| 2–4 s | Mão pega a lata de Peptistrong Piña Colada da bancada, rótulo de frente | "1 dose de Peptistrong Piña Colada" |
+| 4–6 s | Colher dosadora despeja o pó no liquidificador (close) | — |
+| 6–8 s | Leite de coco sendo despejado (200 ml) | "200 ml de leite de coco" |
+| 8–10 s | Pedaços de abacaxi e gelo caindo no copo do liquidificador | "3 pedaços de abacaxi + gelo" |
+| 10–12 s | Liquidificador batendo (corte rápido, som real) | — |
+| 12–15 s | Despeja no copo, abacaxi na borda, lata ao lado, desfocada | "café da manhã ou pós-treino" |
+| 15–17 s | Fim: copo + lata, logo oficial pequeno no canto | "Comente **RECEITA** que mandamos mais 3" |
+
+- **Áudio:** som ambiente real (liquidificador, gelo) + trilha leve.
+- **Capa do reels:** modelo D, com o título "Piña Colada *proteica*" sobre o frame do copo pronto.
+- **Legenda** (rascunho): gancho na 1ª linha, receita completa, "dose e uso com orientação profissional", "Comente RECEITA", 3–6 hashtags.
+- **Regras:** sem prometer resultado (ganho de massa e afins); Peptistrong como parte da rotina; revisão farmacêutica; checar no comercial se o sabor Piña Colada está em estoque e no site.
+- **Pendente:** quem grava e onde. Se for com a equipe, é preciso autorização de imagem das mãos e de quem aparecer.
 
 ## 4. Registro de atualizações
 
 | Data | O que mudou |
 |---|---|
 | 08/11/2026 | Documento criado com as fontes F1 a F10 e os temas iniciais (pedido do Ricardo). |
+| 08/11/2026 | Semana 09–15/11 descartada; temas aproveitados viraram as pautas P1 a P10, com P1 (receita Piña Colada em reels) como prioridade e roteiro pronto. |
 | 08/11/2026 | Seções 2.6 **Produtos de varejo e lançamentos** e 2.7 **Vídeos institucionais** (10 tomadas sugeridas, entram na grade após aprovação). |
 | 08/11/2026 | Seção 2.0 **Ativos foco** com repetição planejada no feed e nos stories, regras de rodízio e controle de inserções. Lista inicial a confirmar: Peptistrong, Keranat, GHK-Cu. |

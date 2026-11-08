@@ -1,0 +1,36 @@
+{
+  "atualizado_em": "2026-11-07T22:51:24.794379+00:00",
+  "canal": "story",
+  "criado_em": "2026-11-07T22:27:05.245118+00:00",
+  "data": "2026-11-10",
+  "erro_publicacao": "",
+  "formato": "imagem",
+  "hashtags": "",
+  "historico": [
+    {
+      "acao": "criado pelo Claude (sugestão da semana 09-15/11 para teste)",
+      "quando": "2026-11-07T22:27:05.245118+00:00",
+      "quem": null
+    },
+    {
+      "acao": "arte refeita: identidade azul-marinho e foto",
+      "quando": "2026-11-07T22:51:24.794379+00:00",
+      "quem": null
+    }
+  ],
+  "hora": "09:00",
+  "legenda": "Smoothie Piña Colada proteico\n1 dose de Peptistrong Piña Colada\n200 ml de leite de coco\n3 pedaços de abacaxi e gelo",
+  "midia": [
+    {
+      "assetId": "2ffd5e70e487b696b95fe866b6a0a852",
+      "origem": "arte Claude v2 (foto Runway)",
+      "tipo": "imagem",
+      "url": "/_blob/2ffd5e70e487b696b95fe866b6a0a852"
+    }
+  ],
+  "prompt_imagem": "",
+  "publicando_em": null,
+  "roteiro_video": "",
+  "status": "rascunho",
+  "titulo": "Ter 10 · Smoothie Piña Colada proteico"
+}

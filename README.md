@@ -17,7 +17,7 @@ Projeto do Instagram da Medicinal (Maringá/PR): grade de conteúdo, artes, aces
 - [`docs/10-insercao-de-produto.md`](docs/10-insercao-de-produto.md): **procedimento obrigatório** para colocar embalagem real em cena de IA (medidas, fotos, cena sob medida, verificações automáticas).
 - [`docs/11-ferramentas-imagem-video.md`](docs/11-ferramentas-imagem-video.md): avaliação das ferramentas de imagem e vídeo e plano de teste.
 - [`docs/12-fontes-e-temas.md`](docs/12-fontes-e-temas.md): **fontes de informação e temas para conteúdo** (documento vivo, atualizar sempre).
-- [`grade/`](grade/): código da grade (`grade-instagram.html`) e os geradores das artes (`semana-2026-11-09/`: `gera.py` v1 por produto, `gera2.py` v2 azul-marinho com fotos).
+- [`grade/`](grade/): código da grade (`grade-instagram.html`) e os geradores das artes (`_descartado/semana-2026-11-09/`: `gera.py` v1 por produto, `gera2.py` v2 azul-marinho com fotos).
 
 ## Regras que valem sempre
 

@@ -1,0 +1,36 @@
+{
+  "atualizado_em": "2026-11-07T22:51:24.794379+00:00",
+  "canal": "story",
+  "criado_em": "2026-11-07T22:27:05.245118+00:00",
+  "data": "2026-11-12",
+  "erro_publicacao": "",
+  "formato": "imagem",
+  "hashtags": "",
+  "historico": [
+    {
+      "acao": "criado pelo Claude (sugestão da semana 09-15/11 para teste)",
+      "quando": "2026-11-07T22:27:05.245118+00:00",
+      "quem": null
+    },
+    {
+      "acao": "arte refeita: identidade azul-marinho e foto",
+      "quando": "2026-11-07T22:51:24.794379+00:00",
+      "quem": null
+    }
+  ],
+  "hora": "13:00",
+  "legenda": "Proteína não engorda por si só\nO que pesa é o total de calorias do dia. A proteína ajuda a manter a saciedade e é importante para os músculos.",
+  "midia": [
+    {
+      "assetId": "17302011ab51d08111e62f86685e280b",
+      "origem": "arte Claude v2 (foto Runway)",
+      "tipo": "imagem",
+      "url": "/_blob/17302011ab51d08111e62f86685e280b"
+    }
+  ],
+  "prompt_imagem": "",
+  "publicando_em": null,
+  "roteiro_video": "",
+  "status": "rascunho",
+  "titulo": "Qui 12 · Proteína não engorda por si só"
+}

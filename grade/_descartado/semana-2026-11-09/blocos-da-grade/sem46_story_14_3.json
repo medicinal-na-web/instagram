@@ -1,0 +1,36 @@
+{
+  "atualizado_em": "2026-11-07T22:51:24.794379+00:00",
+  "canal": "story",
+  "criado_em": "2026-11-07T22:27:05.245118+00:00",
+  "data": "2026-11-14",
+  "erro_publicacao": "",
+  "formato": "imagem",
+  "hashtags": "",
+  "historico": [
+    {
+      "acao": "criado pelo Claude (sugestão da semana 09-15/11 para teste)",
+      "quando": "2026-11-07T22:27:05.245118+00:00",
+      "quem": null
+    },
+    {
+      "acao": "arte refeita: identidade azul-marinho e foto",
+      "quando": "2026-11-07T22:51:24.794379+00:00",
+      "quem": null
+    }
+  ],
+  "hora": "19:00",
+  "legenda": "Sua fórmula, do seu jeito\nManipulação com orientação farmacêutica e qualidade certificada.\nmedicinalnaweb.com.br",
+  "midia": [
+    {
+      "assetId": "fc6e8ae15b3ed246c454265f0d629b5c",
+      "origem": "arte Claude v2 (foto Runway)",
+      "tipo": "imagem",
+      "url": "/_blob/fc6e8ae15b3ed246c454265f0d629b5c"
+    }
+  ],
+  "prompt_imagem": "",
+  "publicando_em": null,
+  "roteiro_video": "",
+  "status": "rascunho",
+  "titulo": "Sáb 14 · Sua fórmula, do seu jeito"
+}

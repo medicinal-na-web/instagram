@@ -1,0 +1,36 @@
+{
+  "atualizado_em": "2026-11-07T22:51:24.794379+00:00",
+  "canal": "story",
+  "criado_em": "2026-11-07T22:27:05.245118+00:00",
+  "data": "2026-11-09",
+  "erro_publicacao": "",
+  "formato": "imagem",
+  "hashtags": "",
+  "historico": [
+    {
+      "acao": "criado pelo Claude (sugestão da semana 09-15/11 para teste)",
+      "quando": "2026-11-07T22:27:05.245118+00:00",
+      "quem": null
+    },
+    {
+      "acao": "arte refeita: identidade azul-marinho e foto",
+      "quando": "2026-11-07T22:51:24.794379+00:00",
+      "quem": null
+    }
+  ],
+  "hora": "09:00",
+  "legenda": "Semana nova, hábito novo\nQual cuidado com a saúde você vai começar hoje? A gente vai junto.",
+  "midia": [
+    {
+      "assetId": "4754669a0f2b4edf1e69bd7a52a7d7d3",
+      "origem": "arte Claude v2 (foto Runway)",
+      "tipo": "imagem",
+      "url": "/_blob/4754669a0f2b4edf1e69bd7a52a7d7d3"
+    }
+  ],
+  "prompt_imagem": "",
+  "publicando_em": null,
+  "roteiro_video": "",
+  "status": "rascunho",
+  "titulo": "Seg 09 · Semana nova, hábito novo"
+}
