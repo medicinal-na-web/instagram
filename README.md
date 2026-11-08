@@ -13,6 +13,7 @@ Projeto do Instagram da Medicinal (Maringá/PR): grade de conteúdo, artes, aces
 - [`docs/06-fase-2024.md`](docs/06-fase-2024.md): o que fazia os posts de 2024 funcionarem e o que não copiar.
 - [`docs/07-fase-2025.md`](docs/07-fase-2025.md): 2025 e a comparação com 2024.
 - [`docs/08-feed-2026.md`](docs/08-feed-2026.md): o feed de 2026, as fases do ano e o diagnóstico.
+- [`docs/09-padrao-visual.md`](docs/09-padrao-visual.md): **padrão visual e de conteúdo do feed** (paleta, fontes, modelos, séries, legenda, checklist). Rascunho para aprovação.
 - [`grade/`](grade/): código da grade (`grade-instagram.html`) e os geradores das artes (`semana-2026-11-09/`: `gera.py` v1 por produto, `gera2.py` v2 azul-marinho com fotos).
 
 ## Regras que valem sempre

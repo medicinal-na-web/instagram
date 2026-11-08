@@ -56,6 +56,8 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 - Histórico completo do chat do Instagram: `docs/05-historico.md`.
 - Fase de 2024: `docs/06-fase-2024.md`. 2025 e comparação: `docs/07-fase-2025.md` (o 2º semestre de 2025 é o melhor período medido). Feed de 2026: `docs/08-feed-2026.md` (perfil quase parado desde setembro; jul–ago virou catálogo de ativos).
 
+- **Padrão visual proposto** (base 2º semestre de 2025): `docs/09-padrao-visual.md`. Em discussão com o Ricardo.
+
 ## Decisões tomadas
 
 - Acesso por **duas APIs**: login do Instagram para publicar e ler; login do Facebook para anúncios.
