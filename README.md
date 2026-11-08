@@ -10,6 +10,7 @@ Projeto do Instagram da Medicinal (Maringá/PR): grade de conteúdo, artes, aces
 - [`docs/03-grade-instagram.md`](docs/03-grade-instagram.md): a Grade @medicinalnaweb, regras de publicação e a semana 09–15/11.
 - [`docs/04-peptistrong-black-friday.md`](docs/04-peptistrong-black-friday.md): Peptistrong diário (pauta de 02 a 30/11), padrões da Black Friday e o que a copy não pode dizer.
 - [`docs/05-historico.md`](docs/05-historico.md): linha do tempo do chat do Instagram (22/10 a 08/11) e de onde veio cada arquivo.
+- [`docs/06-fase-2024.md`](docs/06-fase-2024.md): o que fazia os posts de 2024 funcionarem e o que não copiar.
 - [`grade/`](grade/): código da grade (`grade-instagram.html`) e os geradores das artes (`semana-2026-11-09/`: `gera.py` v1 por produto, `gera2.py` v2 azul-marinho com fotos).
 
 ## Regras que valem sempre

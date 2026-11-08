@@ -28,6 +28,8 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 | Instagram mídias do feed (sub) | `9xmnZPrHM0uLq924` | Sem histórico (a paginação traz o token) |
 | Grade IG - URL de upload | `YUm9MkLzNIpC0BAz` | Webhook `sitemedicinal-grade-ig-upload`, URL assinada |
 | Grade IG - Publicar | `JzeSG0EOQRW58NmI` | Webhook `sitemedicinal-grade-ig-publicar` |
+| Instagram posts de 2024 (leitura) | `JKs2B6e46nDNjr51` | Gatilho manual, lê os posts de 2024 pelo sub abaixo |
+| Instagram posts de 2024 (sub, sem histórico) | `70pLth4t9PibQL7d` | Paginação com token descartada, sem histórico |
 
 ## Estado em 08/11/2026
 
@@ -52,6 +54,7 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 
 - **Peptistrong diário** (02 a 30/11) e as regras de copy do Peptistrong estão em `docs/04-peptistrong-black-friday.md`. Ainda é rascunho para aprovação.
 - Histórico completo do chat do Instagram: `docs/05-historico.md`.
+- Fase de 2024 (a referência de estilo que o Ricardo quer replicar): `docs/06-fase-2024.md`.
 
 ## Decisões tomadas
 
