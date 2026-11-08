@@ -37,7 +37,7 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 - **Meta Ads:** acesso validado. Nada anunciado ainda.
 - **Grade:** 18 posts espelhados (publicados) e 24 blocos da semana 09–15/11 em **Rascunho**, com fotos do Runway e identidade azul-marinho.
 - **Publicação automática:** rotina `grade-publicacao` (de hora em hora, 8h–22h) publica blocos **Aprovado** com data/hora vencidos. **Está sem o conector n8n**: precisa ser adicionado em claude.ai → Rotinas, senão não publica nada.
-- **Vídeo:** botão "Gerar vídeo no Runway" no editor. Ainda não foi testado. Saldo do Runway: ~140 créditos (vídeo gasta bem mais que imagem).
+- **Vídeo:** botão "Gerar vídeo no Runway" no editor. Ainda não foi testado. Saldo do Runway: 60 créditos em 08/11 (imagem custa 20; vídeo gasta bem mais).
 - **Canva:** créditos de IA acabaram em 07/11. O botão "Gerar imagem no Canva" falha até renovar.
 
 ## Pendências
@@ -58,6 +58,7 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 
 - **Padrão visual proposto** (base 2º semestre de 2025 + marinho `#102140`): `docs/09-padrao-visual.md`. Fontes gratuitas em `grade/assets/fonts/` (Playfair Display, Poppins, IBM Plex Mono, Archivo Black).
 - **Decisão de 08/11:** sem rosto da marca e sem sessão de fotos por ora, as imagens serão geradas por IA, com as regras da seção 11 do padrão. Automação "comente PALAVRA" (ManyChat) fica para depois.
+- **Teste do padrão com IA** (5 artes): `grade/teste-padrao-2025/`. Aguardando opinião do Ricardo.
 
 ## Decisões tomadas
 

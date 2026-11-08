@@ -133,4 +133,4 @@ Enquanto não há sessão de fotos nem rosto da marca, as imagens podem ser gera
 
 **Na grade:** imagem de IA não pode ocupar mais de 2 quadrados seguidos sem um post de texto (modelos E e F) ou um conteúdo real (evento, bastidor) no meio.
 
-**Custo:** saldo do Runway em ~140 créditos (07/11). Imagem gasta pouco; vídeo gasta bem mais.
+**Custo:** 20 créditos do Runway por imagem (modelo padrão). Saldo em 08/11: 60. Vídeo gasta bem mais.
