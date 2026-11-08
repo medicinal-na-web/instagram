@@ -1,0 +1,39 @@
+{
+  "nome": "Peptistrong na bancada (teste v5)",
+  "arte": "cena_com_lata.jpg",
+  "cena": "cena.jpg",
+  "recorte": "lata_real_luz_direita.png",
+  "saida": "v5",
+  "produto": {
+    "altura_cm": null,
+    "proporcao_corpo_altura": 0.6653266331658292,
+    "elipse_foto": 0.05,
+    "base_arco": 0.04522613065326633
+  },
+  "cena_medidas": {
+    "ref_objeto": "copo de shake",
+    "ref_altura_cm": 14.0,
+    "ref_altura_px": 416,
+    "elipse_cena": 0.12,
+    "luz_lado": "direita",
+    "vizinho_borda_caixa": [
+      118,
+      600,
+      134,
+      800
+    ]
+  },
+  "colocacao": {
+    "caixa": [
+      311,
+      542,
+      581,
+      897
+    ],
+    "corpo_x": [
+      311,
+      548
+    ],
+    "base_y": 897
+  }
+}

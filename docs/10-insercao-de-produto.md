@@ -118,6 +118,57 @@ Cada erro tem causa, prevenção e como é verificado. **A arte só segue se nen
 
 **Testes de controle** (as verificações reprovam o erro de verdade): rótulo reescrito pela IA → fidelidade 0,009; lata sem sombra de contato → contato 0,04–0,05.
 
+## 7c. Procedimento de validação (obrigatório antes da revisão humana)
+
+Um comando valida tudo e **reprova sozinho** se qualquer item falhar:
+
+```bash
+python3 grade/valida_insercao.py <pasta>/ficha_insercao.json
+```
+
+Gera `<saida>_validacao.md` (tabela de resultados + checklist visual) e `<saida>_inspecao.jpg` (folha de inspeção). Código de saída 1 = reprovado. Exemplo completo: `grade/teste-padrao-2025/ia/v5/`.
+
+### Passo 1: medir e preencher a ficha da inserção (`ficha_insercao.json`)
+
+| Campo | O que é | Como medir |
+|---|---|---|
+| `produto.altura_cm` | altura real com tampa | **régua** (ficha do produto). Vazio = reprova |
+| `produto.proporcao_corpo_altura` | largura do corpo ÷ altura total | na foto real de referência |
+| `produto.elipse_foto` | razão da elipse da tampa/boca na foto do produto | `razao_elipse` na foto |
+| `produto.base_arco` | altura do arco da borda de baixo ÷ altura do recorte | no recorte |
+| `cena_medidas.ref_altura_cm` / `ref_altura_px` | objeto de referência (copo, caneca) na mesma profundidade | altura conhecida × px medidos na cena |
+| `cena_medidas.elipse_cena` | razão da elipse da boca do copo/tigela na cena | `razao_elipse` na cena |
+| `cena_medidas.luz_lado` | lado da janela/fonte de luz | `esquerda` ou `direita` |
+| `cena_medidas.vizinho_borda_caixa` | caixa estreita sobre a borda de um objeto vizinho na mesma profundidade | para comparar nitidez |
+| `colocacao.caixa` / `corpo_x` / `base_y` | onde o recorte ficou na arte | saem da chamada de `insere_foto` |
+
+### Passo 2: verificações automáticas e limites
+
+| Grupo | Verificação | Limite | Pega o erro nº (7b) |
+|---|---|---|---|
+| Geometria | Escala (altura medida × esperada pela referência) | ±3% | 1 |
+| Geometria | Proporção largura/altura × real | ±2% | 2 |
+| Geometria | Ângulo: elipse da cena × elipse da foto | diferença ≤ 0,03 | 3 |
+| Embalagem | Fidelidade do rótulo e da forma | ≥ 0,90 | 5 |
+| Bordas | Recorte em uma peça, sem ilhas, borda semitransparente ≤ 6% | — | 9, 10 |
+| Bordas | Halo claro na borda | ≤ 18 | 11 |
+| Bordas | Nitidez da borda × objeto vizinho | 0,5 a 2,0 | 5 (borda borrada ou recortada demais) |
+| Contato | Sombra de contato em 7 pontos da pegada, laterais incluídas | escurece ≥ 30% em todos | 6, 7 |
+| Contato | Sombra projetada do lado oposto à luz | escurece ≥ 8% | 15 |
+| Luz | Lado da janela mais claro no produto | ≥ +4% | 4 |
+| Luz | Pretos do produto × pretos da cena | produto ≤ cena + 25 | 14 |
+| Acabamento | Grão do produto × grão da cena, só em áreas lisas | 0,6 a 1,6 | 13 |
+
+**Controles negativos já testados** (o validador reprova o erro de verdade): rótulo reescrito pela IA → fidelidade 0,009; lata sem contato → 0,04; grão exagerado → 6,00.
+
+### Passo 3: revisão visual na folha de inspeção
+
+O que a máquina não mede bem fica no checklist do relatório: forma da tampa e do topo, acessórios (vãos e fundo grudado), degrau na base, emenda de cor, coerência das sombras com as da cena e a impressão geral no tamanho do feed.
+
+### Passo 4: aprovação
+
+Só depois de **todos os ✅ automáticos + checklist visual completo**, a arte vai para o Ricardo.
+
 ## 8. Revisão humana
 
 - Abrir a **folha de inspeção** (`folha_inspecao`): 4 zooms (topo/tampa, base/contato, lado esquerdo, lado direito/acessórios) + tamanho do feed + resultado das verificações. Percorrer o catálogo de erros (seção 7b) em cada zoom.
