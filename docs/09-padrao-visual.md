@@ -4,11 +4,11 @@ Proposta de 08/11/2026 para discussão. Baseada nos 68 posts de 15/06 a 31/12/20
 
 ## 1. Princípios
 
-1. **Foto real sempre.** Produto, loja, equipe, parceiros. Nada de imagem gerada por IA nem banco de imagens com marca d'água (houve "Unsplash" visível em 2025).
+1. **Imagem com cara de foto real.** Por decisão de 08/11/2026, as imagens podem ser geradas por IA enquanto não há sessão de fotos nem rosto da marca, seguindo as regras da seção 11. Nada de banco de imagens com marca d'água (houve "Unsplash" visível em 2025).
 2. **Uma ideia por arte.** Uma frase, uma pergunta ou um nome. O resto vai na legenda ou no carrossel.
 3. **O texto fica direto na foto.** Sem faixa, sem caixa, sem etiqueta colorida, sem molde fixo.
 4. **Tons quentes e luz natural.** O feed tem cara de editorial de revista, não de anúncio.
-5. **Gente aparece.** Pelo menos metade dos posts com pessoa real (equipe, farmacêutica, especialista parceiro).
+5. **Gente aparece.** O objetivo é ter pessoa em metade dos posts. Até existir um rosto da marca, mãos, recortes de corpo e ambientes fazem esse papel (seção 11).
 
 ## 2. Paleta
 
@@ -35,15 +35,18 @@ Regras do marinho:
 
 Texto: **branco** sobre foto; **marinho** sobre off-white. A cor da embalagem do produto (amarelo do Peptistrong, rosa do Derma Fusion) entra pela foto, não por blocos de cor.
 
-## 3. Tipografia: três vozes
+## 3. Tipografia: quatro fontes, no máximo duas por arte
 
-| Voz | Fonte (Google Fonts) | Quando | Como |
+Identificadas comparando os textos dos posts de 2025 com as candidatas. Todas gratuitas (Google Fonts, licença OFL), também no Canva. Arquivos em `grade/assets/fonts/`.
+
+| Voz | Fonte | Quando | Como |
 |---|---|---|---|
-| **Frase** | Instrument Serif | frase de marca, título de reels | minúscula, peso regular; **a palavra-chave em itálico e maior** ("a raiz do crescimento *Saudável*") |
-| **Rótulo** | Montserrat Bold/Black | nome de série, nome de ativo, número | CAIXA ALTA com espaçamento largo entre letras ("RADAR MAGISTRAL") |
-| **Pergunta** | Courier Prime | pergunta-gancho, nota de apoio | sublinhada, pequena, acima do rótulo ("Por que o Peptistrong…") |
+| **Frase** | **Playfair Display** Regular | frase de marca, carrossel de texto | minúscula, espaçamento entre letras levemente negativo (−2% a −3%); **palavra-chave em Playfair Display Bold Italic**, maior ("a raiz do crescimento ***Saudável***") |
+| **Título de reels** | **Playfair Display Italic** + **Archivo Black** | capa de reels | itálico leve no começo ("3 Motivos para tomar") e a palavra principal enorme em Archivo Black ("creatina") |
+| **Rótulo** | **Poppins Bold** | nome de série, nome de ativo, número | CAIXA ALTA com espaçamento largo ("RADAR MAGISTRAL", "BASTIDORES DE VISITAÇÃO") |
+| **Pergunta** | **IBM Plex Mono** | pergunta-gancho, nota de apoio | sublinhada, pequena, acima do rótulo ("Por que o Peptistrong…") |
 
-No máximo **duas vozes por arte**. Logo `medicinal` pequeno e branco no canto superior. As fontes são equivalentes livres do que foi usado em 2025; trocar se a agência tiver as originais.
+Logo `medicinal` pequeno no canto superior (branco sobre foto, marinho sobre off-white).
 
 ## 4. Composição
 
@@ -108,3 +111,26 @@ Alternar na sequência de 3 em 3: **pessoa · produto/macro · texto sobre textu
 - Imagem gerada por IA ou de banco com pessoas que não são da Medicinal.
 - Bloco de cor sólida com texto longo.
 - Alegações que apareceram em 2025 e não passam hoje: "treino em cápsula, simula os efeitos do exercício", "reduz gordura abdominal", "resultados reais na composição corporal".
+
+## 11. Imagens com IA (decisão de 08/11/2026)
+
+Enquanto não há sessão de fotos nem rosto da marca, as imagens podem ser geradas por IA (Runway). O que fez as artes de 09–15/11 parecerem IA foi o conjunto: molde fixo, faixa, cenas genéricas de banco e repetição. As regras abaixo atacam cada um desses pontos.
+
+**O que gerar (funciona bem e passa por foto):**
+- Macro e textura: cápsula entre os dedos, pó na colher, creme espalhado na pele, gotas, matéria-prima (fava, lentilha, café, flores).
+- Mãos em ação: segurando o copo, abrindo o pote, pesando na balança, luva na bancada.
+- Ambientes sem rosto: bancada de manipulação, consultório bege com luz de janela, cozinha clara, academia em penumbra.
+- Corpo em recorte: ombro, braço treinando, costas, silhueta contra a janela.
+
+**Como pedir (estilo do prompt):** luz natural lateral, tons quentes (areia, caramelo, café), profundidade de campo curta, grão de filme leve, enquadramento imperfeito, objetos de uso real. Evitar estúdio branco, simetria perfeita, sorriso de banco de imagem, pele de plástico, cenas cheias.
+
+**Produto sempre real:** a embalagem nunca é gerada (a IA erra rótulo e logo). Usar a foto real do produto recortada e montada na cena gerada, ou deixar o produto fora da imagem.
+
+**Rosto de IA, só com estas condições:**
+- Pessoa de IA pode aparecer como **modelo de estilo de vida** (alguém tomando o shake, treinando), nunca como **farmacêutica, médica, nutricionista, cliente ou "equipe da Medicinal"**. Pessoa inventada dando orientação de saúde ou depoimento é enganoso (regra 4 e publicidade de saúde).
+- Marcar o post com o rótulo **"Informações de IA"** do Instagram, que a Meta exige para imagem realista gerada por IA.
+- Rosto recorrente gerado por IA (um "personagem" fixo) fica **fora** até o Ricardo decidir.
+
+**Na grade:** imagem de IA não pode ocupar mais de 2 quadrados seguidos sem um post de texto (modelos E e F) ou um conteúdo real (evento, bastidor) no meio.
+
+**Custo:** saldo do Runway em ~140 créditos (07/11). Imagem gasta pouco; vídeo gasta bem mais.
