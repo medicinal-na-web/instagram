@@ -246,16 +246,18 @@ input:disabled,select:disabled,textarea:disabled{opacity:.75}
 (function(){
 "use strict";
 const MARCA = "Medicinal Farmácia e Manipulação (Maringá/PR), farmácia de manipulação com loja online em medicinalnaweb.com.br e atendimento por WhatsApp. Perfil: @medicinalnaweb.";
-const REGRAS = "Regras: português do Brasil; tom acolhedor, claro e confiável; sem promessa de cura ou de resultado garantido; sem antes e depois; não citar medicamento sob prescrição como oferta; suplementos e manipulados com linguagem de apoio ao cuidado, sugerindo orientação farmacêutica; sem dados de clientes; emojis com moderação.";
+const REGRAS = "Regras: português do Brasil; tom direto e humano, sem frases de efeito genéricas; sem promessa de cura, de efeito ou de resultado garantido; sem antes e depois; não citar medicamento sob prescrição como oferta; suplementos e manipulados como parte da rotina, sempre fechando com orientação profissional (farmacêutica, médico ou nutricionista); sem dados de clientes; no máximo 1 ou 2 emojis.";
+const LINHA = "Linha editorial (pirâmide de temas): o topo é o mais explorado: ativos foco Peptistrong, Keranat, GHK-Cu e magnésio; temas que polemizam: queda de cabelo (foco), perda de massa magra, falta de zinco, visão; lançamentos. No meio ficam receitas com produtos da linha, varejo, vídeos institucionais, ISO 9001 e tendências magistrais. A base reúne datas, eventos e bem-estar geral. Polemize o TEMA com um gancho que contraria o senso comum, nunca o resultado. Legenda: gancho na 1ª linha, cerca de 400 caracteres, 2 ou 3 parágrafos curtos, fechar com 'Comente PALAVRA' quando fizer sentido, 3 a 6 hashtags no fim.";
+const VISUAL = "Padrão visual da Medicinal (2º semestre de 2025): fotografia realista com luz natural lateral, tons quentes (areia, caramelo, café, off-white) e marinho como cor da marca; profundidade de campo curta, grão de filme leve, enquadramento imperfeito, objetos de uso real; close de cápsula, pó, textura, mãos, matéria-prima (fava, lentilha, café), bancada, consultório bege. Proibido: texto ou letras na imagem, logotipos, embalagens ou rótulos de produto (a embalagem real é inserida depois), pessoa apresentada como farmacêutica, médica, cliente ou equipe, estúdio branco, simetria perfeita, sorriso de banco de imagem.";
 const ST = {ideia:"Ideia",rascunho:"Rascunho",aprovado:"Aprovado",agendado:"Aprovado",publicado:"Publicado"};
 const ESCOLHA = ["ideia","rascunho","aprovado"];
 const FMT = {imagem:"Imagem",carrossel:"Carrossel",reels:"Reels",video:"Vídeo"};
 const $ = s => document.querySelector(s);
 const el = (t,a,...k) => {const e=document.createElement(t);if(a)for(const[n,v]of Object.entries(a)){if(n==="class")e.className=v;else if(n==="text")e.textContent=v;else if(n.startsWith("on"))e.addEventListener(n.slice(2),v);else if(v!==false&&v!=null)e.setAttribute(n,v===true?"":v)}for(const c of k){if(c!=null)e.append(c)}return e};
 
-let db=null, sample=null, assets=null, mcp=null, user=null, myId=null;
-let posts=[]; let estrategia=null; let view="feed"; let selId=null; let draft=null; let selDay=hoje();
-let canSample=false, canImages=false, canAssets=false, canCanva=false, canRunway=false;
+let db=null, sample=null, assets=null, user=null, myId=null;
+let posts=[]; let pedidos=[]; let estrategia=null; let view="feed"; let selId=null; let draft=null; let selDay=hoje();
+let canSample=false, canImages=false, canAssets=false;
 
 function hoje(){const d=new Date();return iso(d)}
 function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
@@ -453,7 +455,7 @@ function aplicarTexto(t){
 }
 async function gerarTexto(instr){
   if(ui.txtBusy)return;ui.txtBusy=true;ui.txtOut="";renderEditor();
-  const prompt=[MARCA,REGRAS,
+  const prompt=[MARCA,REGRAS,LINHA,
     "Tarefa: "+(draft.canal==="feed"?"escrever a legenda de um post do feed do Instagram":"escrever o texto curto que vai na arte de um story (até 25 palavras)")+".",
     "Formato do post: "+(FMT[draft.formato]||draft.formato)+". Data: "+fmtDia(draft.data)+".",
     "Título interno: "+(draft.titulo||"(sem título)"),
@@ -470,76 +472,54 @@ async function gerarTexto(instr){
 }
 function erroIA(e){const c=e&&e.code;if(c==="not_granted")return"A IA não foi liberada para esta página.";if(c==="rate_limited")return"Limite de uso da IA atingido agora. Tente de novo em alguns minutos.";return"A IA não respondeu"+(e&&e.message?": "+e.message:".")}
 
-/* ---------- IA: imagem ---------- */
+/* ---------- IA: imagem (pedido ao Runway, processado pela rotina "Grade - pedidos de imagem e vídeo") ---------- */
+function pedidosDo(id){return pedidos.filter(p=>p.bloco_id===id).sort((a,b)=>(b.criado_em||"").localeCompare(a.criado_em||""))}
+const PST={pendente:"Na fila",processando:"Gerando no Runway",pronto:"Pronto · já está no bloco",erro:"Não deu certo"};
+function listaPedidos(tipo){
+  if(!draft||!draft.id)return null;
+  const ps=pedidosDo(draft.id).filter(p=>p.tipo===tipo).slice(0,4);
+  if(!ps.length)return null;
+  const box=el("div",{class:"hist"});
+  for(const p of ps)box.append(el("div",{text:new Date(p.criado_em).toLocaleString("pt-BR",{dateStyle:"short",timeStyle:"short"})+" · "+(PST[p.status]||p.status)+(p.erro?" · "+p.erro:"")}));
+  return box;
+}
 function aiImagem(){
   const box=el("div",{style:"display:grid;gap:8px"});
-  const pr=el("textarea",{id:"ai-img-prompt",placeholder:"Descreva a imagem. Ex.: fita rosa de cetim sobre mesa clara, luz natural, espaço livre no topo para texto"});
+  const pr=el("textarea",{id:"ai-img-prompt",placeholder:"Descreva a cena. Ex.: mão segurando uma cápsula bege, luz de janela pela esquerda, fundo desfocado, espaço livre no topo para o texto"});
   pr.value=draft.prompt_imagem||"";pr.addEventListener("input",()=>draft.prompt_imagem=pr.value);
   const btns=el("div",{class:"btns"});
   if(canSample)btns.append(el("button",{type:"button",class:"btn ai",disabled:!!ui.imgBusy,onclick:escreverPrompt},"✦ Escrever descrição com IA"));
-  btns.append(el("button",{type:"button",class:"btn ai",disabled:!canCanva||!!ui.imgBusy,onclick:gerarCanva},"✦ Gerar imagem no Canva"));
+  btns.append(el("button",{type:"button",class:"btn ai",disabled:!!ui.imgBusy||!db,onclick:()=>pedir("imagem")},"✦ Pedir imagem ao Runway"));
   if(canImages&&(draft.midia||[]).some(m=>m.tipo!=="video"))btns.append(el("button",{type:"button",class:"btn ai",disabled:!!ui.imgBusy,onclick:analisarImagem},"✦ Analisar imagem com IA"));
-  box.append(campo("Imagem com IA",pr),btns,el("div",{class:"status-line",id:"img-st",text:ui.imgSt||""}));
-  if(!canCanva)box.append(el("p",{class:"note",text:"Para gerar imagens, conecte o Canva em Configurações → Conectores do claude.ai e permita o uso nesta página."}));
-  if(ui.imgPreview){box.append(el("div",{class:"proposal"},el("b",{text:"Imagem gerada"}),el("img",{src:ui.imgPreview,alt:"Imagem gerada",style:"border-radius:8px"}),el("div",{class:"btns"},el("button",{type:"button",class:"btn primary",onclick:usarPreview},"Usar esta imagem"),el("button",{type:"button",class:"btn",onclick:()=>{ui.imgPreview=null;ui.imgBlob=null;renderEditor()}},"Descartar")),ui.imgLink?el("a",{href:ui.imgLink,target:"_blank",rel:"noopener"},"Abrir no Canva"):null))}
+  box.append(campo("Imagem com IA",pr),btns,el("div",{class:"status-line",id:"img-st",text:ui.imgSt||""}),
+    el("p",{class:"note",text:"A imagem é gerada pelo Runway no padrão visual da Medicinal, sem texto e sem embalagem, e entra neste bloco na próxima rodada da rotina (de hora em hora, das 8h às 22h). Arte final com logo, fontes e produto real: peça ao Claude."}));
+  const lp=listaPedidos("imagem");if(lp)box.append(lp);
   if(ui.imgAnalise)box.append(el("div",{class:"proposal"},el("b",{text:"Análise da IA"}),el("pre",{id:"ai-ana-out",text:ui.imgAnalise}),el("div",{class:"btns"},el("button",{type:"button",class:"btn",onclick:()=>{ui.imgAnalise="";renderEditor()}},"Fechar"))));
   return box;
 }
 function setImgSt(t){ui.imgSt=t;const e=document.getElementById("img-st");if(e)e.textContent=t}
 async function escreverPrompt(){
   ui.imgBusy=true;setImgSt("Escrevendo a descrição…");renderEditor();
-  const prompt=[MARCA,REGRAS,"Tarefa: escrever, em português, a descrição de uma imagem para um gerador de imagens (fotografia realista ou ilustração limpa).",
-    "Uso: "+(draft.canal==="feed"?"post do feed, proporção 4:5":"story, proporção 9:16, com espaço livre para texto"),
+  const prompt=[MARCA,VISUAL,"Tarefa: escrever, em português, a descrição de UMA fotografia para um gerador de imagens, seguindo o padrão visual acima.",
+    "Uso: "+(draft.canal==="feed"?"post do feed (4:5), com espaço livre no topo para o título":"story (9:16), com espaço livre para o texto"),
     "Título: "+(draft.titulo||"-"),"Texto do post: "+(draft.legenda||"-"),
-    "Paleta da marca: rosa/magenta e tons claros. Sem pessoas identificáveis, sem logotipos de terceiros, sem texto escrito na imagem.",
-    "Responda só com a descrição, em até 60 palavras."].join("\n");
-  try{const r=await sample(prompt,{modelTier:"quick",cache:false});draft.prompt_imagem=r.text.trim();setImgSt("Descrição pronta. Revise e gere no Canva.")}
+    "Diga o enquadramento, a luz (de que lado vem a janela), os objetos e onde fica o espaço livre. Sem texto, sem logotipo, sem embalagem de produto.",
+    "Responda só com a descrição, em até 70 palavras."].join("\n");
+  try{const r=await sample(prompt,{modelTier:"quick",cache:false});draft.prompt_imagem=r.text.trim();setImgSt("Descrição pronta. Revise e peça a imagem.")}
   catch(e){setImgSt(erroIA(e))}
   ui.imgBusy=false;renderEditor();
 }
-function achar(obj,nomes){let achado=null;(function rec(o){if(achado||!o||typeof o!=="object")return;for(const[k,v]of Object.entries(o)){if(nomes.includes(k)&&(typeof v==="string"||typeof v==="number")){achado=String(v);return}rec(v)}})(obj);return achado}
-function urls(obj){const out=[];(function rec(o){if(typeof o==="string"){const m=o.match(/https:\/\/[^\s"')\]]+/g);if(m)out.push(...m)}else if(o&&typeof o==="object")for(const v of Object.values(o))rec(v)})(obj);return out}
-function b64blob(b64,type){const bin=atob(b64);const u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return new Blob([u],{type})}
-async function gerarCanva(){
-  const p=(draft.prompt_imagem||"").trim(); if(!p){setImgSt("Escreva a descrição da imagem primeiro.");return}
-  ui.imgBusy=true;ui.imgPreview=null;ui.imgBlob=null;ui.imgLink=null;setImgSt("Pedindo a imagem ao Canva…");renderEditor();
-  const aspect=draft.canal==="story"?"PORTRAIT_9_16":"PORTRAIT_4_5";
+async function pedir(tipo){
+  if(!db)return;
+  if(!draft.id){const m="Salve o bloco antes de pedir "+(tipo==="video"?"o vídeo":"a imagem")+".";tipo==="video"?(ui.vidStatus=m):setImgSt(m);renderEditor();return}
+  const texto=tipo==="video"?((draft.roteiro_video||"").trim()||((draft.titulo||"")+". "+(draft.legenda||"")).trim()):(draft.prompt_imagem||"").trim();
+  if(!texto){const m=tipo==="video"?"Escreva o roteiro (ou a legenda) primeiro.":"Escreva a descrição da imagem primeiro.";tipo==="video"?(ui.vidStatus=m):setImgSt(m);renderEditor();return}
   try{
-    const r=await mcp.callTool("Canva","generate-image",{prompt:p,aspectRatio:aspect,user_intent:"Gerar imagem para "+(draft.canal==="story"?"story":"post do feed")+" do Instagram da Medicinal no cronograma"});
-    const job=achar(r.payload??r.structuredContent,["jobId","job_id","id"]) || (r.content||[]).map(c=>c.text||"").join(" ").match(/[A-Za-z0-9_-]{8,}/)?.[0];
-    if(!job)throw{code:"tool_error",message:"o Canva não devolveu o número do pedido"};
-    for(let i=0;i<45;i++){
-      await new Promise(res=>setTimeout(res,4000));
-      setImgSt("Gerando no Canva… "+((i+1)*4)+" s");
-      const s=await mcp.callTool("Canva","get-generate-image-job",{jobId:job,user_intent:"Acompanhar a geração da imagem do cronograma do Instagram"},{cache:false});
-      const txt=JSON.stringify(s.payload??"")+" "+(s.content||[]).map(c=>c.text||"").join(" ");
-      if(/FAIL/i.test(txt)&&!/SUCCESS/i.test(txt))throw{code:"tool_error",message:"o Canva não conseguiu gerar a imagem"};
-      const img=(s.content||[]).find(c=>c.type==="image"&&c.data);
-      const links=urls(s.payload).concat(urls((s.content||[]).filter(c=>c.type==="text")));
-      if(img){ui.imgBlob=b64blob(img.data,img.mimeType||"image/png");ui.imgPreview=URL.createObjectURL(ui.imgBlob)}
-      ui.imgLink=links.find(u=>/canva\.com/.test(u))||null;
-      if(!ui.imgPreview){const imgUrl=links.find(u=>/\.(png|jpe?g|webp)(\?|$)/i.test(u));if(imgUrl)ui.imgPreview=imgUrl}
-      if(ui.imgPreview){setImgSt("Pronto. Escolha se quer usar.");break}
-      if(/SUCCESS/i.test(txt)&&i>3&&ui.imgLink){setImgSt("Imagem pronta no Canva (abra pelo link).");break}
-    }
-    if(!ui.imgPreview&&!ui.imgLink)setImgSt("O Canva ainda não terminou. Tente de novo em instantes.");
-  }catch(e){setImgSt(erroCanva(e))}
-  ui.imgBusy=false;renderEditor();
-}
-function erroCanva(e){const c=e&&e.code;
-  if(c==="server_not_connected"||c==="selection_required")return"Conecte o Canva em Configurações → Conectores do claude.ai.";
-  if(c==="needs_reauth")return"Reconecte o Canva em Configurações → Conectores do claude.ai.";
-  if(c==="not_in_manifest"||c==="approval_required"||c==="consent_required")return"O uso do Canva nesta página não foi permitido.";
-  if(c==="server_unavailable")return"O Canva não respondeu agora. Tente de novo em instantes.";
-  return"Não deu para gerar no Canva"+(e&&e.message?": "+String(e.message).slice(0,160):".")}
-async function usarPreview(){
-  try{
-    let url=ui.imgPreview, origem="canva";
-    if(ui.imgBlob&&canAssets){setImgSt("Guardando a imagem…");const up=await assets.upload(ui.imgBlob);url=up.url}
-    else if(ui.imgBlob){toast("Sem permissão para guardar arquivos: a imagem não ficará salva.");}
-    draft.midia=(draft.midia||[]).concat([{tipo:"imagem",url,origem,link:ui.imgLink||null}]);
-    ui.imgPreview=null;ui.imgBlob=null;setImgSt("Imagem adicionada. Lembre de salvar.");
-  }catch(e){setImgSt("Não deu para guardar a imagem: "+(e.message||e.code))}
+    await db.collection("pedidos").add({bloco_id:draft.id,tipo,prompt:texto.slice(0,1500),canal:draft.canal,formato:draft.formato,status:"pendente",criado_em:new Date().toISOString(),criado_por:myId||null});
+    const m=(tipo==="video"?"Vídeo":"Imagem")+" pedido. Entra no bloco na próxima rodada da rotina.";
+    if(tipo==="video"){ui.vidStatus=m;ui.vidConfirm=false}else setImgSt(m);
+    toast("Pedido registrado");
+  }catch(e){const m=e.code==="not_granted"?"Você tem acesso só de leitura.":"Não registrou o pedido: "+(e.message||e.code);tipo==="video"?(ui.vidStatus=m):setImgSt(m)}
   renderEditor();
 }
 async function subir(file,origem){
@@ -554,75 +534,31 @@ async function analisarImagem(){
   ui.imgBusy=true;ui.imgAnalise="Analisando…";setImgSt("");renderEditor();
   try{
     const blob=await (await fetch(m.url)).blob();
-    const prompt=[MARCA,REGRAS,"Analise a imagem anexada, que vai num "+(draft.canal==="feed"?"post do feed (4:5)":"story (9:16)")+" do Instagram.",
+    const prompt=[MARCA,REGRAS,VISUAL,"Analise a imagem anexada, que vai num "+(draft.canal==="feed"?"post do feed (4:5)":"story (9:16)")+" do Instagram.",
       "Texto previsto: "+(draft.legenda||"-"),
-      "Diga em tópicos curtos: 1) se a imagem combina com o texto; 2) problemas (legibilidade, corte, regras de saúde, marca); 3) uma descrição melhorada para gerar uma nova versão no Canva."].join("\n");
+      "Diga em tópicos curtos: 1) se a imagem combina com o texto; 2) problemas (legibilidade, corte, regras de saúde, marca); 3) uma descrição melhorada (padrão visual da Medicinal) para pedir uma nova versão ao Runway."].join("\n");
     const r=await sample(prompt,{images:[blob],cache:false,onText:({text})=>{ui.imgAnalise=text;const o=document.getElementById("ai-ana-out");if(o)o.textContent=text}});
     ui.imgAnalise=r.text;
   }catch(e){ui.imgAnalise="";setImgSt(e.code?erroIA(e):"Não deu para ler a imagem.")}
   ui.imgBusy=false;renderEditor();
 }
 
-/* ---------- IA: vídeo ---------- */
+/* ---------- IA: vídeo (pedido ao Runway, processado pela rotina) ---------- */
 function aiVideo(){
   const box=el("div",{style:"display:grid;gap:8px"});
   if(canSample)box.append(el("div",{class:"btns"},el("button",{type:"button",class:"btn ai",disabled:!!ui.vidBusy,onclick:gerarRoteiro},"✦ Escrever roteiro com IA")));
-  if(!canRunway){box.append(el("p",{class:"note",text:"Para gerar vídeo, conecte o Runway em Configurações → Conectores do claude.ai e permita o uso nesta página."}));return box}
-  box.append(el("p",{class:"note",text:"Cria um vídeo vertical (9:16) no Runway a partir do roteiro, ou da legenda se não houver roteiro. Vídeo gasta bem mais créditos que imagem."}));
-  if(ui.vidBusy){box.append(el("div",{class:"status-line",text:ui.vidStatus||"Gerando…"}));return box}
-  if(ui.vidConfirm){box.append(el("div",{class:"confirm"},el("b",{text:"Gerar o vídeo agora?"}),el("span",{text:"Usa créditos do Runway."}),el("div",{class:"btns"},el("button",{type:"button",class:"btn primary",onclick:gerarVideoRunway},"Gerar vídeo"),el("button",{type:"button",class:"btn",onclick:()=>{ui.vidConfirm=false;renderEditor()}},"Cancelar"))));return box}
-  box.append(el("div",{class:"btns"},el("button",{type:"button",class:"btn ai",onclick:()=>{ui.vidConfirm=true;renderEditor()}},"✦ Gerar vídeo no Runway")));
+  box.append(el("p",{class:"note",text:"Vídeo vertical (9:16) de ambiente no padrão visual: luz, textura, matéria-prima, mãos. Embalagem e pessoas da equipe entram por gravação real. Vídeo gasta bem mais créditos que imagem e é publicado à mão."}));
+  if(ui.vidConfirm){box.append(el("div",{class:"confirm"},el("b",{text:"Pedir o vídeo ao Runway?"}),el("span",{text:"Usa créditos do Runway."}),el("div",{class:"btns"},el("button",{type:"button",class:"btn primary",onclick:()=>pedir("video")},"Pedir vídeo"),el("button",{type:"button",class:"btn",onclick:()=>{ui.vidConfirm=false;renderEditor()}},"Cancelar"))))}
+  else box.append(el("div",{class:"btns"},el("button",{type:"button",class:"btn ai",disabled:!db,onclick:()=>{ui.vidConfirm=true;renderEditor()}},"✦ Pedir vídeo ao Runway")));
   if(ui.vidStatus)box.append(el("div",{class:"status-line",text:ui.vidStatus}));
+  const lp=listaPedidos("video");if(lp)box.append(lp);
   return box;
 }
-async function gerarVideoRunway(){
-  if(!mcp||ui.vidBusy)return;
-  const id=draft.id;
-  if(!id){ui.vidStatus="Salve o bloco antes de gerar o vídeo.";ui.vidConfirm=false;renderEditor();return}
-  ui.vidConfirm=false;ui.vidBusy=true;ui.vidStatus="Pedindo o vídeo ao Runway…";renderEditor();
-  const base=((draft.roteiro_video||"").trim()||((draft.titulo||"")+". "+(draft.legenda||"")).trim()).slice(0,900);
-  const prompt="Vídeo vertical 9:16 para o Instagram da Medicinal, farmácia de manipulação. Paleta azul-marinho, branco e cinza, luz natural, pessoas de costas ou sem rosto identificável, sem texto escrito na tela e sem logotipos. Cena: "+base;
-  try{
-    const r=await mcp.callTool("Runway","generate_video",{promptText:prompt,model:"kling-o3-pro",ratio:"9:16",rationale:"Vídeo do bloco da grade do Instagram, pedido pelo usuário no editor"});
-    const pay=r.payload||{};
-    const taskId=pay.taskId;
-    if(!taskId)throw{code:"tool_error",message:"o Runway não devolveu o número da tarefa"};
-    let url=null;
-    for(let i=0;i<40&&!url;i++){
-      await new Promise(res=>setTimeout(res,90000));
-      const t=await mcp.callTool("Runway","get_task",{id:taskId,rationale:"Acompanhar o vídeo do bloco da grade"},{cache:false});
-      const q=t.payload||{};
-      if(q.kind==="video"&&q.url){url=q.url;break}
-      if(/FAIL/i.test(JSON.stringify(q)))throw{code:"tool_error",message:"o Runway não conseguiu gerar o vídeo"};
-      ui.vidStatus="Gerando no Runway… "+(i+1)*90+" s"+(q.progressPercent!=null?" ("+q.progressPercent+"%)":"");
-      const o=document.querySelector(".status-line");if(o&&ui.vidBusy)o.textContent=ui.vidStatus;
-    }
-    if(!url)throw{code:"tool_error",message:"o vídeo demorou demais; peça de novo mais tarde"};
-    let midiaUrl=url, assetId=null;
-    try{
-      const blob=await (await fetch(url)).blob();
-      const up=await assets.upload(blob,{type:"video/mp4"});
-      midiaUrl=up.url;assetId=up.id;
-    }catch(_){}
-    const atual=posts.find(x=>x.id===id);
-    const midia=((atual&&atual.midia)||[]).concat([{tipo:"video",url:midiaUrl,assetId,origem:"Runway"}]);
-    await db.collection("posts").doc(id).update({midia,atualizado_em:new Date().toISOString()});
-    if(draft&&draft.id===id)draft.midia=midia;
-    ui.vidBusy=false;ui.vidStatus="Vídeo pronto e salvo no bloco.";toast("Vídeo pronto");
-  }catch(e){ui.vidBusy=false;ui.vidStatus=erroRunway(e)}
-  renderEditor();
-}
-function erroRunway(e){const c=e&&e.code;
-  if(c==="server_not_connected"||c==="selection_required")return"Conecte o Runway em Configurações → Conectores do claude.ai.";
-  if(c==="needs_reauth")return"Reconecte o Runway em Configurações → Conectores do claude.ai.";
-  if(c==="not_in_manifest"||c==="approval_required"||c==="consent_required")return"O uso do Runway nesta página não foi permitido.";
-  if(c==="server_unavailable")return"O Runway não respondeu agora. Tente de novo em instantes.";
-  return"Não deu para gerar o vídeo"+(e&&e.message?": "+String(e.message).slice(0,160):".")}
 async function gerarRoteiro(){
   ui.vidBusy=true;renderEditor();
   const prompt=[MARCA,REGRAS,"Tarefa: roteiro de "+(draft.formato==="reels"?"Reels (9:16, até 30 s)":"vídeo curto")+" para o Instagram.",
     "Título: "+(draft.titulo||"-"),"Legenda/ideia: "+(draft.legenda||"-"),"Roteiro atual: "+(draft.roteiro_video||"-"),
-    "Formato da resposta: cenas numeradas com tempo (ex.: 0–3 s), o que aparece, texto na tela e fala/narração. Termine com a trilha sugerida. Até 8 cenas."].join("\n");
+    VISUAL,"Formato da resposta: cenas numeradas com tempo (ex.: 0–3 s), o que aparece, texto na tela e fala/narração. Termine com a trilha sugerida. Até 8 cenas."].join("\n");
   try{const r=await sample(prompt,{modelTier:"default",cache:false,onText:({text})=>{const o=document.getElementById("f-rot");if(o)o.value=text}});draft.roteiro_video=r.text}
   catch(e){toast(erroIA(e))}
   ui.vidBusy=false;renderEditor();
@@ -676,12 +612,10 @@ render();
 (async()=>{
   const C=window.claude;
   if(!C||!C.use){$("#banner").textContent="Abra esta página no claude.ai para ver e editar o cronograma.";return}
-  const [d,s,a,m,u]=await Promise.all(["db","sample","assets","mcp","user"].map(n=>C.use(n).catch(()=>null)));
-  db=d;sample=s;assets=a;mcp=m;user=u;
+  const [d,s,a,u]=await Promise.all(["db","sample","assets","user"].map(n=>C.use(n).catch(()=>null)));
+  db=d;sample=s;assets=a;user=u;
   canSample=!!sample;canAssets=!!assets;
   if(sample){try{const l=await sample.limits();canImages=!!(l&&l.images)}catch(_){}}
-  if(mcp){try{const t=await mcp.listTools("Canva");const sv=(t.servers||[])[0];canCanva=!!sv&&(sv.authStatus!=="needs_reauth")&&((sv.tools||[]).some(x=>x.name==="generate-image")||sv.authStatus==="unknown")}catch(_){canCanva=false}}
-  if(mcp){try{const t=await mcp.listTools("Runway");const sv=(t.servers||[])[0];canRunway=!!sv&&sv.authStatus!=="needs_reauth"&&((sv.tools||[]).some(x=>x.name==="generate_video")||sv.authStatus==="unknown")}catch(_){canRunway=false}}
   if(user){try{myId=await user.id()}catch(_){}}
   if(!db){$("#banner").textContent="Entre no claude.ai para ver o cronograma.";return}
   let t=setTimeout(()=>{$("#banner").textContent="O cronograma está demorando para carregar. Verifique a conexão."},10000);
@@ -689,10 +623,11 @@ render();
     clearTimeout(t);
     posts=snap.docs.map(x=>Object.assign({id:x.id},x.data()));
     const pub=posts.filter(travado).length;
-    const b=$("#banner");b.replaceChildren(el("b",{text:posts.length+" blocos"})," no cronograma, "+pub+" já publicados. IA: texto "+(canSample?"✓":"—")+" · imagem no Canva "+(canCanva?"✓":"(conectar)")+" · análise de imagem "+(canImages?"✓":"—")+".");
+    const b=$("#banner");b.replaceChildren(el("b",{text:posts.length+" blocos"})," no cronograma, "+pub+" já publicados. IA: texto "+(canSample?"✓":"—")+" · imagem e vídeo pelo Runway (pedido) · análise de imagem "+(canImages?"✓":"—")+".");
     if(selId&&selId!=="__novo"){const p=posts.find(x=>x.id===selId);if(!p){fechar();return}if(travado(p))draft=JSON.parse(JSON.stringify(p))}
     renderFeed();renderStories();if(draft&&travado(draft))renderEditor();
   },e=>{clearTimeout(t);$("#banner").textContent="Não deu para ler o cronograma ("+(e.code||"erro")+")."});
+  db.collection("pedidos").onSnapshot(snap=>{pedidos=snap.docs.map(x=>Object.assign({id:x.id},x.data()));if(draft)renderEditor()},()=>{});
   db.collection("estrategia").onSnapshot(snap=>{const d=snap.docs.find(x=>x.id==="atual");estrategia=d?d.data():null;renderEstrategia()},()=>{});
 })();
 })();

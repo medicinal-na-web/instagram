@@ -37,8 +37,8 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 - **Meta Ads:** acesso validado. Nada anunciado ainda.
 - **Grade:** 18 posts espelhados (publicados). A semana 09–15/11 foi descartada em 08/11; a próxima grade sai no padrão novo.
 - **Publicação automática:** rotina `grade-publicacao` (de hora em hora, 8h–22h) publica blocos **Aprovado** com data/hora vencidos. **Está sem o conector n8n**: precisa ser adicionado em claude.ai → Rotinas, senão não publica nada.
-- **Vídeo:** botão "Gerar vídeo no Runway" no editor. Ainda não foi testado. Saldo do Runway: **20 créditos** em 08/11 (imagem ou edição custa 20; vídeo gasta bem mais). Precisa recarregar para produzir a semana.
-- **Canva:** créditos de IA acabaram em 07/11. O botão "Gerar imagem no Canva" falha até renovar.
+- **Imagem e vídeo (10/11):** botões "Pedir imagem/vídeo ao Runway" gravam um pedido (coleção `pedidos`); a rotina `trig_01BXAxUbfjXqbQ7Le6Ha8tjd` (:31, 8h-22h) gera no Runway e anexa ao bloco. Precisa do conector **Runway** na rotina (Ricardo adiciona em claude.ai). Canva removido da página. Prompts de texto, imagem e vídeo seguem o padrão novo (docs 09 e 12).
+- **Teste de vídeo (10/11):** bloco `teste-runway-video` e pedido `teste-video-1` (seedance-2.5, 5 s, 9:16). Ver resultado em docs/03.
 
 ## Pendências
 

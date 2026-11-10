@@ -11,7 +11,9 @@ flowchart LR
   C -->|publicados, travados| DB[(Banco do Artifact<br/>coleção posts)]
   U[Equipe] -->|cria e edita blocos| DB
   U -->|✦ IA| S[Claude: textos, roteiros, análise de imagem]
-  U -->|✦ IA| CV[Canva: gerar imagem]
+  U -->|✦ pedido| PD[(coleção pedidos)]
+  PD -->|rotina de hora em hora| RW[Runway: imagem e vídeo]
+  RW -->|mídia anexada ao bloco| DB
   DB -->|aprovado/agendado| C2[Claude publica pelo n8n<br/>com OK explícito]
   C2 --> IG
 ```
@@ -25,17 +27,20 @@ flowchart LR
 | Botão | Motor | Observação |
 |---|---|---|
 | Ajustar texto com IA (atalhos: mais curto, acolhedor, CTA site/WhatsApp, regras de saúde) | Claude (`sample`) | Proposta aparece para aceitar ou descartar |
-| Escrever descrição com IA | Claude | Gera a descrição da imagem para o Canva |
-| Gerar imagem no Canva | Canva (`generate-image` + `get-generate-image-job`) | 4:5 no feed, 9:16 no story; a imagem fica guardada no Artifact |
-| Analisar imagem com IA | Claude com imagem | Combinação com o texto, problemas e nova descrição |
-| Escrever roteiro com IA | Claude | Cenas com tempo, texto na tela e fala |
-| Gerar vídeo | Canva / Runway | **Pelo Claude na conversa** (Canva exige aviso de consumo do limite de IA; Runway precisa ser reconectado) |
+| Escrever descrição com IA | Claude | Descrição da cena no padrão visual (doc 09): luz lateral, tons quentes + marinho, sem texto, sem embalagem, sem pessoa como profissional |
+| Pedir imagem ao Runway | Rotina `pedidos de imagem e vídeo` (Runway `generate_image`, nano-banana-pro 2K, ~20 créditos) | Grava um pedido; a rotina gera, corta o feed para 4:5 (story 9:16) e anexa ao bloco. O status do pedido aparece no editor |
+| Analisar imagem com IA | Claude com imagem | Combinação com o texto, regras de saúde e marca, nova descrição |
+| Escrever roteiro com IA | Claude | Cenas com tempo, texto na tela e fala, no padrão visual |
+| Pedir vídeo ao Runway | Mesma rotina (`generate_video`, seedance-2.5, 9:16, 720p) | Vídeo de ambiente. Embalagem e equipe só em gravação real. Vídeo é publicado à mão |
 
-Regras passadas à IA: PT-BR, tom acolhedor, sem promessa de cura/resultado, sem antes e depois, sem medicamento sob prescrição como oferta, sem dados de clientes.
+A página não chama mais conectores direto (Canva saiu em 10/11/2026: sem créditos e prompt fora do padrão). Imagem com produto e arte final com logo e fontes continuam com o Claude na conversa (doc 10).
+
+Regras passadas à IA (constantes `REGRAS`, `LINHA` e `VISUAL` da página): PT-BR, tom direto; sem promessa de cura/efeito, sem antes e depois, sem medicamento sob prescrição como oferta, fechar com orientação profissional, sem dados de clientes; pirâmide de temas (doc 12) e gancho que polemiza o tema, nunca o resultado; padrão visual do 2º semestre de 2025 (doc 09).
 
 ## Dados
 - Coleção `posts` (um documento por bloco): `canal` (feed/story), `formato`, `data`, `hora`, `status`, `titulo`, `legenda`, `hashtags`, `midia[]`, `prompt_imagem`, `roteiro_video`, `historico[]`; nos publicados também `ig_media_id`, `permalink`, `publicado_em`.
 - Publicados são espelhados pelo Claude com id `ig_<media_id>`; as capas ficam guardadas no próprio Artifact (as URLs do Instagram expiram).
+- Coleção `pedidos`: `bloco_id`, `tipo` (imagem/video), `prompt`, `canal`, `formato`, `status` (pendente → processando → pronto/erro), `task_id`, `asset_id`, `erro`, `criado_em`, `processando_em`, `concluido_em`.
 - O travamento é feito pela página: "Publicado" não aparece no seletor e blocos publicados não abrem para edição nem exclusão.
 
 ## Espelho do Instagram (n8n, só leitura)
@@ -63,6 +68,11 @@ flowchart LR
   - `Site Medicinal - Grade IG - URL de upload (inativo)` (`YUm9MkLzNIpC0BAz`): URL assinada do Supabase (uso único, 2 h), só para `instagram/*.jpg|png|mp4`.
   - `Site Medicinal - Grade IG - Publicar (inativo)` (`JzeSG0EOQRW58NmI`): feed imagem, carrossel ou story imagem; com `publicar=false` só cria o container (teste).
 - Teste em 07/11/2026 (exec. 752955): container de feed criado (`FINISHED`) com imagem de teste e **não publicado**.
+
+## Pedidos de imagem e vídeo (10/11/2026)
+- Rotina `Grade @medicinalnaweb - pedidos de imagem e vídeo (Runway)` (`trig_01BXAxUbfjXqbQ7Le6Ha8tjd`), `CRON_TZ=America/Sao_Paulo 31 8-22 * * *`, sessão nova a cada rodada; até 3 imagens e 1 vídeo por rodada. Só gera e anexa; nunca publica nem muda a situação do bloco.
+- ⚠️ Criada **sem o conector Runway** (o claude.ai não deixa repassar conectores pela ferramenta). Até o Ricardo adicionar o Runway à rotina em claude.ai, ela termina com "Rotina sem acesso ao Runway".
+- Se o editor do bloco estiver aberto quando a mídia chegar, feche e abra de novo antes de salvar (salvar com o editor antigo descarta a mídia recém-anexada).
 
 ## Próximos passos
 2. Atualização periódica do espelho (stories somem em 24 h na API: espelhar no dia).
