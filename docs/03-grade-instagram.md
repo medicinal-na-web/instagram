@@ -73,7 +73,7 @@ flowchart LR
 - Rotina `Grade @medicinalnaweb - pedidos de imagem e vídeo (Runway)` (`trig_01BXAxUbfjXqbQ7Le6Ha8tjd`), `CRON_TZ=America/Sao_Paulo 31 8-22 * * *`, sessão nova a cada rodada; até 3 imagens e 1 vídeo por rodada. Só gera e anexa; nunca publica nem muda a situação do bloco.
 - Conector **Runway** adicionado pelo Ricardo em 10/11/2026 (mesmo caminho). Cada tarefa tem só o conector de que precisa.
 - Se o editor do bloco estiver aberto quando a mídia chegar, feche e abra de novo antes de salvar (salvar com o editor antigo descarta a mídia recém-anexada).
-- **Teste de vídeo em 10/11/2026:** pedido `teste-video-1` no bloco `teste-runway-video` (story, 20/11, situação Ideia). Seedance 2.5, 5 s, 9:16, 720p, cerca de 4 min para renderizar. Saiu um close de cápsulas bege na bancada de madeira com luz lateral, sem texto e sem embalagem. O MP4 está anexado ao bloco (asset `8aa0b301…`). Fluxo validado: pedido → task_id → get_task → asset → mídia do bloco → pedido pronto. Saldo do Runway depois do teste: cerca de 4.690 créditos.
+- **Teste de vídeo em 10/11/2026:** pedido `teste-video-1` no bloco `teste-runway-video` (story, 20/11, situação Ideia). Seedance 2.5, 5 s, 9:16, 720p, cerca de 4 min para renderizar. Saiu um close de cápsulas bege na bancada de madeira com luz lateral, sem texto e sem embalagem. O bloco, o pedido e o MP4 de teste foram apagados em 10/11, a pedido do Ricardo. Fluxo validado: pedido → task_id → get_task → asset → mídia do bloco → pedido pronto. Saldo do Runway depois do teste: cerca de 4.690 créditos.
 
 ## Próximos passos
 2. Atualização periódica do espelho (stories somem em 24 h na API: espelhar no dia).

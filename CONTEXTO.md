@@ -38,7 +38,7 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 - **Grade:** 18 posts espelhados (publicados). A semana 09–15/11 foi descartada em 08/11; a próxima grade sai no padrão novo.
 - **Publicação automática:** rotina `grade-publicacao` (de hora em hora, 8h–22h) publica blocos **Aprovado** com data/hora vencidos. **Está sem o conector n8n**: precisa ser adicionado em claude.ai → Rotinas, senão não publica nada.
 - **Imagem e vídeo (10/11):** botões "Pedir imagem/vídeo ao Runway" gravam um pedido (coleção `pedidos`); a rotina `trig_01BXAxUbfjXqbQ7Le6Ha8tjd` (:31, 8h-22h) gera no Runway e anexa ao bloco. Conectores ligados em 10/11: n8n na publicação, Runway nos pedidos. Canva removido da página. Prompts de texto, imagem e vídeo seguem o padrão novo (docs 09 e 12).
-- **Teste de vídeo (10/11):** bloco `teste-runway-video` e pedido `teste-video-1` (seedance-2.5, 5 s, 9:16). Ver resultado em docs/03.
+- **Teste de vídeo (10/11):** bloco `teste-runway-video` e pedido `teste-video-1` (seedance-2.5, 5 s, 9:16). Fluxo validado; bloco, pedido e vídeo de teste apagados. Ver docs/03.
 
 ## Pendências
 
