@@ -63,7 +63,7 @@ flowchart LR
 ```
 
 - Rotina `Grade @medicinalnaweb - publicação de blocos aprovados` (`trig_01ActqDM3WKFbTmso9xCSwbm`), `CRON_TZ=America/Sao_Paulo 1 8-22 * * *`, sessão nova a cada rodada, até 5 blocos por rodada. Trava o bloco (`publicando_em`) antes de publicar; em falha grava `erro_publicacao` (o bloco fica marcado "Falhou" e só volta à fila depois de editado e salvo).
-- ⚠️ A rotina foi criada **sem o conector n8n** (o claude.ai não deixou repassar). Enquanto o conector não for adicionado à rotina em claude.ai → Rotinas, ela termina sem publicar nada.
+- Conector **n8n** adicionado pelo Ricardo em 10/11/2026 (claude.ai/code → Agendados → tarefa → ⌄ → Editar → Conectores).
 - n8n (desativados, chamados pelo MCP em modo manual):
   - `Site Medicinal - Grade IG - URL de upload (inativo)` (`YUm9MkLzNIpC0BAz`): URL assinada do Supabase (uso único, 2 h), só para `instagram/*.jpg|png|mp4`.
   - `Site Medicinal - Grade IG - Publicar (inativo)` (`JzeSG0EOQRW58NmI`): feed imagem, carrossel ou story imagem; com `publicar=false` só cria o container (teste).
@@ -71,7 +71,7 @@ flowchart LR
 
 ## Pedidos de imagem e vídeo (10/11/2026)
 - Rotina `Grade @medicinalnaweb - pedidos de imagem e vídeo (Runway)` (`trig_01BXAxUbfjXqbQ7Le6Ha8tjd`), `CRON_TZ=America/Sao_Paulo 31 8-22 * * *`, sessão nova a cada rodada; até 3 imagens e 1 vídeo por rodada. Só gera e anexa; nunca publica nem muda a situação do bloco.
-- ⚠️ Criada **sem o conector Runway** (o claude.ai não deixa repassar conectores pela ferramenta). Até o Ricardo adicionar o Runway à rotina em claude.ai, ela termina com "Rotina sem acesso ao Runway".
+- Conector **Runway** adicionado pelo Ricardo em 10/11/2026 (mesmo caminho). Cada tarefa tem só o conector de que precisa.
 - Se o editor do bloco estiver aberto quando a mídia chegar, feche e abra de novo antes de salvar (salvar com o editor antigo descarta a mídia recém-anexada).
 - **Teste de vídeo em 10/11/2026:** pedido `teste-video-1` no bloco `teste-runway-video` (story, 20/11, situação Ideia). Seedance 2.5, 5 s, 9:16, 720p, cerca de 4 min para renderizar. Saiu um close de cápsulas bege na bancada de madeira com luz lateral, sem texto e sem embalagem. O MP4 está anexado ao bloco (asset `8aa0b301…`). Fluxo validado: pedido → task_id → get_task → asset → mídia do bloco → pedido pronto. Saldo do Runway depois do teste: cerca de 4.690 créditos.
 
