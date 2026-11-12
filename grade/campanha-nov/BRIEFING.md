@@ -62,3 +62,9 @@ Arquivo JSON (lista), um objeto por slot, com as chaves: `data`, `hora`, `canal`
   - `C` pergunta em **IBM Plex Mono sublinhada** + resposta curta em Playfair, sobre fundo **areia** ou **café** liso (sem foto).
   Por dia: no máximo 2 stories com foto (modelo A), e nunca dois modelos iguais seguidos. Marinho (E) no máximo 1 por dia.
 - Para `E`, `F` e `C`: `rotulo` (2 a 3 palavras em caixa alta, ex.: "MAGNÉSIO TREONATO") e, no `C`, `pergunta` (até 8 palavras, termina com "?").
+
+## Ajuste de 12/11/2026 (Ricardo)
+- 1 produto com link por dia; os outros stories sem chamada.
+- Pódio sempre aos sábados, com a campeã (produto do dia) logo depois, às 12:30.
+- Palavra-chave breve, sem acento nem caractere especial.
+- Story sem logo; feed com logo.

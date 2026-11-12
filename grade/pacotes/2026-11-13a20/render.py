@@ -5,7 +5,9 @@ from pathlib import Path
 S = sys.argv[1]; G = Path(__file__).resolve().parents[2]; P = Path(__file__).resolve().parent
 CN, AA, PD = G/"campanha-nov", G/"ativos-animados", G/"podio"
 run = lambda *a: subprocess.run(["python3", "-I", *map(str, a)], check=True, cwd=CN)
-c = lambda k: f"responda {k} e receba o link"
+# 1 produto com link por dia (decisão de 12/11/2026); os outros stories saem sem chamada
+DIA = {"CAFE", "B12", "CANELA", "MAGNESIO", "VITC", "SAW", "MOROSIL", "LICOPENO"}
+c = lambda k: f"responda {k} e receba o link" if k in DIA else ""
 D13 = CN/"dia13"; F = f"{S}/fotos1420"
 A = {(a["data"], a["hora"]): a for a in json.load(open(CN/"stories_14a30_v2.json"))}
 nome = lambda d, h, t: P/f"{d[8:]}-11_{h.replace(':', 'h')}_{t}.jpg"
@@ -17,11 +19,12 @@ for (d, h), (t, f, y, k) in {("2026-11-14", "12:30"): ("canela", "canela", "", "
         ("2026-11-16", "12:30"): ("caibra-magnesio", "caibra", "", "MAGNESIO"), ("2026-11-18", "12:30"): ("hibisco", "hibisco", "0.70", "HIBISCO"),
         ("2026-11-19", "12:30"): ("maca", "maca", "", "MACA"), ("2026-11-20", "09:00"): ("licopeno", "licopeno", "", "LICOPENO")}.items():
     run("arte.py", f"{F}/{f}.png", "story", nome(d, h, t), A[(d, h)]["legenda"], y, c(k))
+    # (a canela foi para dom 15/11 11:00: o arquivo é renomeado abaixo)
 run("modelos.py", "F", "story", P/"17-11_16h00_vitamina-c.jpg", "vitamina C: mais nem sempre é *melhor*.", "VITAMINA C", "", c("VITC"))
 for d, h, t, k in [("2026-11-15", "12:30", "berberina", "BERBERINA"), ("2026-11-15", "16:00", "probioticos", "PROBIOTICO"), ("2026-11-16", "16:00", "colageno", "COLAGENO"),
-                   ("2026-11-18", "09:00", "saw-palmetto", "PALMETTO"), ("2026-11-18", "16:00", "zinco-cabelo", "ZINCO"), ("2026-11-20", "12:30", "kic", "KIC"), ("2026-11-20", "16:00", "vitamina-b12", "B12")]:
+                   ("2026-11-18", "09:00", "saw-palmetto", "SAW"), ("2026-11-18", "16:00", "zinco-cabelo", "ZINCO"), ("2026-11-20", "12:30", "kic", "KIC"), ("2026-11-20", "16:00", "vitamina-b12", "")]:
     a = A[(d, h)]; run("modelos.py", a["modelo"], "story", nome(d, h, t), a["legenda"], a.get("rotulo", ""), "", c(k))
-run("modelos.py", "F", "story", P/"15-11_11h00_campea-podio-b12.jpg", "a campeã do pódio tem nome: vitamina *B12*.", "PÓDIO · NUTRACÊUTICOS", "", c("B12"))
+run("modelos.py", "F", "story", P/"14-11_12h30_campea-podio-b12.jpg", "a campeã do pódio tem nome: vitamina *B12*.", "PÓDIO · NUTRACÊUTICOS", "", c("B12"))
 for v, saida, fr, rot, k in [("morosil2", "morosil", "a laranja que *sangra* vermelho tem nome: moro.", "MOROSIL", "MOROSIL"),
                              ("elibria-runway", "elibria", "o *calor* que começa por dentro.", "ELIBRIA", ""),
                              ("treonato-runway", "magnesio-treonato", "o magnésio que chega ao *cérebro*.", "MAGNÉSIO TREONATO", "")]:
@@ -32,4 +35,5 @@ for s, cat, n, q in [("podio-nutraceuticos", "Nutracêuticos", ["vitamina B12", 
                      ("podio-pele-beleza", "Pele e beleza", ["niacinamida", "Clonapure", "ácido hialurônico"], ["10,0", "6,4", "5,5"])]:
     subprocess.run(["python3", "-I", "podio_video.py", f"{s}.mp4", cat, *n, *q], check=True, cwd=PD)
 shutil.copy(PD/"podio-nutraceuticos.mp4", P/"14-11_11h00_podio-nutraceuticos.mp4")
+shutil.move(P/"14-11_12h30_canela.jpg", P/"15-11_11h00_canela.jpg")
 print("ok")
