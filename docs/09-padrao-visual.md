@@ -50,6 +50,8 @@ Logo `medicinal` pequeno no canto superior (branco sobre foto, marinho sobre off
 
 ### Logotipo
 
+**Story não leva logo** (decisão de 12/11/2026): o Instagram já mostra a foto e @medicinalnaweb no topo. Logo só no feed.
+
 O "medicinal" das artes é **sempre o logotipo oficial**, nunca texto digitado em outra fonte. Arquivos em `grade/assets/logo/`:
 - `medicinal-logo-oficial.svg` / `.png`: logo completo do site (símbolo + "medicinal" + "FARMÁCIA E MANIPULAÇÃO"), cores originais `#0F62AC` e `#98B7E0`.
 - `medicinal-palavra-branco.png` (sobre foto), `-marinho.png` (sobre off-white), `-off-white.png` (sobre marinho), `-azul-oficial.png`: a palavra "medicinal" **recortada do próprio logo**, desenho idêntico.

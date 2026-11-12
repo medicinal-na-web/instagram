@@ -158,10 +158,10 @@
   "hora": "16:00",
   "tema_id": "T109",
   "legenda": "Vitamina C: mais nem sempre é *melhor*.",
-  "modelo": "A",
-  "rotulo": "",
+  "modelo": "F",
+  "rotulo": "VITAMINA C",
   "pergunta": "",
-  "prompt_imagem": "Laranjas e acerolas cortadas ao meio sobre tábua de madeira clara, com gotas de suco. Manhã clara e fria, luz lateral azulada, detalhes azul-marinho. O terço inferior é uma superfície lisa e desfocada, livre para o texto. Fotografia realista, profundidade de campo curta, grão de filme leve.",
+  "prompt_imagem": "",
   "link_url": "https://www.medicinalnaweb.com.br/vit-c-500mg-30-doses/p"
  },
  {
@@ -169,10 +169,10 @@
   "hora": "20:00",
   "tema_id": "T040",
   "legenda": "O *GHK-Cu* saiu do skincare e chegou à manipulação. Curioso?",
-  "modelo": "F",
-  "rotulo": "PEPTÍDEO GHK-CU",
+  "modelo": "A",
+  "rotulo": "",
   "pergunta": "",
-  "prompt_imagem": "",
+  "prompt_imagem": "Frasco de vidro conta-gotas âmbar sem rótulo sobre bancada de mármore claro, luz fria de manhã, detalhes azul-marinho. O terço inferior é uma superfície lisa e desfocada, livre para o texto. Fotografia realista, profundidade de campo curta, grão de filme leve.",
   "link_url": ""
  },
  {

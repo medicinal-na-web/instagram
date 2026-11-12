@@ -86,3 +86,21 @@ flowchart LR
 - Vídeos ficam em `ig-grade/grade/video/`, enviados pelo workflow novo `Site Medicinal - Grade IG - URL de upload de vídeo (inativo)` (`7msLgE4lhBLmvTCd`). O bucket `sitemedicinal-banners` só aceita imagem de até 2 MB.
 - Vídeo é publicado à mão (a publicação automática só faz imagem).
 - Grade: pódios em 14, 21 e 28/11 às 11:00; campeões com link em 15, 22 e 29/11 às 11:00; ativo animado do magnésio treonato em 17/11 às 11:00. Esses blocos são extras: o dia fica com 5 stories.
+
+## Link por direct (ManyChat) · 12/11/2026
+
+A API do Instagram não coloca adesivo de link no story, e o app da Meta (APP_clienteDM) só tem acesso padrão a `instagram_business_manage_messages`. Por isso o link vai por **direct via ManyChat**.
+
+```mermaid
+flowchart LR
+  S[Story aprovado<br/>"responda CAFÉ e receba o link"] --> R[Pessoa responde o story]
+  R --> M[ManyChat: gatilho Story Reply]
+  M -->|POST rpc/ig_link_por_palavra| DB[(Supabase ig_post<br/>palavra_chave + link_dm)]
+  DB -->|encontrado + link| M
+  M -->|direct com botão Ver no site| R
+```
+
+- **Banco:** colunas `palavra_chave` e `link_dm` em `ig_post`. A função `ig_link_por_palavra(p_texto)` ignora acento e caixa e só devolve link de bloco **aprovado ou publicado**. Resposta: `{encontrado, palavra, link, produto}`. Não grava nada da pessoa (LGPD).
+- **ManyChat:** automação "Site Medicinal - Link por palavra (story)". Gatilho Story Reply, External Request (POST com a chave pública anon do portal, corpo `{"p_texto": "{{last_input_text}}"}`), campos `link_produto` e `link_ok`, condição `link_ok = true` → direct com o link. Sem palavra conhecida, não responde (a equipe atende).
+- Configuração feita pelo Claude no navegador do Ricardo, a partir do roteiro preparado nesta conversa (o roteiro tem a chave pública e fica fora do repositório). Automação criada pausada; o Ricardo liga depois do teste.
+- **Story sem logo** (12/11): o cabeçalho do Instagram já mostra @medicinalnaweb. `arte.py`, `modelos.py`, `ativo_animado.py` e `podio_video.py` só põem logo no feed.

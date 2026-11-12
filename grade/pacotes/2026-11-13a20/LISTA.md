@@ -1,41 +1,35 @@
-# Pacote de agendamento · stories com link e vídeos · 13 a 20/11/2026
+# Pacote 13 a 20/11/2026 · stories com palavra-chave (ManyChat)
 
-Estes stories **não saem pela automação** da Grade: o adesivo de link e os vídeos são agendados à mão no **Meta Business Suite** (https://business.facebook.com/latest/composer → Story → Instagram @medicinalnaweb).
+**Mudou em 12/11/2026:** não há mais adesivo de link nem agendamento à mão no Business Suite para as imagens.
+- A arte pede "responda PALAVRA e receba o link". Quem responde o story recebe o link por direct pelo **ManyChat**, que consulta `ig_link_por_palavra` no Supabase (só responde para blocos aprovados ou publicados).
+- **Story sem logo** (decisão do Ricardo, 12/11): o Instagram já mostra a foto e @medicinalnaweb no topo. Feed continua com logo. Texto acima da barra de resposta.
+- **Imagens** saem pela automação da Grade quando o Ricardo aprova o bloco. **Vídeos** ainda são agendados à mão (a automação publica só imagem).
+- Artes e vídeos: arquivos desta pasta (prefixo `nov2026-v4-` no Supabase). Para refazer: `python3 -I render.py <pasta com fotos1420 e vídeos do Runway>`.
+- Configuração do ManyChat: `docs/13-portal-instagram.md`, seção "Link por direct (ManyChat)".
 
-**Regras**
-- Arte v2 (12/11): logo abaixo do cabeçalho do Instagram e texto acima da barra de resposta (área segura). Use sempre as URLs com `?v=2`.
-- Texto do adesivo de link: **"Ver produto"**.
-- Só agendar bloco **aprovado pelo Ricardo** na Grade (portal → Instagram → Stories). Rascunho não se agenda.
-- Horário de **Brasília**.
-- Adesivo de link no terço inferior, sem cobrir a frase nem o logo. No texto do adesivo, use o nome do produto ou "ver no site".
-- Os arquivos estão nesta pasta e também nas URLs públicas abaixo.
+| Data | Hora | Tipo | Story | Palavra-chave |
+|---|---|---|---|---|
+| 13/11 | 09:00 | imagem | Magnésio treonato | TREONATO ⛔ em espera (Anvisa) |
+| 13/11 | 12:30 | imagem | Café proteico | CAFÉ ✅ aprovado |
+| 13/11 | 16:00 | imagem | Biotina | BIOTINA |
+| 13/11 | 20:00 | imagem | Psyllium | FIBRA |
+| 14/11 | 11:00 | vídeo | Pódio · nutracêuticos | — |
+| 14/11 | 12:30 | imagem | Canela | CANELA |
+| 15/11 | 09:00 | imagem | Picolinato de cromo | CROMO |
+| 15/11 | 11:00 | imagem | Campeã do pódio · B12 | B12 |
+| 15/11 | 12:30 | imagem | Berberina | BERBERINA |
+| 15/11 | 16:00 | imagem | Probióticos por cepa | PROBIÓTICO |
+| 16/11 | 12:30 | imagem | Cãibra e magnésio | MAGNÉSIO |
+| 16/11 | 16:00 | imagem | Colágeno tipo II | COLÁGENO |
+| 17/11 | 11:00 | vídeo | Ativo animado · treonato | ⛔ em espera (Anvisa) |
+| 17/11 | 16:00 | imagem | Vitamina C (modelo F) | ACEROLA |
+| 18/11 | 09:00 | imagem | Saw palmetto | PALMETTO |
+| 18/11 | 12:30 | imagem | Hibisco gelado | HIBISCO |
+| 18/11 | 16:00 | imagem | Zinco e cabelo | ZINCO |
+| 19/11 | 11:00 | vídeo | Ativo animado · Morosil | MOROSIL |
+| 19/11 | 12:30 | imagem | Maca peruana | MACA |
+| 20/11 | 09:00 | imagem | Licopeno | LICOPENO |
+| 20/11 | 12:30 | imagem | KIC | KIC |
+| 20/11 | 16:00 | imagem | Vitamina B12 | B12 |
 
-| # | Data | Hora | Tipo | Story | Link do adesivo | Arquivo (URL pública) |
-|---|---|---|---|---|---|---|
-| — | 13/11 | 09:00 | imagem | Magnésio treonato | ⛔ **EM ESPERA**: alerta da Anvisa sobre o treonato, decisão do Ricardo | — |
-| 1 | 13/11 | 12:30 | imagem | Café proteico | https://www.medicinalnaweb.com.br/peptistrong-chocolate-belga/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-13-1230-story.jpg?v=2 |
-| 2 | 13/11 | 16:00 | imagem | Biotina | https://www.medicinalnaweb.com.br/biotina-5mg-30-doses/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-13-1600-story.jpg?v=2 |
-| 3 | 13/11 | 20:00 | imagem | Psyllium | https://www.medicinalnaweb.com.br/psyllium-500mg-60-doses/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-13-2000-story.jpg?v=2 |
-| 4 | 14/11 | 11:00 | vídeo | Pódio · nutracêuticos | (sem link) | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/ig-grade/grade/video/nov2026-v2-podio-nutraceuticos.mp4 |
-| 5 | 14/11 | 12:30 | imagem | Canela | https://www.medicinalnaweb.com.br/canela-500mg-60-doses/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-14-11_12h30_canela.jpg?v=2 |
-| 6 | 15/11 | 09:00 | imagem | Picolinato de cromo | https://www.medicinalnaweb.com.br/picolinato-cromo-200mcg-60-doses/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-15-11_09h00_cromo.jpg?v=2 |
-| 7 | 15/11 | 11:00 | imagem | Campeã do pódio · B12 | https://www.medicinalnaweb.com.br/vitamina-b12-500mcg-30-doses/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-15-11_11h00_campea-podio-b12.jpg?v=2 |
-| 8 | 15/11 | 12:30 | imagem | Berberina | https://www.medicinalnaweb.com.br/berberine-500mg-30-doses/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-15-11_12h30_berberina.jpg?v=2 |
-| 9 | 15/11 | 16:00 | imagem | Probióticos por cepa | https://www.medicinalnaweb.com.br/lactobacillus-acidophilus-2blh-30-doses-capsula-gastrorresistente/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-15-11_16h00_probioticos.jpg?v=2 |
-| 10 | 16/11 | 12:30 | imagem | Cãibra e magnésio | https://www.medicinalnaweb.com.br/magnesio-quelato-200mg-30-doses/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-16-11_12h30_caibra-magnesio.jpg?v=2 |
-| 11 | 16/11 | 16:00 | imagem | Colágeno tipo II | https://www.medicinalnaweb.com.br/uc-ii-40mg-30-doses/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-16-11_16h00_colageno.jpg?v=2 |
-| — | 17/11 | 11:00 | vídeo | Ativo animado · treonato | ⛔ **EM ESPERA**: Anvisa | — |
-| 12 | 17/11 | 16:00 | imagem | Vitamina C (frase encurtada) | https://www.medicinalnaweb.com.br/vit-c-500mg-30-doses/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-17-11_16h00_vitamina-c.jpg?v=2 |
-| 13 | 18/11 | 09:00 | imagem | Saw palmetto | https://www.medicinalnaweb.com.br/saw-palmetto-320mg-30-doses/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-18-11_09h00_saw-palmetto.jpg?v=2 |
-| 14 | 18/11 | 12:30 | imagem | Hibisco gelado | https://www.medicinalnaweb.com.br/hibisco-500mg-60-doses/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-18-11_12h30_hibisco.jpg?v=2 |
-| 15 | 18/11 | 16:00 | imagem | Zinco e cabelo | https://www.medicinalnaweb.com.br/zinco-quelato-30mg-30-doses/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-18-11_16h00_zinco-cabelo.jpg?v=2 |
-| 16 | 19/11 | 11:00 | vídeo | Ativo animado · Morosil | https://www.medicinalnaweb.com.br/morosil-500mg-60-doses/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/ig-grade/grade/video/nov2026-v2-ativo-morosil.mp4 |
-| 17 | 19/11 | 12:30 | imagem | Maca peruana | https://www.medicinalnaweb.com.br/maca-500mg-90-doses/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-19-11_12h30_maca.jpg?v=2 |
-| 18 | 20/11 | 09:00 | imagem | Licopeno | https://www.medicinalnaweb.com.br/licopeno-10mg-30-doses/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-20-11_09h00_licopeno.jpg?v=2 |
-| 19 | 20/11 | 12:30 | imagem | KIC e músculo | https://www.medicinalnaweb.com.br/kic-100mg-30-doses/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-20-11_12h30_kic.jpg?v=2 |
-| 20 | 20/11 | 16:00 | imagem | B12 e vegetarianos | https://www.medicinalnaweb.com.br/vitamina-b12-500mcg-30-doses/p | https://mwhlnlqxtudcgbggkqud.supabase.co/storage/v1/object/public/sitemedicinal-banners/instagram/nov2026-20-11_16h00_vitamina-b12.jpg?v=2 |
-
-**Total:** 20 para agendar (18 imagens com link + 2 vídeos) e 2 em espera (treonato).
-
-**Mensagem pronta para a conversa do Claude no computador (Claude in Chrome):**
-> Abra a lista em https://github.com/medicinal-na-web/instagram/blob/claude/great-hopper-yvfk7o/grade/pacotes/2026-11-13a20/LISTA.md. Para cada linha numerada que eu disser que está **aprovada**, baixe o arquivo pela URL pública. No Meta Business Suite, crie um Story só para o Instagram @medicinalnaweb, adicione o adesivo de link com a URL da coluna "Link do adesivo" (vídeo sem link fica sem adesivo) e agende para a data e hora da linha (horário de Brasília). Não agende linhas marcadas como EM ESPERA. No fim, tire um print do Planejador com todos os agendamentos.
+`painel-pacote.jpg`: folha de contato com as faixas de área segura em vermelho.

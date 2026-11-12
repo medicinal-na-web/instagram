@@ -8,21 +8,24 @@ from PIL import Image, ImageDraw
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "campanha-nov"))
 from modelos import frase_linhas, desenha_frase, espacado, COR, A
 from PIL import ImageFont
-def overlay(frase, rotulo, saida_png):
+def overlay(frase, rotulo, saida_png, cta=""):
     W, H = 1080, 1920; im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     for y in range(int(H * 0.5), H):  # degradê suave (sem faixa), até 35% no rodapé
         d.line([(0, y), (W, y)], fill=(0, 0, 0, round(255 * 0.35 * ((y - H * 0.5) / (H * 0.5)) ** 1.4)))
-    tam = 80; linhas = frase_linhas(frase, tam, W - 200); y = H * 0.62
+    tam = 80; linhas = frase_linhas(frase, tam, W - 200); y = H * (0.54 if cta else 0.62)
     yf = desenha_frase(d, W, y, linhas, tam, COR["offwhite"] + (255,), COR["caramelo"] + (255,))
     if rotulo:
         d.line([(W/2 - 40, yf + 30), (W/2 + 40, yf + 30)], fill=COR["caramelo"] + (255,), width=2)
         espacado(d, W/2, yf + 100, rotulo.upper(), ImageFont.truetype(str(A/"fonts"/"Poppins-Bold.ttf"), 30), COR["offwhite"] + (255,), 9)
+    if cta:
+        fm = ImageFont.truetype(str(A/"fonts"/"IBMPlexMono-Regular.ttf"), 36); yc = yf + (190 if rotulo else 80); wc = fm.getlength(cta); xc = (W - wc) / 2
+        d.text((xc, yc), cta, font=fm, fill=COR["offwhite"] + (255,), anchor="ls"); d.line([(xc, yc + 10), (xc + wc, yc + 10)], fill=COR["offwhite"] + (255,), width=2)
     lg = Image.open(A/"logo"/"medicinal-palavra-off-white.png").convert("RGBA"); lg = lg.resize((170, round(lg.height*170/lg.width)))
-    im.alpha_composite(lg, (60, 290)); im.save(saida_png)
+    im.save(saida_png)  # story sem logo: o Instagram já mostra @medicinalnaweb no topo
 if __name__ == "__main__":
-    vin, vout, frase, rot = sys.argv[1:5]
+    vin, vout, frase, rot = sys.argv[1:5]; cta = sys.argv[5] if len(sys.argv) > 5 else ""
     with tempfile.TemporaryDirectory() as td:
-        ov = f"{td}/ov.png"; overlay(frase, rot, ov)
+        ov = f"{td}/ov.png"; overlay(frase, rot, ov, cta)
         fc = ("[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
               "null[v];"
               "[1:v]format=rgba,fade=t=in:st=0.8:d=0.6:alpha=1[o];[v][o]overlay=0:0")

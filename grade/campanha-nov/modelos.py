@@ -35,7 +35,7 @@ def desenha_frase(d, W, y, linhas, tam, cor, cor_k):
             x += f.getlength(" ")
         y += alt
     return y
-def modelo(m, canal, saida, frase, rotulo="", pergunta=""):
+def modelo(m, canal, saida, frase, rotulo="", pergunta="", cta=""):
     W, H = 1080, (1920 if canal == "story" else 1350)
     fundo, texto, kw, logo = {"E": ("marinho", "offwhite", "caramelo", "off-white"), "F": ("offwhite", "marinho", "marinho", "marinho"),
                               "C": ("areia", "marinho", "marinho2", "marinho")}[m]
@@ -53,8 +53,13 @@ def modelo(m, canal, saida, frase, rotulo="", pergunta=""):
     if rotulo:
         y += 40; d.line([(W / 2 - 40, y), (W / 2 + 40, y)], fill=COR["caramelo"] if m == "E" else COR[texto], width=2)
         espacado(d, W / 2, y + 70, rotulo.upper(), pop, COR[texto], 9)
+    if cta:
+        yc = y + (190 if rotulo else 80); wc = mono.getlength(cta) * 36 / 40; fm = ImageFont.truetype(str(A / "fonts" / "IBMPlexMono-Regular.ttf"), 36); wc = fm.getlength(cta); xc = (W - wc) / 2
+        d.text((xc, yc), cta, font=fm, fill=COR[texto], anchor="ls"); d.line([(xc, yc + 10), (xc + wc, yc + 10)], fill=COR[texto], width=2)
     lg = Image.open(A / "logo" / f"medicinal-palavra-{logo}.png").convert("RGBA"); lg = lg.resize((170, round(lg.height * 170 / lg.width)), Image.LANCZOS)
-    img = img.convert("RGBA"); img.alpha_composite(lg, (60, 290 if canal == "story" else 60)); img.convert("RGB").save(saida, "JPEG", quality=92)
+    img = img.convert("RGBA")
+    if canal != "story": img.alpha_composite(lg, (60, 60))  # story sem logo
+    img.convert("RGB").save(saida, "JPEG", quality=92)
 if __name__ == "__main__":
-    a = sys.argv[1:] + ["", ""]
-    modelo(a[0], a[1], a[2], a[3], a[4], a[5])
+    a = sys.argv[1:] + ["", "", ""]
+    modelo(a[0], a[1], a[2], a[3], a[4], a[5], a[6])

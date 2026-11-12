@@ -24,7 +24,6 @@ def quebra(txt, f, maxw):
     return ls + [at]
 def quadro(t, cat, nomes, nums, logo):
     im = Image.new("RGBA", (W, H), MAR + (255,)); d = ImageDraw.Draw(im)
-    im.alpha_composite(logo, (60, 290))
     a0 = round(255 * ease(t / 0.6))
     esp(d, W/2, 440, "PÓDIO DA MANIPULAÇÃO", POP(30), OFF, 9, a0)
     esp(d, W/2, 505, cat.upper(), POP(30), CAR, 9, a0)
