@@ -10,6 +10,8 @@ from modelos import frase_linhas, desenha_frase, espacado, COR, A
 from PIL import ImageFont
 def overlay(frase, rotulo, saida_png):
     W, H = 1080, 1920; im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    for y in range(int(H * 0.5), H):  # degradê suave (sem faixa), até 35% no rodapé
+        d.line([(0, y), (W, y)], fill=(0, 0, 0, round(255 * 0.35 * ((y - H * 0.5) / (H * 0.5)) ** 1.4)))
     tam = 80; linhas = frase_linhas(frase, tam, W - 200); y = H * 0.70
     yf = desenha_frase(d, W, y, linhas, tam, COR["offwhite"] + (255,), COR["caramelo"] + (255,))
     if rotulo:
@@ -22,7 +24,7 @@ if __name__ == "__main__":
     with tempfile.TemporaryDirectory() as td:
         ov = f"{td}/ov.png"; overlay(frase, rot, ov)
         fc = ("[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
-              "drawbox=y=ih*0.6:w=iw:h=ih*0.4:color=black@0.25:t=fill[v];"
+              "null[v];"
               "[1:v]format=rgba,fade=t=in:st=0.8:d=0.6:alpha=1[o];[v][o]overlay=0:0")
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", vin, "-loop", "1", "-i", ov, "-filter_complex", fc,
                         "-shortest", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "19", "-c:a", "aac", "-movflags", "+faststart", vout], check=True)
