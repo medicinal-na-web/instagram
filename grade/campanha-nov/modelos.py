@@ -54,7 +54,7 @@ def modelo(m, canal, saida, frase, rotulo="", pergunta=""):
         y += 40; d.line([(W / 2 - 40, y), (W / 2 + 40, y)], fill=COR["caramelo"] if m == "E" else COR[texto], width=2)
         espacado(d, W / 2, y + 70, rotulo.upper(), pop, COR[texto], 9)
     lg = Image.open(A / "logo" / f"medicinal-palavra-{logo}.png").convert("RGBA"); lg = lg.resize((170, round(lg.height * 170 / lg.width)), Image.LANCZOS)
-    img = img.convert("RGBA"); img.alpha_composite(lg, (60, 60)); img.convert("RGB").save(saida, "JPEG", quality=92)
+    img = img.convert("RGBA"); img.alpha_composite(lg, (60, 290 if canal == "story" else 60)); img.convert("RGB").save(saida, "JPEG", quality=92)
 if __name__ == "__main__":
     a = sys.argv[1:] + ["", ""]
     modelo(a[0], a[1], a[2], a[3], a[4], a[5])

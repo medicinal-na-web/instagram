@@ -12,13 +12,13 @@ def overlay(frase, rotulo, saida_png):
     W, H = 1080, 1920; im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     for y in range(int(H * 0.5), H):  # degradê suave (sem faixa), até 35% no rodapé
         d.line([(0, y), (W, y)], fill=(0, 0, 0, round(255 * 0.35 * ((y - H * 0.5) / (H * 0.5)) ** 1.4)))
-    tam = 80; linhas = frase_linhas(frase, tam, W - 200); y = H * 0.70
+    tam = 80; linhas = frase_linhas(frase, tam, W - 200); y = H * 0.62
     yf = desenha_frase(d, W, y, linhas, tam, COR["offwhite"] + (255,), COR["caramelo"] + (255,))
     if rotulo:
         d.line([(W/2 - 40, yf + 30), (W/2 + 40, yf + 30)], fill=COR["caramelo"] + (255,), width=2)
         espacado(d, W/2, yf + 100, rotulo.upper(), ImageFont.truetype(str(A/"fonts"/"Poppins-Bold.ttf"), 30), COR["offwhite"] + (255,), 9)
     lg = Image.open(A/"logo"/"medicinal-palavra-off-white.png").convert("RGBA"); lg = lg.resize((170, round(lg.height*170/lg.width)))
-    im.alpha_composite(lg, (60, 60)); im.save(saida_png)
+    im.alpha_composite(lg, (60, 290)); im.save(saida_png)
 if __name__ == "__main__":
     vin, vout, frase, rot = sys.argv[1:5]
     with tempfile.TemporaryDirectory() as td:

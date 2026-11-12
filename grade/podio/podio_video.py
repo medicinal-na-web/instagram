@@ -24,15 +24,15 @@ def quebra(txt, f, maxw):
     return ls + [at]
 def quadro(t, cat, nomes, nums, logo):
     im = Image.new("RGBA", (W, H), MAR + (255,)); d = ImageDraw.Draw(im)
-    im.alpha_composite(logo, (60, 60))
+    im.alpha_composite(logo, (60, 290))
     a0 = round(255 * ease(t / 0.6))
-    esp(d, W/2, 330, "PÓDIO DA MANIPULAÇÃO", POP(30), OFF, 9, a0)
-    esp(d, W/2, 400, cat.upper(), POP(30), CAR, 9, a0)
+    esp(d, W/2, 440, "PÓDIO DA MANIPULAÇÃO", POP(30), OFF, 9, a0)
+    esp(d, W/2, 505, cat.upper(), POP(30), CAR, 9, a0)
     f = pf(400, False, 74); fi = pf(700, True, 86)
-    d.text((W/2, 520), "o que mais entrou", font=f, fill=OFF+(a0,), anchor="ms")
-    d.text((W/2, 620), "nas fórmulas", font=fi, fill=CAR+(a0,), anchor="ms")
-    d.text((W/2, 690), "últimos 90 dias", font=MONO, fill=AREIA+(a0,), anchor="ms")
-    base = 1640; larg = 290; xs = {2: 95, 1: 395, 3: 695}; alt = {1: 520, 2: 400, 3: 300}
+    d.text((W/2, 620), "o que mais entrou", font=f, fill=OFF+(a0,), anchor="ms")
+    d.text((W/2, 715), "nas fórmulas", font=fi, fill=CAR+(a0,), anchor="ms")
+    d.text((W/2, 780), "últimos 90 dias", font=MONO, fill=AREIA+(a0,), anchor="ms")
+    base = 1440; larg = 290; xs = {2: 95, 1: 395, 3: 695}; alt = {1: 440, 2: 340, 3: 260}
     cor = {1: OFF, 2: AREIA, 3: CAR}; ini = {3: 1.0, 2: 2.2, 1: 3.4}
     for pos in (3, 2, 1):
         p = ease((t - ini[pos]) / 0.9)
@@ -49,7 +49,7 @@ def quadro(t, cat, nomes, nums, logo):
             d.text((x + larg/2, base - h + 150), nums[pos-1], font=POP(36), fill=MAR + (round(255*an),), anchor="ms")
             d.text((x + larg/2, base - h + 190), "nota", font=ImageFont.truetype(str(A/"fonts"/"IBMPlexMono-Regular.ttf"), 26), fill=MAR + (round(255*an),), anchor="ms")
     af = round(255 * ease((t - 5.6) / 0.7))
-    if af: d.text((W/2, 1760), "qual deles está na sua rotina?", font=pf(400, False, 50), fill=OFF + (af,), anchor="ms")
+    if af: d.text((W/2, 1495), "qual deles está na sua rotina?", font=pf(400, False, 50), fill=OFF + (af,), anchor="ms")
     return im.convert("RGB")
 if __name__ == "__main__":
     saida, cat, n1, n2, n3, c1, c2, c3 = sys.argv[1:9]

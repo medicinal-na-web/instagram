@@ -20,7 +20,7 @@ def larg(txt, f, tam): return sum(f.getlength(c) for c in txt) - 0.025 * tam * m
 def arte(foto, canal, saida, frase, yfrac=None):
     W, H = 1080, (1920 if canal == "story" else 1350); tam = 70 if canal == "story" else 62
     img = cobre(Image.open(foto).convert("RGB"), W, H)
-    yt = float(yfrac) if yfrac else (0.66 if canal == "story" else 230 / 1350)
+    yt = min(float(yfrac), 0.70) if yfrac else (0.62 if canal == "story" else 230 / 1350)
     y0 = int(H * (yt - 0.04)); zona = img.crop((90, y0, W - 90, y0 + 320)).convert("L")
     claro = sum(zona.get_flattened_data() if hasattr(zona, "get_flattened_data") else zona.getdata()) / (zona.width * zona.height) > 160
     cor_txt = (16, 33, 64, 255) if claro else (255, 255, 255, 255)
@@ -50,7 +50,7 @@ def arte(foto, canal, saida, frase, yfrac=None):
     sombra = Image.new("RGBA", (W, H), (0, 0, 0, 0)); sombra.putalpha(txt.getchannel("A").point(lambda a: 0 if claro else a * 0.25).filter(ImageFilter.GaussianBlur(6)))
     img = img.convert("RGBA"); img.alpha_composite(sombra); img.alpha_composite(txt)
     lg = Image.open(A / "logo" / ("medicinal-palavra-marinho.png" if claro else "medicinal-palavra-branco.png")).convert("RGBA"); lg = lg.resize((170, round(lg.height * 170 / lg.width)), Image.LANCZOS)
-    img.alpha_composite(lg, (60, 60))
+    img.alpha_composite(lg, (60, 290 if canal == "story" else 60))
     img.convert("RGB").save(saida, "JPEG", quality=92)
 if __name__ == "__main__":
     arte(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5] if len(sys.argv) > 5 else None)
