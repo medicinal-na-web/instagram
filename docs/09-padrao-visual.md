@@ -143,6 +143,16 @@ Enquanto não há sessão de fotos nem rosto da marca, as imagens podem ser gera
 
 **Custo:** 20 créditos do Runway por imagem ou edição (modelo padrão). Saldo em 08/11: 20. Vídeo gasta bem mais.
 
+### Vídeo com IA: conferência obrigatória (12/11/2026)
+- **Erro registrado:** no ativo animado do Morosil (Runway, seedance-2.5), a faca "se dividiu" e a laranja abriu em 4 partes, um corte fisicamente impossível. O Ricardo percebeu.
+- **Regra:**
+  - Evitar ação mecânica complexa: faca cortando, mãos manipulando, líquido sendo servido, objetos se partindo.
+  - Preferir cena quase estática com um único movimento simples: gota escorrendo, câmera aproximando, faísca subindo, luz pulsando.
+- **Antes de mostrar ou publicar:**
+  - extrair pelo menos 8 quadros (a cada 0,6 s);
+  - conferir objetos duplicados, partes que surgem ou somem, fusões, mãos e dedos, texto espúrio e física impossível;
+  - qualquer sinal desses reprova o vídeo.
+
 ## 12. Produto inserido em cena: naturalidade extrema (regra fixa)
 
 Pedido do Ricardo em 08/11/2026, depois do primeiro teste (lata de Peptistrong "colada" na cozinha). **Vale para toda arte que coloca a embalagem real dentro de outra imagem.** Se não ficar indistinguível de uma foto, a arte não sai.
