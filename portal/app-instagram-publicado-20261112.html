@@ -469,6 +469,8 @@ function renderEditor(){
     lock?el("div",{class:"locked"},"Publicado em "+fmtDia(draft.data)+(draft.hora?" às "+draft.hora:"")+". Este bloco é registro do que foi ao ar e não pode ser editado.",draft.permalink?el("div",null,el("a",{href:draft.permalink,target:"_blank",rel:"noopener"},"Ver no Instagram")):null):el("span",{hidden:true}),
     f
   );
+  if(draft.canal==="story"&&draft.id&&!draft.referencia_post_id&&podeEditar())
+    ed.insertBefore(el("div",{class:"btns",style:"margin:4px 0 10px"},el("button",{type:"button",class:"btn ai",onclick:()=>abrirVirarFeed(draft)},"✦ Virar post do feed"),el("span",{class:"note",text:"Leva a mesma ideia para o feed (4:5), com legenda completa, foto nova e frase de marca. Fica em Rascunho."})),f);
   // básico
   const fData=bindInput(el("input",{type:"date",id:"f-data"}),"data");
   const fHora=bindInput(el("input",{type:"time",id:"f-hora"}),"hora");
@@ -862,6 +864,57 @@ function abrirGereFull(canal){
     el("label",{style:"display:flex;gap:8px;align-items:center;font-weight:500;color:var(--fg)"},fFrase,el("span",{text:"Escrever a frase de marca sobre a foto (modelo A do padrão)"})),
     el("div",{class:"btns"},bGerar,el("button",{type:"button",class:"btn",onclick:fechar},"Cancelar")),prog,
     el("p",{class:"note",text:st.canal==="feed"?"Quando um post do feed for aprovado, a Grade cria junto o story \"POST NOVO NO FEED\", que sai logo depois do post (regra).":"Story gerado aqui é independente; o story que anuncia um post do feed é criado sozinho ao aprovar o post."}));
+  ov.append(card);ov.addEventListener("click",e=>{if(e.target===ov)fechar()});document.body.append(ov);
+}
+
+/* ---------- Virar post do feed: story → post do feed (mesma ideia, conteúdo enriquecido, identidade do padrão) ---------- */
+function abrirVirarFeed(story){
+  if(!podeEditar()){toast("Seu acesso é só de leitura.");return}
+  const ant=document.getElementById("vf");if(ant)ant.remove();
+  const base=new Date((story.data||iso(new Date()))+"T12:00:00");const hoje0=new Date();hoje0.setHours(12,0,0,0);
+  const dia=new Date(Math.max(base.getTime(),hoje0.getTime()));dia.setDate(dia.getDate()+1);
+  const ov=el("div",{id:"vf",style:"position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.45);display:grid;place-items:center;padding:16px"});
+  const card=el("div",{style:"background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;width:min(600px,100%);max-height:calc(100vh - 32px);overflow:auto;display:grid;gap:12px"});
+  const fData=el("input",{type:"date",value:iso(dia)}),fHora=el("input",{type:"time",value:"18:00"});
+  const fObs=el("input",{placeholder:"Observação para a IA (opcional): ângulo, público, chamada…"});
+  const fFrase=el("input",{type:"checkbox",checked:true,style:"width:auto"});
+  const prog=el("div",{class:"status-line",style:"white-space:pre-line"});
+  const bGerar=el("button",{type:"button",class:"btn primary"},"✦ Gerar post do feed");
+  const fechar=()=>ov.remove();
+  const tema=(story.tema||story.titulo||story.legenda||"").slice(0,300);
+  bGerar.addEventListener("click",async()=>{
+    if(!canRunway){prog.textContent="A geração de imagem no Runway não está configurada (segredo RUNWAY_API_KEY).";return}
+    if(!confirm("Gerar o post do feed a partir deste story? Usa a IA de texto e 1 imagem no Runway. O resultado fica em Rascunho para você revisar."))return;
+    bGerar.disabled=true;const passos=[];const passo=t=>{passos.push(t);prog.textContent=passos.join("\n")};
+    try{
+      passo("1/4 Enriquecendo o conteúdo para o feed…");
+      const instr=["Adaptar para o FEED o story \""+(story.legenda||story.titulo||"").slice(0,150)+"\": mesma ideia e gancho, conteúdo mais rico (1 informação útil e verificável + orientação profissional, sem prometer efeito).",
+        "Foto: descreva só o que deve aparecer, em frases afirmativas; terço superior liso e desfocado, sem mãos nem objetos.",
+        fObs.value.trim()?"Pedido: "+fObs.value.trim().slice(0,120):""].filter(Boolean).join(" ");
+      const r=await fetch(API+"/functions/v1/ig-ia",{method:"POST",headers:{apikey:ANON,Authorization:"Bearer "+await tokenValido(),"Content-Type":"application/json"},body:JSON.stringify({acao:"post_completo",instrucao:instr.slice(0,500),post:{canal:"feed",tema,data:fData.value}})});
+      const j=await r.json().catch(()=>({}));if(!r.ok||!j.post)throw new Error(j.erro||"a IA não respondeu");
+      const p=j.post;
+      passo("2/4 Gerando a foto 4:5 no Runway…");
+      const pedido=await rw("gerar_imagem",{prompt:p.prompt_imagem,canal:"feed"});
+      let foto=null;const t0=Date.now();
+      while(Date.now()-t0<5*60e3){await new Promise(ok=>setTimeout(ok,4000));const t=await rw("tarefa",{tarefa_id:pedido.tarefa_id,tipo:"imagem"});if(t.status==="pronto"){foto=t.url;break}if(t.status==="falhou")throw new Error(t.erro||"o Runway não conseguiu gerar");}
+      if(!foto)throw new Error("o Runway demorou demais");
+      passo("3/4 Montando a arte"+(fFrase.checked?" com a frase de marca":"")+"…");
+      const url=await subirBlob(await arteComFrase(foto,fFrase.checked?p.frase_arte:"","feed"));
+      passo("4/4 Salvando como Rascunho…");
+      const salvo=await rpc("ig_post_salvar",{p_id:null,p_dados:{canal:"feed",formato:"imagem",data:fData.value,hora:fHora.value,status:"rascunho",
+        titulo:(p.titulo||story.titulo||"Post do feed").slice(0,80),tema,legenda:p.legenda,hashtags:p.hashtags,
+        midia:[{tipo:"imagem",url,origem:"Virar post do feed (story: "+(story.titulo||story.id)+")"}],prompt_imagem:p.prompt_imagem,roteiro_video:""}});
+      fechar();toast("Post do feed gerado em Rascunho. Revise antes de aprovar."+(p.observacao?" Obs. da IA: "+p.observacao:""));
+      view="feed";await carregar();abrir(salvo.id);
+    }catch(e){passo("Não deu: "+(e.message||e));bGerar.disabled=false}
+  });
+  card.append(
+    el("div",{class:"ed-head"},el("div",null,el("h2",{text:"✦ Virar post do feed"}),el("p",{class:"note",text:"Story: "+(story.titulo||"sem título")+". A Grade escreve a legenda completa, gera uma foto nova em 4:5 no padrão visual e monta a arte com a frase de marca e o logo. Fica em Rascunho; nada vai ao ar sem a sua aprovação."})),el("button",{type:"button",class:"x","aria-label":"Fechar",onclick:fechar},"×")),
+    campo("Observação",fObs),el("div",{class:"row"},campo("Data",fData),campo("Hora",fHora)),
+    el("label",{style:"display:flex;gap:8px;align-items:center;font-weight:500;color:var(--fg)"},fFrase,el("span",{text:"Escrever a frase de marca sobre a foto (modelo A do padrão)"})),
+    el("div",{class:"btns"},bGerar,el("button",{type:"button",class:"btn",onclick:fechar},"Cancelar")),prog,
+    el("p",{class:"note",text:"Ao aprovar o post, a Grade cria junto o story \"POST NOVO NO FEED\" (regra)."}));
   ov.append(card);ov.addEventListener("click",e=>{if(e.target===ov)fechar()});document.body.append(ov);
 }
 

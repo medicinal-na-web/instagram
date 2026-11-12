@@ -26,6 +26,16 @@ flowchart LR
 - Stage `_sm_stage` ids 21 e 22. A função temporária de stage foi removida.
 - Cópias publicadas: `portal/portalsitemedicinal-publicado-20261112.html` e `portal/app-instagram-publicado-20261112.html`.
 
+## Virar post do feed (12/11/2026)
+- Em qualquer story criado na Grade (inclusive um já publicado), o editor mostra o botão **✦ Virar post do feed**. Ele não aparece nos stories automáticos "POST NOVO NO FEED".
+- Fluxo:
+  1. A IA (`ig-ia`, ação `post_completo`, canal feed) recebe o texto do story e escreve título, frase de marca, legenda completa (gancho, 2–3 parágrafos, orientação profissional) e hashtags. A instrução tem até 500 caracteres.
+  2. O Runway gera uma foto nova em 4:5. A descrição da foto pede frases afirmativas e o terço superior liso, para a frase.
+  3. `arteComFrase` monta a arte 1080×1350 (Playfair, palavra-chave em itálico, logo oficial branco).
+  4. O post é salvo como **Rascunho** para amanhã às 18:00. Ao aprovar, a regra cria o story "POST NOVO NO FEED".
+- Publicação: `brasa_loader_ig` md5 `86328330…` → `5e4c85b6f5385ddf8af3a023b6fe686f`. Backup em `_brasa_parts_ig_bkp_20261112_vf`; stage `_sm_stage` id 23.
+- Primeiro story publicado pelo portal: "Magnésio e o ritual do sono" (12/11, 13:21, n8n).
+
 ## O que fica do artefato
 - O artefato https://claude.ai/artifact/Ayp1jCcyffTqZth63yXdtX fica como histórico. O trabalho novo é feito no portal.
 - A rotina "pedidos de imagem e vídeo (Runway)" (`trig_01BXAxUbfjXqbQ7Le6Ha8tjd`) foi **desativada** em 12/11: o portal chama o Runway direto.
