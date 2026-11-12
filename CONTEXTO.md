@@ -66,6 +66,21 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 
 - **Fontes e temas de conteúdo** (documento vivo): `docs/12-fontes-e-temas.md`. Atualizar a cada coleta ou pauta.
 
+## Ritmo semanal dos stories (Ricardo, 12/11/2026)
+- **Quarta-feira é o DERMO-DAY, fixo, toda semana.** O dia tem só a sequência de 4 stories (12:30, 12:40, 12:50 e 13:00):
+  1. um dermocosmético comercial em alta, com a foto do produto de referência em destaque e ofuscada (marca desfocada);
+  2. o ativo destaque;
+  3. os cuidados;
+  4. "agora no *seu* manipulado" e "responda DERMO e monte o seu".
+  
+  A revisão farmacêutica é obrigatória. Geradores: `referencia_story.py` e `modelos.py`. Ideias na fila: PDRN, mucina de caracol, centella (cica), ácido tranexâmico.
+- **Sábado é o PÓDIO:** vídeo do pódio às 11:00 e a campeã (produto do dia, com link) às 12:30.
+- **Dia de um produto só (pontual):** vídeo ativo animado às 11:00, sem chamada, e story do produto às 12:30, com a foto do site e a palavra (`produto_story.py`).
+- **Demais dias:** 4 stories e 1 produto com link (palavra-chave). Os outros 3 são conteúdo, sem chamada.
+- **Palavra-chave breve**, sem acento nem caractere especial. Link por direct pelo ManyChat, sempre para a página do produto, com UTM.
+- **Story sem logo; feed com logo.**
+- A mesma regra está em `ig_estrategia` (id `atual`, chave `semana`), para o portal e a IA.
+
 ## Decisões tomadas
 
 - Acesso por **duas APIs**: login do Instagram para publicar e ler; login do Facebook para anúncios.
