@@ -116,3 +116,8 @@ flowchart LR
 - Os dois exigem o checklist "Antes de aprovar".
 - Incidente que motivou: em 12/11 às 18:33, o story do treonato (em espera por causa da Anvisa) foi aprovado pelo botão antigo com a data de hoje. O Claude voltou o bloco para Rascunho em 13/11 09:00 antes da rodada de publicação.
 - `brasa_loader_ig` md5 `525733c8…` → `9ae3956ed5a0fd8f3dc55b875287f027`; backup em `_brasa_parts_ig_bkp_20261112_v5`; stage id 26.
+
+## Temas de dermocosméticos (12/11/2026)
+- Pedido do Ricardo: faltavam temas de dermocosméticos. Grupo novo **Topo · Dermocosméticos**, T133 a T150 (18 temas), na aba Temas para triagem.
+- Assuntos: niacinamida, vitamina C tópica, hialurônico tópico × oral, protetor com cor, reaplicação, retinol × tretinoína (educativo), manchas, ceramidas, ureia, pantenol, bakuchiol, peptídeos, ordem dos produtos, ácidos e sol, antioxidante + protetor, sérum sob medida, pele oleosa, protetor labial.
+- O site não tem dermocosmético tópico à venda (busca de 12/11). Por isso os temas não têm link: são conteúdo ou chamada para a manipulação.
