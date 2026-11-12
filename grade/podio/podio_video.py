@@ -47,7 +47,7 @@ def quadro(t, cat, nomes, nums, logo):
             y = base - h - 40 - 52 * (len(linhas) - 1)
             for l in linhas: d.text((x + larg/2, y), l, font=fn, fill=OFF + (round(255*an),), anchor="ms"); y += 52
             d.text((x + larg/2, base - h + 150), nums[pos-1], font=POP(36), fill=MAR + (round(255*an),), anchor="ms")
-            d.text((x + larg/2, base - h + 190), "fórmulas", font=ImageFont.truetype(str(A/"fonts"/"IBMPlexMono-Regular.ttf"), 26), fill=MAR + (round(255*an),), anchor="ms")
+            d.text((x + larg/2, base - h + 190), "nota", font=ImageFont.truetype(str(A/"fonts"/"IBMPlexMono-Regular.ttf"), 26), fill=MAR + (round(255*an),), anchor="ms")
     af = round(255 * ease((t - 5.6) / 0.7))
     if af: d.text((W/2, 1760), "qual deles está na sua rotina?", font=pf(400, False, 50), fill=OFF + (af,), anchor="ms")
     return im.convert("RGB")
