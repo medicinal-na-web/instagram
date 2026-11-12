@@ -100,6 +100,7 @@ flowchart LR
   M -->|direct com botão Ver no site| R
 ```
 
+- **Palavra-chave sem acento nem caractere especial** (pedido do Ricardo, 12/11): CAFE, MAGNESIO, COLAGENO, SALMAO, PROPOLIS, HIALURONICO. A função também aceita com acento.
 - **Banco:** colunas `palavra_chave` e `link_dm` em `ig_post`. A função `ig_link_por_palavra(p_texto)` ignora acento e caixa e só devolve link de bloco **aprovado ou publicado**. Resposta: `{encontrado, palavra, link, produto}`. Não grava nada da pessoa (LGPD).
 - **ManyChat:** automação "Site Medicinal - Link por palavra (story)". Gatilho Story Reply, External Request (POST com a chave pública anon do portal, corpo `{"p_texto": "{{last_input_text}}"}`), campos `link_produto` e `link_ok`, condição `link_ok = true` → direct com o link. Sem palavra conhecida, não responde (a equipe atende).
 - Configuração feita pelo Claude no navegador do Ricardo, a partir do roteiro preparado nesta conversa (o roteiro tem a chave pública e fica fora do repositório). Automação criada pausada; o Ricardo liga depois do teste.
