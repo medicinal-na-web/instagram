@@ -107,3 +107,12 @@ flowchart LR
 - **Story sem logo** (12/11): o cabeçalho do Instagram já mostra @medicinalnaweb. `arte.py`, `modelos.py`, `ativo_animado.py` e `podio_video.py` só põem logo no feed.
 - **Link sempre na página do produto, com UTM** (decisão do Ricardo, 12/11): o direct leva à página do produto, para a pessoa ler o contexto do item. Desde 12/11, `ig_link_por_palavra` devolve o link com `utm_source=instagram&utm_medium=dm&utm_campaign=story-AAAA-MM&utm_content=<palavra>`. Isso mede as vendas por story e permite, no futuro, uma promoção na VTEX restrita a essa UTM (fluxo de Campanhas, criada pausada, só com OK do Ricardo). Como o desconto da VTEX aparece no carrinho, o direct precisará avisar isso quando houver promoção.
 - **1 produto com link por dia** (Ricardo, 12/11): só o story do produto do dia tem palavra-chave e chamada; os demais saem como conteúdo. **Pódio sempre no sábado** (vídeo 11:00 + campeã com link 12:30). **Palavras breves** (CAFE, VITC, SAW, ALCA, HIALU, PASSI). Tabela em `grade/pacotes/2026-11-13a20/LISTA.md`.
+
+## Aprovar × Publicar agora (12/11/2026)
+- Pedido do Ricardo: o antigo "Aprovar e publicar agora" trocava a data e a hora do bloco para o momento do clique e ignorava o agendamento.
+- Agora há dois botões (só admin):
+  - **Aprovar (no horário agendado):** mantém data e hora. Recusa horário que já passou.
+  - **Publicar agora:** pede confirmação ("sem esperar o horário agendado"). Depois aprova com a data e a hora do clique, e o bloco sai na próxima rodada (até 10 min).
+- Os dois exigem o checklist "Antes de aprovar".
+- Incidente que motivou: em 12/11 às 18:33, o story do treonato (em espera por causa da Anvisa) foi aprovado pelo botão antigo com a data de hoje. O Claude voltou o bloco para Rascunho em 13/11 09:00 antes da rodada de publicação.
+- `brasa_loader_ig` md5 `525733c8…` → `9ae3956ed5a0fd8f3dc55b875287f027`; backup em `_brasa_parts_ig_bkp_20261112_v5`; stage id 26.

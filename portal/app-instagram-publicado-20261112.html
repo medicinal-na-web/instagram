@@ -565,13 +565,33 @@ function renderEditor(){
   if(!lock&&!soLeitura){
     const st=el("div",{class:"status-line",id:"save-st"});
     const acts=el("div",{class:"btns"},el("button",{type:"button",class:"btn primary",onclick:salvar},"Salvar"),el("button",{type:"button",class:"btn",onclick:fechar},"Cancelar"));
-    // Só o admin: aprova com a data e a hora de agora; a publicação automática pega na próxima rodada (até 10 min).
-    if(papel==="admin")acts.append(el("button",{type:"button",class:"btn",onclick:()=>{
-      const d=new Date(),p=n=>String(n).padStart(2,"0");
-      draft.data=iso(d);draft.hora=p(d.getHours())+":"+p(d.getMinutes());draft.status="aprovado";
-      if(!checklistOk()){renderEditor();const s=$("#save-st");if(s)s.textContent="Marque o checklist \"Antes de aprovar\" e clique de novo em Aprovar e publicar agora.";return}
-      salvar();
-    }},"Aprovar e publicar agora"));
+    // Só o admin. "Aprovar": respeita a data e a hora do bloco (a publicação automática solta no horário).
+    // "Publicar agora": aprova e troca a data/hora para agora, ignorando o agendamento (pede confirmação).
+    if(papel==="admin"){
+      const pAg=n=>String(n).padStart(2,"0");
+      acts.append(el("button",{type:"button",class:"btn primary",onclick:()=>{
+        const s=$("#save-st");
+        if(!draft.data||!draft.hora){if(s)s.textContent="Para aprovar, escolha a data e a hora de publicação.";return}
+        const quando=new Date(draft.data+"T"+draft.hora+":00");
+        if(quando<new Date()){if(s)s.textContent="Esse horário já passou. Ajuste a data/hora ou use Publicar agora.";return}
+        draft.status="aprovado";
+        if(!checklistOk()){renderEditor();const s2=$("#save-st");if(s2)s2.textContent="Marque o checklist \"Antes de aprovar\" e clique de novo em Aprovar.";return}
+        salvar();
+      }},"Aprovar (no horário agendado)"));
+      acts.append(el("button",{type:"button",class:"btn",onclick:()=>{ui.confirmPub=true;renderEditor()}},"Publicar agora"));
+      if(ui.confirmPub){
+        const ag=draft.data?(draft.data.split("-").reverse().slice(0,2).join("/")+(draft.hora?" às "+draft.hora:"")):"sem data";
+        f.append(el("div",{class:"confirm"},el("b",{text:"Publicar agora, sem esperar o horário agendado ("+ag+")?"}),
+          el("span",{class:"note",text:"O bloco é aprovado com a data e a hora de agora e sai na próxima rodada da publicação (até 10 minutos)."}),
+          el("div",{class:"btns"},
+            el("button",{type:"button",class:"btn primary",onclick:()=>{
+              const d=new Date();draft.data=iso(d);draft.hora=pAg(d.getHours())+":"+pAg(d.getMinutes());draft.status="aprovado";ui.confirmPub=false;
+              if(!checklistOk()){renderEditor();const s=$("#save-st");if(s)s.textContent="Marque o checklist \"Antes de aprovar\" e clique de novo em Publicar agora.";return}
+              salvar();
+            }},"Sim, publicar agora"),
+            el("button",{type:"button",class:"btn",onclick:()=>{ui.confirmPub=false;renderEditor()}},"Não"))));
+      }
+    }
     if(draft.id)acts.append(el("button",{type:"button",class:"btn danger",onclick:()=>{ui.confirmDel=true;renderEditor()}},"Excluir"));
     f.append(el("div",{class:"sec"},acts,st));
     if(ui.confirmDel)f.append(el("div",{class:"confirm"},el("b",{text:"Excluir este bloco do cronograma?"}),el("div",{class:"btns"},el("button",{type:"button",class:"btn primary",onclick:excluir},"Excluir"),el("button",{type:"button",class:"btn",onclick:()=>{ui.confirmDel=false;renderEditor()}},"Manter"))));
