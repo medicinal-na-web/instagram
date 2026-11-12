@@ -37,6 +37,23 @@ h1{font-family:var(--display);font-weight:700;font-size:28px;line-height:1.1;mar
 .tabs button[aria-selected="true"]{background:var(--surface);color:var(--fg);box-shadow:0 1px 2px rgba(0,0,0,.08)}
 .banner{border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:10px 14px;color:var(--muted);font-size:13px}
 .banner b{color:var(--fg)}
+.tm-card{border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:12px 14px;display:grid;gap:8px}
+.tm-card.feito{border-color:var(--ok)}
+.tm-card.fora{opacity:.55}
+.tm-top{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--muted)}
+.tm-tag{border:1px solid var(--line);border-radius:999px;padding:1px 8px}
+.tm-tag.rev{border-color:var(--warn);color:var(--warn)}
+.tm-tag.edu{border-color:var(--info);color:var(--info)}
+.tm-tag.ok{border-color:var(--ok);color:var(--ok)}
+.tm-t{font-weight:700;font-size:15px}
+.tm-g{color:var(--muted)}
+.tm-bt{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.tm-bt button{border:1px solid var(--line);background:var(--sunk);color:var(--fg);border-radius:999px;padding:5px 12px;font:inherit;font-size:13px;cursor:pointer}
+.tm-bt button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tm-bt button.sug{border-style:dashed}
+.tm-prod{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:13px}
+.tm-prod a{color:var(--info)}
+
 .layout{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:start}
 @media (min-width:980px){.layout.editing{grid-template-columns:minmax(0,1fr) 420px}}
 
@@ -238,6 +255,7 @@ img{max-width:100%}
       <button role="tab" id="tab-feed" aria-selected="true">Feed</button>
       <button role="tab" id="tab-stories" aria-selected="false">Stories</button>
       <button role="tab" id="tab-estrategia" aria-selected="false">Estratégia</button>
+      <button role="tab" id="tab-temas" aria-selected="false">Temas</button>
       <button role="tab" id="tab-acessos" aria-selected="false" hidden>Acessos</button>
     </div>
   </header>
@@ -276,6 +294,17 @@ img{max-width:100%}
         <div class="e-head"><h2>Estratégia de conteúdo</h2><p>Pirâmide de temas, ativos foco e o ciclo de cada um no topo, banco de pautas e fontes. A Grade é montada de cima para baixo seguindo esta página.</p></div>
         <div id="estr"><div class="e-empty">Carregando a estratégia… Ela aparece aqui assim que o planejamento for gravado no cronograma.</div></div>
       </section>
+      <section id="view-temas" hidden>
+        <div class="e-head"><h2>Temas da campanha</h2><p>Triagem dos temas para a grade de novembro (a partir de 13/11): 4 stories por dia e 4 posts no feed por semana. Para cada tema, escolha <b>Stories</b>, <b>Feed</b>, <b>Os dois</b> ou <b>Descartar</b>. O link do produto vale só para stories (adesivo de link); o feed não leva produto. Temas com <b>revisão farmacêutica</b> só entram na grade depois de marcados como revisados.</p></div>
+        <div id="tm-resumo" class="banner" style="margin:10px 0"></div>
+        <div class="tm-filtros" style="display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px">
+          <select id="tm-camada" style="width:auto"><option value="">Todas as camadas</option><option value="topo">Topo</option><option value="calendario">Calendário</option><option value="meio">Meio</option><option value="base">Base</option></select>
+          <select id="tm-sit" style="width:auto"><option value="pendentes">Pendentes</option><option value="">Todos</option><option value="decididos">Decididos</option><option value="revisar">Falta revisão farmacêutica</option></select>
+          <input id="tm-busca" placeholder="Buscar tema, produto…" style="flex:1;min-width:180px">
+        </div>
+        <div id="tm-lista" style="display:grid;gap:10px"></div>
+      </section>
+
       <section id="view-acessos" hidden>
         <div class="e-head"><h2>Acessos</h2><p>Quem entra na Grade. <b>Admin</b> aprova blocos para publicação e gerencia acessos; <b>editor</b> cria e edita até Rascunho; <b>leitor</b> só vê. Ao cadastrar, o login é criado e a pessoa entra com o e-mail e o código.</p></div>
         <form id="ac-form" class="row" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr));align-items:end;margin:14px 0">
@@ -363,6 +392,7 @@ function render(){
   $("#tab-stories").setAttribute("aria-selected",view==="stories");
   $("#tab-estrategia").setAttribute("aria-selected",view==="estrategia");
   $("#tab-acessos").setAttribute("aria-selected",view==="acessos");
+  $("#tab-temas").setAttribute("aria-selected",view==="temas");$("#view-temas").hidden=view!=="temas";if(view==="temas")renderTemas();
   $("#view-feed").hidden=view!=="feed"; $("#view-stories").hidden=view!=="stories"; $("#view-estrategia").hidden=view!=="estrategia"; $("#view-acessos").hidden=view!=="acessos";
   renderFeed(); renderStories(); renderEstrategia(); renderEditor();
 }
@@ -867,6 +897,47 @@ function abrirGereFull(canal){
   ov.append(card);ov.addEventListener("click",e=>{if(e.target===ov)fechar()});document.body.append(ov);
 }
 
+/* ---------- Temas: triagem da campanha (ig_tema) ---------- */
+let temas=null, tmCarregando=false; const tmMexidos=new Set();
+const TM_CAM={topo:"Topo",calendario:"Calendário",meio:"Meio",base:"Base"};
+const TM_DEST=[["stories","Stories"],["feed","Feed"],["ambos","Os dois"],["descartar","Descartar"]];
+async function carregaTemas(){if(tmCarregando)return;tmCarregando=true;try{temas=await rpc("ig_temas_listar")||[]}catch(e){toast(e.message||String(e));temas=temas||[]}tmCarregando=false;renderTemas()}
+async function decideTema(t,campos){
+  tmMexidos.add(t.id);const ant=Object.assign({},t);Object.assign(t,campos);renderTemas();
+  try{const r=await rpc("ig_tema_decidir",{p_id:t.id,p:campos});Object.assign(t,r);renderTemas()}
+  catch(e){Object.assign(t,ant);renderTemas();toast("Não salvou: "+(e.message||e))}
+}
+function fmtRef(d){if(!d)return"";const p=String(d).slice(0,10).split("-");return p[2]+"/"+p[1]}
+function renderTemas(){
+  if(view!=="temas")return;
+  if(temas===null){$("#tm-lista").replaceChildren(el("p",{class:"note",text:"Carregando temas…"}));carregaTemas();return}
+  const ed=podeEditar(), adm=papel==="admin";
+  const dec=temas.filter(t=>t.destino), n=k=>temas.filter(t=>t.destino===k).length;
+  const pendRev=temas.filter(t=>t.saude!=="livre"&&t.destino&&t.destino!=="descartar"&&!t.revisado).length;
+  $("#tm-resumo").replaceChildren(el("b",{text:dec.length+" de "+temas.length})," decididos · Stories "+n("stories")+" · Feed "+n("feed")+" · Os dois "+n("ambos")+" · Descartados "+n("descartar")+(pendRev?" · ":""),pendRev?el("b",{text:pendRev+" aguardando revisão farmacêutica"}):"");
+  const cam=$("#tm-camada").value, sit=$("#tm-sit").value, q=($("#tm-busca").value||"").toLowerCase();
+  const lista=temas.filter(t=>(!cam||t.camada===cam)&&(!sit||(sit==="pendentes"&&(!t.destino||tmMexidos.has(t.id)))||(sit==="decididos"&&t.destino)||(sit==="revisar"&&t.saude!=="livre"&&t.destino&&t.destino!=="descartar"&&!t.revisado))
+    &&(!q||[t.tema,t.gancho,t.grupo,t.produto_nome].join(" ").toLowerCase().includes(q)));
+  const cards=lista.map(t=>{
+    const tags=el("div",{class:"tm-top"},el("span",{class:"tm-tag",text:t.grupo}),t.data_ref?el("span",{class:"tm-tag",text:"📅 "+fmtRef(t.data_ref)}):null,
+      t.saude==="revisao"?el("span",{class:"tm-tag "+(t.revisado?"ok":"rev"),text:t.revisado?"✓ revisado":"revisão farmacêutica"}):null,
+      t.saude==="educativo"?el("span",{class:"tm-tag edu",text:"só educativo (prescrição)"}):null,
+      t.prioridade==="alta"?el("span",{class:"tm-tag ok",text:"★ prioridade"}):null);
+    const bts=el("div",{class:"tm-bt"},...TM_DEST.map(([k,r])=>el("button",{type:"button","aria-pressed":String(t.destino===k),class:(!t.destino&&t.sugestao===k)?"sug":"",title:(!t.destino&&t.sugestao===k)?"Sugestão":"",disabled:!ed,onclick:()=>decideTema(t,{destino:t.destino===k?"":k})},r)),
+      el("button",{type:"button","aria-pressed":String(t.prioridade==="alta"),disabled:!ed,onclick:()=>decideTema(t,{prioridade:t.prioridade==="alta"?"normal":"alta"})},"★"));
+    const card=el("div",{class:"tm-card"+(t.destino==="descartar"?" fora":t.destino?" feito":"")},tags,el("div",{class:"tm-t",text:t.tema}),el("div",{class:"tm-g",text:t.gancho}),bts);
+    if(t.produto_url&&t.saude!=="educativo"){
+      const usaStories=t.destino==="stories"||t.destino==="ambos"||!t.destino;
+      card.append(el("div",{class:"tm-prod"},el("span",{text:"Link nos stories:"}),el("a",{href:t.produto_url,target:"_blank",rel:"noopener",text:t.produto_nome||t.produto_url}),
+        el("span",{class:"tm-bt"},el("button",{type:"button","aria-pressed":String(t.produto_ok==="sim"),disabled:!ed||!usaStories,onclick:()=>decideTema(t,{produto_ok:t.produto_ok==="sim"?"":"sim"})},"Usar link"),
+          el("button",{type:"button","aria-pressed":String(t.produto_ok==="nao"),disabled:!ed||!usaStories,onclick:()=>decideTema(t,{produto_ok:t.produto_ok==="nao"?"":"nao"})},"Sem link"))));
+    }
+    if(t.saude!=="livre"&&adm)card.append(el("label",{style:"display:flex;gap:8px;align-items:center;font-size:13px"},el("input",{type:"checkbox",checked:!!t.revisado,style:"width:auto",onchange:e=>decideTema(t,{revisado:e.target.checked})}),el("span",{text:"Revisado pelo farmacêutico responsável"})));
+    return card;
+  });
+  $("#tm-lista").replaceChildren(...(cards.length?cards:[el("p",{class:"note",text:"Nenhum tema com esse filtro."})]));
+}
+
 /* ---------- Virar post do feed: story → post do feed (mesma ideia, conteúdo enriquecido, identidade do padrão) ---------- */
 function abrirVirarFeed(story){
   if(!podeEditar()){toast("Seu acesso é só de leitura.");return}
@@ -1013,8 +1084,9 @@ async function entrar(){
 }
 
 /* ---------- boot ---------- */
-const abas=["feed","stories","estrategia","acessos"];
+const abas=["feed","stories","estrategia","temas","acessos"];
 for(const a of abas)$("#tab-"+a).addEventListener("click",()=>{view=a;try{localStorage.setItem("grade-aba",a)}catch(_){ }render();if(a==="acessos")renderAcessos()});
+["#tm-camada","#tm-sit"].forEach(i=>$(i).addEventListener("change",()=>{tmMexidos.clear();renderTemas()}));$("#tm-busca").addEventListener("input",renderTemas);
 $("#new-feed").addEventListener("click",()=>novo("feed"));
 $("#new-story").addEventListener("click",()=>novo("story",selDay));
 $("#full-feed").addEventListener("click",()=>abrirGereFull("feed"));

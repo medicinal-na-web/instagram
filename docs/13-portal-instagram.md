@@ -40,3 +40,15 @@ flowchart LR
 - O artefato https://claude.ai/artifact/Ayp1jCcyffTqZth63yXdtX fica como histórico. O trabalho novo é feito no portal.
 - A rotina "pedidos de imagem e vídeo (Runway)" (`trig_01BXAxUbfjXqbQ7Le6Ha8tjd`) foi **desativada** em 12/11: o portal chama o Runway direto.
 - A rotina "publicação de blocos aprovados" (`trig_01ActqDM3WKFbTmso9xCSwbm`) só lê o artefato. Ela pode ser desativada pelo Ricardo em claude.ai/code → Agendados.
+
+## Aba Temas: triagem da campanha de novembro (12/11/2026)
+- Tabela `ig_tema` (RLS, sem acesso direto). Funções `ig_temas_listar()` e `ig_tema_decidir(p_id, p)` (admin/editor). Só o admin marca `revisado`.
+- Carga inicial: 132 temas (topo 43, calendário 27, meio 26, base 36), 75 com produto do site e link `https://www.medicinalnaweb.com.br/<link_id>/p`. Fonte: `grade/temas/temas_novembro.py` (gera `temas_novembro.json`).
+- Decisões do Ricardo (12/11):
+  - link de produto só nos stories (adesivo de link); feed sem produto do site;
+  - Black November fica separada, no fluxo de Campanhas;
+  - a campanha começa em 13/11;
+  - o Ricardo (farmacêutico) faz a revisão.
+- Na triagem, cada tema recebe Stories / Feed / Os dois / Descartar, prioridade ★, Usar link / Sem link e "revisado" (para temas com `saude` = `revisao`). Temas `educativo` (medicamento sob prescrição) não mostram link.
+- Próximo passo: o compositor monta de 13 a 30/11 (4 stories por dia, 4 posts no feed por semana) com os temas decididos e revisados e grava os blocos em Rascunho na Grade.
+- Publicação: `brasa_loader_ig` md5 `5e4c85b6…` → `1b65c4cbd300445d7a9033e5128721bb`. Backup em `_brasa_parts_ig_bkp_20261112_tm`; stage id 24.
