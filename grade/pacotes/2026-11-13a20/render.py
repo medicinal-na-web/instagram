@@ -17,7 +17,7 @@ run("arte.py", D13/"fotos/s2000v2.png", "story", P/"13-11_20h00_psyllium.jpg", "
 run("modelos.py", "E", "story", D13/"13-0900-story-E-magnesio-treonato.jpg", "nem todo magnésio chega ao *cérebro*.", "MAGNÉSIO TREONATO")
 for (d, h), (t, f, y, k) in {("2026-11-14", "12:30"): ("canela", "canela", "", "CANELA"), ("2026-11-15", "09:00"): ("cromo", "cromo", "", "CROMO"),
         ("2026-11-16", "12:30"): ("caibra-magnesio", "caibra", "", "MAGNESIO"), ("2026-11-18", "12:30"): ("hibisco", "hibisco", "0.70", "HIBISCO"),
-        ("2026-11-19", "12:30"): ("maca", "maca", "", "MACA"), ("2026-11-20", "09:00"): ("licopeno", "licopeno", "", "LICOPENO")}.items():
+        ("2026-11-20", "09:00"): ("licopeno", "licopeno", "", "LICOPENO")}.items():
     run("arte.py", f"{F}/{f}.png", "story", nome(d, h, t), A[(d, h)]["legenda"], y, c(k))
     # (a canela foi para dom 15/11 11:00: o arquivo é renomeado abaixo)
 run("modelos.py", "F", "story", P/"17-11_16h00_vitamina-c.jpg", "vitamina C: mais nem sempre é *melhor*.", "VITAMINA C", "", c("VITC"))
@@ -25,7 +25,7 @@ for d, h, t, k in [("2026-11-15", "12:30", "berberina", "BERBERINA"), ("2026-11-
                    ("2026-11-18", "09:00", "saw-palmetto", "SAW"), ("2026-11-18", "16:00", "zinco-cabelo", "ZINCO"), ("2026-11-20", "12:30", "kic", "KIC"), ("2026-11-20", "16:00", "vitamina-b12", "")]:
     a = A[(d, h)]; run("modelos.py", a["modelo"], "story", nome(d, h, t), a["legenda"], a.get("rotulo", ""), "", c(k))
 run("modelos.py", "F", "story", P/"14-11_12h30_campea-podio-b12.jpg", "a campeã do pódio tem nome: vitamina *B12*.", "PÓDIO · NUTRACÊUTICOS", "", c("B12"))
-for v, saida, fr, rot, k in [("morosil2", "morosil", "a laranja que *sangra* vermelho tem nome: moro.", "MOROSIL", "MOROSIL"),
+for v, saida, fr, rot, k in [("morosil2", "morosil", "a laranja que *sangra* vermelho tem nome: moro.", "MOROSIL", ""),
                              ("elibria-runway", "elibria", "o *calor* que começa por dentro.", "ELIBRIA", ""),
                              ("treonato-runway", "magnesio-treonato", "o magnésio que chega ao *cérebro*.", "MAGNÉSIO TREONATO", "")]:
     run(AA/"ativo_animado.py", f"{S}/{v}.mp4", AA/f"ativo-animado-{saida}.mp4", fr, rot, c(k) if k else "")
@@ -37,3 +37,6 @@ for s, cat, n, q in [("podio-nutraceuticos", "Nutracêuticos", ["vitamina B12", 
 shutil.copy(PD/"podio-nutraceuticos.mp4", P/"14-11_11h00_podio-nutraceuticos.mp4")
 shutil.move(P/"14-11_12h30_canela.jpg", P/"15-11_11h00_canela.jpg")
 print("ok")
+# Dia de um produto só (19/11 Morosil): vídeo 11:00 sem chamada + story do produto 12:30 com a palavra
+subprocess.run(["python3", "-I", "produto_story.py", str(G/"produtos/site/morosil.jpg"), str(P/"19-11_12h30_morosil-produto.jpg"),
+                "a laranja moro, agora em *cápsula*.", "MOROSIL 500 MG", "MOROSIL", "offwhite"], check=True, cwd=CN)

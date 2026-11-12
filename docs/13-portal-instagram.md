@@ -121,3 +121,23 @@ flowchart LR
 - Pedido do Ricardo: faltavam temas de dermocosméticos. Grupo novo **Topo · Dermocosméticos**, T133 a T150 (18 temas), na aba Temas para triagem.
 - Assuntos: niacinamida, vitamina C tópica, hialurônico tópico × oral, protetor com cor, reaplicação, retinol × tretinoína (educativo), manchas, ceramidas, ureia, pantenol, bakuchiol, peptídeos, ordem dos produtos, ácidos e sol, antioxidante + protetor, sérum sob medida, pele oleosa, protetor labial.
 - O site não tem dermocosmético tópico à venda (busca de 12/11). Por isso os temas não têm link: são conteúdo ou chamada para a manipulação.
+
+## Formatos de dia (Ricardo, 12/11/2026)
+- **Dia de um produto só:** o dia tem apenas 2 stories sobre o mesmo produto.
+  - 11:00: vídeo "ativo animado", sem chamada.
+  - 12:30: story com a foto real do produto (packshot do site) e a chamada "responda PALAVRA e receba o link".
+  - Gerador: `grade/campanha-nov/produto_story.py`. Ele multiplica o packshot de fundo branco sobre a cor da marca, sem recorte, e assim a sombra original fica natural.
+  - Datas: **19/11 Morosil** e **26/11 Keranat** (`keranat-150mg-60caps`).
+  - Os stories que ocupavam esses dias viraram **Ideia** em 01/12 e 02/12.
+- **Dia Dermo (quarta-feira, um por semana):**
+  - Escolhe-se um dermocosmético comercial em alta e explora-se o ativo destaque dele. O fechamento diz que esse ativo pode entrar no cosmético manipulado.
+  - O dia tem só essa sequência de 3 stories (12:30, 12:40, 12:50).
+  - Simulação em **25/11**: o "retinal shot" coreano.
+    1. C: "o que tem no “retinal shot” coreano? *retinal*: a vitamina A da vez."
+    2. E: "o retinal está um passo mais perto da forma ativa do que o *retinol*.", com o aviso "à noite · gestante não usa".
+    3. F: "o retinal já pode entrar no *seu* cosmético manipulado.", com a chamada "responda DERMO e monte o seu".
+  - Sem marca nem embalagem de terceiros na arte.
+  - O site não tem o produto. A palavra DERMO não tem link: quem responde é atendido pela equipe no direct.
+  - Revisão farmacêutica obrigatória, porque retinal é retinoide e há a questão da concentração e da regra de cosmético.
+  - Os stories que ocupavam 25/11 viraram Ideia em 03/12.
+  - Arquivos em `grade/pacotes/dia-dermo/`.
