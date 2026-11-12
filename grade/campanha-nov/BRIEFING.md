@@ -50,3 +50,15 @@ Marca: Medicinal Farmácia e Manipulação (Maringá/PR), farmácia de manipula�
 ## Saída
 Arquivo JSON (lista), um objeto por slot, com as chaves: `data`, `hora`, `canal`, `tema_id`, `titulo`, `legenda`, `hashtags`, `prompt_imagem`, `frase_arte` (só feed; no story repita a `legenda`), `link_url`.
 - `link_url` vem do tema: preencha com `produto_url` **somente** se o canal for story e `produto_ok = 'sim'`; caso contrário, "".
+
+## Revisão do Ricardo (12/11/2026, depois das artes de 13/11) — vale para TODOS os stories
+- **Texto curto e assertivo**: no máximo 12 palavras, 1 frase (2 no máximo), feita para gerar curiosidade e vontade de tocar no adesivo de link. Afirmação que provoca ou pergunta que incomoda. Ex.: "nem todo magnésio chega ao *cérebro*.", "fibra sem *água* não funciona."
+- **Proibido nos stories**: "fale/converse com a farmacêutica", "pergunte à farmacêutica", "conheça no link", "acesse o link", "link na bio", "toque no link". O adesivo de link faz esse papel.
+- Continua proibido prometer efeito (curiosidade sim, promessa não).
+- **Variar cor e modelo entre os stories do mesmo dia** (não pode parecer o mesmo assunto). Cada story recebe um `modelo`:
+  - `A` foto + frase branca (cena varia de paleta: manhã clara e fria com azul-marinho, terracota e barro, noite escura e quente, verde botânico profundo, branco luminoso);
+  - `E` fundo **marinho** liso, rótulo Poppins caixa alta off-white + frase Playfair off-white com palavra-chave em itálico **caramelo** (sem foto);
+  - `F` fundo **off-white** liso, frase Playfair **marinho** com palavra-chave em itálico, rótulo Poppins marinho (sem foto);
+  - `C` pergunta em **IBM Plex Mono sublinhada** + resposta curta em Playfair, sobre fundo **areia** ou **café** liso (sem foto).
+  Por dia: no máximo 2 stories com foto (modelo A), e nunca dois modelos iguais seguidos. Marinho (E) no máximo 1 por dia.
+- Para `E`, `F` e `C`: `rotulo` (2 a 3 palavras em caixa alta, ex.: "MAGNÉSIO TREONATO") e, no `C`, `pergunta` (até 8 palavras, termina com "?").

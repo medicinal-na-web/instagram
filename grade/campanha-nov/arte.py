@@ -20,11 +20,14 @@ def larg(txt, f, tam): return sum(f.getlength(c) for c in txt) - 0.025 * tam * m
 def arte(foto, canal, saida, frase):
     W, H = 1080, (1920 if canal == "story" else 1350); tam = 70 if canal == "story" else 62
     img = cobre(Image.open(foto).convert("RGB"), W, H)
+    y0 = int(H * 0.62) if canal == "story" else 180; zona = img.crop((90, y0, W - 90, y0 + 320)).convert("L")
+    claro = sum(zona.getdata()) / (zona.width * zona.height) > 175
+    cor_txt = (16, 33, 64, 255) if claro else (255, 255, 255, 255)
     ov = Image.new("L", (W, H), 0); d = ImageDraw.Draw(ov)
     for y in range(H):
         g = (0.2 * max(0, (y - 0.45 * H) / (0.55 * H))) if canal == "story" else (0.2 * max(0, 1 - y / (0.6 * H)))
         d.line([(0, y), (W, y)], fill=round(255 * (0.1 + g)))
-    img = Image.composite(Image.new("RGB", (W, H), (0, 0, 0)), img, ov)
+    if not claro: img = Image.composite(Image.new("RGB", (W, H), (0, 0, 0)), img, ov)
     pal = [{"t": w.replace("*", ""), "k": "*" in w} for w in minus(" ".join(frase.split())).split(" ") if w]
     linhas, atual, lw = [], [], 0; maxw = W - 180
     for p in pal:
@@ -40,12 +43,12 @@ def arte(foto, canal, saida, frase):
         for p in ps:
             f = fonte(p["k"], tam); base = y + tam
             for c in p["t"]:
-                dt.text((x, base), c, font=f, fill=(255, 255, 255, 255), anchor="ls"); x += f.getlength(c) - 0.025 * tam
+                dt.text((x, base), c, font=f, fill=cor_txt, anchor="ls"); x += f.getlength(c) - 0.025 * tam
             x += f.getlength(" ")
         y += alt
-    sombra = Image.new("RGBA", (W, H), (0, 0, 0, 0)); sombra.putalpha(txt.getchannel("A").point(lambda a: a * 0.25).filter(ImageFilter.GaussianBlur(6)))
+    sombra = Image.new("RGBA", (W, H), (0, 0, 0, 0)); sombra.putalpha(txt.getchannel("A").point(lambda a: 0 if claro else a * 0.25).filter(ImageFilter.GaussianBlur(6)))
     img = img.convert("RGBA"); img.alpha_composite(sombra); img.alpha_composite(txt)
-    lg = Image.open(A / "logo" / "medicinal-palavra-branco.png").convert("RGBA"); lg = lg.resize((170, round(lg.height * 170 / lg.width)), Image.LANCZOS)
+    lg = Image.open(A / "logo" / ("medicinal-palavra-marinho.png" if claro else "medicinal-palavra-branco.png")).convert("RGBA"); lg = lg.resize((170, round(lg.height * 170 / lg.width)), Image.LANCZOS)
     img.alpha_composite(lg, (60, 60))
     img.convert("RGB").save(saida, "JPEG", quality=92)
 if __name__ == "__main__":
