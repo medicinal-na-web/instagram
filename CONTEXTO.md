@@ -66,20 +66,24 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 
 - **Fontes e temas de conteúdo** (documento vivo): `docs/12-fontes-e-temas.md`. Atualizar a cada coleta ou pauta.
 
-## Ritmo semanal dos stories (Ricardo, 12/11/2026)
-- **Quarta-feira é o DERMO-DAY, fixo, toda semana.** O dia tem só a sequência de 4 stories (12:30, 12:40, 12:50 e 13:00):
-  1. um dermocosmético comercial em alta, com a foto do produto de referência em destaque e ofuscada (marca desfocada);
-  2. o ativo destaque;
-  3. os cuidados;
-  4. "agora no *seu* manipulado" e "responda DERMO e monte o seu".
-  
-  A revisão farmacêutica é obrigatória. Geradores: `referencia_story.py` e `modelos.py`. Ideias na fila: PDRN, mucina de caracol, centella (cica), ácido tranexâmico.
-- **Sábado é o PÓDIO:** vídeo do pódio às 11:00 e a campeã (produto do dia, com link) às 12:30.
-- **Dia de um produto só (pontual):** vídeo ativo animado às 11:00, sem chamada, e story do produto às 12:30, com a foto do site e a palavra (`produto_story.py`).
-- **Demais dias:** 4 stories e 1 produto com link (palavra-chave). Os outros 3 são conteúdo, sem chamada.
-- **Palavra-chave breve**, sem acento nem caractere especial. Link por direct pelo ManyChat, sempre para a página do produto, com UTM.
-- **Story sem logo; feed com logo.**
-- A mesma regra está em `ig_estrategia` (id `atual`, chave `semana`), para o portal e a IA.
+## Ritmo semanal dos stories (Ricardo, 12/11/2026, aprovado; evolui com o tempo)
+
+| Dia | Formato fixo |
+|---|---|
+| **Segunda** | **Mito ou verdade**: pergunta (modelo C) às 09:00 e resposta às 12:30 |
+| **Terça** | **Ativo animado**: vídeo curto de um ativo da lista (`grade/ativos-animados/LISTA.md`), sem chamada |
+| **Quarta** | **Dermo-day**: só a sequência de 4 stories (12:30, 12:40, 12:50, 13:00), com a revisão farmacêutica obrigatória:<br>1. dermocosmético comercial em alta, com a foto do produto de referência em destaque e ofuscada (marca desfocada);<br>2. o ativo destaque;<br>3. os cuidados;<br>4. "agora no *seu* manipulado" e "responda DERMO e monte o seu". |
+| **Quinta** | **Dia de um produto só**: vídeo ativo animado às 11:00, sem chamada, e story do produto às 12:30, com a foto do site e a palavra |
+| **Sexta** | **Bastidores e receitas**: controle de qualidade, ISO 9001, laboratório e receitas para o fim de semana |
+| **Sábado** | **Pódio**: vídeo do pódio às 11:00 e campeã (produto do dia, com link) às 12:30 |
+| **Domingo** | **Rotina leve**: sono, mente e autocuidado, sem venda forte (só o produto do dia) |
+
+- Fora dos formatos fixos: 4 stories por dia e só 1 produto com link (palavra-chave). Os demais são conteúdo, sem chamada.
+- Palavra-chave breve, sem acento nem caractere especial. O link vai por direct (ManyChat) para a página do produto, com UTM.
+- Story sem logo; feed com logo.
+- Geradores: `referencia_story.py` (dermo), `produto_story.py` (produto do dia), `modelos.py`, `arte.py`, `ativo_animado.py` e `podio_video.py`.
+- Ideias na fila para o Dermo-day: PDRN, mucina de caracol, centella (cica), ácido tranexâmico.
+- A mesma regra está em `ig_estrategia` (id `atual`, chave `semana.dias`), para o portal e a IA.
 
 ## Decisões tomadas
 
