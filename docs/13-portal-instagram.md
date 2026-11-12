@@ -131,11 +131,12 @@ flowchart LR
   - Os stories que ocupavam esses dias viraram **Ideia** em 01/12 e 02/12.
 - **Dia Dermo (quarta-feira, um por semana):**
   - Escolhe-se um dermocosmético comercial em alta e explora-se o ativo destaque dele. O fechamento diz que esse ativo pode entrar no cosmético manipulado.
-  - O dia tem só essa sequência de 3 stories (12:30, 12:40, 12:50).
-  - Simulação em **25/11**: o "retinal shot" coreano.
-    1. C: "o que tem no “retinal shot” coreano? *retinal*: a vitamina A da vez."
-    2. E: "o retinal está um passo mais perto da forma ativa do que o *retinol*.", com o aviso "à noite · gestante não usa".
-    3. F: "o retinal já pode entrar no *seu* cosmético manipulado.", com a chamada "responda DERMO e monte o seu".
+  - O dia tem só essa sequência de 4 stories: gancho, ativo, cuidados e chamada.
+  - Simulação em **25/11**: o "retinal shot" coreano, em 4 stories (12:30, 12:40, 12:50, 13:00):
+    1. Gancho, com foto de ampola sem marca (Runway): "todo mundo quer o *retinal shot* coreano. o que tem dentro?"
+    2. O ativo (modelo E): "*retinal*: uma forma de vitamina A, um passo mais perto da forma ativa do que o retinol."
+    3. Cuidados (modelo C): "retinal é para qualquer um? à noite, com protetor de dia. gestante e lactante *não* usam."
+    4. Chamada, com foto da bancada de manipulação (Runway, frasco âmbar com rótulo em branco): "agora no *seu* manipulado.", com "responda DERMO e monte o seu".
   - Sem marca nem embalagem de terceiros na arte.
   - O site não tem o produto. A palavra DERMO não tem link: quem responde é atendido pela equipe no direct.
   - Revisão farmacêutica obrigatória, porque retinal é retinoide e há a questão da concentração e da regra de cosmético.
