@@ -78,3 +78,11 @@ flowchart LR
   - ISO 9001 (T085): confirmar que a Medicinal é certificada;
   - fontes citadas nas legendas (NIH, AAD, ISSN, Endocrine Society, SBD etc.), que vieram da memória do redator e não foram conferidas;
   - CTAs "Comente PALAVRA", que prometem enviar um material que ainda precisa existir.
+
+## Três formatos na grade (12/11/2026)
+1. **Posts padrão**: artes estáticas nos modelos A (foto), E (marinho), F (off-white) e C (pergunta); compositores `grade/campanha-nov/arte.py` e `modelos.py`.
+2. **Ativos animados**: 2 por semana. Vídeo de 5 s gerado no Runway (seedance-2.5, 9:16, cerca de 150 créditos) com frase, rótulo e logo; compositor `grade/ativos-animados/ativo_animado.py`; lista em `grade/ativos-animados/LISTA.md`. Conceitos sem efeito no corpo: Morosil → laranja moro; Elibria → brasa suave. Logo de marca de terceiro só com autorização do detentor.
+3. **Pódio da manipulação**: nos fins de semana. No sábado, o vídeo animado (`grade/podio/podio_video.py`); no domingo, o campeão com link. Dados do workflow `Fw0EFRJ9uwxCyaOF` (réplica, agregado, 90 dias), nota proporcional (1º = 10,0), sem fármacos.
+- Vídeos ficam em `ig-grade/grade/video/`, enviados pelo workflow novo `Site Medicinal - Grade IG - URL de upload de vídeo (inativo)` (`7msLgE4lhBLmvTCd`). O bucket `sitemedicinal-banners` só aceita imagem de até 2 MB.
+- Vídeo é publicado à mão (a publicação automática só faz imagem).
+- Grade: pódios em 14, 21 e 28/11 às 11:00; campeões com link em 15, 22 e 29/11 às 11:00; ativo animado do magnésio treonato em 17/11 às 11:00. Esses blocos são extras: o dia fica com 5 stories.
