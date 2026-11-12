@@ -52,3 +52,29 @@ flowchart LR
 - Na triagem, cada tema recebe Stories / Feed / Os dois / Descartar, prioridade ★, Usar link / Sem link e "revisado" (para temas com `saude` = `revisao`). Temas `educativo` (medicamento sob prescrição) não mostram link.
 - Próximo passo: o compositor monta de 13 a 30/11 (4 stories por dia, 4 posts no feed por semana) com os temas decididos e revisados e grava os blocos em Rascunho na Grade.
 - Publicação: `brasa_loader_ig` md5 `5e4c85b6…` → `1b65c4cbd300445d7a9033e5128721bb`. Backup em `_brasa_parts_ig_bkp_20261112_tm`; stage id 24.
+
+## Campanha de novembro na Grade (12/11/2026)
+- Composição: `grade/campanha-nov/compoe.py` gera `slots.json` com 72 stories (09:00, 12:30, 16:00 e 20:00) e 11 posts no feed (18:00). Calendário nas datas: 14/11 diabetes, 17–21/11 Novembro Azul e Consciência Negra, 23–28/11 verão, 29–30/11 fim de ano. Nenhum tema se repete.
+- Redação: 3 agentes seguindo `BRIEFING.md` → `stories_13a21.json`, `stories_22a30.json` e `feeds.json`.
+- Gravação: 83 blocos em `ig_post` com `campanha = 'nov-2026'`, todos em **Rascunho** e sem imagem. 37 stories levam `link_url`.
+- Colunas novas em `ig_post`:
+  - `link_url`: só stories. `ig_post_salvar` aceita só links do site e recusa link no feed. **`ig_pub_reservar` não publica blocos com link** (a API não coloca adesivo de link): esses stories saem à mão.
+  - `campanha`;
+  - `frase_arte`: frase da arte do feed.
+- App (`brasa_loader_ig` md5 `525733c805f3851c072a417031357f83`, backup `_brasa_parts_ig_bkp_20261112_v4`):
+  - **✦ Gerar artes da campanha**, na aba Stories: gera em lote, um bloco por vez, foto no Runway + frase + logo;
+  - **✦ Gerar arte** no editor de cada bloco;
+  - campo e selo "🔗 à mão" nos stories com link.
+- Arte no padrão do doc 09 (ajustada a pedido do Ricardo, "respeitar ao máximo a regra de cor e fonte"):
+  - Playfair Display Regular (400), com a palavra-chave em Bold Italic (700), 18% maior;
+  - espaçamento de −2,5%, minúscula no início de frase (siglas e nomes ficam como estão);
+  - texto branco sobre a foto, escurecimento total entre 10% e 30%;
+  - logo oficial branco de 170 px, a 60 px da borda;
+  - margem lateral de 90 px.
+- Para revisar antes de aprovar:
+  - stories de canela (T053), cromo (T055) e berberina (T056) no Dia do Diabetes;
+  - Clonapure (T079), com texto neutro;
+  - Keranat (T012) no feed;
+  - ISO 9001 (T085): confirmar que a Medicinal é certificada;
+  - fontes citadas nas legendas (NIH, AAD, ISSN, Endocrine Society, SBD etc.), que vieram da memória do redator e não foram conferidas;
+  - CTAs "Comente PALAVRA", que prometem enviar um material que ainda precisa existir.

@@ -2,7 +2,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=IBM+Plex+Mono:wght@400;600&family=Poppins:wght@700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600;1,700&family=IBM+Plex+Mono:wght@400;600&family=Poppins:wght@700&display=swap">
 <style>
 /* Layout: perfil do Instagram em espelho (grade 3 colunas) + roleta de datas dos stories; editor do bloco em painel lateral. */
 :root{
@@ -286,7 +286,7 @@ img{max-width:100%}
         <div class="roulette" id="roulette" aria-label="Datas"></div>
         <div class="dayhead">
           <h2 id="day-title"></h2>
-          <span class="btns"><button class="btn ai" id="full-story" type="button">✦ GERE FULL</button><button class="btn primary" id="new-story">+ Novo story neste dia</button></span>
+          <span class="btns"><button class="btn ai" id="lote-artes" type="button">✦ Gerar artes da campanha</button><button class="btn ai" id="full-story" type="button">✦ GERE FULL</button><button class="btn primary" id="new-story">+ Novo story neste dia</button></span>
         </div>
         <div class="stories" id="stories"></div>
       </section>
@@ -435,6 +435,7 @@ function renderStories(){
     const c=midiaCapa(p); if(c)s.append(c); else s.append(el("div",{class:"ph"},el("span",{class:"chip st-"+p.status,text:ST[p.status]}),el("strong",{text:p.titulo||"Story sem título"})));
     s.append(el("span",{class:"bar"}));
     if(travado(p))s.append(el("span",{class:"lock",text:"✓ no ar"}));
+    else if(p.link_url)s.append(el("span",{class:"lock",style:"background:#2457a6",text:"🔗 à mão"}));
     s.append(el("div",{class:"meta"},el("span",{class:"when",text:p.hora||"--:--"}),c?el("span",{class:"chip st-"+p.status,text:ST[p.status]}):null));
     box.append(s);
   }
@@ -499,6 +500,8 @@ function renderEditor(){
     lock?el("div",{class:"locked"},"Publicado em "+fmtDia(draft.data)+(draft.hora?" às "+draft.hora:"")+". Este bloco é registro do que foi ao ar e não pode ser editado.",draft.permalink?el("div",null,el("a",{href:draft.permalink,target:"_blank",rel:"noopener"},"Ver no Instagram")):null):el("span",{hidden:true}),
     f
   );
+  if(draft.id&&!lock&&podeEditar()&&draft.prompt_imagem&&!(draft.midia||[]).some(m=>m.tipo!=="video"&&m.url))
+    ed.insertBefore(el("div",{class:"btns",style:"margin:4px 0 10px"},el("button",{type:"button",class:"btn ai",onclick:async e=>{const b=e.target;b.disabled=true;b.textContent="Gerando a arte… (cerca de 40 s)";try{await gerarArteBloco(draft);await carregar();abrir(draft.id);toast("Arte gerada. Revise antes de aprovar.")}catch(err){b.disabled=false;b.textContent="✦ Gerar arte (Runway + frase)";toast("Não deu: "+(err.message||err))}}},"✦ Gerar arte (Runway + frase)"),el("span",{class:"note",text:"Usa a descrição da imagem deste bloco e escreve a frase com o logo, no padrão."})),f);
   if(draft.canal==="story"&&draft.id&&!draft.referencia_post_id&&podeEditar())
     ed.insertBefore(el("div",{class:"btns",style:"margin:4px 0 10px"},el("button",{type:"button",class:"btn ai",onclick:()=>abrirVirarFeed(draft)},"✦ Virar post do feed"),el("span",{class:"note",text:"Leva a mesma ideia para o feed (4:5), com legenda completa, foto nova e frase de marca. Fica em Rascunho."})),f);
   // básico
@@ -530,6 +533,9 @@ function renderEditor(){
   const fHash=bindInput(el("input",{id:"f-hash",placeholder:"#farmaciademanipulacao #maringa"}),"hashtags");
   const sTxt=el("div",{class:"sec"},el("h3",{text:draft.canal==="feed"?"Legenda":"Texto do story"}),fLeg);
   if(draft.canal==="feed")sTxt.append(campo("Hashtags",fHash));
+  if(draft.canal==="story"){const fLink=bindInput(el("input",{id:"f-link",placeholder:"https://www.medicinalnaweb.com.br/…/p"}),"link_url");
+    sTxt.append(campo("Link do produto (adesivo de link)",fLink),el("p",{class:"note",text:"Story com link NÃO sai pela publicação automática (o Instagram não deixa a automação colocar o adesivo de link). Publique à mão pelo app do Instagram, com a arte baixada e o adesivo de link. Para sair sozinho, apague o link."}))}
+  if(draft.frase_arte)sTxt.append(el("p",{class:"note",text:"Frase da arte (feed): "+draft.frase_arte.replace(/\*/g,"")}));
   if(!lock&&!soLeitura)sTxt.append(iaTexto());
   f.append(sTxt);
 
@@ -613,14 +619,15 @@ async function subirBlob(blob){
 /* ---------- artes montadas pela Grade (padrão visual, docs/09: fontes, logo oficial, margem 60 px) ---------- */
 const LOGO={branco:API+"/storage/v1/object/public/"+BUCKET+"/marca/medicinal-palavra-branco.png"};
 function carregaImg(url){return new Promise((ok,erro)=>{const i=new Image();i.crossOrigin="anonymous";i.onload=()=>ok(i);i.onerror=()=>erro(new Error("não deu para abrir a imagem"));i.src=url})}
-async function fontesProntas(){try{await Promise.all(["500 60px 'Playfair Display'","italic 600 60px 'Playfair Display'","700 40px Poppins","400 30px 'IBM Plex Mono'"].map(f=>document.fonts.load(f)))}catch(_){}}
+async function fontesProntas(){try{await Promise.all(["400 60px 'Playfair Display'","italic 700 60px 'Playfair Display'","700 40px Poppins","400 30px 'IBM Plex Mono'"].map(f=>document.fonts.load(f)))}catch(_){}}
 function cobre(ctx,img,x,y,w,h){const r=Math.max(w/img.width,h/img.height),sw=w/r,sh=h/r;ctx.drawImage(img,(img.width-sw)/2,(img.height-sh)/2,sw,sh,x,y,w,h)}
 function emJpeg(c){return new Promise(ok=>c.toBlob(ok,"image/jpeg",0.92))}
 // Frase de marca (modelo A): Playfair, minúscula, palavra entre *asteriscos* em Bold Italic e maior.
 function escreveFrase(ctx,frase,cx,yTopo,larg,tam){
-  const pal=[];String(frase||"").replace(/\s+/g," ").trim().split(" ").forEach(w=>{const k=/^\*.*\*[.,!?;:]*$/.test(w)||/^\*/.test(w)&&w.endsWith("*");pal.push({t:w.replace(/\*/g,""),k:/\*/.test(w)})});
-  const fonte=k=>k?`italic 600 ${Math.round(tam*1.18)}px 'Playfair Display'`:`500 ${tam}px 'Playfair Display'`;
-  const linhas=[];let atual=[],w=0;ctx.letterSpacing="-1px";
+  const minus=t=>t.replace(/(^|[.!?…]\s+)(\*?)([A-ZÀ-Ý])(?=[a-zà-ÿ]|\s)/g,(m,a,b,c)=>a+b+c.toLowerCase());
+  const pal=[];minus(String(frase||"").replace(/\s+/g," ").trim()).split(" ").forEach(w=>{const k=/^\*.*\*[.,!?;:]*$/.test(w)||/^\*/.test(w)&&w.endsWith("*");pal.push({t:w.replace(/\*/g,""),k:/\*/.test(w)})});
+  const fonte=k=>k?`italic 700 ${Math.round(tam*1.18)}px 'Playfair Display'`:`400 ${tam}px 'Playfair Display'`;
+  const linhas=[];let atual=[],w=0;ctx.letterSpacing=(-0.025*tam).toFixed(1)+"px";
   for(const p of pal){ctx.font=fonte(p.k);const lw=ctx.measureText(p.t+" ").width;if(atual.length&&w+lw>larg){linhas.push({ps:atual,w});atual=[];w=0}atual.push(Object.assign({lw},p));w+=lw}
   if(atual.length)linhas.push({ps:atual,w});
   let y=yTopo;const alt=tam*1.32;
@@ -634,8 +641,8 @@ async function arteComFrase(urlFoto,frase,canal){
   const W=1080,H=canal==="story"?1920:1350,c=document.createElement("canvas");c.width=W;c.height=H;const ctx=c.getContext("2d");
   cobre(ctx,img,0,0,W,H);
   const g=canal==="story"?ctx.createLinearGradient(0,H*0.45,0,H):ctx.createLinearGradient(0,0,0,H*0.6);
-  if(canal==="story"){g.addColorStop(0,"rgba(0,0,0,0)");g.addColorStop(1,"rgba(0,0,0,0.55)")}else{g.addColorStop(0,"rgba(0,0,0,0.45)");g.addColorStop(1,"rgba(0,0,0,0)")}
-  ctx.fillStyle="rgba(0,0,0,0.12)";ctx.fillRect(0,0,W,H);ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  if(canal==="story"){g.addColorStop(0,"rgba(0,0,0,0)");g.addColorStop(1,"rgba(0,0,0,0.2)")}else{g.addColorStop(0,"rgba(0,0,0,0.2)");g.addColorStop(1,"rgba(0,0,0,0)")}
+  ctx.fillStyle="rgba(0,0,0,0.1)";ctx.fillRect(0,0,W,H);ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
   if(frase){ctx.fillStyle="#ffffff";ctx.textBaseline="top";ctx.shadowColor="rgba(0,0,0,0.25)";ctx.shadowBlur=12;escreveFrase(ctx,frase,W/2,canal==="story"?H*0.66:230,W-180,canal==="story"?70:62);ctx.shadowBlur=0}
   await desenhaLogo(ctx);
   return emJpeg(c);
@@ -789,7 +796,7 @@ function checklistAprovar(){
 }
 
 /* ---------- salvar (funções ig_* no PortalSiteMedicinal) ---------- */
-function limpo(d){const o={canal:d.canal,formato:d.formato,data:d.data||null,hora:d.hora||null,status:d.status,titulo:d.titulo||"",tema:d.tema||"",legenda:d.legenda||"",hashtags:d.hashtags||"",midia:(d.midia||[]).filter(m=>m.url&&!m.url.startsWith("blob:")),prompt_imagem:d.prompt_imagem||"",roteiro_video:d.roteiro_video||""};if(d.status==="aprovado"&&checklistOk())o.checklist="ok";return o}
+function limpo(d){const o={canal:d.canal,formato:d.formato,data:d.data||null,hora:d.hora||null,status:d.status,titulo:d.titulo||"",tema:d.tema||"",legenda:d.legenda||"",hashtags:d.hashtags||"",midia:(d.midia||[]).filter(m=>m.url&&!m.url.startsWith("blob:")),prompt_imagem:d.prompt_imagem||"",roteiro_video:d.roteiro_video||""};if(d.canal==="story")o.link_url=(d.link_url||"").trim();if(d.status==="aprovado"&&checklistOk())o.checklist="ok";return o}
 async function salvar(){
   const st=$("#save-st");
   if(!draft.data){st.textContent="Escolha a data.";return}
@@ -938,6 +945,34 @@ function renderTemas(){
   $("#tm-lista").replaceChildren(...(cards.length?cards:[el("p",{class:"note",text:"Nenhum tema com esse filtro."})]));
 }
 
+/* ---------- Arte da campanha: foto Runway (prompt_imagem do bloco) + frase + logo ---------- */
+async function gerarArteBloco(p){
+  const pedido=await rw("gerar_imagem",{prompt:p.prompt_imagem,canal:p.canal});
+  let foto=null;const t0=Date.now();
+  while(Date.now()-t0<5*60e3){await new Promise(ok=>setTimeout(ok,4000));const t=await rw("tarefa",{tarefa_id:pedido.tarefa_id,tipo:"imagem"});if(t.status==="pronto"){foto=t.url;break}if(t.status==="falhou")throw new Error(t.erro||"o Runway não conseguiu gerar");}
+  if(!foto)throw new Error("o Runway demorou demais");
+  const frase=p.canal==="feed"?(p.frase_arte||""):(p.legenda||"");
+  const url=await subirBlob(await arteComFrase(foto,frase,p.canal));
+  const dados=Object.assign(limpo(p),{status:p.status==="aprovado"?"rascunho":p.status,midia:[{tipo:"imagem",url,origem:"Arte da campanha (Runway + frase)"}]});
+  return await rpc("ig_post_salvar",{p_id:p.id,p_dados:dados});
+}
+let loteRodando=false;
+async function gerarArtesLote(){
+  if(loteRodando){loteRodando=false;toast("Vou parar depois da arte atual.");return}
+  const pend=posts.filter(p=>p.campanha&&!travado(p)&&p.prompt_imagem&&!(p.midia||[]).some(m=>m.tipo!=="video"&&m.url)).sort((a,b)=>key(a).localeCompare(key(b)));
+  if(!pend.length){toast("Todos os blocos da campanha já têm arte.");return}
+  if(!canRunway){toast("A geração de imagem no Runway não está configurada.");return}
+  if(!confirm("Gerar as artes de "+pend.length+" blocos da campanha, um por vez (cerca de 40 s cada; 1 imagem no Runway por bloco)? Deixe esta página aberta. Clique de novo no botão para parar."))return;
+  loteRodando=true;let ok=0,erro=0;const b=$("#lote-artes");
+  for(const p of pend){
+    if(!loteRodando)break;
+    b.textContent="■ Parar ("+(ok+erro+1)+"/"+pend.length+")";
+    try{await gerarArteBloco(p);ok++}catch(e){erro++;console.warn(p.id,e)}
+  }
+  loteRodando=false;b.textContent="✦ Gerar artes da campanha";await carregar();
+  toast("Artes geradas: "+ok+(erro?" · falharam: "+erro:"")+". Revise e aprove os blocos.");
+}
+
 /* ---------- Virar post do feed: story → post do feed (mesma ideia, conteúdo enriquecido, identidade do padrão) ---------- */
 function abrirVirarFeed(story){
   if(!podeEditar()){toast("Seu acesso é só de leitura.");return}
@@ -1069,7 +1104,7 @@ $("#g-sair").addEventListener("click",()=>sair(false));
 function aplicaPapel(){
   canAssets=podeEditar();
   $("#g-papel").textContent=papel;$("#g-papel").className="g-papel "+papel;
-  $("#new-feed").hidden=!podeEditar();$("#new-story").hidden=!podeEditar();$("#full-feed").hidden=!podeEditar();$("#full-story").hidden=!podeEditar();
+  $("#new-feed").hidden=!podeEditar();$("#new-story").hidden=!podeEditar();$("#lote-artes").hidden=!podeEditar();$("#full-feed").hidden=!podeEditar();$("#full-story").hidden=!podeEditar();
   $("#tab-acessos").hidden=papel!=="admin";if(view==="acessos"&&papel!=="admin")view="feed";
 }
 async function entrar(){
@@ -1087,6 +1122,7 @@ async function entrar(){
 const abas=["feed","stories","estrategia","temas","acessos"];
 for(const a of abas)$("#tab-"+a).addEventListener("click",()=>{view=a;try{localStorage.setItem("grade-aba",a)}catch(_){ }render();if(a==="acessos")renderAcessos()});
 ["#tm-camada","#tm-sit"].forEach(i=>$(i).addEventListener("change",()=>{tmMexidos.clear();renderTemas()}));$("#tm-busca").addEventListener("input",renderTemas);
+$("#lote-artes").addEventListener("click",gerarArtesLote);
 $("#new-feed").addEventListener("click",()=>novo("feed"));
 $("#new-story").addEventListener("click",()=>novo("story",selDay));
 $("#full-feed").addEventListener("click",()=>abrirGereFull("feed"));
