@@ -17,15 +17,16 @@ def cobre(img, W, H):
     r = max(W / img.width, H / img.height); img = img.resize((round(img.width * r), round(img.height * r)), Image.LANCZOS)
     x, y = (img.width - W) // 2, (img.height - H) // 2; return img.crop((x, y, x + W, y + H))
 def larg(txt, f, tam): return sum(f.getlength(c) for c in txt) - 0.025 * tam * max(len(txt) - 1, 0)
-def arte(foto, canal, saida, frase):
+def arte(foto, canal, saida, frase, yfrac=None):
     W, H = 1080, (1920 if canal == "story" else 1350); tam = 70 if canal == "story" else 62
     img = cobre(Image.open(foto).convert("RGB"), W, H)
-    y0 = int(H * 0.62) if canal == "story" else 180; zona = img.crop((90, y0, W - 90, y0 + 320)).convert("L")
-    claro = sum(zona.getdata()) / (zona.width * zona.height) > 175
+    yt = float(yfrac) if yfrac else (0.66 if canal == "story" else 230 / 1350)
+    y0 = int(H * (yt - 0.04)); zona = img.crop((90, y0, W - 90, y0 + 320)).convert("L")
+    claro = sum(zona.get_flattened_data() if hasattr(zona, "get_flattened_data") else zona.getdata()) / (zona.width * zona.height) > 160
     cor_txt = (16, 33, 64, 255) if claro else (255, 255, 255, 255)
     ov = Image.new("L", (W, H), 0); d = ImageDraw.Draw(ov)
     for y in range(H):
-        g = (0.2 * max(0, (y - 0.45 * H) / (0.55 * H))) if canal == "story" else (0.2 * max(0, 1 - y / (0.6 * H)))
+        g = (0.2 * min(1, max(0, (y - 0.40 * H) / (0.22 * H)))) if canal == "story" else (0.2 * min(1, max(0, 1 - (y - 0.30 * H) / (0.3 * H))))
         d.line([(0, y), (W, y)], fill=round(255 * (0.1 + g)))
     if not claro: img = Image.composite(Image.new("RGB", (W, H), (0, 0, 0)), img, ov)
     pal = [{"t": w.replace("*", ""), "k": "*" in w} for w in minus(" ".join(frase.split())).split(" ") if w]
@@ -36,7 +37,7 @@ def arte(foto, canal, saida, frase):
         atual.append(p); lw += p["w"] + (esp if atual[:-1] or True else 0)
     if atual: linhas.append((atual, lw))
     txt = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dt = ImageDraw.Draw(txt)
-    y = H * 0.66 if canal == "story" else 230; alt = tam * 1.32
+    y = H * yt; alt = tam * 1.32
     for ps, w in linhas:
         w -= fonte(ps[-1]["k"], tam).getlength(" ")
         x = (W - w) / 2
@@ -52,4 +53,4 @@ def arte(foto, canal, saida, frase):
     img.alpha_composite(lg, (60, 60))
     img.convert("RGB").save(saida, "JPEG", quality=92)
 if __name__ == "__main__":
-    arte(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+    arte(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5] if len(sys.argv) > 5 else None)
