@@ -142,3 +142,7 @@ flowchart LR
   - Revisão farmacêutica obrigatória, porque retinal é retinoide e há a questão da concentração e da regra de cosmético.
   - Os stories que ocupavam 25/11 viraram Ideia em 03/12.
   - Arquivos em `grade/pacotes/dia-dermo/`.
+- Story 1 do Dia Dermo (pedido do Ricardo, 12/11): **foto do produto de referência em destaque, ofuscada**.
+  - É a foto de loja do produto: desfoque leve no todo e desfoque forte na marca. O fundo cinza vira a cor da marca.
+  - Gerador: `grade/campanha-nov/referencia_story.py`.
+  - A foto de terceiro não vai para o repositório (`.gitignore`) e fica só na pasta local e no Storage.
