@@ -201,3 +201,4 @@ flowchart LR
   - a resposta passou a trazer `ok` ("sim" ou "nao", em texto) e `mensagem` (frase pronta com o link), o que evita problemas de booleano e de variável em botão;
   - tabela `ig_link_log` para diagnóstico. Guarda só o horário, se encontrou, o modo, o tamanho do texto, se veio variável não preenchida e a palavra encontrada; nunca o texto da pessoa.
 - **No ManyChat:** usar `ok` em texto na condição e mandar `{{link_msg}}` como mensagem. O roteiro de correção foi entregue ao Ricardo.
+- **Validado em 13/11/2026 às 13:54:** resposta "CAFE" ao story do café, feita de outra conta. O banco encontrou a palavra e o direct chegou com o link. O fluxo de link por palavra está em produção.
