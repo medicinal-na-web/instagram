@@ -6,27 +6,60 @@
  "boas_vindas": "Oi! Que bom que você veio ✨ O assunto de hoje é o retinal, o ativo por trás do retinal shot coreano. Aqui a gente faz o seu retinal sob medida: concentração, textura e combinação pensadas para a sua pele.",
  "convite": "São 6 perguntinhas rápidas. Bora montar o seu?",
  "pergunta_retinoide": "Você já usa algum retinoide hoje?",
- "opcoes_retinoide": ["Nunca usei", "Uso retinol", "Uso com receita médica"],
+ "opcoes_retinoide": [
+  "Nunca usei",
+  "Uso retinol",
+  "Uso com receita médica"
+ ],
  "msg_receita": "Perfeito. Se você já usa com receita, quem define o tratamento é o seu médico. Podemos manipular a sua receita do jeitinho que ele indicou. Se quiser, é só mandar a foto da receita por aqui.",
  "pergunta_pele": "Como você descreve a sua pele?",
- "opcoes_pele": ["Oleosa", "Mista", "Seca", "Sensível"],
+ "opcoes_pele": [
+  "Oleosa",
+  "Mista",
+  "Seca",
+  "Sensível"
+ ],
  "msg_sensivel": "Anotado: pele sensível pede começo bem gradual e uma fórmula mais suave. Vamos considerar isso.",
  "pergunta_objetivo": "O que você mais quer cuidar agora?",
- "opcoes_objetivo": ["Linhas finas", "Viço e textura", "Manchas", "Poros e oleosidade"],
+ "opcoes_objetivo": [
+  "Linhas finas",
+  "Viço e textura",
+  "Manchas",
+  "Poros e oleosidade"
+ ],
  "pergunta_gestacao": "Está gestante, amamentando ou tentando engravidar?",
- "opcoes_gestacao": ["Sim", "Não"],
+ "opcoes_gestacao": [
+  "Sim",
+  "Não"
+ ],
  "msg_gestacao": "Obrigada por contar 💛 Nessa fase o retinal não é indicado. Vamos te sugerir um cuidado seguro para este momento.",
  "pergunta_textura": "Que textura você prefere?",
- "opcoes_textura": ["Sérum", "Creme", "Gel-creme"],
+ "opcoes_textura": [
+  "Sérum",
+  "Creme",
+  "Gel-creme"
+ ],
  "pergunta_rotina": "E como é a sua rotina da noite hoje?",
- "opcoes_rotina": ["Só limpeza", "Limpeza e hidratante", "Vários produtos"],
+ "opcoes_rotina": [
+  "Só limpeza",
+  "Limpeza e hidratante",
+  "Vários produtos"
+ ],
  "resumo": "Pronto! Seu retinal feito para você: pele {{dermo_pele}}, foco em {{dermo_objetivo}}, textura {{dermo_textura}}. O começo é sempre gradual, à noite, com protetor solar de manhã.",
  "pergunta_final": "Quer receber a sugestão de fórmula com o orçamento?",
- "opcoes_final": ["Quero!", "Tenho uma dúvida"],
+ "opcoes_final": [
+  "Quero!",
+  "Tenho uma dúvida"
+ ],
  "msg_quero": "Recebido! Em instantes te mandamos aqui a sugestão de fórmula e o orçamento do seu retinal ✨",
  "msg_duvida": "Pode mandar a sua dúvida aqui embaixo, que a gente responde já já.",
  "msg_preco": "O valor depende da concentração, da textura e do tamanho, por isso montamos sob medida. Responde rapidinho as perguntas e te mandamos o orçamento certinho.",
  "lembrete_23h": "Ainda quer conhecer o seu retinal feito para você? É só tocar em continuar 😉",
  "fora_horario": "Recebemos! Nosso atendimento responde a partir das 8h, e sua sugestão chega por aqui.",
- "tags": ["dermo-lead", "dermo-2026-11-25", "dermo-retinal"]
+ "tags": [
+  "dermo-lead",
+  "dermo-2026-11-25",
+  "dermo-retinal"
+ ],
+ "aprovado": "2026-11-13 (Ricardo, no chat)"
 }
