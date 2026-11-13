@@ -6,7 +6,8 @@
   "frase": "Diabetes tipo 2 costuma chegar em *silêncio*. Exames em dia?",
   "tema": "T052",
   "rotulo": "DIA MUNDIAL DIABETES",
-  "foto_pedido": "Café da manhã simples numa mesa de madeira clara: maçã cortada, pão integral e um copo de água, luz da manhã. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+  "foto": "/home/user/instagram/grade/fotos-padrao/diabetes.png",
+  "y": 0.36
  },
  {
   "data": "2026-11-15",
@@ -24,7 +25,8 @@
   "frase": "Qual a ordem certa no prato? Salada primeiro, depois *proteína*, carboidrato por último.",
   "tema": "T054",
   "rotulo": "ORDEM NO PRATO",
-  "foto_pedido": "Prato de cerâmica clara visto de cima com salada verde, uma porção de frango grelhado e arroz integral separados, garfo ao lado. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+  "foto": "/home/user/instagram/grade/fotos-padrao/prato.png",
+  "y": 0.72
  },
  {
   "data": "2026-11-14",
@@ -32,7 +34,7 @@
   "canal": "story",
   "frase": "Depois dos 30, o *músculo* vai embora sem avisar. Você treina força?",
   "tema": "T023",
-  "foto_pedido": "Par de halteres de ferro sobre piso de madeira clara, ao lado de uma toalha dobrada. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+  "foto": "/home/user/instagram/grade/fotos-padrao/halteres.png"
  },
  {
   "data": "2026-11-15",
@@ -49,7 +51,8 @@
   "frase": "A *berberina* saiu da medicina tradicional e foi parar nos laboratórios.",
   "tema": "T056",
   "rotulo": "BERBERINA NA CIÊNCIA",
-  "foto_pedido": "Raízes secas amareladas de planta medicinal sobre papel kraft, ao lado de uma pequena placa de vidro de laboratório. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+  "foto": "/home/user/instagram/grade/fotos-padrao/berberina.png",
+  "y": 0.24
  },
  {
   "data": "2026-11-15",
@@ -58,7 +61,7 @@
   "frase": "Não existe o probiótico: cada *cepa* tem sua função estudada.",
   "tema": "T083",
   "rotulo": "PROBIÓTICOS POR CEPA",
-  "foto_pedido": "Pote de iogurte natural com colher, sobre bancada de cozinha clara, ao lado de um potinho de vidro com cápsulas brancas. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+  "foto": "/home/user/instagram/grade/fotos-padrao/probiotico.png"
  },
  {
   "data": "2026-11-15",
@@ -67,7 +70,8 @@
   "frase": "Mancha branca na unha é falta de zinco? Nem sempre. O *zinco* é só uma das hipóteses.",
   "tema": "T031",
   "rotulo": "ZINCO NAS UNHAS",
-  "foto_pedido": "Close de mão feminina apoiada numa toalha de linho clara, unhas curtas naturais sem esmalte. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+  "foto": "/home/user/instagram/grade/fotos-padrao/unha.png",
+  "y": 0.32
  },
  {
   "data": "2026-11-16",
@@ -493,7 +497,7 @@
   "hora": "18:00",
   "canal": "feed",
   "frase": "seu cabelo não está caindo *à toa*",
-  "foto_pedido": "Escova de madeira com alguns fios de cabelo castanho sobre bancada de banheiro em pedra areia, toalha caramelo dobrada ao lado. Terço superior com azulejo claro liso e desfocado. Foto realista, luz natural lateral, tons areia, caramelo e café, foco raso, grão de filme leve. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+  "foto": "/home/user/instagram/grade/fotos-padrao/escova.png"
  },
  {
   "data": "2026-11-16",
