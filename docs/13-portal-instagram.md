@@ -146,3 +146,17 @@ flowchart LR
   - É a foto de loja do produto: desfoque leve no todo e desfoque forte na marca. O fundo cinza vira a cor da marca.
   - Gerador: `grade/campanha-nov/referencia_story.py`.
   - A foto de terceiro não vai para o repositório (`.gitignore`) e fica só na pasta local e no Storage.
+
+## Automação DERMO no ManyChat (Dermo-day, 13/11/2026)
+- **Banco:**
+  - tabela `ig_dermo` com o ativo da semana: data, ativo, referência, resumo, cuidados, `gestante_ok`, texturas e `aprovado`. Tem RLS e não guarda dados de clientes;
+  - RPC `ig_dermo_atual()`, que o anon pode chamar. Ela devolve o Dermo-day aprovado mais recente dos últimos 7 dias; sem nenhum, devolve `{"encontrado": false}`;
+  - carga de 25/11: retinal, `gestante_ok=false`, `aprovado=false`. Fica aprovado quando o Ricardo aprovar o Dermo-day.
+- **Fluxo no ManyChat** (automação "Site Medicinal - Dermo-day (DERMO)", criada pausada pelo Claude no navegador, com roteiro fora do repo):
+  - Disparo: a palavra DERMO, em resposta ao story ou no direct.
+  - Depois do disparo: busca do ativo da semana e boas-vindas personalizadas.
+  - 4 perguntas com botões: tipo de pele, objetivo, uso atual de ácido ou retinoide, gestante ou amamentando.
+  - Gestante ou amamentando, com ativo contraindicado: mensagem de alternativa segura, sem a pergunta de textura.
+  - Senão: pergunta de textura.
+  - Fechamento: os cuidados do ativo, a tag `dermo-lead` e a passagem para atendimento humano (a farmacêutica manda fórmula e orçamento).
+- **LGPD:** as respostas da pessoa ficam só no ManyChat e no atendimento. Nada volta para o Supabase, o n8n ou o repositório.
