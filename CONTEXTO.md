@@ -83,6 +83,8 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 - Story sem logo; feed com logo.
 - Geradores: `referencia_story.py` (dermo), `produto_story.py` (produto do dia), `modelos.py`, `arte.py`, `ativo_animado.py` e `podio_video.py`.
 - Ideias na fila para o Dermo-day: PDRN, mucina de caracol, centella (cica), ácido tranexâmico.
+- **Cada Dermo-day tem o seu fluxo no ManyChat**, gerado de `grade/dermo/fluxos/<data>-<ativo>.json` por `fluxo_manychat.py`. O fluxo fica ligado de quarta a terça.
+- **Padrão visual oficial** (doc 09, seção 0): foto em toda arte, sem filtro, duas fontes, palavra-chave grande e logo em posição variável. Gerador único: `grade/padrao/padrao.py`.
 - A mesma regra está em `ig_estrategia` (id `atual`, chave `semana.dias`), para o portal e a IA.
 
 ## Decisões tomadas

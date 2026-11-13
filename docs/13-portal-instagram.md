@@ -177,3 +177,18 @@ flowchart LR
   - duas fontes por lâmina;
   - logo branco pequeno.
 - Fotos: 3 são da própria Medicinal em 2025 (textura de sérum, creme na pele, topo do frasco), a do produto de referência é ofuscada e a da bancada vem do Runway.
+
+## Fluxo do ManyChat por Dermo-day (13/11/2026)
+- Pedido do Ricardo: um fluxo de atendimento bem elaborado **para cada Dermo-day**.
+- **Fonte:** `grade/dermo/fluxos/<data>-<ativo>.json` guarda os textos, perguntas, botões, avisos de contraindicação e tags do ativo da semana.
+- **Roteiro:** `python3 -I grade/dermo/fluxo_manychat.py <json>` gera o texto para o Claude no navegador criar a automação "Site Medicinal - Dermo-day <data> (<ativo>)".
+- **Gatilho:** DERMO em resposta ao story, comentário no carrossel (resposta pública "Te chamei no direct ✨") ou direct.
+- **Caminhos do fluxo:**
+  - completo: 6 perguntas (uso de retinoide, pele, objetivo, gestação, textura, rotina), depois um resumo personalizado, "Quer receber a sugestão com o orçamento?" e atendimento humano;
+  - preço: explica que o valor depende da fórmula e segue para as perguntas;
+  - receita médica: oferece manipular a receita e pede a foto dela;
+  - gestante, amamentando ou tentando engravidar: diz que o ativo não é indicado e oferece alternativa segura.
+- **Complementos:** lembrete único depois de 23 h, aviso fora do horário e tags (`dermo-lead`, `dermo-<data>`, `dermo-<ativo>`).
+- **Ativação:** cada fluxo fica ligado da quarta até a terça seguinte, e o da semana anterior é pausado. Todo fluxo é criado pausado.
+- **Regras:** nunca citar "farmacêutica"; as respostas ficam só no ManyChat (LGPD).
+- O fluxo genérico anterior (`ig_dermo_atual`) fica como reserva.
