@@ -2,15 +2,11 @@
  "slug": "dermo-retinal",
  "foto_referencia": "/home/user/instagram/grade/pacotes/dia-dermo/fotos/referencia-retinal-shot.jpg",
  "recorte": [250, 170, 740, 940], "marca": [432, 600, 482, 735],
- "foto_bancada": "/home/user/instagram/grade/pacotes/dia-dermo/fotos/bancada.png",
- "capa": "o que tem dentro do *retinal shot*?",
- "l2": "*retinal*: a vitamina A da vez.",
- "l2_nota": "família dos retinoides",
- "l3": "um passo mais *perto* da forma ativa do que o retinol.",
- "l3_nota": "retinol → retinal → ácido retinoico",
- "l4": "à noite, devagar e com *protetor* de manhã.",
- "l4_nota": "gestante e lactante não usam",
- "manip_frase": "o retinal já pode entrar no *seu* manipulado.",
- "l6": "comente *DERMO*",
- "l6_nota": "a farmacêutica responde no direct"
+ "capa": "o que tem dentro do|*retinal shot?*",
+ "capa_mono": "dermo-day · k-beauty",
+ "l2": {"foto": "/home/user/instagram/grade/pacotes/dia-dermo/fotos/2025-textura-serum.jpg", "rotulo": "retinal", "mono": "a vitamina A da vez", "y": 700},
+ "l3": {"foto": "/home/user/instagram/grade/pacotes/dia-dermo/fotos/ampola.png", "ancora": 0.45, "frase": "um passo mais perto da|*forma ativa*", "mono": "retinol → retinal → ácido retinoico", "y": 760},
+ "l4": {"foto": "/home/user/instagram/grade/pacotes/dia-dermo/fotos/2025-creme-pele.jpg", "ancora": 0.75, "frase": "à noite, devagar|e com|*protetor*", "mono": "gestante e lactante não usam", "y": 730},
+ "l5": {"foto": "/home/user/instagram/grade/pacotes/dia-dermo/fotos/bancada.png", "ancora": 1.0, "frase": "o retinal, manipulado|*para você.*", "y": 930},
+ "l6": {"foto": "/home/user/instagram/grade/pacotes/dia-dermo/fotos/2025-frasco-topo.jpg", "ancora": 0.5, "frase": "comente|*DERMO*", "mono": "e conheça o retinal feito para você", "y": 150}
 }

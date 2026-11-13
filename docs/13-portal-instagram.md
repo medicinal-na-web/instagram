@@ -158,5 +158,22 @@ flowchart LR
   - 4 perguntas com botões: tipo de pele, objetivo, uso atual de ácido ou retinoide, gestante ou amamentando.
   - Gestante ou amamentando, com ativo contraindicado: mensagem de alternativa segura, sem a pergunta de textura.
   - Senão: pergunta de textura.
-  - Fechamento: os cuidados do ativo, a tag `dermo-lead` e a passagem para atendimento humano (a farmacêutica manda fórmula e orçamento).
+  - Fechamento: os cuidados do ativo, a tag `dermo-lead` e a passagem para atendimento humano, que manda a fórmula e o orçamento.
 - **LGPD:** as respostas da pessoa ficam só no ManyChat e no atendimento. Nada volta para o Supabase, o n8n ou o repositório.
+
+## Dermo-day na linguagem visual de 2025 (13/11/2026)
+- Pedido do Ricardo:
+  - "ainda com cara de IA, compare com 2025";
+  - nunca citar "farmacêutica" nas chamadas;
+  - chamada no tom de "comente DERMO e conheça o retinal feito para você".
+- Diferenças achadas na comparação com a grade de 2025 (68 posts em `scratchpad/g25`):
+  1. Em 2025, **toda arte é foto**: produto real, mão, textura. Não havia fundo de cor chapada. Os modelos E, F e C em fundo sólido eram o que dava cara de molde.
+  2. **Tons apagados:** taupe, cinza quente, café com leite, com pouca saturação. As fotos do Runway saíam douradas e saturadas.
+  3. **Palavra-chave em Playfair Bold Italic branca, bem maior e numa linha só dela** ("*Resultado*", "*médico…*"), não em caramelo.
+  4. Rótulo em Poppins espaçado ou linha mono sublinhada, sempre branco sobre foto.
+- Carrossel refeito (`grade/dermo/carrossel.py`):
+  - todas as lâminas com foto, tratadas com `apagado()`;
+  - linhas da frase separadas por `|`, e a linha-chave sai 1,75× maior;
+  - duas fontes por lâmina;
+  - logo branco pequeno.
+- Fotos: 3 são da própria Medicinal em 2025 (textura de sérum, creme na pele, topo do frasco), a do produto de referência é ofuscada e a da bancada vem do Runway.
