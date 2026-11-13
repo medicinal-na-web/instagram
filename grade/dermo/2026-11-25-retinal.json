@@ -1,0 +1,20 @@
+{
+ "slug": "dermo-retinal",
+ "ativo": "retinal",
+ "origem": "K-beauty",
+ "foto_referencia": "/home/user/instagram/grade/pacotes/dia-dermo/fotos/referencia-retinal-shot.jpg",
+ "recorte": [250, 170, 740, 940], "marca": [432, 600, 482, 735],
+ "foto_bancada": "/home/user/instagram/grade/pacotes/dia-dermo/fotos/bancada.png",
+ "capa": "todo mundo quer o *retinal shot* coreano. o que tem dentro?",
+ "ativo_frase": "*retinal*: a vitamina A da vez.",
+ "escada": [["ésteres de retinila", "mais suave"], ["retinol", "conversão em 2 etapas"], ["retinal", "1 etapa"], ["ácido retinoico", "só com receita"]],
+ "escada_legenda": "a pele converte até a forma ativa, o ácido retinoico",
+ "febre_frase": "um passo mais *perto* da forma ativa.",
+ "febre_itens": ["Na pele, o retinal precisa de uma etapa a menos de conversão do que o retinol.", "Por isso ganhou espaço em séruns e boosters coreanos, em concentrações baixas.", "Rotina e constância contam mais do que concentração alta."],
+ "cuidados_frase": "retinal pede *cuidado*.",
+ "cuidados": [["à noite", "e com protetor solar de manhã"], ["começar devagar", "poucas noites por semana no início"], ["sem misturar por conta", "ácidos e retinoides só com orientação"], ["gestante e lactante", "não usam retinoides"]],
+ "manip_frase": "o retinal já pode entrar no *seu* cosmético manipulado.",
+ "cta_frase": "concentração, textura e associação *sob medida*.",
+ "cta": "comente DERMO",
+ "cta_nota": "Respondemos no direct com algumas perguntas sobre a sua pele. A farmacêutica revisa e envia a sugestão de fórmula."
+}
