@@ -9,10 +9,12 @@ from pathlib import Path
 from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "campanha-nov"))
 from modelos import frase_linhas, desenha_frase, espacado, A
+import logo_pos
+ULTIMA = {"pos": None}
 W, H = 1080, 1350; BR = (255, 255, 255); TAUPE = (196, 172, 160)
 POP = lambda t: ImageFont.truetype(str(A/"fonts"/"Poppins-Bold.ttf"), t)
 MONO = lambda t: ImageFont.truetype(str(A/"fonts"/"IBMPlexMono-Regular.ttf"), t)
-FILTRO = False  # filtro de cor (desatura + véu taupe + grão). Desligado a pedido do Ricardo em 13/11 para avaliar.
+FILTRO = False  # padrão oficial de 13/11/2026: sem filtro de cor (doc 09, seção 0)
 def apagado(im, sat=0.62, contraste=0.9, tom=0.10):
     if not FILTRO: return im.convert("RGB")
     im = ImageEnhance.Color(im.convert("RGB")).enhance(sat); im = ImageEnhance.Contrast(im).enhance(contraste)
@@ -24,9 +26,9 @@ def escurece(im, base=0.08, extra=0.26, de=0.35):
     ov = Image.new("L", (W, H), 0); d = ImageDraw.Draw(ov)
     for y in range(H): d.line([(0, y), (W, y)], fill=round(255 * (base + extra * max(0, (y - de*H) / ((1-de)*H)))))
     return Image.composite(Image.new("RGB", (W, H), (20, 16, 14)), im, ov)
-def logo(img):
+def logo(img):  # posição variável: canto mais calmo, nunca igual à lâmina anterior
     lg = Image.open(A/"logo"/"medicinal-palavra-branco.png").convert("RGBA"); lg = lg.resize((150, round(lg.height*150/lg.width)), Image.LANCZOS)
-    img.alpha_composite(lg, (60, 60))
+    ULTIMA["pos"] = logo_pos.aplica(img, lg, ULTIMA["pos"])
 def fim(im):  # grão leve de filme
     if not FILTRO: return im.convert("RGB")
     g = Image.effect_noise((W, H), 18).convert("L"); return Image.blend(im.convert("RGB"), Image.merge("RGB", [ImageChops.overlay(c, g) for c in im.convert("RGB").split()]), 0.18)
@@ -62,15 +64,15 @@ def capa(c):
     x, y = (W - p.width)//2 + 120, 400; reg = base.crop((x, y, x + p.width, y + p.height))
     mask = Image.new("L", p.size, 0); ImageDraw.Draw(mask).rectangle([40, 40, p.width-40, p.height-40], fill=255); mask = mask.filter(ImageFilter.GaussianBlur(30))
     base.paste(Image.composite(ImageChops.multiply(reg, p), reg, mask), (x, y))
-    img = escurece(base, base=0.05, extra=0.18, de=0.5).convert("RGBA"); logo(img)
-    y = frase(img, 170, c["capa"], 70, 1.6); mono(img, y + 70, c["capa_mono"])
+    img = escurece(base, base=0.05, extra=0.18, de=0.5).convert("RGBA")
+    y = frase(img, 170, c["capa"], 70, 1.6); mono(img, y + 70, c["capa_mono"]); logo(img)
     return fim(img)
 def lamina(c, chave):
-    L = c[chave]; img = foto(L["foto"], L.get("ancora", 0.5)); logo(img)
+    L = c[chave]; img = foto(L["foto"], L.get("ancora", 0.5))
     if L.get("rotulo"): rotulo(img, L.get("y", 760), L["rotulo"], L.get("tam_rotulo", 58), 16)
     if L.get("frase"): y = frase(img, L.get("y", 700), L["frase"], L.get("tam", 72), 1.6)
     if L.get("mono"): mono(img, L.get("y_mono", (L.get("y", 700) + 95) if L.get("rotulo") else y + 70), L["mono"])
-    return fim(img)
+    logo(img); return fim(img)
 if __name__ == "__main__":
     c = json.load(open(sys.argv[1])); out = Path(sys.argv[2]); out.mkdir(parents=True, exist_ok=True)
     laminas = [capa(c)] + [lamina(c, k) for k in ("l2", "l3", "l4", "l5", "l6")]

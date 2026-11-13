@@ -53,7 +53,8 @@ def arte(foto, canal, saida, frase, yfrac=None, cta=""):
     sombra = Image.new("RGBA", (W, H), (0, 0, 0, 0)); sombra.putalpha(txt.getchannel("A").point(lambda a: 0 if claro else a * 0.25).filter(ImageFilter.GaussianBlur(6)))
     img = img.convert("RGBA"); img.alpha_composite(sombra); img.alpha_composite(txt)
     lg = Image.open(A / "logo" / ("medicinal-palavra-marinho.png" if claro else "medicinal-palavra-branco.png")).convert("RGBA"); lg = lg.resize((170, round(lg.height * 170 / lg.width)), Image.LANCZOS)
-    if canal != "story": img.alpha_composite(lg, (60, 60))  # story sem logo: o Instagram já mostra @medicinalnaweb no topo
+    if canal != "story":  # story sem logo; no feed o logo vai no canto mais calmo (posição variável)
+        import logo_pos; logo_pos.aplica(img, lg, claro=not claro)
     img.convert("RGB").save(saida, "JPEG", quality=92)
 if __name__ == "__main__":
     arte(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], (sys.argv[5] or None) if len(sys.argv) > 5 else None, sys.argv[6] if len(sys.argv) > 6 else "")

@@ -2,6 +2,44 @@
 
 Proposta de 08/11/2026 para discussão. Baseada nos 68 posts de 15/06 a 31/12/2025, o período de melhor engajamento medido (`07-fase-2025.md`). **Rascunho**: vale depois do OK do Ricardo.
 
+## 0. PADRÃO OFICIAL (aprovado pelo Ricardo em 13/11/2026)
+
+Esta seção prevalece sobre o resto do documento quando houver conflito. Referência visual: a grade de 2025 (posts de jul a dez/2025).
+
+**Foto**
+1. **Toda arte é foto.** Fundo de cor chapada só como exceção, por exemplo uma lâmina de respiro no carrossel. A ordem de preferência:
+   - foto real da Medicinal: produto, mão, bancada, equipe;
+   - foto real de 2025 reaproveitada, sem pessoas e sem texto;
+   - imagem de IA só para textura ou ambiente. Embalagem e rosto, nunca.
+2. **Produto em uso ou na mão** é melhor que produto parado. O produto de referência de terceiros entra ofuscado, com a marca desfocada.
+3. **Um assunto por foto, com espaço vazio para o texto.**
+4. **Sem filtro de cor.** A foto fica com a cor original, sem véu nem dessaturação. Só se admite um escurecimento leve, de cima para baixo, quando o texto branco precisa.
+
+**Tipografia**
+5. **No máximo duas fontes por arte.** A Playfair é a base. A segunda é Poppins, para rótulo em caixa alta espaçada, ou IBM Plex Mono, para a linha sublinhada.
+6. **Uma palavra-chave por arte, numa linha só dela, em Playfair Bold Italic branca, cerca de 1,6× maior** (como "*Resultado*" e "*médico…*" em 2025).
+7. **Até umas 12 palavras na arte.** O resto vai na legenda.
+8. **Tamanhos mínimos em 1080 px:** linha mono com 38 px, rótulo com 56 px, frase com 70 px. O texto pequeno precisa ser legível no celular.
+9. **Texto branco sobre foto, centralizado, em área calma** (nunca sobre o produto ou um reflexo). Sem caixa, faixa ou etiqueta.
+
+**Logo**
+10. **Logo oficial pequeno, só no feed**; story não leva logo.
+11. **A posição do logo varia.** Ele vai num dos cantos (superior ou inferior, esquerdo ou direito) ou embaixo no centro, sempre a 60 px da borda:
+    - no canto mais calmo da foto e com contraste (branco sobre escuro, marinho sobre claro);
+    - nunca na mesma posição da arte anterior.
+
+    Feito automaticamente por `grade/campanha-nov/logo_pos.py`.
+
+**Composição e grade**
+12. **Stories:** nada no topo, que é o cabeçalho do Instagram, nem embaixo, que é a barra de resposta. O texto fica entre 14% e 80% da altura.
+13. **Carrossel:** a capa é o gancho (pergunta curta e palavra grande), cada lâmina é uma ideia e a última é a chamada.
+14. **Grade:** alternar pessoa ou mão, produto ou macro, texto sobre foto. Nunca dois posts de texto lado a lado. Antes de aprovar, montar a prévia com os 9 posts mais recentes.
+
+**Chamada**
+15. **Nunca citar "farmacêutica" na chamada.** Usar o tom "comente DERMO e conheça o retinal feito para você" e "manipulado para você".
+
+**Conferência antes de mostrar ao Ricardo:** foto (sem fundo chapado), duas fontes, uma palavra grande, até 12 palavras, legível no celular, sem caixa nem faixa, logo variando e com contraste, área segura do story.
+
 ## 1. Princípios
 
 1. **Imagem com cara de foto real.** Por decisão de 08/11/2026, as imagens podem ser geradas por IA enquanto não há sessão de fotos nem rosto da marca, seguindo as regras da seção 11. Nada de banco de imagens com marca d'água (houve "Unsplash" visível em 2025).

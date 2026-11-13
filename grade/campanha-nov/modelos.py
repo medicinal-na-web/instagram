@@ -59,7 +59,8 @@ def modelo(m, canal, saida, frase, rotulo="", pergunta="", cta=""):
         d.text((xc, yc), cta, font=fm, fill=COR[texto], anchor="ls"); d.line([(xc, yc + 10), (xc + wc, yc + 10)], fill=COR[texto], width=2)
     lg = Image.open(A / "logo" / f"medicinal-palavra-{logo}.png").convert("RGBA"); lg = lg.resize((170, round(lg.height * 170 / lg.width)), Image.LANCZOS)
     img = img.convert("RGBA")
-    if canal != "story": img.alpha_composite(lg, (60, 60))  # story sem logo
+    if canal != "story":  # story sem logo; no feed o logo vai no canto mais calmo (posição variável)
+        import logo_pos; logo_pos.aplica(img, lg, claro=(logo != "marinho"))
     img.convert("RGB").save(saida, "JPEG", quality=92)
 if __name__ == "__main__":
     a = sys.argv[1:] + ["", "", ""]
