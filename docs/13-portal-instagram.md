@@ -192,3 +192,12 @@ flowchart LR
 - **Ativação:** cada fluxo fica ligado da quarta até a terça seguinte, e o da semana anterior é pausado. Todo fluxo é criado pausado.
 - **Regras:** nunca citar "farmacêutica"; as respostas ficam só no ManyChat (LGPD).
 - O fluxo genérico anterior (`ig_dermo_atual`) fica como reserva.
+
+## Correção do link por direct (13/11/2026)
+- **Sintoma:** o story do café saiu às 12:31, mas quem respondeu "CAFE" não recebeu nada.
+- **O que os logs mostram:** o ManyChat chamou `ig_link_por_palavra` às 13:21 e 13:22 e recebeu HTTP 200. A falha é do lado do ManyChat: ou a variável do texto chegou vazia, ou houve problema no mapeamento da resposta ou na condição.
+- **Ajustes no banco:**
+  - texto vazio ou variável não preenchida (`{{...}}`) recebe o produto do dia publicado nas últimas 24 h; texto sem palavra conhecida continua sem resposta;
+  - a resposta passou a trazer `ok` ("sim" ou "nao", em texto) e `mensagem` (frase pronta com o link), o que evita problemas de booleano e de variável em botão;
+  - tabela `ig_link_log` para diagnóstico. Guarda só o horário, se encontrou, o modo, o tamanho do texto, se veio variável não preenchida e a palavra encontrada; nunca o texto da pessoa.
+- **No ManyChat:** usar `ok` em texto na condição e mandar `{{link_msg}}` como mensagem. O roteiro de correção foi entregue ao Ricardo.
