@@ -32,10 +32,9 @@ def story(foto, saida, frase, rotulo, palavra, fundo="offwhite", tol=18):
     base.paste(ImageChops.multiply(reg, p), (x, y)); img = base.convert("RGBA")
     d = ImageDraw.Draw(img); tam = 74; linhas = frase_linhas(frase, tam, W - 200)
     yf = desenha_frase(d, W, 1090, linhas, tam, COR["marinho"], COR["caramelo"] if fundo == "offwhite" else COR["cafe"])
-    d.line([(W/2 - 40, yf + 30), (W/2 + 40, yf + 30)], fill=COR["marinho"], width=2)
-    espacado(d, W/2, yf + 100, rotulo.upper(), ImageFont.truetype(str(A/"fonts"/"Poppins-Bold.ttf"), 30), COR["marinho"], 9)
+    d.line([(W/2 - 40, yf + 30), (W/2 + 40, yf + 30)], fill=COR["marinho"], width=2)  # rótulo removido: no máximo 2 fontes
     fm = ImageFont.truetype(str(A/"fonts"/"IBMPlexMono-Regular.ttf"), 36); cta = f"responda {palavra} e receba o link"
-    yc = yf + 190; wc = fm.getlength(cta); xc = (W - wc) / 2
+    yc = yf + 110; wc = fm.getlength(cta); xc = (W - wc) / 2
     d.text((xc, yc), cta, font=fm, fill=COR["marinho"], anchor="ls"); d.line([(xc, yc + 10), (xc + wc, yc + 10)], fill=COR["marinho"], width=2)
     assert yc + 12 < 1536, "chamada abaixo da área segura"
     img.convert("RGB").save(saida, "JPEG", quality=92)

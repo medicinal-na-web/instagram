@@ -9,6 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "campanha-nov"))
 from modelos import frase_linhas, desenha_frase, espacado, COR, A
 from PIL import ImageFont
 def overlay(frase, rotulo, saida_png, cta=""):
+    if cta: rotulo = ""  # no máximo 2 fontes por arte
     W, H = 1080, 1920; im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     for y in range(int(H * 0.5), H):  # degradê suave (sem faixa), até 35% no rodapé
         d.line([(0, y), (W, y)], fill=(0, 0, 0, round(255 * 0.35 * ((y - H * 0.5) / (H * 0.5)) ** 1.4)))

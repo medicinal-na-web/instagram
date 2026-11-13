@@ -58,6 +58,13 @@ O "medicinal" das artes é **sempre o logotipo oficial**, nunca texto digitado e
 - Tamanho nas artes 1080×1350: 170 px de largura, a 60 px da borda, no canto superior.
 - Proibido redesenhar, distorcer, trocar a fonte ou aplicar efeitos na marca.
 
+### Aplicação das duas fontes (13/11/2026)
+- Com chamada ("responda PALAVRA…" ou "comente PALAVRA"), a chamada em mono **substitui o rótulo**: fica Playfair e mono, sem Poppins.
+- A pergunta-gancho (mono) também dispensa o rótulo.
+- Vídeos (pódio, ativo animado) usam Playfair e Poppins, sem mono.
+- Carrossel de texto (modelo F) usa Playfair e mono (numeração e nota). Uma frase por lâmina, linha fina e nenhuma caixa. O texto explicativo vai na legenda.
+- Geradores ajustados: `modelos.py`, `produto_story.py`, `ativo_animado.py`, `podio_video.py` e `grade/dermo/carrossel.py`.
+
 ## 4. Composição
 
 - **Formato:** 1080×1350 (4:5) no feed; capa de reels 1080×1920 com o título dentro da área central 1080×1350 (é o que aparece na grade).

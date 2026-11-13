@@ -37,6 +37,7 @@ def desenha_frase(d, W, y, linhas, tam, cor, cor_k):
     return y
 def modelo(m, canal, saida, frase, rotulo="", pergunta="", cta=""):
     W, H = 1080, (1920 if canal == "story" else 1350)
+    if pergunta or cta: rotulo = ""  # padrão doc 09: no máximo 2 fontes por arte (Playfair + mono ou Playfair + Poppins)
     fundo, texto, kw, logo = {"E": ("marinho", "offwhite", "caramelo", "off-white"), "F": ("offwhite", "marinho", "marinho", "marinho"),
                               "C": ("areia", "marinho", "marinho2", "marinho")}[m]
     img = Image.new("RGB", (W, H), COR[fundo]); d = ImageDraw.Draw(img)
@@ -54,7 +55,7 @@ def modelo(m, canal, saida, frase, rotulo="", pergunta="", cta=""):
         y += 40; d.line([(W / 2 - 40, y), (W / 2 + 40, y)], fill=COR["caramelo"] if m == "E" else COR[texto], width=2)
         espacado(d, W / 2, y + 70, rotulo.upper(), pop, COR[texto], 9)
     if cta:
-        yc = y + (190 if rotulo else 80); wc = mono.getlength(cta) * 36 / 40; fm = ImageFont.truetype(str(A / "fonts" / "IBMPlexMono-Regular.ttf"), 36); wc = fm.getlength(cta); xc = (W - wc) / 2
+        yc = y + (190 if rotulo else 90); wc = mono.getlength(cta) * 36 / 40; fm = ImageFont.truetype(str(A / "fonts" / "IBMPlexMono-Regular.ttf"), 36); wc = fm.getlength(cta); xc = (W - wc) / 2
         d.text((xc, yc), cta, font=fm, fill=COR[texto], anchor="ls"); d.line([(xc, yc + 10), (xc + wc, yc + 10)], fill=COR[texto], width=2)
     lg = Image.open(A / "logo" / f"medicinal-palavra-{logo}.png").convert("RGBA"); lg = lg.resize((170, round(lg.height * 170 / lg.width)), Image.LANCZOS)
     img = img.convert("RGBA")

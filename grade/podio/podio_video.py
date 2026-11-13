@@ -30,7 +30,7 @@ def quadro(t, cat, nomes, nums, logo):
     f = pf(400, False, 74); fi = pf(700, True, 86)
     d.text((W/2, 620), "o que mais entrou", font=f, fill=OFF+(a0,), anchor="ms")
     d.text((W/2, 715), "nas fórmulas", font=fi, fill=CAR+(a0,), anchor="ms")
-    d.text((W/2, 780), "últimos 90 dias", font=MONO, fill=AREIA+(a0,), anchor="ms")
+    d.text((W/2, 780), "últimos 90 dias", font=pf(400, True, 38), fill=AREIA+(a0,), anchor="ms")
     base = 1440; larg = 290; xs = {2: 95, 1: 395, 3: 695}; alt = {1: 440, 2: 340, 3: 260}
     cor = {1: OFF, 2: AREIA, 3: CAR}; ini = {3: 1.0, 2: 2.2, 1: 3.4}
     for pos in (3, 2, 1):
@@ -46,7 +46,7 @@ def quadro(t, cat, nomes, nums, logo):
             y = base - h - 40 - 52 * (len(linhas) - 1)
             for l in linhas: d.text((x + larg/2, y), l, font=fn, fill=OFF + (round(255*an),), anchor="ms"); y += 52
             d.text((x + larg/2, base - h + 150), nums[pos-1], font=POP(36), fill=MAR + (round(255*an),), anchor="ms")
-            d.text((x + larg/2, base - h + 190), "nota", font=ImageFont.truetype(str(A/"fonts"/"IBMPlexMono-Regular.ttf"), 26), fill=MAR + (round(255*an),), anchor="ms")
+            d.text((x + larg/2, base - h + 190), "NOTA", font=POP(22), fill=MAR + (round(255*an),), anchor="ms")
     af = round(255 * ease((t - 5.6) / 0.7))
     if af: d.text((W/2, 1495), "qual deles está na sua rotina?", font=pf(400, False, 50), fill=OFF + (af,), anchor="ms")
     return im.convert("RGB")
