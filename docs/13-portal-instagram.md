@@ -202,3 +202,12 @@ flowchart LR
   - tabela `ig_link_log` para diagnóstico. Guarda só o horário, se encontrou, o modo, o tamanho do texto, se veio variável não preenchida e a palavra encontrada; nunca o texto da pessoa.
 - **No ManyChat:** usar `ok` em texto na condição e mandar `{{link_msg}}` como mensagem. O roteiro de correção foi entregue ao Ricardo.
 - **Validado em 13/11/2026 às 13:54:** resposta "CAFE" ao story do café, feita de outra conta. O banco encontrou a palavra e o direct chegou com o link. O fluxo de link por palavra está em produção.
+
+## Uma automação só para todas as palavras (13/11/2026)
+- Pergunta do Ricardo: "a cada palavra, uma automação? não seria tudo em uma?" A resposta é **uma automação só**.
+- **"Site Medicinal - Palavras (links e materiais)"** atende resposta a story, comentário em qualquer post e direct. Ela chama `ig_link_por_palavra`, que decide o que devolver:
+  1. **material** (tabela `ig_material`: palavra, mensagem, ativo, validade). Por exemplo, SONO devolve a lista de alimentos com magnésio;
+  2. **link do produto do dia** (`ig_post.palavra_chave`).
+- A resposta traz `ok` ("sim"/"nao"), `tipo` (material ou link) e `mensagem` pronta. O ManyChat só envia `{{link_msg}}`.
+- Palavra nova, seja de link ou de material, se cadastra no banco, sem mexer no ManyChat.
+- O **Dermo-day** continua com automação própria, porque é uma conversa com perguntas, não uma resposta única.
