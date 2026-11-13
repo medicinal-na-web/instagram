@@ -12,13 +12,15 @@ from modelos import frase_linhas, desenha_frase, espacado, A
 W, H = 1080, 1350; BR = (255, 255, 255); TAUPE = (196, 172, 160)
 POP = lambda t: ImageFont.truetype(str(A/"fonts"/"Poppins-Bold.ttf"), t)
 MONO = lambda t: ImageFont.truetype(str(A/"fonts"/"IBMPlexMono-Regular.ttf"), t)
+FILTRO = False  # filtro de cor (desatura + véu taupe + grão). Desligado a pedido do Ricardo em 13/11 para avaliar.
 def apagado(im, sat=0.62, contraste=0.9, tom=0.10):
+    if not FILTRO: return im.convert("RGB")
     im = ImageEnhance.Color(im.convert("RGB")).enhance(sat); im = ImageEnhance.Contrast(im).enhance(contraste)
     return Image.blend(im, Image.new("RGB", im.size, TAUPE), tom)
 def cobre(im, ancora=0.5):
     r = max(W/im.width, H/im.height); im = im.resize((round(im.width*r), round(im.height*r)), Image.LANCZOS)
     x = (im.width - W)//2; y = round((im.height - H) * ancora); return im.crop((x, y, x+W, y+H))
-def escurece(im, base=0.12, extra=0.22, de=0.35):
+def escurece(im, base=0.08, extra=0.26, de=0.35):
     ov = Image.new("L", (W, H), 0); d = ImageDraw.Draw(ov)
     for y in range(H): d.line([(0, y), (W, y)], fill=round(255 * (base + extra * max(0, (y - de*H) / ((1-de)*H)))))
     return Image.composite(Image.new("RGB", (W, H), (20, 16, 14)), im, ov)
@@ -26,6 +28,7 @@ def logo(img):
     lg = Image.open(A/"logo"/"medicinal-palavra-branco.png").convert("RGBA"); lg = lg.resize((150, round(lg.height*150/lg.width)), Image.LANCZOS)
     img.alpha_composite(lg, (60, 60))
 def fim(im):  # grão leve de filme
+    if not FILTRO: return im.convert("RGB")
     g = Image.effect_noise((W, H), 18).convert("L"); return Image.blend(im.convert("RGB"), Image.merge("RGB", [ImageChops.overlay(c, g) for c in im.convert("RGB").split()]), 0.18)
 def pf(t, it=False, peso=400):
     f = ImageFont.truetype(str(A/"fonts"/("PlayfairDisplay-Italic.ttf" if it else "PlayfairDisplay.ttf")), t); f.set_variation_by_axes([peso]); return f
@@ -42,9 +45,9 @@ def frase(img, y, txt, tam=64, k=1.75):
     return y
 def rotulo(img, y, txt, tam=40, track=12):
     espacado(ImageDraw.Draw(img), W/2, y, txt.upper(), POP(tam), BR, track)
-def mono(img, y, txt, tam=28):
+def mono(img, y, txt, tam=38):
     d = ImageDraw.Draw(img); f = MONO(tam); w = f.getlength(txt); d.text(((W-w)/2, y), txt, font=f, fill=BR, anchor="ls")
-    d.line([((W-w)/2, y + 9), ((W+w)/2, y + 9)], fill=BR, width=2)
+    d.line([((W-w)/2, y + 11), ((W+w)/2, y + 11)], fill=BR, width=2)
 def foto(caminho, ancora=0.5, **k): return escurece(apagado(cobre(Image.open(caminho), ancora)), **k).convert("RGBA")
 def capa(c):
     # produto de referência ofuscado sobre fundo taupe com luz suave (como os fundos de 2025)
@@ -60,13 +63,13 @@ def capa(c):
     mask = Image.new("L", p.size, 0); ImageDraw.Draw(mask).rectangle([40, 40, p.width-40, p.height-40], fill=255); mask = mask.filter(ImageFilter.GaussianBlur(30))
     base.paste(Image.composite(ImageChops.multiply(reg, p), reg, mask), (x, y))
     img = escurece(base, base=0.05, extra=0.18, de=0.5).convert("RGBA"); logo(img)
-    y = frase(img, 170, c["capa"], 62); mono(img, y + 60, c["capa_mono"])
+    y = frase(img, 170, c["capa"], 70, 1.6); mono(img, y + 70, c["capa_mono"])
     return fim(img)
 def lamina(c, chave):
     L = c[chave]; img = foto(L["foto"], L.get("ancora", 0.5)); logo(img)
-    if L.get("rotulo"): rotulo(img, L.get("y", 760), L["rotulo"], L.get("tam_rotulo", 46), 14)
-    if L.get("frase"): y = frase(img, L.get("y", 700), L["frase"], L.get("tam", 64))
-    if L.get("mono"): mono(img, L.get("y_mono", (L.get("y", 700) + 80) if L.get("rotulo") else y + 60), L["mono"])
+    if L.get("rotulo"): rotulo(img, L.get("y", 760), L["rotulo"], L.get("tam_rotulo", 58), 16)
+    if L.get("frase"): y = frase(img, L.get("y", 700), L["frase"], L.get("tam", 72), 1.6)
+    if L.get("mono"): mono(img, L.get("y_mono", (L.get("y", 700) + 95) if L.get("rotulo") else y + 70), L["mono"])
     return fim(img)
 if __name__ == "__main__":
     c = json.load(open(sys.argv[1])); out = Path(sys.argv[2]); out.mkdir(parents=True, exist_ok=True)
