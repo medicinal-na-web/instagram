@@ -1,0 +1,561 @@
+[
+ {
+  "data": "2026-11-14",
+  "hora": "09:00",
+  "canal": "story",
+  "frase": "Diabetes tipo 2 costuma chegar em *silêncio*. Exames em dia?",
+  "tema": "T052",
+  "rotulo": "DIA MUNDIAL DIABETES",
+  "foto_pedido": "Café da manhã simples numa mesa de madeira clara: maçã cortada, pão integral e um copo de água, luz da manhã. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-15",
+  "hora": "11:00",
+  "canal": "story",
+  "frase": "A *canela* entrou no radar da ciência. Veja o que se sabe.",
+  "tema": "T053",
+  "mono": "responda CANELA e receba o link",
+  "foto": "/tmp/claude-0/-home-user/41e0b6ad-ad94-5c50-8f1c-d050b9313448/scratchpad/fotos1420/canela.png"
+ },
+ {
+  "data": "2026-11-14",
+  "hora": "16:00",
+  "canal": "story",
+  "frase": "Qual a ordem certa no prato? Salada primeiro, depois *proteína*, carboidrato por último.",
+  "tema": "T054",
+  "rotulo": "ORDEM NO PRATO",
+  "foto_pedido": "Prato de cerâmica clara visto de cima com salada verde, uma porção de frango grelhado e arroz integral separados, garfo ao lado. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-14",
+  "hora": "20:00",
+  "canal": "story",
+  "frase": "Depois dos 30, o *músculo* vai embora sem avisar. Você treina força?",
+  "tema": "T023",
+  "foto_pedido": "Par de halteres de ferro sobre piso de madeira clara, ao lado de uma toalha dobrada. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-15",
+  "hora": "09:00",
+  "canal": "story",
+  "frase": "A vontade de doce tem um mineral na conversa: o *cromo*.",
+  "tema": "T055",
+  "foto": "/tmp/claude-0/-home-user/41e0b6ad-ad94-5c50-8f1c-d050b9313448/scratchpad/fotos1420/cromo.png"
+ },
+ {
+  "data": "2026-11-15",
+  "hora": "12:30",
+  "canal": "story",
+  "frase": "A *berberina* saiu da medicina tradicional e foi parar nos laboratórios.",
+  "tema": "T056",
+  "rotulo": "BERBERINA NA CIÊNCIA",
+  "foto_pedido": "Raízes secas amareladas de planta medicinal sobre papel kraft, ao lado de uma pequena placa de vidro de laboratório. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-15",
+  "hora": "16:00",
+  "canal": "story",
+  "frase": "Não existe o probiótico: cada *cepa* tem sua função estudada.",
+  "tema": "T083",
+  "rotulo": "PROBIÓTICOS POR CEPA",
+  "foto_pedido": "Pote de iogurte natural com colher, sobre bancada de cozinha clara, ao lado de um potinho de vidro com cápsulas brancas. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-15",
+  "hora": "20:00",
+  "canal": "story",
+  "frase": "Mancha branca na unha é falta de zinco? Nem sempre. O *zinco* é só uma das hipóteses.",
+  "tema": "T031",
+  "rotulo": "ZINCO NAS UNHAS",
+  "foto_pedido": "Close de mão feminina apoiada numa toalha de linho clara, unhas curtas naturais sem esmalte. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-16",
+  "hora": "09:00",
+  "canal": "story",
+  "frase": "Melatonina pode vir de plantas? Pode. Existe *melatonina* de origem vegetal. Você já conhecia?",
+  "tema": "T097",
+  "rotulo": "MELATONINA VEGETAL",
+  "foto_pedido": "Mesa de cabeceira à noite com abajur aceso, xícara de chá e um livro fechado, cama desfocada ao fundo. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-16",
+  "hora": "12:30",
+  "canal": "story",
+  "frase": "Cãibra de madrugada? A *banana* não é a única suspeita.",
+  "tema": "T004",
+  "mono": "responda MAGNESIO e receba o link",
+  "foto": "/tmp/claude-0/-home-user/41e0b6ad-ad94-5c50-8f1c-d050b9313448/scratchpad/fotos1420/caibra.png"
+ },
+ {
+  "data": "2026-11-16",
+  "hora": "16:00",
+  "canal": "story",
+  "frase": "Tipo I, tipo II, peptídeos: *colágeno* não é tudo igual.",
+  "tema": "T093",
+  "rotulo": "COLÁGENO TIPO II",
+  "foto_pedido": "Copo de vidro com água e colher de medida com pó branco fino sobre bancada de pedra clara. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-16",
+  "hora": "20:00",
+  "canal": "story",
+  "frase": "Um pigmento da couve mora na sua *retina*. Sabia?",
+  "tema": "T036",
+  "foto_pedido": "Folhas de couve frescas e gemas de ovo em tigela de cerâmica sobre bancada de madeira. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-17",
+  "hora": "09:00",
+  "canal": "story",
+  "frase": "Ir ao médico não é fraqueza. É *cuidado*. Check-up marcado?",
+  "tema": "T044",
+  "rotulo": "NOVEMBRO AZUL",
+  "foto_pedido": "Agenda de papel aberta com caneta sobre mesa de madeira, xícara de café ao lado, luz de janela. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-17",
+  "hora": "12:30",
+  "canal": "story",
+  "frase": "Exame de próstata ainda é tabu para você? Não deveria. Seu *urologista* define o momento certo.",
+  "tema": "T045",
+  "rotulo": "EXAME DE PRÓSTATA",
+  "foto_pedido": "Sala de espera de consultório clara e vazia, poltrona bege e planta, luz natural. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-17",
+  "hora": "16:00",
+  "canal": "story",
+  "frase": "Vitamina C: mais nem sempre é *melhor*.",
+  "tema": "T109",
+  "mono": "responda VITC e receba o link",
+  "foto": "/tmp/claude-0/-home-user/41e0b6ad-ad94-5c50-8f1c-d050b9313448/scratchpad/fotos1420/vitc.png"
+ },
+ {
+  "data": "2026-11-17",
+  "hora": "20:00",
+  "canal": "story",
+  "frase": "O *GHK-Cu* saiu do skincare e chegou à manipulação. Curioso?",
+  "tema": "T040",
+  "foto_pedido": "Frasco de vidro conta-gotas âmbar sem rótulo sobre bancada de mármore claro, luz fria de manhã, detalhes azul-marinho. O terço inferior é uma superfície lisa e desfocada, livre para o texto. Fotografia realista, profundidade de campo curta, grão de filme leve. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-18",
+  "hora": "09:00",
+  "canal": "story",
+  "frase": "Uma palmeira virou tema de saúde masculina: o *saw palmetto*.",
+  "tema": "T046",
+  "mono": "responda SAW e receba o link",
+  "foto_pedido": "Frutos escuros de palmeira (saw palmetto) num prato raso de cerâmica sobre madeira. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-18",
+  "hora": "12:30",
+  "canal": "story",
+  "frase": "*Hibisco* gelado, sem açúcar: a bebida oficial do calor.",
+  "tema": "T076",
+  "foto": "/tmp/claude-0/-home-user/41e0b6ad-ad94-5c50-8f1c-d050b9313448/scratchpad/fotos1420/hibisco.png"
+ },
+ {
+  "data": "2026-11-18",
+  "hora": "16:00",
+  "canal": "story",
+  "frase": "O ralo do banheiro pode estar falando de *zinco*.",
+  "tema": "T014",
+  "rotulo": "ZINCO E CABELO",
+  "foto_pedido": "Ralo de chuveiro em azulejo claro com alguns fios de cabelo, toalha dobrada ao lado. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-18",
+  "hora": "20:00",
+  "canal": "story",
+  "frase": "Qual colágeno a ciência estuda nas articulações? O *tipo II*, diferente do colágeno da pele.",
+  "tema": "T113",
+  "rotulo": "COLÁGENO TIPO II",
+  "foto_pedido": "Joelho de pessoa sentada com calça de linho, mãos apoiadas, luz suave, sem rosto. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-20",
+  "hora": "09:00",
+  "canal": "story",
+  "frase": "O vermelho do tomate tem nome e sobrenome: *licopeno*.",
+  "tema": "T050",
+  "mono": "responda LICOPENO e receba o link",
+  "foto": "/tmp/claude-0/-home-user/41e0b6ad-ad94-5c50-8f1c-d050b9313448/scratchpad/fotos1420/licopeno.png"
+ },
+ {
+  "data": "2026-11-20",
+  "hora": "12:30",
+  "canal": "story",
+  "frase": "Na dieta, preservar *músculo* é o desafio. O KIC é estudado nisso.",
+  "tema": "T027",
+  "rotulo": "KIC E MÚSCULO",
+  "foto_pedido": "Halteres de ferro no chão de madeira clara ao lado de uma garrafa de água. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-20",
+  "hora": "16:00",
+  "canal": "story",
+  "frase": "Sem carne no prato, a *B12* precisa entrar no radar.",
+  "tema": "T117",
+  "rotulo": "VITAMINA B12",
+  "foto_pedido": "Prato vegetariano com grão-de-bico, folhas e legumes assados, visto de cima. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-20",
+  "hora": "20:00",
+  "canal": "story",
+  "frase": "Por que o cabelo cai meses depois? O *estresse* pode aparecer no fio meses depois.",
+  "tema": "T016",
+  "rotulo": "ESTRESSE E CABELO",
+  "foto_pedido": "Escova de cabelo de madeira sobre pia de banheiro clara com alguns fios presos. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-21",
+  "hora": "09:00",
+  "canal": "story",
+  "frase": "Homem também tem *insônia*. Falar sobre isso é cuidado.",
+  "tema": "T049",
+  "rotulo": "HOMEM E SONO",
+  "foto_pedido": "Quarto à noite com cama desarrumada e luz fria da rua entrando pela janela, sem pessoas. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-22",
+  "hora": "11:00",
+  "canal": "story",
+  "frase": "Consciência Negra: *pele* negra pede cuidado próprio com manchas.",
+  "tema": "T061",
+  "foto_pedido": "Manteiga de karité em tigela de barro, folhas secas e tecido de algodão cru sobre madeira. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-21",
+  "hora": "16:00",
+  "canal": "story",
+  "frase": "Novidade na loja: *Clonapure*. Já viu os detalhes?",
+  "tema": "T079",
+  "rotulo": "NOVIDADE NA LOJA",
+  "foto_pedido": "Pote de vidro com pó branco fino e colher de madeira sobre bancada clara. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-21",
+  "hora": "20:00",
+  "canal": "story",
+  "frase": "Café demais e estresse diário pesam no seu *magnésio*.",
+  "tema": "T005",
+  "foto_pedido": "Xícara de café fumegante e grãos torrados espalhados sobre mesa de madeira escura. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-22",
+  "hora": "09:00",
+  "canal": "story",
+  "frase": "Leite no café pesa? A *lactase* é a enzima da lactose.",
+  "tema": "T106",
+  "foto_pedido": "Xícara de café com leite e jarra de leite sobre toalha de linho, perto da janela. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-22",
+  "hora": "12:30",
+  "canal": "story",
+  "frase": "O rosa do salmão vem de um pigmento: a *astaxantina*.",
+  "tema": "T037",
+  "mono": "responda SALMAO e receba o link",
+  "foto_pedido": "Posta de salmão crua sobre tábua de madeira com limão e sal grosso. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-22",
+  "hora": "16:00",
+  "canal": "story",
+  "frase": "Qual ativo da K-beauty combina com você? Niacinamida, centella, *hialurônico*: a manipulação já conhece todos.",
+  "tema": "T091",
+  "rotulo": "K-BEAUTY MANIPULADA",
+  "foto_pedido": "Três frascos de vidro pequenos sem rótulo com séruns de cores diferentes sobre pedra clara. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-22",
+  "hora": "20:00",
+  "canal": "story",
+  "frase": "Antes do nome famoso, leia a *composição*.",
+  "tema": "T019",
+  "rotulo": "LEIA A COMPOSIÇÃO",
+  "foto_pedido": "Mão segurando um frasco de cosmético sem rótulo virado de costas, como quem lê a composição. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-23",
+  "hora": "09:00",
+  "canal": "story",
+  "frase": "Do chá verde vem a *L-teanina*, estudada para calma com foco.",
+  "tema": "T101",
+  "mono": "responda TEANINA e receba o link",
+  "foto_pedido": "Xícara de chá verde com folhas soltas ao lado, sobre mesa de madeira clara. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-23",
+  "hora": "12:30",
+  "canal": "story",
+  "frase": "Você sabe o que é sarcopenia? A perda de força com a idade. O *músculo* se cuida cedo.",
+  "tema": "T028",
+  "rotulo": "FORÇA E IDADE",
+  "foto_pedido": "Mãos de pessoa idosa segurando um haltere leve, luz natural, sem rosto. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-23",
+  "hora": "16:00",
+  "canal": "story",
+  "frase": "*Golden milk* com gelo: a versão de verão do clássico.",
+  "tema": "T077",
+  "foto_pedido": "Copo alto de golden milk dourado com gelo, raiz de cúrcuma e gengibre fatiado ao lado. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-23",
+  "hora": "20:00",
+  "canal": "story",
+  "frase": "Mineral pequeno, papel enorme: o *zinco* na defesa do corpo.",
+  "tema": "T032",
+  "rotulo": "ZINCO E DEFESA",
+  "foto_pedido": "Sementes de abóbora e castanhas em tigela de cerâmica sobre mesa de madeira. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-24",
+  "hora": "09:00",
+  "canal": "story",
+  "frase": "No calor, a *sede* chega atrasada. Quantos copos hoje?",
+  "tema": "T063",
+  "foto_pedido": "Garrafa de vidro com água, rodelas de limão e copo com gelo sobre mesa clara. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-24",
+  "hora": "12:30",
+  "canal": "story",
+  "frase": "Cansaço e menstruação intensa? O *ferro* merece investigação com seu médico.",
+  "tema": "T124",
+  "mono": "responda FERRO e receba o link",
+  "foto_pedido": "Prato com feijão, folhas verde-escuras e carne, mesa simples de cozinha. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-24",
+  "hora": "16:00",
+  "canal": "story",
+  "frase": "Pálpebra tremendo depois do treino no calor? O corpo dá recados. O *magnésio* pode ser um deles.",
+  "tema": "T007",
+  "rotulo": "RECADOS DO CORPO",
+  "foto_pedido": "Garrafa de água suada e toalha sobre banco de academia, luz da tarde. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-24",
+  "hora": "20:00",
+  "canal": "story",
+  "frase": "Peça pelo *site* ou WhatsApp: receba em casa ou retire na loja.",
+  "tema": "T089",
+  "rotulo": "ENTREGA E RETIRADA",
+  "foto_pedido": "Sacola de papel kraft fechada com fita sobre balcão claro, pronta para entrega. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-27",
+  "hora": "09:00",
+  "canal": "story",
+  "frase": "Onde tem magnésio na comida? Cacau, castanhas e folhas verdes. Qual entra na sua *salada*?",
+  "tema": "T008",
+  "rotulo": "MAGNÉSIO NO PRATO",
+  "foto_pedido": "Tigela com cacau em pó, castanhas e folhas de espinafre sobre bancada clara. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-27",
+  "hora": "12:30",
+  "canal": "story",
+  "frase": "Sol e ar-condicionado ressecam. Já ouviu falar em *hialurônico* oral?",
+  "tema": "T094",
+  "rotulo": "HIALURÔNICO ORAL",
+  "foto_pedido": "Copo de água com gelo ao lado de uma janela com cortina leve, sensação de ar-condicionado e verão. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-27",
+  "hora": "16:00",
+  "canal": "story",
+  "frase": "Da casca da uva para os estudos: o *resveratrol*.",
+  "tema": "T043",
+  "foto_pedido": "Cachos de uva escura com gotas de água sobre mesa de madeira, ao lado de taça vazia. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-27",
+  "hora": "20:00",
+  "canal": "story",
+  "frase": "Churrasco pesou? *Boldo* e alcachofra são clássicos da digestão.",
+  "tema": "T108",
+  "mono": "responda ALCA e receba o link",
+  "foto_pedido": "Xícara de chá de boldo com folhas frescas e uma alcachofra inteira sobre madeira. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-28",
+  "hora": "09:00",
+  "canal": "story",
+  "frase": "Férias à vista? O *intestino* também faz as malas.",
+  "tema": "T067",
+  "rotulo": "INTESTINO EM VIAGEM",
+  "foto_pedido": "Mala de viagem aberta com roupas dobradas e um nécessaire, sobre cama clara. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-29",
+  "hora": "11:00",
+  "canal": "story",
+  "frase": "Seu prato tem ovo, feijão ou peixe? Pouca *proteína* no prato também aparece no cabelo.",
+  "tema": "T020",
+  "rotulo": "CABELO E PROTEÍNA",
+  "foto_pedido": "Prato com ovos cozidos, feijão e peixe grelhado, visto de cima. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-28",
+  "hora": "16:00",
+  "canal": "story",
+  "frase": "*Moccacino* com gelo: o café oficial do verão.",
+  "tema": "T078",
+  "foto_pedido": "Copo de vidro com café gelado cremoso, cubos de gelo e cacau em pó sobre bancada. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-28",
+  "hora": "20:00",
+  "canal": "story",
+  "frase": "Pele oleosa no calor? Pouca gente conhece a relação com *zinco*.",
+  "tema": "T033",
+  "rotulo": "ZINCO E PELE",
+  "foto_pedido": "Rosto de perfil fora de foco não aparece: só um ombro e pescoço com pele brilhando de calor, luz de verão. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-29",
+  "hora": "09:00",
+  "canal": "story",
+  "frase": "A *unha* também conta como anda a nutrição.",
+  "tema": "T126",
+  "mono": "responda UNHAS e receba o link",
+  "foto_pedido": "Mãos femininas com unhas naturais segurando uma xícara, luz de janela. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-29",
+  "hora": "12:30",
+  "canal": "story",
+  "frase": "*Piscina* e sol também envelhecem o fio. Chapéu está na mala?",
+  "tema": "T022",
+  "foto_pedido": "Chapéu de palha e toalha listrada azul-marinho na borda de uma piscina azul. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-29",
+  "hora": "16:00",
+  "canal": "story",
+  "frase": "O que é dose personalizada? A fórmula feita para a sua *prescrição*. Tem dúvidas?",
+  "tema": "T090",
+  "rotulo": "DOSE PERSONALIZADA",
+  "foto_pedido": "Balança de precisão com pó sendo pesado numa bancada de manipulação limpa, luva azul. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-29",
+  "hora": "20:00",
+  "canal": "story",
+  "frase": "*Tela* demais? A cada 20 minutos, olhe 20 segundos a 6 metros.",
+  "tema": "T039",
+  "foto_pedido": "Óculos de leitura sobre notebook fechado, ao lado de xícara de chá, perto da janela. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-30",
+  "hora": "09:00",
+  "canal": "story",
+  "frase": "*Passiflora* e melissa: duas plantas tradicionais da calma.",
+  "tema": "T100",
+  "mono": "responda PASSI e receba o link",
+  "foto_pedido": "Flor de maracujá e ramos de melissa frescos sobre bancada de pedra, com xícara de chá. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-30",
+  "hora": "12:30",
+  "canal": "story",
+  "frase": "*Minoxidil* não é cosmético de prateleira: é medicamento com prescrição.",
+  "tema": "T017",
+  "rotulo": "MINOXIDIL E PRESCRIÇÃO",
+  "foto_pedido": "Bancada clara com um frasco âmbar sem rótulo e uma receita médica de papel dobrada ao lado. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-30",
+  "hora": "16:00",
+  "canal": "story",
+  "frase": "O que ler antes de escolher um sérum? O *ativo* e a concentração. O frasco bonito vem depois.",
+  "tema": "T092",
+  "rotulo": "SÉRUM E ATIVO",
+  "foto_pedido": "Frasco de sérum de vidro sem rótulo deitado sobre pedra clara, gota no conta-gotas. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-30",
+  "hora": "20:00",
+  "canal": "story",
+  "frase": "Articulação parada enferruja. Que tal fechar o ano *caminhando*?",
+  "tema": "T114",
+  "foto_pedido": "Par de tênis brancos sobre degrau de pedra clara, com folhas no chão e sol da manhã. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-15",
+  "hora": "18:00",
+  "canal": "feed",
+  "frase": "seu cabelo não está caindo *à toa*",
+  "foto_pedido": "Escova de madeira com alguns fios de cabelo castanho sobre bancada de banheiro em pedra areia, toalha caramelo dobrada ao lado. Terço superior com azulejo claro liso e desfocado. Foto realista, luz natural lateral, tons areia, caramelo e café, foco raso, grão de filme leve. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-16",
+  "hora": "18:00",
+  "canal": "feed",
+  "frase": "a creatina saiu da *academia*",
+  "foto_pedido": "Colher de medida com pó branco fino sobre bancada de madeira clara, ao lado de um copo de vidro com água e uma toalha azul-marinho dobrada. Terço superior com parede bege lisa e desfocada. Foto realista, luz natural lateral, tons areia, caramelo e café, foco raso, grão de filme leve. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-18",
+  "hora": "18:00",
+  "canal": "feed",
+  "frase": "o cuidado com o fio começa *por dentro*",
+  "foto_pedido": "Macro de sementes douradas de painço espalhadas sobre linho cor de areia, algumas sementes em uma pequena tigela de cerâmica caramelo. Terço superior com tecido de linho liso e bem desfocado. Foto realista, luz natural lateral, tons areia, caramelo e café, foco raso, grão de filme leve. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-20",
+  "hora": "18:00",
+  "canal": "feed",
+  "frase": "cuidar de si também é *investigar*",
+  "foto_pedido": "Mão masculina relaxada, parcialmente fora do quadro, segurando uma caneca de café sobre mesa de madeira escura, camisa azul-marinho, manhã. Terço superior com parede off-white lisa e desfocada pela luz da janela. Foto realista, luz natural lateral, tons areia, caramelo e café, foco raso, grão de filme leve. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-22",
+  "hora": "18:00",
+  "canal": "feed",
+  "frase": "sobremesa de verão com *proteína*",
+  "foto_pedido": "Copo de vidro com bebida cremosa, gelo, gotas de condensação, fatia de abacaxi e raspas de coco sobre mesa de madeira clara. Terço superior com céu de fim de tarde liso e desfocado. Foto realista, luz natural lateral, tons areia, caramelo e café, foco raso, grão de filme leve. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-23",
+  "hora": "18:00",
+  "canal": "feed",
+  "frase": "proteção solar também se pensa *por dentro*",
+  "foto_pedido": "Folhas verdes de samambaia sobre toalha de algodão cor de areia, chapéu de palha e óculos escuros ao lado, sol forte de verão. Terço superior com parede caiada lisa e desfocada, com sombra suave de folhas. Foto realista, luz natural lateral, tons areia, caramelo e café, foco raso, grão de filme leve. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-25",
+  "hora": "18:00",
+  "canal": "feed",
+  "frase": "por que todo mundo fala de *NAD+*",
+  "foto_pedido": "Macro de pó cristalino branco em vidro de relógio sobre bancada de laboratório em madeira clara, espátula de inox e luva azul-marinho ao fundo. Terço superior com parede creme lisa e desfocada. Foto realista, luz natural lateral, tons areia, caramelo e café, foco raso, grão de filme leve. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-27",
+  "hora": "18:00",
+  "canal": "feed",
+  "frase": "qualidade não é promessa, é *processo*",
+  "foto_pedido": "Mão com luva azul-marinho, parcialmente fora do quadro, pesando pó branco em balança de precisão sobre bancada clara de manipulação. Terço superior com parede off-white lisa e desfocada. Foto realista, luz natural lateral, tons areia, caramelo e café, foco raso, grão de filme leve. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-29",
+  "hora": "18:00",
+  "canal": "feed",
+  "frase": "dezembro chega antes da *pausa*",
+  "foto_pedido": "Raízes secas de ashwagandha e pó cor de caramelo em tigela de cerâmica sobre mesa de madeira, xícara de chá fumegante ao lado, fim de tarde. Terço superior com cortina de linho clara lisa e desfocada. Foto realista, luz natural lateral, tons areia, caramelo e café, foco raso, grão de filme leve. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ },
+ {
+  "data": "2026-11-30",
+  "hora": "18:00",
+  "canal": "feed",
+  "frase": "o sono também é *defesa*",
+  "foto_pedido": "Travesseiro de linho off-white e manta azul-marinho dobrada sobre cama, abajur aceso com luz quente, quarto em penumbra. Terço superior com parede lisa e desfocada em tom areia. Foto realista, luz natural lateral, tons areia, caramelo e café, foco raso, grão de filme leve. Fotografia realista de celular de boa qualidade, luz natural de janela, cores naturais (sem dourado exagerado, sem filtro), fundo neutro claro, um assunto só, bastante espaço vazio no meio da imagem para texto. Sem pessoas de rosto, sem texto, sem logo, sem embalagem."
+ }
+]
