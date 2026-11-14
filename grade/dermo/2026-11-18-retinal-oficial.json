@@ -1,0 +1,73 @@
+{
+ "slug": "dermo-retinal",
+ "foto_referencia": "/home/user/instagram/grade/pacotes/dia-dermo/fotos/referencia-retinal-shot.jpg",
+ "recorte": [
+  250,
+  170,
+  740,
+  940
+ ],
+ "marca": [
+  432,
+  600,
+  482,
+  735
+ ],
+ "fundo_bancada": "/home/user/instagram/grade/fotos-padrao/bancada-vazia.png",
+ "feed": [
+  {
+   "foto": "CAPA",
+   "frase": "o que tem dentro do *retinal shot?*",
+   "mono": "dermo-day · k-beauty",
+   "y": 0.2
+  },
+  {
+   "foto": "/home/user/instagram/grade/pacotes/dia-dermo/fotos/2025-textura-serum.jpg",
+   "frase": "*retinal*: a vitamina A da vez"
+  },
+  {
+   "foto": "/home/user/instagram/grade/pacotes/dia-dermo/fotos/ampola.png",
+   "ancora": 0.45,
+   "frase": "um passo mais perto da *forma ativa*",
+   "mono": "retinol → retinal → ácido retinoico"
+  },
+  {
+   "foto": "/home/user/instagram/grade/pacotes/dia-dermo/fotos/2025-creme-pele.jpg",
+   "ancora": 0.75,
+   "frase": "à noite, devagar e com *protetor*",
+   "mono": "gestante e lactante não usam"
+  },
+  {
+   "foto": "/home/user/instagram/grade/pacotes/dia-dermo/fotos/bancada.png",
+   "ancora": 1.0,
+   "frase": "o retinal, manipulado *para você.*"
+  },
+  {
+   "foto": "/home/user/instagram/grade/pacotes/dia-dermo/fotos/2025-frasco-topo.jpg",
+   "frase": "comente *DERMO*",
+   "mono": "e conheça o retinal feito para você"
+  }
+ ],
+ "stories": [
+  {
+   "foto": "CAPA",
+   "frase": "todo mundo quer o *retinal shot.* o que tem dentro?",
+   "mono": "dermo-day · k-beauty",
+   "y": 0.24
+  },
+  {
+   "foto": "/home/user/instagram/grade/pacotes/dia-dermo/fotos/2025-textura-serum.jpg",
+   "frase": "*retinal*: vitamina A, um passo além do retinol."
+  },
+  {
+   "foto": "/home/user/instagram/grade/pacotes/dia-dermo/fotos/ampola.png",
+   "frase": "à noite, com protetor de dia. gestante e lactante *não* usam."
+  },
+  {
+   "foto": "/home/user/instagram/grade/fotos-padrao/capsula-macro.png",
+   "frase": "agora no *seu* manipulado.",
+   "mono": "responda DERMO e monte o seu",
+   "y": 0.27
+  }
+ ]
+}

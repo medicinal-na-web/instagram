@@ -40,6 +40,16 @@ Esta seção prevalece sobre o resto do documento quando houver conflito. Refer�
 
 **Conferência antes de mostrar ao Ricardo:** foto (sem fundo chapado), duas fontes, uma palavra grande, até 12 palavras, legível no celular, sem caixa nem faixa, logo variando e com contraste, área segura do story.
 
+### Conferência obrigatória antes de publicar (Ricardo, 14/11/2026)
+
+Antes de aprovar ou agendar, cada arte e vídeo é aberto e conferido:
+- foto real em toda a arte (nada de fundo de cor chapada, nem marinho, nem areia);
+- sem filtro de cor; escurecimento só na faixa do texto;
+- texto branco, Playfair, palavra-chave em linha própria Bold Italic 1,6x; no máximo 2 fontes;
+- story sem logo e texto entre 14% e 80%; feed com logo pequeno em posição variável;
+- sem rótulo ou marca de terceiros legível; nunca "farmacêutica" na chamada.
+Fora do padrão: volta para rascunho e é refeita. Em 14/11 voltaram: os 4 stories e o carrossel do retinal (refeitos) e o vídeo do pódio de 14/11 (refeito em `grade/podio/podio_oficial.py`).
+
 ## 1. Princípios
 
 1. **Imagem com cara de foto real.** Por decisão de 08/11/2026, as imagens podem ser geradas por IA enquanto não há sessão de fotos nem rosto da marca, seguindo as regras da seção 11. Nada de banco de imagens com marca d'água (houve "Unsplash" visível em 2025).
