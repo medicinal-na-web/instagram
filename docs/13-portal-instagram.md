@@ -132,7 +132,7 @@ flowchart LR
 - **Dia Dermo (quarta-feira, um por semana):**
   - Escolhe-se um dermocosmético comercial em alta e explora-se o ativo destaque dele. O fechamento diz que esse ativo pode entrar no cosmético manipulado.
   - O dia tem só essa sequência de 4 stories: gancho, ativo, cuidados e chamada.
-  - Simulação em **25/11**: o "retinal shot" coreano, em 4 stories (12:30, 12:40, 12:50, 13:00):
+  - Simulação em **18/11** (antecipada de 25/11 pelo Ricardo em 14/11): o "retinal shot" coreano, em 4 stories (12:30, 12:40, 12:50, 13:00):
     1. Gancho, com foto de ampola sem marca (Runway): "todo mundo quer o *retinal shot* coreano. o que tem dentro?"
     2. O ativo (modelo E): "*retinal*: uma forma de vitamina A, um passo mais perto da forma ativa do que o retinol."
     3. Cuidados (modelo C): "retinal é para qualquer um? à noite, com protetor de dia. gestante e lactante *não* usam."
@@ -228,3 +228,11 @@ Travas: execução manual só cria o container e não publica; título começand
 - Vídeo macro da cápsula abrindo; a frase se escreve letra a letra (10 letras/s, com esmaecer) desde 0,3 s. Gerador: `grade/videos-produto/capsula_video.py`.
 - Custo: 428 créditos Runway (foto 20 + animação 6 s em 1080p 408), cerca de R$ 25; em 720p, cerca de R$ 11.
 - Agendado em 15/11 às 14:00: story de vídeo (aprovado) ligado ao reels do feed (aprovado pelo Ricardo), com a legenda sobre suplementação personalizada.
+
+## Retinal antecipado para 18/11 (Ricardo, 14/11/2026)
+
+- Stories Dermo 1/4 a 4/4 (12:30 a 13:00) e carrossel do feed (18:00) foram para 18/11; `ig_dermo` mudou para 18/11 (ainda não aprovado).
+- Story "POST NOVO NO FEED" do carrossel criado (18/11 18:00, rascunho).
+- Feed "Keranat: o que é" foi para 26/11 18:00 (dia de um produto só do Keranat).
+- Story do chá gelado de hibisco foi para sexta 20/11 11:00, como receita.
+- Fluxo ManyChat: `grade/dermo/fluxos/2026-11-18-retinal.*`; 25/11 fica livre para o próximo Dermo-day.
