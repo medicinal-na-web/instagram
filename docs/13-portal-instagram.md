@@ -222,3 +222,9 @@ Workflow n8n `fQhO15C8QjrbBRIG` "Site Medicinal - Grade IG - Publicar vídeo", a
 Fluxo: reservar → valida 1 MP4 no armazenamento da Grade → cria container (story = `STORIES`; feed/reels = `REELS` com legenda e `share_to_feed`) → espera 45 s e confere `status_code`; se não estiver `FINISHED`, espera mais 90 s → publica (`media_publish`) → `ig_pub_concluir` com id e permalink. Erro em qualquer etapa vai para `ig_pub_falhar` (aparece no portal).
 
 Travas: execução manual só cria o container e não publica; título começando com `TESTE` nunca é publicado.
+
+## Formato 4 "Cápsula por dentro" (14/11/2026)
+
+- Vídeo macro da cápsula abrindo; a frase se escreve letra a letra (10 letras/s, com esmaecer) desde 0,3 s. Gerador: `grade/videos-produto/capsula_video.py`.
+- Custo: 428 créditos Runway (foto 20 + animação 6 s em 1080p 408), cerca de R$ 25; em 720p, cerca de R$ 11.
+- Agendado em 15/11 às 14:00: story de vídeo (aprovado) ligado ao reels do feed (aprovado pelo Ricardo), com a legenda sobre suplementação personalizada.
