@@ -236,3 +236,4 @@ Travas: execução manual só cria o container e não publica; título começand
 - Feed "Keranat: o que é" foi para 26/11 18:00 (dia de um produto só do Keranat).
 - Story do chá gelado de hibisco foi para sexta 20/11 11:00, como receita.
 - Fluxo ManyChat: `grade/dermo/fluxos/2026-11-18-retinal.*`; 25/11 fica livre para o próximo Dermo-day.
+- **14/11:** Ricardo aprovou o Dermo-day de 18/11 (4 stories, carrossel e story "POST NOVO", todos conferidos no padrão oficial); `ig_dermo` 18/11 aprovado. O story "POST NOVO" foi para 18:10, para sair depois do carrossel.
