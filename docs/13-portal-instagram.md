@@ -211,3 +211,14 @@ flowchart LR
 - A resposta traz `ok` ("sim"/"nao"), `tipo` (material ou link) e `mensagem` pronta. O ManyChat só envia `{{link_msg}}`.
 - Palavra nova, seja de link ou de material, se cadastra no banco, sem mexer no ManyChat.
 - O **Dermo-day** continua com automação própria, porque é uma conversa com perguntas, não uma resposta única.
+
+## Rotina de vídeos (13/11/2026)
+
+Workflow n8n `fQhO15C8QjrbBRIG` "Site Medicinal - Grade IG - Publicar vídeo", a cada 10 minutos. O publicador de imagens (`bj72gS6IgLvoQh7C`) não foi alterado; a separação é feita no banco:
+
+- `ig_pub_reservar` agora ignora `formato in ('video','reels')`.
+- `ig_pub_reservar_video(p_limite)` (só service_role) reserva 1 bloco de vídeo **Aprovado**, vencido, sem erro, sem `link_url`; feed exige o story "POST NOVO NO FEED".
+
+Fluxo: reservar → valida 1 MP4 no armazenamento da Grade → cria container (story = `STORIES`; feed/reels = `REELS` com legenda e `share_to_feed`) → espera 45 s e confere `status_code`; se não estiver `FINISHED`, espera mais 90 s → publica (`media_publish`) → `ig_pub_concluir` com id e permalink. Erro em qualquer etapa vai para `ig_pub_falhar` (aparece no portal).
+
+Travas: execução manual só cria o container e não publica; título começando com `TESTE` nunca é publicado.
