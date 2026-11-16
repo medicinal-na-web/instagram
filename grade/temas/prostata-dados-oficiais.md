@@ -21,3 +21,7 @@ Dados finais até 2024 (extração 02/12/2025); 2025 preliminar (extração 28/0
 ## Casos novos estimados por ano (INCA)
 2020–2022: 65.840 · 2023–2025: ~71.730 · 2026–2028: 77.920 (30,5% dos cânceres em homens, sem pele não melanoma; 74,62/100 mil).
 Os números do INCA vieram de reportagens que citam a publicação; o site do INCA estava fora do ar na conferência.
+
+## Comparação: câncer de mama (pergunta do Ricardo, 16/11/2026)
+Óbitos em mulheres (SIM/DATASUS, CID-10 C50, por residência): 2015 15.403 · 2018 17.572 · 2020 17.825 · 2022 19.103 · 2023 20.165 · 2024 20.849 (final) · 2025 21.543 (preliminar). Alta de 35% entre 2015 e 2024 (próstata: 23%).
+Casos novos estimados por ano (INCA): 2020–2022 66.280 · 2023–2025 73.610 · 2026–2028 78.610. Alta de 19% (próstata: 18%).
