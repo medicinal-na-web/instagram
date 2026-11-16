@@ -48,6 +48,7 @@ Antes de aprovar ou agendar, cada arte e vídeo é aberto e conferido:
 - texto branco, Playfair, palavra-chave em linha própria Bold Italic 1,6x; no máximo 2 fontes;
 - story sem logo e texto entre 14% e 80%; feed com logo pequeno em posição variável;
 - sem rótulo ou marca de terceiros legível; nunca "farmacêutica" na chamada.
+Exceção (Ricardo, 16/11/2026): vídeo de ativo animado com fundo marinho é aceito, porque o marinho faz parte da paleta.
 Fora do padrão: volta para rascunho e é refeita. Em 14/11 voltaram: os 4 stories e o carrossel do retinal (refeitos) e o vídeo do pódio de 14/11 (refeito em `grade/podio/podio_oficial.py`).
 
 ## 1. Princípios
