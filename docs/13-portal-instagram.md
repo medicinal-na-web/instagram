@@ -237,3 +237,4 @@ Travas: execução manual só cria o container e não publica; título começand
 - Story do chá gelado de hibisco foi para sexta 20/11 11:00, como receita.
 - Fluxo ManyChat: `grade/dermo/fluxos/2026-11-18-retinal.*`; 25/11 fica livre para o próximo Dermo-day.
 - **14/11:** Ricardo aprovou o Dermo-day de 18/11 (4 stories, carrossel e story "POST NOVO", todos conferidos no padrão oficial); `ig_dermo` 18/11 aprovado. O story "POST NOVO" foi para 18:10, para sair depois do carrossel.
+- **16/11:** Ricardo aprovou segunda 16/11 (6 peças no padrão oficial; legenda da creatina sem "farmacêutica" e sem "Comente CREATINA"; melatonina mantida) e o resto da terça 17/11. Carrossel do Novembro Azul mantido na sexta 20/11 18:00.
