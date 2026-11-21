@@ -18,6 +18,12 @@ Pedido do Ricardo em 21/11/2026: toda receita em vídeo usa o **mesmo cenário**
 - Tom de pele: definir com o Ricardo (pode variar por receita, como na sexta da Consciência Negra, mas dentro de uma receita é sempre a mesma mão).
 - Gravação real: autorização de imagem da pessoa cujas mãos aparecem.
 
+## 2b. Personagens que falam (IA)
+- Sempre marcadas como **conteúdo gerado por IA**; nunca se apresentam como farmacêutica nem como alguém da equipe.
+- **Loira, olhos claros, bronzeada, 40+** (`grade/receitas/personagem/personagem-loira-45.png`): voz **Clarice** (grave, timbre de 40 anos).
+- **Personagem morena** (a criar): voz **Bianca** (médio-grave, aveludada). Indicação do Ricardo, 21/11.
+- Amostras em `grade/receitas/vozes/`.
+
 ## 3. Ângulos de câmera (sempre estes 4, nesta ordem)
 | Plano | Câmera | Uso | Passo na tela |
 |---|---|---|---|
