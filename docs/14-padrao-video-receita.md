@@ -5,12 +5,14 @@ Pedido do Ricardo em 21/11/2026: toda receita em vídeo usa o **mesmo cenário**
 **Status: proposta, aguardando aprovação do Ricardo** (bancada-mestre e ângulos em `grade/receitas/cenario/`).
 
 ## 1. Cenário fixo (bancada-mestre)
-- Bancada de **carvalho claro** (butcher block) contra **parede lisa cor areia**.
-- **Luz de janela vindo da esquerda**, tarde, sombras suaves para a direita. Sempre a mesma direção (combina com a inserção de produto do doc 10).
-- Objetos fixos: pano de linho dobrado ao fundo à direita, tigela de cerâmica e colher de pau ao fundo à esquerda, liquidificador de vidro ao fundo, desfocado.
-- Metade da frente da bancada livre para os ingredientes.
-- Tons: areia, caramelo, carvalho. Sem filtro de cor (doc 09).
-- Toda cena de IA usa a **imagem-mestre como referência** (primeira cena ou imagem de referência), para não mudar de cozinha entre receitas.
+**Versão atual (21/11/2026, escolha do Ricardo): cozinha moderna, opção 1** (`grade/receitas/cenario-moderno/opcao-1.png`). A bancada de carvalho (`grade/receitas/cenario/`) ficou "retrô" e foi substituída.
+- Bancada grossa de **granito claro levigado** (branco e cinza suave, veios discretos, acabamento fosco, borda reta).
+- Armários sem puxador em off-white fosco, painel de **madeira clara ripada**, torneira fina de aço escovado.
+- **Luz natural de janela vindo da esquerda**, clara e suave. Sempre a mesma direção (combina com a inserção de produto do doc 10).
+- Decoração mínima: vaso de cerâmica com um galho verde, liquidificador de vidro ao fundo, desfocado.
+- Frente da bancada livre para os ingredientes.
+- Sem filtro de cor (doc 09).
+- Toda cena de IA usa a **imagem-mestre como referência**, para não mudar de cozinha entre receitas.
 
 ## 2. A mão
 - Só mãos e antebraços, **nunca rosto**.
@@ -20,7 +22,8 @@ Pedido do Ricardo em 21/11/2026: toda receita em vídeo usa o **mesmo cenário**
 
 ## 2b. Personagens que falam (IA)
 - Sempre marcadas como **conteúdo gerado por IA**; nunca se apresentam como farmacêutica nem como alguém da equipe.
-- **Loira, olhos claros, bronzeada, 40+** (`grade/receitas/personagem/personagem-loira-45.png`): voz **Clarice** (grave, timbre de 40 anos).
+- **Loira, olhos claros, bronzeada, 40+** (`grade/receitas/personagem/personagem-loira-cozinha-moderna.png`): **avental moderno grafite de alças cruzadas com couro** sobre malha off-white; voz **Clarice** (grave, timbre de 40 anos).
+- Pronúncia: escrever "protéica" no texto da fala (sem o acento a voz diz "proteólico"); na tela e na legenda, grafia correta "proteica".
 - **Personagem morena** (a criar): voz **Bianca** (médio-grave, aveludada). Indicação do Ricardo, 21/11.
 - Amostras em `grade/receitas/vozes/`.
 
@@ -54,3 +57,4 @@ Pedido do Ricardo em 21/11/2026: toda receita em vídeo usa o **mesmo cenário**
 | Data | O que mudou |
 |---|---|
 | 21/11/2026 | Proposta criada depois do piloto da piña colada (que saiu sem o produto e foi para rascunho). |
+| 21/11/2026 | Cenário trocado pela cozinha moderna com granito (opção 1); personagem loira 40+ com avental grafite e voz Clarice. |
