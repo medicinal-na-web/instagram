@@ -12,6 +12,6 @@ Versão unificada (21/11/2026). Substitui a receita da legenda antiga do feed de
 
 **Modo:** bata tudo no liquidificador por cerca de 30 segundos e sirva na hora.
 
-**Fala da personagem (voz Clarice):** "Domingo pede algo leve, né? Hoje eu vou te mostrar uma piña colada com PeptiStrong... pronta em dois minutinhos." (no texto da voz: "Pepti Strong")
+**Fala da personagem (voz Clarice):** "Dias quentes pedem algo leve, né? Hoje eu vou te mostrar uma piña colada com PeptiStrong... pronta em dois minutinhos." (no texto da voz: "pinha colada" e "Pépti Strông" ou "Péptistrong", conforme a versão aprovada)
 
 **Nome aprovado (21/11):** "piña colada com PeptiStrong" (a proteína do copo vem sobretudo do iogurte; a dose de peptídeos é 2,4 g). **Pendente:** foto real da lata do sabor Piña Colada; revisão farmacêutica do Ricardo.
