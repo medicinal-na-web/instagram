@@ -239,3 +239,13 @@ Travas: execução manual só cria o container e não publica; título começand
 - **14/11:** Ricardo aprovou o Dermo-day de 18/11 (4 stories, carrossel e story "POST NOVO", todos conferidos no padrão oficial); `ig_dermo` 18/11 aprovado. O story "POST NOVO" foi para 18:10, para sair depois do carrossel.
 - **16/11:** Ricardo aprovou segunda 16/11 (6 peças no padrão oficial; legenda da creatina sem "farmacêutica" e sem "Comente CREATINA"; melatonina mantida) e o resto da terça 17/11. Carrossel do Novembro Azul mantido na sexta 20/11 18:00.
 - **20/11 (Dia da Consciência Negra):** 2 stories da Serra da Barriga (Zumbi e Quilombo dos Palmares), homenagem à gerente comercial às 10:00 (foto real fornecida pelo Ricardo, uso autorizado pela colaboradora; foto mantida fora do repositório), stories do dia com pessoas negras e vídeo do PeptiStrong editado com mão negra. Tudo aprovado pelo Ricardo.
+
+## Story fixo "peça pelo WhatsApp e receba em casa" (Ricardo, 24/11/2026)
+
+Pedido do Ricardo: postagem **constante** sobre pedir o produto pelo WhatsApp da Medicinal e receber em casa.
+
+- **Frequência:** 1 story por dia, no fim da tarde (padrão 19:30; ajustar se colidir com outro post).
+- **Mensagem fixa:** "peça pelo WhatsApp da Medicinal e receba em *casa.*" + linha de baixo "clique no link da bio". Legenda/explicação: "Clique no link da bio e seja encaminhado ao canal de atendimento."
+- **Revezamento de 3 artes** (padrão oficial, foto real, sem rosto, sem logo de terceiros) para não repetir a mesma imagem em dias seguidos: sacola na mesa da entrada, entrega na porta, celular no sofá.
+- Não conta como "produto com link do dia" (é serviço, não produto) e não leva palavra-chave.
+- Em `ig_post`: canal story, título "Peça pelo WhatsApp e receba em casa", campanha `whatsapp-entrega`.
