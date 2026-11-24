@@ -260,3 +260,10 @@ Pedido do Ricardo em 08/11/2026: **polemizar os temas.** O gancho tem que mexer 
 - **Minoxidil** e qualquer medicamento sob prescrição: só como tema educativo, nunca como oferta.
 - Visão: sem prometer melhora da vista; falar de cuidado, hábito e acompanhamento oftalmológico.
 - Suplemento ou manipulado citado: revisão farmacêutica antes de aprovar.
+
+## Todo vídeo gerado também serve ao feed (Ricardo, 24/11/2026)
+
+1. **Guardar sempre a base limpa** (sem texto) de todo vídeo gerado (Runway ou gravação), em `grade/<pasta>/<nome>-base.mp4`, além da versão com texto do story.
+2. **Versão para o feed (reels):** a partir da base limpa, gerar `<nome>-feed.mp4` em 9:16 com o texto no padrão oficial dentro da área segura do reels (texto entre 20% e 70% da altura, para não ficar sob a legenda e os botões), capa 4:5 (`<nome>-capa.jpg`) com logo pequeno, e legenda própria do feed.
+3. **Registro:** cada vídeo entra em `ig_post` também como bloco de feed (rascunho) quando houver tema para ele; o vídeo de produto vira reels no "dia de um produto só" ou junto do carrossel do mesmo produto.
+4. Mesmas regras de saúde e de aprovação: nada vai ao ar sem OK do Ricardo.
