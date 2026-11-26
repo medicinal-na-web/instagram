@@ -249,3 +249,10 @@ Pedido do Ricardo: postagem **constante** sobre pedir o produto pelo WhatsApp da
 - **Revezamento de 3 artes** (padrão oficial, foto real, sem rosto, sem logo de terceiros) para não repetir a mesma imagem em dias seguidos: sacola na mesa da entrada, entrega na porta, celular no sofá.
 - Não conta como "produto com link do dia" (é serviço, não produto) e não leva palavra-chave.
 - Em `ig_post`: canal story, título "Peça pelo WhatsApp e receba em casa", campanha `whatsapp-entrega`.
+
+## Gerador de artes no padrão oficial (publicado em 26/11/2026)
+- `arteComFrase` e `escreveFrase` reescritas com o mesmo algoritmo de `grade/padrao/padrao.py`: foto sem filtro, escurecimento só na faixa do texto (força conforme a luz do fundo), frase na faixa mais calma, palavra-chave em linha própria Bold Italic 1,6×, story **sem logo** e texto entre 16% e 80%, feed com logo de 160 px no canto mais calmo. Vale para "Gerar artes da campanha", "GERE FULL" e "Virar post do feed".
+- Lote da campanha: o story passa a usar `frase_arte` quando houver (antes usava a legenda inteira).
+- `brasa_loader_ig` md5 `9ae3956e…` → `439023e1e59a09710f349acbb4f75446`. Backup em `_brasa_parts_ig_bkp_20261126_padrao`. Cópia: `portal/app-instagram-publicado-20261126-padrao.html`.
+- Ainda no visual antigo: o story automático "POST NOVO NO FEED" (`arteStoryDoFeed`, com logo).
+- Endereço do portal: **https://portalsite.medicinalnaweb.com.br** (sem "www").
