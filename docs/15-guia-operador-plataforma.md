@@ -3,7 +3,7 @@
 Quem opera: Gabriel, com o e-mail mkt@atendimentomedicinal.net (papel **editor** na Grade). Quem aprova: **Ricardo** (admin). Nada vai ao ar sem a aprovação do Ricardo.
 
 ## Rotina diária (preparar o dia seguinte até as 17h)
-1. **Entrar:** www.portalsite.medicinalnaweb.com.br → e-mail mkt@ → código que chega no e-mail → card **Instagram**.
+1. **Entrar:** https://portalsite.medicinalnaweb.com.br (sem "www"; com "www" dá erro de conexão segura) → e-mail mkt@ → código que chega no e-mail → card **Instagram**.
 2. **Abrir o dia seguinte** na roleta de datas (aba **Stories** e aba **Feed**).
 3. **Conferir o tema do dia** (ritmo da semana): seg Mito ou verdade · ter Ativo animado · qua Dermo-day · qui Dia de um produto só · sex Bastidores e receitas · sáb Pódio · dom Rotina leve. Todo dia: story fixo **"peça pelo WhatsApp e receba em casa"** às 19:30.
 4. **Para cada bloco (Rascunho):**

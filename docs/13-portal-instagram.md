@@ -1,6 +1,6 @@
 # 13 — Instagram no PortalSiteMedicinal
 
-Desde 12/11/2026 a Grade do @medicinalnaweb é aberta pelo **PortalSiteMedicinal**: https://www.portalsite.medicinalnaweb.com.br. Na tela inicial ficam três opções: **Campanhas**, **Novos produtos** e **Instagram**.
+Desde 12/11/2026 a Grade do @medicinalnaweb é aberta pelo **PortalSiteMedicinal**: https://portalsite.medicinalnaweb.com.br (sem "www": com "www" o navegador dá erro de certificado). Na tela inicial ficam três opções: **Campanhas**, **Novos produtos** e **Instagram**.
 
 ```mermaid
 flowchart LR
