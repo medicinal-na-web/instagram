@@ -11,4 +11,5 @@ Projeto do Instagram da Medicinal (Maringá/PR). Leia `CONTEXTO.md` antes de agi
 4. **Saúde:** sem alegação de cura ou efeito, sem antes e depois, sem medicamento sob prescrição como oferta. Manipulados e suplementos com revisão farmacêutica antes de aprovar.
 5. **n8n:** workflows novos criados desativados, com gatilho manual ou webhook, e com o nome começando por `Site Medicinal - `. Nunca alterar workflows existentes sem pedido.
 6. **Padrão visual antes de publicar (Ricardo, 14/11/2026):** antes de aprovar, agendar ou deixar a rotina publicar, conferir visualmente cada arte e vídeo contra o padrão oficial (`docs/09-padrao-visual.md`, seção 0). Peça fora do padrão volta para rascunho e é refeita; nunca publicar arte antiga só porque já estava aprovada.
-7. Responder em português do Brasil, de forma objetiva.
+7. **Sessões do operador (Gabriel) no Code:** só produzir peças (arte, vídeo, texto) e entregar os arquivos; ele sobe na Grade. Não usar Supabase, n8n, site nem acessos, e não alterar regras, padrão visual ou scripts de `grade/padrao/` (sugestões vão para o Ricardo). Guia: `docs/16-guia-gabriel-claude-code.md`.
+8. Responder em português do Brasil, de forma objetiva.
