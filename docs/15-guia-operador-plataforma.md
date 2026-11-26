@@ -1,6 +1,8 @@
 # Guia do operador da Grade (Gabriel) · 26/11/2026
 
-Quem opera: Gabriel, com o e-mail mkt@atendimentomedicinal.net (papel **editor** na Grade). Quem aprova: **Ricardo** (admin). Nada vai ao ar sem a aprovação do Ricardo.
+Quem opera: Gabriel, com o e-mail mkt@atendimentomedicinal.net (papel **admin** na Grade desde 26/11/2026). **Delegação temporária do Ricardo (26/11/2026):** o Gabriel aprova e autoriza a publicação dos blocos sem precisar do OK do Ricardo, até nova ordem. Campanha e anúncio pago continuam com o Ricardo. Quem aprova responde pelo checklist abaixo e pelas regras de saúde.
+
+> O papel admin também permite cadastrar e remover acessos. Não mexer em acessos sem pedido do Ricardo.
 
 ## Rotina diária (preparar o dia seguinte até as 17h)
 1. **Entrar:** https://portalsite.medicinalnaweb.com.br (sem "www"; com "www" dá erro de conexão segura) → e-mail mkt@ → código que chega no e-mail → card **Instagram**.
@@ -12,10 +14,10 @@ Quem opera: Gabriel, com o e-mail mkt@atendimentomedicinal.net (papel **editor**
    - **Legenda:** clara, sem promessa de resultado.
    - **Horário:** entre 09:00 e 20:00, sem dois posts no mesmo horário.
 5. **Feed:** todo post de feed precisa do **story do post** (a plataforma cria ao aprovar) com a mesma ideia.
-6. **Avisar o Ricardo** que o dia seguinte está pronto para aprovação.
+6. **Aprovar** os blocos do dia seguinte depois de passar no checklist (Rascunho → Aprovado). Na dúvida sobre saúde ou produto, não aprovar: perguntar ao Ricardo.
 7. **No dia:** depois de cada horário, conferir se o bloco ficou **Publicado**. Se aparecer erro, avisar o Ricardo.
 
-## Checklist antes de mandar para aprovação (padrão visual, doc 09)
+## Checklist antes de aprovar (padrão visual, doc 09)
 - [ ] Foto real, sem filtro de cor; escurecimento só atrás do texto.
 - [ ] Texto branco em Playfair; palavra-chave em linha própria, maior, negrito itálico.
 - [ ] Story **sem logo**; texto não fica colado no topo nem no rodapé.

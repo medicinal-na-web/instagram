@@ -5,6 +5,7 @@ Projeto do Instagram da Medicinal (Maringá/PR). Leia `CONTEXTO.md` antes de agi
 ## Regras
 
 1. **Nada vai ao ar sem OK explícito do Ricardo.** Campanha e anúncio nascem pausados. Publicação de blocos só pela rotina, e só para blocos marcados como Aprovado.
+   - **Delegação temporária (Ricardo, 26/11/2026):** o Gabriel (mkt@, papel admin na Grade) pode aprovar e autorizar a publicação de blocos sem o OK do Ricardo, até o Ricardo revogar. Campanhas e anúncios pagos continuam exigindo o OK do Ricardo. As regras 4 e 6 (saúde e padrão visual) continuam valendo para quem aprova.
 2. **Sem segredos no repositório.** Tokens, chaves e App Secret ficam nas credenciais do n8n, referenciadas por ID.
 3. **LGPD:** sem dados de clientes, sem comentários nem directs de pessoas em workflows ou documentos.
 4. **Saúde:** sem alegação de cura ou efeito, sem antes e depois, sem medicamento sob prescrição como oferta. Manipulados e suplementos com revisão farmacêutica antes de aprovar.

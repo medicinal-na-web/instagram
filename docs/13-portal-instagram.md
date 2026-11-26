@@ -256,3 +256,11 @@ Pedido do Ricardo: postagem **constante** sobre pedir o produto pelo WhatsApp da
 - `brasa_loader_ig` md5 `9ae3956e…` → `439023e1e59a09710f349acbb4f75446`. Backup em `_brasa_parts_ig_bkp_20261126_padrao`. Cópia: `portal/app-instagram-publicado-20261126-padrao.html`.
 - Ainda no visual antigo: o story automático "POST NOVO NO FEED" (`arteStoryDoFeed`, com logo).
 - Endereço do portal: **https://portalsite.medicinalnaweb.com.br** (sem "www").
+
+## Story "post novo no feed" no padrão oficial (26/11/2026)
+- `arteStoryDoFeed` refeito: sem logo; foto desfocada sem escurecer tudo (escurecimento suave só atrás dos textos); frase Playfair "post novo no *feed.*"; card 720×900 do post; linha mono "toque no perfil @medicinalnaweb" sublinhada; todo texto entre 18% e 80% da altura.
+- `brasa_loader_ig` md5 `439023e1…` → `c959bb521d28d4e54938633d5f8d7f35`. Backup em `_brasa_parts_ig_bkp_20261126_storyfeed`. Cópia local: `portal/app-instagram-publicado-20261126-storyfeed.html`.
+
+## Gabriel com autonomia de aprovação (26/11/2026)
+- Pedido do Ricardo: "preciso que o gabriel tenha autonomia para autorizar a publicação... não precisa de aprovação minha por hora".
+- `ig_acesso`: mkt@ passou de `editor` para `admin` (no app, só admin aprova). Para revogar: `update ig_acesso set papel='editor' where email='mkt@…'`.
