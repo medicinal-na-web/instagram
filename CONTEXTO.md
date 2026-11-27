@@ -2,6 +2,13 @@
 
 Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia com o `README.md`.
 
+> **Estado atual (27/11/2026), leia primeiro**
+> - **A grade agora é a plataforma Grade, dentro do PortalSiteMedicinal:** https://portalsite.medicinalnaweb.com.br (sem "www"). Os blocos ficam na tabela `ig_post` do Supabase. A Grade em Artifact (`Ayp1j…`) e as rotinas do claude.ai (`grade-publicacao`, pedidos ao Runway) estão **aposentadas**: não usar.
+> - **Publicação automática:** workflow n8n `bj72gS6IgLvoQh7C`, a cada 10 min. Publica 1 bloco **Aprovado** de imagem/carrossel com data e hora vencidas. Vídeo e reels saem à mão.
+> - **Quem aprova:** o Ricardo; e o Gabriel (mkt@, admin na Grade), por delegação temporária (CLAUDE.md, regra 1).
+> - **Onde ver as peças e a grade de cada dia:** a plataforma, e não o repositório. Pacotes de peças em `grade/pacotes/<data ou tema>/`.
+> - Operação: `docs/15-guia-operador-plataforma.md` (plataforma) e `docs/16-guia-gabriel-claude-code.md` (Claude Code). Portal: `docs/13-portal-instagram.md`.
+
 ## Ativos e IDs (não são segredos)
 
 | Item | Valor |
@@ -13,7 +20,7 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 | App da Meta | `APP_clienteDM` (`898730696565732`), usado pelos dois acessos |
 | App do Instagram | `APP_clienteDM-IG` (`957953860481209`) |
 | Usuário do sistema (ads) | `n8n-ads` (`122104724457514359`), função Funcionário |
-| Grade (Artifact) | https://claude.ai/artifact/Ayp1jCcyffTqZth63yXdtX (privada). Abas: Feed, Stories e **Estratégia** (dados em `estrategia/atual` no banco da página; cópia em `docs/estrategia-atual.json`) |
+| Grade (Artifact, **aposentada em nov/2026**) | https://claude.ai/artifact/Ayp1jCcyffTqZth63yXdtX (privada). Abas: Feed, Stories e **Estratégia** (dados em `estrategia/atual` no banco da página; cópia em `docs/estrategia-atual.json`) |
 
 **Credenciais no n8n** (o token fica só lá): `Site Medicinal - Instagram (token)` (`ZTNV44evExPBBMNC`, Query Auth, token do Instagram, vence em ~60 dias, renovação pendente) e `Site Medicinal - Meta Ads (token)` (`DoGhzs4iWUtxnXSp`, Query Auth, token sem validade).
 
@@ -36,19 +43,19 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 - **Instagram:** publicação e insights validados. Story de Outubro Rosa publicado em 22/10.
 - **Meta Ads:** acesso validado. Nada anunciado ainda.
 - **Grade:** 18 posts espelhados (publicados). A semana 09–15/11 foi descartada em 08/11; a próxima grade sai no padrão novo.
-- **Publicação automática:** rotina `grade-publicacao` (de hora em hora, 8h–22h) publica blocos **Aprovado** com data/hora vencidos. **Está sem o conector n8n**: precisa ser adicionado em claude.ai → Rotinas, senão não publica nada.
+- **Publicação automática (histórico):** a rotina `grade-publicacao` do claude.ai foi substituída pelo workflow n8n `bj72gS6IgLvoQh7C` (ver o topo).
 - **Imagem e vídeo (10/11):** botões "Pedir imagem/vídeo ao Runway" gravam um pedido (coleção `pedidos`); a rotina `trig_01BXAxUbfjXqbQ7Le6Ha8tjd` (:31, 8h-22h) gera no Runway e anexa ao bloco. Conectores ligados em 10/11: n8n na publicação, Runway nos pedidos. Canva removido da página. Prompts de texto, imagem e vídeo seguem o padrão novo (docs 09 e 12).
 - **Teste de vídeo (10/11):** bloco `teste-runway-video` e pedido `teste-video-1` (seedance-2.5, 5 s, 9:16). Fluxo validado; bloco, pedido e vídeo de teste apagados. Ver docs/03.
 
 ## Pendências
 
-1. Adicionar o conector n8n à rotina de publicação.
+1. ~~Adicionar o conector n8n à rotina de publicação.~~ Resolvido: a publicação é pelo n8n (`bj72gS6IgLvoQh7C`).
 2. Renovar o token do Instagram antes de ~21/12/2026.
 3. Gerar o primeiro vídeo de teste (aprovação direta do Ricardo na grade).
 4. Bucket público próprio no Supabase para as artes (hoje dependem de links temporários).
 5. App da Meta: URL de exclusão de dados, categoria, ícone, reautorização de 2 fatores e um segundo administrador.
 6. Revisão farmacêutica da semana 09–15/11 antes de aprovar, principalmente Maxsolve e PeptiPump.
-7. Migrar a grade para o PortalSiteMedicinal quando o endereço voltar.
+7. ~~Migrar a grade para o PortalSiteMedicinal.~~ Feito (doc 13).
 8. **A entregar (decisão do Ricardo em avaliação):** base de imagem dos produtos para inserção em cena (`docs/10-insercao-de-produto.md`). Opção A: 6 fotos reais por produto (3 ângulos × luz dos dois lados) + medidas com régua. Opção B: modelo 3D por produto (medidas + arte-final do rótulo em PDF/AI da gráfica), que gera qualquer ângulo e luz. Opção C: as duas (fotos já; 3D do Peptistrong em paralelo). Começar pelo Peptistrong.
 9. Avaliar ferramentas de geração de imagem e vídeo de produto (comparação em `docs/11-ferramentas-imagem-video.md`). **IC-Light no ar e testado** em `medicinal/IC-Light` (Hugging Face PRO, privado, ZeroGPU), acessado por segredo de rede do ambiente (token só de leitura). Cliente: `grade/iclight.py`.
 
@@ -92,4 +99,4 @@ Este arquivo resume a conversa de 22/10 a 08/11/2026 que levou ao projeto. Leia 
 - Acesso por **duas APIs**: login do Instagram para publicar e ler; login do Facebook para anúncios.
 - Usuário do sistema **Funcionário** (BM não verificado só permite 1 administrador de sistema).
 - **Ninguém é publicado sem aprovação.** A rotina só publica blocos marcados como Aprovado.
-- Grade como **Artifact** enquanto o portal não está no ar.
+- Grade como **Artifact** enquanto o portal não estava no ar (até nov/2026; hoje é a plataforma).
